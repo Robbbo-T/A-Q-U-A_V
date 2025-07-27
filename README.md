@@ -1336,389 +1336,532 @@ AQUA V. Four Product Line Profile:
 # ESTRUCTURA COMPLETA DE DIRECTORIOS AQUA V. CON DEFINICIONES
 
 ```
-AQUA-V-DOCUMENTATION/
-│
-├── 00-MASTER-DOCUMENTS/  # Documentación maestra y control de versiones del programa completo
-│   └── VERSION-CONTROL/
-│       ├── v7.0-initial-draft/
-│       ├── v7.1-technical-review/
-│       ├── v7.2-pre-validation/
-│       └── v7.3-validated-final/
-│
-├── 01-CORPORATE-GOVERNANCE/  # Estructura legal, gobernanza corporativa y políticas empresariales
-│   ├── ARTICLES-OF-INCORPORATION/  # Documentos fundacionales y registro legal
-│   │   ├── Tax-Registration-Documents/
-│   │   ├── Bank-Account-Opening/
-│   │   └── Subsidiary-Incorporation-Docs/  # Filiales internacionales
-│   │       ├── AQUA-V-USA-Inc/
-│   │       ├── AQUA-V-Singapore-Pte-Ltd/
-│   │       ├── AQUA-V-UK-Limited/
-│   │       ├── AQUA-V-GmbH-Germany/
-│   │       ├── AQUA-V-France-SAS/
-│   │       └── AQUA-V-Italia-Srl/
-│   ├── EXECUTIVE-STRUCTURE/  # Organización ejecutiva y roles de liderazgo
-│   │   ├── Organization-Charts/
-│   │   ├── Job-Descriptions/
-│   │   │   ├── C-Suite/
-│   │   │   ├── Division-Heads/
-│   │   │   └── Key-Positions/
-│   │   └── Succession-Plans/
-│   ├── BOARD-GOVERNANCE/  # Consejo de administración y comités
-│   │   ├── Committee-Charters/
-│   │   ├── Meeting-Minutes/
-│   │   │   ├── 2025/
-│   │   │   └── 2026/
-│   │   └── Director-Profiles/
-│   │       ├── Independent-Directors/
-│   │       ├── Investor-Directors/
-│   │       └── Executive-Directors/
-│   └── POLICIES-PROCEDURES/  # Políticas corporativas y procedimientos operativos
-│       ├── HR-Policies/
-│       ├── Financial-Policies/
-│       └── Risk-Management-Framework/
-│
-├── 02-TECHNICAL-DOCUMENTATION/  # Documentación técnica de todos los productos por ciclo de vida
-│   ├── AMPEL360-AIRCRAFT/  # Línea de aeronaves de pasajeros con propulsión avanzada
-│   │   ├── AMPEL360e-HYBRID/  # Avión narrowbody híbrido-eléctrico (180-220 pasajeros)
-│   │   │   ├── 01-CONCEPT/
-│   │   │   ├── 02-DESIGN/
-│   │   │   ├── 03-TESTING/
-│   │   │   ├── 04-INTEGRATION/
-│   │   │   ├── 05-CERTIFICATION/
-│   │   │   ├── 06-PRODUCTION/
-│   │   │   ├── 07-MAINTENANCE/
-│   │   │   ├── 08-OPERATIONS/
-│   │   │   ├── 09-IN-SERVICE-SUPPORT/
-│   │   │   ├── 10-REPAIR-RECYCLE/
-│   │   │   └── 11-RETIREMENT/
-│   │   ├── AMPEL360CITY-eVTOL/  # Taxi aéreo urbano eléctrico (2-6 pasajeros)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── BWB-Q100/  # Fuselaje integrado cuántico-mejorado (120-180 pasajeros)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── BWB-Q250/  # Fuselaje integrado mayor capacidad (220-300 pasajeros)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── AMPEL360-PLUS-SUBORBITAL/  # Vehículo turismo suborbital (6-8 pasajeros)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   └── AMPEL360-PLUSPLUS-ORBITAL/  # Vehículo turismo orbital (4-6 pasajeros)
-│   │       └── [CICLO DE VIDA 01-11]
-│   │
-│   ├── GAIA-UNMANNED-SYSTEMS/  # Sistemas no tripulados para aire, espacio y superficie
-│   │   ├── GAIA-UAV-Q1-SENTINEL/  # Drone vigilancia larga duración (48h)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-UAV-Q2-HERMES/  # Drone entrega carga VTOL (500kg)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-UAV-Q3-ATHENA/  # Plataforma estratosférica solar (30 días)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-UAV-Q4-POSEIDON/  # Hidroavión no tripulado marítimo
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-UAV-Q5-PHOENIX/  # UCAV combate con stealth cuántico
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-SAT-QC-COMM/  # Constelación comunicaciones cuánticas (120 satélites)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-SAT-QS-OBSERVE/  # Constelación observación terrestre (36 satélites)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-SAT-QN-NAV/  # Constelación navegación aumentada (24 satélites)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-SAT-QD-DATA/  # Constelación relay datos alta velocidad (12 satélites)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-SAT-QE-EARLY/  # Constelación alerta temprana (6 satélites)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-ROVER-L1-PROSPECTOR/  # Rover lunar prospección recursos
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-ROVER-L2-CONSTRUCTOR/  # Rover lunar construcción base
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-ROVER-M1-SEEKER/  # Rover Marte búsqueda vida
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-ROVER-M2-PIONEER/  # Rover Marte preparación colonia
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-ROVER-A1-MINER/  # Rover asteroide minería recursos
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-CARGO-C1-REGIONAL/  # Carga autónoma corto alcance (2,000kg)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-CARGO-C2-CONTINENTAL/  # Carga autónoma medio alcance (10,000kg)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── GAIA-CARGO-C3-INTERCONTINENTAL/  # Carga autónoma largo alcance (40,000kg)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   └── GAIA-CARGO-C4-SPECIALIZED/  # Carga especializada/peligrosa
-│   │       └── [CICLO DE VIDA 01-11]
-│   │
-│   ├── ROBBBO-T-ROBOTICS/  # Robots inteligentes para manufactura y exploración
-│   │   ├── ROBBBO-FAL-A1-ASSEMBLY-MASTER/  # Robot ensamblaje estructuras grandes
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-FAL-A2-COMPOSITE-HANDLER/  # Robot manejo materiales compuestos
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-FAL-Q1-QUALITY-INSPECTOR/  # Robot inspección calidad cuántica
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-FAL-P1-PRECISION-PAINTER/  # Robot pintura precisión
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-FAL-C1-COLLABORATIVE-ASSISTANT/  # Cobot asistente humano-robot
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-MRO-E1-ENGINE-DOCTOR/  # Robot inspección boroscópica motores
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-MRO-E2-ELECTRIC-EXPERT/  # Robot servicio baterías/eléctrico
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-MRO-S1-STRUCTURE-HEALER/  # Robot reparación estructuras compuestas
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-MRO-S2-SURFACE-MASTER/  # Robot limpieza/deshielo superficies
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-MRO-C1-CABIN-REFRESH/  # Robot mantenimiento cabina pasajeros
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-SPACE-C1-CONSTRUCTOR/  # Robot ensamblaje espacial cero-G
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-SPACE-S1-SERVICER/  # Robot servicio satélites en órbita
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-SPACE-M1-MINER/  # Robot minería asteroides
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-SPACE-R1-RESCUER/  # Robot rescate astronautas
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-EXPLORE-D1-DEEP-DIVER/  # Robot exploración océano profundo (11km)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-EXPLORE-V1-VOLCANO-VENTURER/  # Robot exploración volcanes (1200°C)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   ├── ROBBBO-EXPLORE-A1-ARCTIC-EXPLORER/  # Robot exploración polar (-80°C)
-│   │   │   └── [CICLO DE VIDA 01-11]
-│   │   └── ROBBBO-EXPLORE-N1-NUCLEAR-NAVIGATOR/  # Robot zonas radiactivas
-│   │       └── [CICLO DE VIDA 01-11]
-│   │
-│   └── QUANTUM-SYSTEMS/  # Tecnologías cuánticas transversales a todos los productos
-│       ├── Quantum-Computing/  # Infraestructura computación cuántica 100k qubits
-│       │   └── [CICLO DE VIDA 01-11]
-│       ├── Quantum-Navigation/  # Navegación sin GPS usando sensores cuánticos
-│       │   └── [CICLO DE VIDA 01-11]
-│       ├── Quantum-Sensing/  # Red sensores cuánticos para diagnóstico
-│       │   └── [CICLO DE VIDA 01-11]
-│       └── Quantum-Communications/  # Comunicaciones seguras distribución cuántica
-│           └── [CICLO DE VIDA 01-11]
-│
-├── 03-Q-DIVISIONS/  # Organización técnica por divisiones especializadas Q
-│   ├── QSTR-STRUCTURES/  # Estructuras y materiales avanzados
-│   │   ├── Competency-Matrix/
-│   │   ├── Technical-Standards/
-│   │   ├── Design-Guidelines/
-│   │   └── Research-Projects/
-│   ├── QAIR-AERODYNAMICS/  # Aerodinámica y performance
-│   ├── QGRE-GREENTECH/  # Propulsión verde y energía sostenible
-│   ├── QMEC-MECHANICS/  # Sistemas mecánicos y actuación
-│   ├── QPOW-POWERSENSE/  # Potencia eléctrica y sensores
-│   ├── QSPA-SPACE/  # Sistemas espaciales y satélites
-│   ├── QIND-INDUSTRY/  # Industria 4.0 y manufactura inteligente
-│   ├── QGRO-GROUND/  # Operaciones terrestres e infraestructura
-│   ├── QDAT-DATAGOV/  # Gobernanza datos y ciberseguridad
-│   ├── QHPC-HPC/  # Computación cuántica y alto rendimiento
-│   ├── QCOM-COMMUNICATIONS/  # Comunicaciones y conectividad
-│   └── QSCI-RESEARCH/  # Investigación estratégica e innovación
-│       └── [ESTRUCTURA ESTÁNDAR POR DIVISIÓN]
-│
-├── 04-FINANCIAL-DOCUMENTS/  # Gestión financiera y captación de fondos
-│   ├── BUSINESS-PLAN/  # Plan de negocio 20 años y modelos financieros
-│   │   ├── Financial-Models/
-│   │   ├── Investment-Memorandums/
-│   │   ├── Market-Analysis/
-│   │   └── Revenue-Projections/
-│   ├── FUNDING-ROUNDS/  # €40B en 9 rondas hasta IPO 2035
-│   │   ├── Seed-Round-Q3-2025/  # €500M inicial
-│   │   ├── Series-A-Q4-2025/  # €1.5B
-│   │   ├── Series-B-2026/  # €2B
-│   │   ├── Series-C-2027/  # €2.5B
-│   │   ├── Series-D-2029/  # €1.5B
-│   │   ├── Series-E-2030/  # €3B
-│   │   ├── Series-F-2032/  # €4B
-│   │   ├── Pre-IPO-2034/  # €5B
-│   │   └── IPO-Planning-2035/  # €10B objetivo
-│   └── FINANCIAL-CONTROLS/  # Controles financieros y cumplimiento
-│       ├── Accounting-Policies/
-│       ├── Audit-Reports/
-│       ├── Tax-Documentation/
-│       └── Compliance-Documentation/
-│
-├── 05-LEGAL-IP/  # Propiedad intelectual y cumplimiento legal
-│   ├── TRADEMARKS/  # Marca AQUA V.™ y portfolio relacionado
-│   │   ├── AQUA-V-Madrid-Protocol/
-│   │   ├── Product-Trademarks/
-│   │   ├── Domain-Portfolio/
-│   │   └── Brand-Guidelines/
-│   ├── PATENTS/  # Objetivo 2,000+ patentes para 2045
-│   │   ├── Filed-Patents/
-│   │   ├── Pending-Applications/
-│   │   ├── Prior-Art-Research/
-│   │   └── Patent-Strategy/
-│   ├── CONTRACTS/  # Gestión contractual integral
-│   │   ├── Employment-Agreements/
-│   │   ├── Supplier-Contracts/
-│   │   ├── Customer-Agreements/
-│   │   ├── Partnership-MOUs/
-│   │   └── NDA-Repository/
-│   └── REGULATORY-COMPLIANCE/  # Cumplimiento multi-jurisdiccional
-│       ├── EASA-Certification/
-│       ├── FAA-Documentation/
-│       ├── CASA-Australia/
-│       ├── CAAC-China/
-│       ├── Export-Controls/
-│       └── ITAR-Compliance/
-│
-├── 06-INTERFACE-CONTROL/  # Documentos control interfaces entre sistemas
-│   ├── ICD-MASTER-INDEX/  # Índice maestro todos los ICDs
-│   ├── PHYSICAL-INTERFACES/
-│   │   ├── Mechanical/
-│   │   ├── Structural/
-│   │   └── Thermal/
-│   ├── DATA-INTERFACES/
-│   │   ├── Digital/
-│   │   ├── Analog/
-│   │   └── Quantum/
-│   ├── POWER-INTERFACES/
-│   │   ├── AC-Power/
-│   │   ├── DC-Power/
-│   │   └── Hydraulic/
-│   └── ICD-TEMPLATES/
-│
-├── 07-TRAINING-DEVELOPMENT/  # Formación y desarrollo del talento
-│   ├── AQUA-V-ACADEMY/  # Universidad corporativa interna
-│   │   ├── Curriculum-Design/
-│   │   ├── Course-Materials/
-│   │   ├── Certification-Programs/
-│   │   ├── E-Learning-Platform/
-│   │   └── Training-Records/
-│   ├── PILOT-TRAINING/  # Programa pilotos cuántico-mejorados
-│   │   ├── Quantum-Pilot-Program/
-│   │   ├── Type-Rating-Courses/
-│   │   ├── Simulator-Scenarios/
-│   │   └── Flight-Training-Records/
-│   ├── ENGINEERING-CERTIFICATION/  # Certificaciones técnicas especializadas
-│   │   ├── Quantum-Engineer-Levels/
-│   │   ├── Traditional-Engineering-Paths/
-│   │   ├── DER-Preparation/
-│   │   └── Certification-Records/
-│   └── LEADERSHIP-PROGRAMS/  # Desarrollo ejecutivo y liderazgo
-│       ├── Emerging-Leaders/
-│       ├── Advanced-Leadership/
-│       ├── C-Suite-Development/
-│       └── Executive-Coaching/
-│
-├── 08-QUALITY-SAFETY/  # Sistemas gestión calidad y seguridad
-│   ├── QUALITY-MANAGEMENT/  # Sistema calidad AS9100D
-│   │   ├── AS9100D-Documentation/
-│   │   ├── Quality-Manual/
-│   │   ├── Process-Maps/
-│   │   ├── Work-Instructions/
-│   │   ├── Quality-Records/
-│   │   └── Audit-Schedules/
-│   ├── SAFETY-MANAGEMENT/  # SMS integrado
-│   │   ├── SMS-Documentation/
-│   │   ├── Risk-Assessments/
-│   │   ├── Safety-Procedures/
-│   │   ├── Incident-Reports/
-│   │   └── Safety-Training/
-│   └── CERTIFICATION-DOCS/  # Certificaciones aeronáuticas
-│       ├── Type-Certificates/
-│       ├── Production-Certificates/
-│       ├── Airworthiness-Directives/
-│       └── Service-Difficulty-Reports/
-│
-├── 09-OPERATIONS/  # Operaciones manufactura y soporte
-│   ├── MANUFACTURING/  # Producción distribuida global
-│   │   ├── Facility-Layouts/
-│   │   ├── Production-Plans/
-│   │   ├── Tooling-Design/
-│   │   ├── Assembly-Instructions/
-│   │   └── Manufacturing-Records/
-│   ├── SUPPLY-CHAIN/  # Cadena suministro cuántico-optimizada
-│   │   ├── Vendor-Database/
-│   │   ├── Procurement-Procedures/
-│   │   ├── Inventory-Management/
-│   │   ├── Logistics-Planning/
-│   │   └── Supplier-Performance/
-│   ├── FLIGHT-TEST/  # Programa ensayos en vuelo
-│   │   ├── Test-Plans/
-│   │   ├── Test-Cards/
-│   │   ├── Test-Procedures/
-│   │   ├── Data-Analysis/
-│   │   └── Test-Reports/
-│   └── CUSTOMER-SUPPORT/  # Soporte cliente 24/7 global
-│       ├── Service-Bulletins/
-│       ├── Technical-Publications/
-│       ├── Warranty-Procedures/
-│       ├── AOG-Support/
-│       └── Customer-Portal/
-│
-├── 10-PROJECT-MANAGEMENT/  # Gestión programas y proyectos
-│   ├── PROGRAM-SCHEDULES/  # Planificación maestra 2025-2050
-│   │   ├── Master-Schedule/
-│   │   ├── Milestone-Tracking/
-│   │   ├── Resource-Planning/
-│   │   └── Critical-Path-Analysis/
-│   ├── RISK-REGISTERS/  # Gestión riesgos empresariales
-│   │   ├── Technical-Risks/
-│   │   ├── Program-Risks/
-│   │   ├── Financial-Risks/
-│   │   └── Mitigation-Plans/
-│   ├── CHANGE-MANAGEMENT/  # Control cambios y configuración
-│   │   ├── ECN-ECO-Process/
-│   │   ├── Configuration-Control/
-│   │   ├── Baseline-Management/
-│   │   └── Change-History/
-│   └── REPORTING/  # Informes y dashboards ejecutivos
-│       ├── Executive-Dashboards/
-│       ├── KPI-Reports/
-│       ├── Status-Reports/
-│       └── Board-Presentations/
-│
-├── 11-EXTERNAL-RELATIONS/  # Relaciones externas y comunicación
-│   ├── INVESTOR-RELATIONS/  # Gestión inversores hasta IPO
-│   │   ├── Pitch-Decks/
-│   │   ├── Due-Diligence/
-│   │   ├── Financial-Reports/
-│   │   └── Investor-Updates/
-│   ├── MEDIA-PR/  # Relaciones públicas y medios
-│   │   ├── Press-Releases/
-│   │   ├── Media-Kit/
-│   │   ├── Executive-Bios/
-│   │   └── Event-Materials/
-│   ├── PARTNERSHIPS/  # Alianzas estratégicas globales
-│   │   ├── University-Agreements/
-│   │   ├── Industry-Collaborations/
-│   │   ├── Government-Relations/
-│   │   └── Strategic-Alliances/
-│   └── CUSTOMER-ENGAGEMENT/  # Marketing y ventas B2B/B2G
-│       ├── Marketing-Materials/
-│       ├── Trade-Show-Assets/
-│       ├── Customer-Communications/
-│       └── Sales-Collateral/
-│
-├── 12-SUSTAINABILITY-ESG/  # Sostenibilidad y responsabilidad corporativa
-│   ├── ENVIRONMENTAL/  # Objetivo carbono negativo 2045
-│   │   ├── Carbon-Footprint/
-│   │   ├── Lifecycle-Assessments/
-│   │   ├── Environmental-Impact/
-│   │   └── Sustainability-Reports/
-│   ├── SOCIAL/  # Impacto social y laboral
-│   │   ├── DEI-Programs/
-│   │   ├── Community-Engagement/
-│   │   ├── Employee-Wellbeing/
-│   │   └── Social-Impact/
-│   └── GOVERNANCE/  # Gobernanza ESG
-│       ├── ESG-Policies/
-│       ├── Ethics-Compliance/
-│       ├── Transparency-Reports/
-│       └── Stakeholder-Engagement/
-│
-├── ANNEXES/  # Documentación soporte y referencias
-│   ├── A-Organization-Competencies/  # Matrices competencias por división
-│   ├── B-Q-Division-Matrix/  # Estructura organizativa Q
-│   ├── C-Policies-Procedures/  # Políticas corporativas compiladas
-│   ├── D-Nomenclature-System/  # Sistema nomenclatura AQUA V.
-│   ├── E-Technology-Roadmaps/  # Hojas ruta tecnológicas 2025-2050
-│   ├── F-Documentation-Templates/  # 251 plantillas documentación
-│   ├── G-UTCS-Classification/  # Sistema clasificación tecnologías universal
-│   ├── H-Interface-Control/  # Matriz control interfaces
-│   ├── I-Training-Programs/  # Programas formación detallados
-│   └── J-Validation-Reports/  # Informes validación externa
-│
-└── ARCHIVE/  # Repositorio histórico y documentos obsoletos
-    ├── Superseded-Documents/
-    ├── Historical-Versions/
-    ├── Legacy-Systems/
-    └── Retired-Products/
+# AQUA V. Master Documentation Directory Structure (v7.4)
+
+## ROOT: AQUA-V-DOCUMENTATION/
+
+---
+
+### 00-MASTER-DOCUMENTS/
+    *   **Purpose:** Central repository for master project documents, version control, and program overviews.
+    *   **Contents:**
+        *   `README.md` (v7.4)
+        *   `Executive-Summary.md`
+        *   `Validation-Certificates/`
+            *   `QV-2025-AQUAV-100-CERT-v7.4.pdf`
+        *   `VERSION-CONTROL/`
+            *   `v7.0-initial-draft/`
+            *   `v7.1-technical-review/`
+            *   `v7.2-pre-validation/`
+            *   `v7.3-validated-final/`
+            *   `v7.4-four-product-lines-edition/`
+
+---
+
+### 01-CORPORATE-GOVERNANCE/
+    *   **Purpose:** Legal structure, board governance, and corporate policies.
+    *   **Contents:**
+        *   `ARTICLES-OF-INCORPORATION/`
+            *   `Company-Registration-Spain.pdf`
+            *   `Tax-Registration-Documents/`
+            *   `Bank-Account-Opening-Agreements/`
+            *   `Subsidiary-Incorporation-Docs/`
+                *   `AQUA-V-USA-Inc/`
+                *   `AQUA-V-Singapore-Pte-Ltd/`
+                *   `AQUA-V-UK-Limited/`
+                *   `AQUA-V-GmbH-Germany/`
+                *   `AQUA-V-France-SAS/`
+                *   `AQUA-V-Italia-Srl/`
+        *   `EXECUTIVE-STRUCTURE/`
+            *   `Organization-Charts/`
+            *   `Job-Descriptions/` (C-Suite, Division Heads, Key Positions)
+            *   `Succession-Plans/`
+        *   `BOARD-GOVERNANCE/`
+            *   `Committee-Charters/`
+            *   `Meeting-Minutes/`
+                *   `2025/`
+                *   `2026/`
+            *   `Director-Profiles/` (Independent, Investor, Executive)
+        *   `POLICIES-PROCEDURES/`
+            *   `HR-Policies/`
+            *   `Financial-Policies/`
+            *   `Risk-Management-Framework/`
+            *   `Code-of-Conduct.pdf`
+
+---
+
+### 02-TECHNICAL-DOCUMENTATION/
+    *   **Purpose:** Comprehensive technical documentation for all products across their lifecycle phases.
+    *   **Contents:**
+        *   **`AMPEL360-AIRCRAFT/`** (Passenger Aircraft Line)
+            *   `AMPEL360e-HYBRID/` (Narrowbody Hybrid-Electric)
+                *   `01-CONCEPT/`
+                *   `02-DESIGN/`
+                *   `03-TESTING/`
+                *   `04-INTEGRATION/`
+                *   `05-CERTIFICATION/`
+                *   `06-PRODUCTION/`
+                *   `07-MAINTENANCE/`
+                *   `08-OPERATIONS/`
+                *   `09-IN-SERVICE-SUPPORT/`
+                *   `10-REPAIR-RECYCLE/`
+                *   `11-RETIREMENT/`
+            *   `AMPEL360CITY-eVTOL/` (Urban Air Mobility)
+                *   `01-CONCEPT/` (Files for eVTOL Concept)
+                *   `02-DESIGN/` (Files for eVTOL Design)
+                *   `03-TESTING/` (Files for eVTOL Testing)
+                *   `04-INTEGRATION/` (Files for eVTOL Integration)
+                *   `05-CERTIFICATION/` (Files for eVTOL Certification)
+                *   `06-PRODUCTION/` (Files for eVTOL Production)
+                *   `07-MAINTENANCE/` (Files for eVTOL Maintenance)
+                *   `08-OPERATIONS/` (Files for eVTOL Operations)
+                *   `09-IN-SERVICE-SUPPORT/` (Files for eVTOL Support)
+                *   `10-REPAIR-RECYCLE/` (Files for eVTOL Repair/Recycle)
+                *   `11-RETIREMENT/` (Files for eVTOL Retirement)
+            *   `BWB-Q100/` (Quantum-Enhanced Blended Wing Body)
+                *   `01-CONCEPT/` (Files for BWB-Q100 Concept)
+                *   `02-DESIGN/` (Files for BWB-Q100 Design)
+                *   `03-TESTING/` (Files for BWB-Q100 Testing)
+                *   `04-INTEGRATION/` (Files for BWB-Q100 Integration)
+                *   `05-CERTIFICATION/` (Files for BWB-Q100 Certification)
+                *   `06-PRODUCTION/` (Files for BWB-Q100 Production)
+                *   `07-MAINTENANCE/` (Files for BWB-Q100 Maintenance)
+                *   `08-OPERATIONS/` (Files for BWB-Q100 Operations)
+                *   `09-IN-SERVICE-SUPPORT/` (Files for BWB-Q100 Support)
+                *   `10-REPAIR-RECYCLE/` (Files for BWB-Q100 Repair/Recycle)
+                *   `11-RETIREMENT/` (Files for BWB-Q100 Retirement)
+            *   `BWB-Q250/` (Larger BWB Variant)
+                *   `01-CONCEPT/` (Files for BWB-Q250 Concept)
+                *   `02-DESIGN/` (Files for BWB-Q250 Design)
+                *   `03-TESTING/` (Files for BWB-Q250 Testing)
+                *   `04-INTEGRATION/` (Files for BWB-Q250 Integration)
+                *   `05-CERTIFICATION/` (Files for BWB-Q250 Certification)
+                *   `06-PRODUCTION/` (Files for BWB-Q250 Production)
+                *   `07-MAINTENANCE/` (Files for BWB-Q250 Maintenance)
+                *   `08-OPERATIONS/` (Files for BWB-Q250 Operations)
+                *   `09-IN-SERVICE-SUPPORT/` (Files for BWB-Q250 Support)
+                *   `10-REPAIR-RECYCLE/` (Files for BWB-Q250 Repair/Recycle)
+                *   `11-RETIREMENT/` (Files for BWB-Q250 Retirement)
+            *   `AMPEL360-PLUS-SUBORBITAL/` (Suborbital Tourism Vehicle)
+                *   `01-CONCEPT/` (Files for Suborbital Concept)
+                *   `02-DESIGN/` (Files for Suborbital Design)
+                *   `03-TESTING/` (Files for Suborbital Testing)
+                *   `04-INTEGRATION/` (Files for Suborbital Integration)
+                *   `05-CERTIFICATION/` (Files for Suborbital Certification)
+                *   `06-PRODUCTION/` (Files for Suborbital Production)
+                *   `07-MAINTENANCE/` (Files for Suborbital Maintenance)
+                *   `08-OPERATIONS/` (Files for Suborbital Operations)
+                *   `09-IN-SERVICE-SUPPORT/` (Files for Suborbital Support)
+                *   `10-REPAIR-RECYCLE/` (Files for Suborbital Repair/Recycle)
+                *   `11-RETIREMENT/` (Files for Suborbital Retirement)
+            *   `AMPEL360-PLUSPLUS-ORBITAL/` (Orbital Vehicle)
+                *   `01-CONCEPT/` (Files for Orbital Concept)
+                *   `02-DESIGN/` (Files for Orbital Design)
+                *   `03-TESTING/` (Files for Orbital Testing)
+                *   `04-INTEGRATION/` (Files for Orbital Integration)
+                *   `05-CERTIFICATION/` (Files for Orbital Certification)
+                *   `06-PRODUCTION/` (Files for Orbital Production)
+                *   `07-MAINTENANCE/` (Files for Orbital Maintenance)
+                *   `08-OPERATIONS/` (Files for Orbital Operations)
+                *   `09-IN-SERVICE-SUPPORT/` (Files for Orbital Support)
+                *   `10-REPAIR-RECYCLE/` (Files for Orbital Repair/Recycle)
+                *   `11-RETIREMENT/` (Files for Orbital Retirement)
+
+        *   **`GAIA-UNMANNED-SYSTEMS/`** (Unmanned Systems Line)
+            *   `GAIA-UAV-SERIES/` (Q1-Q5 Models: Sentinel, Hermes, Athena, Poseidon, Phoenix)
+                *   `GAIA-UAV-Q1-SENTINEL/` (Long Endurance Surveillance)
+                    *   `01-CONCEPT/` (Files for Q1 Concept)
+                    *   `02-DESIGN/` (Files for Q1 Design)
+                    *   `03-TESTING/` (Files for Q1 Testing)
+                    *   `04-INTEGRATION/` (Files for Q1 Integration)
+                    *   `05-CERTIFICATION/` (Files for Q1 Certification)
+                    *   `06-PRODUCTION/` (Files for Q1 Production)
+                    *   `07-MAINTENANCE/` (Files for Q1 Maintenance)
+                    *   `08-OPERATIONS/` (Files for Q1 Operations)
+                    *   `09-IN-SERVICE-SUPPORT/` (Files for Q1 Support)
+                    *   `10-REPAIR-RECYCLE/` (Files for Q1 Repair/Recycle)
+                    *   `11-RETIREMENT/` (Files for Q1 Retirement)
+                *   `GAIA-UAV-Q2-HERMES/` (VTOL Cargo Drone)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-UAV-Q3-ATHENA/` (Stratospheric Platform)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-UAV-Q4-POSEIDON/` (Maritime Unmanned Aircraft)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-UAV-Q5-PHOENIX/` (Quantum Stealth UCAV)
+                    *   `[Lifecycle folders 01-11]`
+            *   `GAIA-SAT-CONSTELLATIONS/` (5 Constellations)
+                *   `GAIA-SAT-QC-COMM/` (Quantum Communications Constellation)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-SAT-QS-OBSERVE/` (Earth Observation Constellation)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-SAT-QN-NAV/` (Navigation Augmentation Constellation)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-SAT-QD-DATA/` (High-Speed Data Relay Constellation)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-SAT-QE-EARLY/` (Early Warning Constellation)
+                    *   `[Lifecycle folders 01-11]`
+            *   `GAIA-ROVER-MISSIONS/` (Lunar, Martian, Asteroid Rovers)
+                *   `GAIA-ROVER-L1-PROSPECTOR/` (Lunar Prospector)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-ROVER-L2-CONSTRUCTOR/` (Lunar Constructor)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-ROVER-M1-SEEKER/` (Mars Life Seeker)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-ROVER-M2-PIONEER/` (Mars Colony Preparer)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-ROVER-A1-MINER/` (Asteroid Miner)
+                    *   `[Lifecycle folders 01-11]`
+            *   `GAIA-CARGO-FREIGHT/` (Autonomous Cargo Systems)
+                *   `GAIA-CARGO-C1-REGIONAL/` (Short-Range Cargo)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-CARGO-C2-CONTINENTAL/` (Mid-Range Cargo)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-CARGO-C3-INTERCONTINENTAL/` (Long-Range Cargo)
+                    *   `[Lifecycle folders 01-11]`
+                *   `GAIA-CARGO-C4-SPECIALIZED/` (Specialized/Hazardous Cargo)
+                    *   `[Lifecycle folders 01-11]`
+
+        *   **`ROBBBO-T-ROBOTICS/`** (Robotics Line)
+            *   `ROBBBO-FAL-FACTORY/` (Factory Automation Models)
+                *   `ROBBBO-FAL-A1-ASSEMBLY-MASTER/` (Large Structure Assembly)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-FAL-A2-COMPOSITE-HANDLER/` (Composite Material Handler)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-FAL-Q1-QUALITY-INSPECTOR/` (Quantum Quality Inspector)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-FAL-P1-PRECISION-PAINTER/` (Precision Painting Robot)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-FAL-C1-COLLABORATIVE-ASSISTANT/` (Cobot Assistant)
+                    *   `[Lifecycle folders 01-11]`
+            *   `ROBBBO-MRO-MAINTENANCE/` (Maintenance & Repair Robots)
+                *   `ROBBBO-MRO-E1-ENGINE-DOCTOR/` (Engine Inspection Robot)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-MRO-E2-ELECTRIC-EXPERT/` (Electrical Systems Robot)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-MRO-S1-STRUCTURE-HEALER/` (Composite Structure Repair)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-MRO-S2-SURFACE-MASTER/` (Surface Cleaning/De-icing)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-MRO-C1-CABIN-REFRESH/` (Cabin Maintenance Robot)
+                    *   `[Lifecycle folders 01-11]`
+            *   `ROBBBO-SPACE/` (Space Operations Robots)
+                *   `ROBBBO-SPACE-C1-CONSTRUCTOR/` (Zero-G Assembly)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-SPACE-S1-SERVICER/` (Orbital Satellite Servicing)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-SPACE-M1-MINER/` (Asteroid Miner)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-SPACE-R1-RESCUER/` (Astronaut Rescue Robot)
+                    *   `[Lifecycle folders 01-11]`
+            *   `ROBBBO-EXPLORE/` (Extreme Environment Robots)
+                *   `ROBBBO-EXPLORE-D1-DEEP-DIVER/` (Deep Ocean Explorer)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-EXPLORE-V1-VOLCANO-VENTURER/` (Volcano Explorer)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-EXPLORE-A1-ARCTIC-EXPLORER/` (Polar Explorer)
+                    *   `[Lifecycle folders 01-11]`
+                *   `ROBBBO-EXPLORE-N1-NUCLEAR-NAVIGATOR/` (Radioactive Zone Robot)
+                    *   `[Lifecycle folders 01-11]`
+
+        *   **`QUANTUM-SYSTEMS/`** (Quantum Technologies Line)
+            *   `Quantum-Computing/`
+                *   `[Lifecycle folders 01-11]`
+            *   `Quantum-Navigation/`
+                *   `[Lifecycle folders 01-11]`
+            *   `Quantum-Sensing/`
+                *   `[Lifecycle folders 01-11]`
+            *   `Quantum-Communications/`
+                *   `[Lifecycle folders 01-11]`
+
+---
+
+### 03-Q-DIVISIONS/
+    *   **Purpose:** Technical documentation organized by specialized Q-Divisions.
+    *   **Contents:** (Each division follows a standard structure)
+        *   `QSTR-STRUCTURES/`
+            *   `Competency-Matrix/`
+            *   `Technical-Standards/`
+            *   `Design-Guidelines/`
+            *   `Research-Projects/`
+        *   `QAIR-AERODYNAMICS/`
+        *   `QGRE-GREENTECH/`
+        *   `QMEC-MECHANICS/`
+        *   `QPOW-POWERSENSE/`
+        *   `QSPA-SPACE/`
+        *   `QIND-INDUSTRY/`
+        *   `QGRO-GROUND/`
+        *   `QDAT-DATAGOV/`
+        *   `QHPC-HPC/`
+        *   `QCOM-COMMUNICATIONS/`
+        *   `QSCI-RESEARCH/`
+
+---
+
+### 04-FINANCIAL-DOCUMENTS/
+    *   **Purpose:** Financial planning, funding, controls, and reporting.
+    *   **Contents:**
+        *   `BUSINESS-PLAN/`
+            *   `Financial-Models/`
+            *   `Investment-Memorandums/`
+            *   `Market-Analysis/`
+            *   `Revenue-Projections/`
+        *   `FUNDING-ROUNDS/`
+            *   `Seed-Round-Q3-2025/`
+            *   `Series-A-Q4-2025/`
+            *   `Series-B-2026/`
+            *   `Series-C-2027/`
+            *   `Series-D-2029/`
+            *   `Series-E-2030/`
+            *   `Series-F-2032/`
+            *   `Pre-IPO-2034/`
+            *   `IPO-Planning-2035/`
+        *   `FINANCIAL-CONTROLS/`
+            *   `Accounting-Policies/`
+            *   `Audit-Reports/`
+            *   `Tax-Documentation/`
+            *   `Compliance-Documentation/`
+
+---
+
+### 05-LEGAL-IP/
+    *   **Purpose:** Intellectual property management, contracts, and legal compliance.
+    *   **Contents:**
+        *   `TRADEMARKS/`
+            *   `AQUA-V-Madrid-Protocol/`
+            *   `Product-Trademarks/`
+            *   `Domain-Portfolio/`
+            *   `Brand-Guidelines/`
+        *   `PATENTS/`
+            *   `Filed-Patents/`
+            *   `Pending-Applications/`
+            *   `Prior-Art-Research/`
+            *   `Patent-Strategy/`
+        *   `CONTRACTS/`
+            *   `Employment-Agreements/`
+            *   `Supplier-Contracts/`
+            *   `Customer-Agreements/`
+            *   `Partnership-MOUs/`
+            *   `NDA-Repository/`
+        *   `REGULATORY-COMPLIANCE/`
+            *   `EASA-Certification/`
+            *   `FAA-Documentation/`
+            *   `CASA-Australia/`
+            *   `CAAC-China/`
+            *   `Export-Controls/`
+            *   `ITAR-Compliance/`
+
+---
+
+### 06-INTERFACE-CONTROL/
+    *   **Purpose:** Documentation of interfaces between systems.
+    *   **Contents:**
+        *   `ICD-MASTER-INDEX/`
+        *   `PHYSICAL-INTERFACES/`
+        *   `DATA-INTERFACES/`
+        *   `POWER-INTERFACES/`
+        *   `ICD-TEMPLATES/`
+
+---
+
+### 07-TRAINING-DEVELOPMENT/
+    *   **Purpose:** Talent development and training programs.
+    *   **Contents:**
+        *   `AQUA-V-ACADEMY/`
+            *   `Curriculum-Design/`
+            *   `Course-Materials/`
+            *   `Certification-Programs/`
+            *   `E-Learning-Platform/`
+            *   `Training-Records/`
+        *   `PILOT-TRAINING/`
+            *   `Quantum-Pilot-Program/`
+            *   `Type-Rating-Courses/`
+            *   `Simulator-Scenarios/`
+            *   `Flight-Training-Records/`
+        *   `ENGINEERING-CERTIFICATION/`
+            *   `Quantum-Engineer-Levels/`
+            *   `Traditional-Engineering-Paths/`
+            *   `DER-Preparation/`
+            *   `Certification-Records/`
+        *   `LEADERSHIP-PROGRAMS/`
+            *   `Emerging-Leaders/`
+            *   `Advanced-Leadership/`
+            *   `C-Suite-Development/`
+            *   `Executive-Coaching/`
+
+---
+
+### 08-QUALITY-SAFETY/
+    *   **Purpose:** Quality and Safety Management Systems.
+    *   **Contents:**
+        *   `QUALITY-MANAGEMENT/`
+            *   `AS9100D-Documentation/`
+            *   `Quality-Manual/`
+            *   `Process-Maps/`
+            *   `Work-Instructions/`
+            *   `Quality-Records/`
+            *   `Audit-Schedules/`
+        *   `SAFETY-MANAGEMENT/`
+            *   `SMS-Documentation/`
+            *   `Risk-Assessments/`
+            *   `Safety-Procedures/`
+            *   `Incident-Reports/`
+            *   `Safety-Training/`
+        *   `CERTIFICATION-DOCS/`
+            *   `Type-Certificates/`
+            *   `Production-Certificates/`
+            *   `Airworthiness-Directives/`
+            *   `Service-Difficulty-Reports/`
+
+---
+
+### 09-OPERATIONS/
+    *   **Purpose:** Manufacturing, supply chain, flight test, and customer support.
+    *   **Contents:**
+        *   `MANUFACTURING/`
+            *   `Facility-Layouts/`
+            *   `Production-Plans/`
+            *   `Tooling-Design/`
+            *   `Assembly-Instructions/`
+            *   `Manufacturing-Records/`
+        *   `SUPPLY-CHAIN/`
+            *   `Vendor-Database/`
+            *   `Procurement-Procedures/`
+            *   `Inventory-Management/`
+            *   `Logistics-Planning/`
+            *   `Supplier-Performance/`
+        *   `FLIGHT-TEST/`
+            *   `Test-Plans/`
+            *   `Test-Cards/`
+            *   `Test-Procedures/`
+            *   `Data-Analysis/`
+            *   `Test-Reports/`
+        *   `CUSTOMER-SUPPORT/`
+            *   `Service-Bulletins/`
+            *   `Technical-Publications/`
+            *   `Warranty-Procedures/`
+            *   `AOG-Support/`
+            *   `Customer-Portal/`
+
+---
+
+### 10-PROJECT-MANAGEMENT/
+    *   **Purpose:** Program management, schedules, risks, and reporting.
+    *   **Contents:**
+        *   `PROGRAM-SCHEDULES/`
+            *   `Master-Schedule/`
+            *   `Milestone-Tracking/`
+            *   `Resource-Planning/`
+            *   `Critical-Path-Analysis/`
+        *   `RISK-REGISTERS/`
+            *   `Technical-Risks/`
+            *   `Program-Risks/`
+            *   `Financial-Risks/`
+            *   `Mitigation-Plans/`
+        *   `CHANGE-MANAGEMENT/`
+            *   `ECN-ECO-Process/`
+            *   `Configuration-Control/`
+            *   `Baseline-Management/`
+            *   `Change-History/`
+        *   `REPORTING/`
+            *   `Executive-Dashboards/`
+            *   `KPI-Reports/`
+            *   `Status-Reports/`
+            *   `Board-Presentations/`
+
+---
+
+### 11-EXTERNAL-RELATIONS/
+    *   **Purpose:** Investor relations, PR, partnerships, customer engagement.
+    *   **Contents:**
+        *   `INVESTOR-RELATIONS/`
+            *   `Pitch-Decks/`
+            *   `Due-Diligence/`
+            *   `Financial-Reports/`
+            *   `Investor-Updates/`
+        *   `MEDIA-PR/`
+            *   `Press-Releases/`
+            *   `Media-Kit/`
+            *   `Executive-Bios/`
+            *   `Event-Materials/`
+        *   `PARTNERSHIPS/`
+            *   `University-Agreements/`
+            *   `Industry-Collaborations/`
+            *   `Government-Relations/`
+            *   `Strategic-Alliances/`
+        *   `CUSTOMER-ENGAGEMENT/`
+            *   `Marketing-Materials/`
+            *   `Trade-Show-Assets/`
+            *   `Customer-Communications/`
+            *   `Sales-Collateral/`
+
+---
+
+### 12-SUSTAINABILITY-ESG/
+    *   **Purpose:** Corporate Social Responsibility and Environmental Governance.
+    *   **Contents:**
+        *   `ENVIRONMENTAL/`
+            *   `Carbon-Footprint/`
+            *   `Lifecycle-Assessments/`
+            *   `Environmental-Impact/`
+            *   `Sustainability-Reports/`
+        *   `SOCIAL/`
+            *   `DEI-Programs/`
+            *   `Community-Engagement/`
+            *   `Employee-Wellbeing/`
+            *   `Social-Impact/`
+        *   `GOVERNANCE/`
+            *   `ESG-Policies/`
+            *   `Ethics-Compliance/`
+            *   `Transparency-Reports/`
+            *   `Stakeholder-Engagement/`
+
+---
+
+### ANNEXES/
+    *   **Purpose:** Supporting documentation, templates, glossaries, and reference materials.
+    *   **Contents:**
+        *   `A-Organization-Competencies/`
+        *   `B-Q-Division-Matrix/`
+        *   `C-Policies-Procedures/`
+        *   `D-Nomenclature-System/`
+        *   `E-Technology-Roadmaps/`
+        *   `F-Documentation-Templates/`
+        *   `G-UTCS-Classification/`
+        *   `H-Interface-Control/`
+        *   `I-Training-Programs/`
+        *   `J-Validation-Reports/`
+        *   `K-Financial-Models/`
+        *   `L-Investment-Terms/`
+        *   `M-Tax-Strategies/`
+        *   `N-Insurance-Coverage/`
+        *   `O-Exit-Strategies/`
+        *   `P-Competitive-Intelligence/`
+        *   `Q-Market-Analysis/`
+        *   `R-Acquisition-Targets/`
+        *   `S-Partnership-Agreements/`
+        *   `T-Regulatory-Compliance/`
+        *   `U-Quality-Management/`
+        *   `V-Environmental-Management/`
+        *   `W-Safety-Management/`
+        *   `X-Information-Security/`
+        *   `Y-Business-Continuity/`
+        *   `Z-Glossary-Terms/`
+        *   `AA-Bibliography-References/`
+        *   `AB-Letters-of-Intent/`
+        *   `AC-Media-PR-Guidelines/`
+        *   `AD-Brand-Guidelines/`
+        *   `AE-100-Percent-Validation/`
+
+---
+
+### ARCHIVE/
+    *   **Purpose:** Storage for superseded and legacy documents.
+    *   **Contents:**
+        *   `Superseded-Documents/`
+        *   `Historical-Versions/`
+        *   `Legacy-Systems/`
+        *   `Retired-Products/`
+
 ```
 
 ## RESUMEN ESTRUCTURA
