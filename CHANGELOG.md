@@ -42,6 +42,8 @@
 - **Trazabilidad**: Sistema UTCS para seguimiento completo
 
 ---
-**Preparado para**: Pull Request inicial  
+**Pull Request**: https://github.com/Robbbo-T/A.Q.U.A.-V./pull/new/feature/aqua-v-directory-structure  
+**Rama**: `feature/aqua-v-directory-structure`  
 **Autor**: Sistema de IA GitHub Copilot  
-**Revisión**: Estructura completa validada contra README.md
+**Revisión**: Estructura completa validada contra README.md  
+**Estado**: ✅ Listo para revisión y merge
