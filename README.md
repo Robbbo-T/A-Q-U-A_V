@@ -1335,7 +1335,7 @@ AQUA V. Four Product Line Profile:
 
 # ESTRUCTURA COMPLETA DE DIRECTORIOS AQUA V. CON DEFINICIONES
 
-```
+
 # AQUA V. Master Documentation Directory Structure (v7.4)
 
 ## ROOT: AQUA-V-DOCUMENTATION/
@@ -1862,7 +1862,7 @@ AQUA V. Four Product Line Profile:
         *   `Legacy-Systems/`
         *   `Retired-Products/`
 
-```
+
 
 ## RESUMEN ESTRUCTURA
 
