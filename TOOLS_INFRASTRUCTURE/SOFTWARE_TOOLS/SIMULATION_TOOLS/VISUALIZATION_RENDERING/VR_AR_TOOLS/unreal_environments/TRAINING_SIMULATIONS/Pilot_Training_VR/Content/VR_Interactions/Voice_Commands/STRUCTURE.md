@@ -62,7 +62,17 @@ Voice_Commands/
 │   │   │   ├── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-345-03-02-ADAPTFILT-QDAT-v7.6.0.h
 │   │   │   └── AMP-TRAIN-VR001-DES-BOB-TEC-TD-DTCEC-345-04-01-NOISEPROF-QDAT-v7.6.0.dat
 │   │   │
-│   │   └── [Continue pattern for other audio processing subdirectories]
+│   │   ├── FeatureExtraction/
+│   │   │   ├── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-346-01-01-MFCCEXTRACT-QDAT-v7.6.0.cpp
+│   │   │   ├── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-346-01-02-MFCCEXTRACT-QDAT-v7.6.0.h
+│   │   │   ├── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-346-02-01-ZEROCROSS-QDAT-v7.6.0.cpp
+│   │   │   ├── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-346-02-02-ZEROCROSS-QDAT-v7.6.0.h
+│   │   │   └── AMP-TRAIN-VR001-DES-BOB-TEC-TD-DTCEC-346-03-01-FEATURECFG-QDAT-v7.6.0.json
+│   │   │
+│   │   └── VoiceActivityDetection/
+│   │       ├── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-347-01-01-VADENGINE-QDAT-v7.6.0.cpp
+│   │       ├── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-347-01-02-VADENGINE-QDAT-v7.6.0.h
+│   │       └── AMP-TRAIN-VR001-DES-BOB-TEC-TD-DTCEC-347-02-01-VADCALIB-QDAT-v7.6.0.json
 │   │
 │   └── CommandRegistry/
 │       ├── CommandDefinitions/
@@ -72,7 +82,13 @@ Voice_Commands/
 │       │   ├── AMP-TRAIN-VR001-DES-BOB-FUN-TD-ACV-771-04-01-CMDPRIO-QCOM-v7.6.0.json
 │       │   └── AMP-TRAIN-VR001-DES-BOB-FUN-TD-ACV-771-05-01-CMDALIAS-QCOM-v7.6.0.json
 │       │
-│       └── [Continue pattern]
+│       ├── RuntimeConfig/
+│       │   ├── AMP-TRAIN-VR001-DES-BOB-FUN-TD-ACV-771-06-01-CMDGROUPS-QCOM-v7.6.0.json
+│       │   ├── AMP-TRAIN-VR001-DES-BOB-FUN-TD-ACV-771-07-01-CMDSYNONYM-QCOM-v7.6.0.json
+│       │   └── AMP-TRAIN-VR001-DES-BOB-FUN-TD-ACV-771-08-01-CMDENABLE-QCOM-v7.6.0.json
+│       │
+│       └── Log/
+│           └── AMP-TRAIN-VR001-DES-BOB-FUN-TD-ACV-771-09-01-CMDHISTORY-QCOM-v7.6.0.log
 │
 ├── CommandCategories/
 │   ├── FlightControl/
@@ -84,7 +100,14 @@ Voice_Commands/
 │   │   │   ├── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-027-05-01-HDGCMD-QAIR-v7.6.0.json
 │   │   │   └── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-027-06-01-ATTCMD-QAIR-v7.6.0.json
 │   │   │
-│   │   └── [Continue pattern for other flight control categories]
+│   │   ├── AdvancedManeuvers/
+│   │   │   ├── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-027-07-01-AUTOLAND-QAIR-v7.6.0.json
+│   │   │   ├── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-027-08-01-APPROACH-QAIR-v7.6.0.json
+│   │   │   └── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-027-09-01-TAKEOFF-QAIR-v7.6.0.json
+│   │   │
+│   │   └── EmergencyProcedures/
+│   │       ├── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-027-10-01-EMERGDESC-QAIR-v7.6.0.json
+│   │       └── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-027-11-01-EMERGLIST-QAIR-v7.6.0.json
 │   │
 │   ├── SystemsManagement/
 │   │   ├── QuantumSystems/
@@ -95,11 +118,28 @@ Voice_Commands/
 │   │   │   │   ├── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-QCSAA-934-04-01-QNSFAIL-QSCI-v7.6.0.json
 │   │   │   │   └── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-QCSAA-934-05-01-QNSDIAG-QSCI-v7.6.0.json
 │   │   │   │
-│   │   │   └── [Continue pattern for QPU and QDS]
+│   │   │   ├── QPU_Commands/
+│   │   │   │   ├── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-QCSAA-935-01-01-QPUINIT-QSCI-v7.6.0.json
+│   │   │   │   ├── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-QCSAA-935-02-01-QPUEXEC-QSCI-v7.6.0.json
+│   │   │   │   └── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-QCSAA-935-03-01-QPUSTAT-QSCI-v7.6.0.json
+│   │   │   │
+│   │   │   └── QDS_Commands/
+│   │   │       ├── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-QCSAA-936-01-01-QDSINIT-QSCI-v7.6.0.json
+│   │   │       ├── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-QCSAA-936-02-01-QDSREAD-QSCI-v7.6.0.json
+│   │   │       └── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-QCSAA-936-03-01-QDSHIST-QSCI-v7.6.0.json
 │   │   │
-│   │   └── [Continue pattern for other systems]
+│   │   └── EnvironmentalControl/
+│   │       ├── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-021-01-01-TEMPSET-QMEC-v7.6.0.json
+│   │       └── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-021-02-01-PRESSET-QMEC-v7.6.0.json
 │   │
-│   └── [Continue pattern for other command categories]
+│   └── Communications/
+│       ├── ExternalComms/
+│       │   ├── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-023-01-01-RADIOSET-QCOM-v7.6.0.json
+│       │   └── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-023-02-01-SATCOMS-QCOM-v7.6.0.json
+│       │
+│       └── InternalComms/
+│           ├── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-023-03-01-INTERCOM-QCOM-v7.6.0.json
+│           └── AMP-TRAIN-VR001-OPS-BOB-FUN-TD-ATA-023-04-01-PAANNOUNCE-QCOM-v7.6.0.json
 │
 ├── TrainingScenarios/
 │   ├── BasicTraining/
@@ -110,7 +150,14 @@ Voice_Commands/
 │   │   │   ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-ACV-778-04-01-LESSON04-QHPC-v7.6.0.scenario
 │   │   │   └── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-ACV-778-05-01-LESSON05-QHPC-v7.6.0.scenario
 │   │   │
-│   │   └── [Continue pattern]
+│   │   ├── BasicFlightOps/
+│   │   │   ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-ACV-778-06-01-TAKEOFFSC-QHPC-v7.6.0.scenario
+│   │   │   ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-ACV-778-07-01-LANDINGSC-QHPC-v7.6.0.scenario
+│   │   │   └── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-ACV-778-08-01-CRUISESC-QHPC-v7.6.0.scenario
+│   │   │
+│   │   └── EmergencyProcedures/
+│   │       ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-ACV-778-09-01-ENGFAILSC-QHPC-v7.6.0.scenario
+│   │       └── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-ACV-778-10-01-HYDFAILSC-QHPC-v7.6.0.scenario
 │   │
 │   ├── QuantumSystemsTraining/
 │   │   ├── QNS_Operations/
@@ -119,9 +166,23 @@ Voice_Commands/
 │   │   │   ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-QCSAA-941-03-01-QNSCALIB-QSCI-v7.6.0.scenario
 │   │   │   └── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-QCSAA-941-04-01-QNSINTEG-QSCI-v7.6.0.scenario
 │   │   │
-│   │   └── [Continue pattern]
+│   │   ├── QPU_Interaction/
+│   │   │   ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-QCSAA-942-01-01-QPUBASIC-QSCI-v7.6.0.scenario
+│   │   │   ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-QCSAA-942-02-01-QPUDEBUG-QSCI-v7.6.0.scenario
+│   │   │   └── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-QCSAA-942-03-01-QPUOPTIM-QSCI-v7.6.0.scenario
+│   │   │
+│   │   └── QDS_Diagnostics/
+│   │       ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-QCSAA-943-01-01-QDSHEALTH-QSCI-v7.6.0.scenario
+│   │       └── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-QCSAA-943-02-01-QDSFAULT-QSCI-v7.6.0.scenario
 │   │
-│   └── [Continue pattern]
+│   └── AdvancedScenarios/
+│       ├── ComplexNavigation/
+│       │   ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-ATA-034-01-01-HIGHALT-QAIR-v7.6.0.scenario
+│       │   └── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-ATA-034-02-01-SUBORBIT-QSPA-v7.6.0.scenario
+│       │
+│       └── MultiAircraftCoordination/
+│           ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-ACV-702-01-01-ATCCOMM-QCOM-v7.6.0.scenario
+│           └── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-ACV-702-02-01-SWARMCTL-QCOM-v7.6.0.scenario
 │
 ├── Integration/
 │   ├── UnrealEnginePlugins/
@@ -146,9 +207,19 @@ Voice_Commands/
 │   │   │   │
 │   │   │   └── AMP-TRAIN-VR001-DES-BOB-TEC-TD-DTCEC-354-01-01-VCPLUGIN-QHPC-v7.6.0.uplugin
 │   │   │
-│   │   └── [Continue pattern]
+│   │   └── SimulatorIntegration/
+│   │       ├── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-355-01-01-SIMIF-QHPC-v7.6.0.cpp
+│   │       ├── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-355-01-02-SIMIF-QHPC-v7.6.0.h
+│   │       └── AMP-TRAIN-VR001-DES-BOB-TEC-TD-DTCEC-355-02-01-SIMCFG-QHPC-v7.6.0.json
 │   │
-│   └── [Continue pattern]
+│   └── APIIntegration/
+│       ├── ExternalAPIs/
+│       │   ├── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-356-01-01-WEATHERAPI-QCOM-v7.6.0.cpp
+│       │   └── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-356-02-01-TRAFFICAPI-QCOM-v7.6.0.cpp
+│       │
+│       └── InternalAPIs/
+│           ├── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-357-01-01-AVIONICSAPI-QMEC-v7.6.0.cpp
+│           └── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-357-02-01-ENGINESAPI-QPOW-v7.6.0.cpp
 │
 ├── Testing/
 │   ├── UnitTests/
@@ -159,7 +230,14 @@ Voice_Commands/
 │   │   │   ├── AMP-TRAIN-VR001-VAL-BOB-TEC-SM-CYB-871-04-01-TESTINTENT-QDAT-v7.6.0.py
 │   │   │   └── AMP-TRAIN-VR001-VAL-BOB-TEC-TD-CYB-871-05-01-FIXTURES-QDAT-v7.6.0.json
 │   │   │
-│   │   └── [Continue pattern]
+│   │   ├── AudioProcessingTests/
+│   │   │   ├── AMP-TRAIN-VR001-VAL-BOB-TEC-SM-DTCEC-345-05-01-TESTNOISE-QDAT-v7.6.0.py
+│   │   │   ├── AMP-TRAIN-VR001-VAL-BOB-TEC-SM-DTCEC-346-04-01-TESTFEATEXT-QDAT-v7.6.0.py
+│   │   │   └── AMP-TRAIN-VR001-VAL-BOB-TEC-SM-DTCEC-347-03-01-TESTVAD-QDAT-v7.6.0.py
+│   │   │
+│   │   └── IntegrationTests/
+│   │       ├── AMP-TRAIN-VR001-VAL-BOB-TEC-SM-DTCEC-351-04-01-TESTPLUGIN-QHPC-v7.6.0.py
+│   │       └── AMP-TRAIN-VR001-VAL-BOB-TEC-SM-DTCEC-355-03-01-TESTSIMIF-QHPC-v7.6.0.py
 │   │
 │   └── ValidationReports/
 │       ├── EASACompliance/
@@ -168,7 +246,15 @@ Voice_Commands/
 │       │   ├── AMP-TRAIN-VR001-CER-BOB-REG-TD-ATA-025-03-01-TESTEVID-QGRO-v7.6.0.zip
 │       │   └── AMP-TRAIN-VR001-CER-BOB-REG-TD-ATA-025-04-01-CERTCHECK-QGRO-v7.6.0.xlsx
 │       │
-│       └── [Continue pattern]
+│       ├── FAACompliance/
+│       │   ├── AMP-TRAIN-VR001-CER-BOB-REG-TD-ATA-025-05-01-FAACOMPL-QGRO-v7.6.0.pdf
+│       │   └── AMP-TRAIN-VR001-CER-BOB-REG-TD-ATA-025-06-01-TESTDATA-QGRO-v7.6.0.zip
+│       │
+│       └── PerformanceReports/
+│           ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-DTCEC-341-06-01-STTACC-QDAT-v7.6.0.pdf
+│           ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-DTCEC-342-07-01-NLPUND-QDAT-v7.6.0.pdf
+│           ├── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-DTCEC-343-06-01-CMDRELIAB-QDAT-v7.6.0.pdf
+│           └── AMP-TRAIN-VR001-VAL-BOB-R&I-TD-DTCEC-344-06-01-RESPGENQUAL-QDAT-v7.6.0.pdf
 │
 ├── Documentation/
 │   ├── DeveloperGuides/
@@ -181,9 +267,13 @@ Voice_Commands/
 │   │   │       ├── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-382-02-01-ADVFEAT-QDAT-v7.6.0.cpp
 │   │   │       └── AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-382-03-01-CUSTCMD-QDAT-v7.6.0.cpp
 │   │   │
-│   │   └── [Continue pattern]
+│   │   └── IntegrationGuide/
+│   │       ├── AMP-TRAIN-VR001-DES-BOB-TEC-TD-DTCEC-383-01-01-UEINTEG-QHPC-v7.6.0.md
+│   │       └── AMP-TRAIN-VR001-DES-BOB-TEC-TD-DTCEC-383-02-01-SIMINTEG-QHPC-v7.6.0.md
 │   │
-│   └── [Continue pattern]
+│   └── UserManuals/
+│       ├── AMP-TRAIN-VR001-DES-BOB-CES-TD-ATA-000-01-01-USRMANUAL-QGRO-v7.6.0.pdf
+│       └── AMP-TRAIN-VR001-DES-BOB-CES-TD-ATA-000-02-01-QRHVOICE-QGRO-v7.6.0.pdf
 │
 └── Config/
     ├── SystemSettings/
@@ -194,7 +284,10 @@ Voice_Commands/
     │   ├── AMP-TRAIN-VR001-DES-BOB-TEC-TD-DTCEC-391-05-01-NETSET-QDAT-v7.6.0.config
     │   └── AMP-TRAIN-VR001-DES-BOB-CDG-TD-CYB-892-01-01-SECSET-QDAT-v7.6.0.config
     │
-    └── [Continue pattern]
+    └── DeploymentSettings/
+        ├── AMP-TRAIN-VR001-DES-BOB-ORG-TD-DTCEC-392-01-01-DEPLCONF-QDAT-v7.6.0.json
+        └── AMP-TRAIN-VR001-DES-BOB-ORG-TD-DTCEC-392-02-01-ENVCONF-QDAT-v7.6.0.env
+
 ```
 
 Key aspects of the AQUA V. nomenclature applied:
