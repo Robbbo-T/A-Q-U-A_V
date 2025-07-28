@@ -60,17 +60,17 @@ AQUA-V will become the world's first fully integrated quantum aerospace company,
 ## ARTICLE II: VISION, MISSION, AND VALUES
 
 ### 2.1 Vision Statement
-*Reference: AQA-MAS01-25MAD003-DES-BOB-ORG-TD-ATA-000-01-01-TPL-ORG-VISN-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD003-DES-BOB-ORG-TD-ATA-000-01-01-TPL-ORG-VISN-QDAT-v7.6.0](./Executive_Documents/Vision_Mission/AQA-MAS01-25MAD003-DES-BOB-ORG-TD-ATA-000-01-01-TPL-ORG-VISN-QDAT-v7.6.0.docx)*
 
 "To transform global aviation through quantum innovation, creating a sustainable, intelligent, and interconnected aerospace ecosystem that serves humanity's aspirations for the next century."
 
 ### 2.2 Mission Statement
-*Reference: AQA-MAS01-25MAD004-DES-BOB-ORG-TD-ATA-000-01-02-TPL-ORG-MISS-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD004-DES-BOB-ORG-TD-ATA-000-01-02-TPL-ORG-MISS-QDAT-v7.6.0](./Executive_Documents/Vision_Mission/AQA-MAS01-25MAD004-DES-BOB-ORG-TD-ATA-000-01-02-TPL-ORG-MISS-QDAT-v7.6.0.docx)*
 
 "AQUA-V integrates cutting-edge quantum technologies across revolutionary aerospace platforms, delivering unprecedented performance, safety, and sustainability while establishing new paradigms for air and space transportation."
 
 ### 2.3 Core Values
-*Reference: AQA-MAS01-25MAD005-DES-BOB-ORG-TD-ATA-000-01-03-TPL-ORG-VALS-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD005-DES-BOB-ORG-TD-ATA-000-01-03-TPL-ORG-VALS-QDAT-v7.6.0](./Executive_Documents/Vision_Mission/AQA-MAS01-25MAD005-DES-BOB-ORG-TD-ATA-000-01-03-TPL-ORG-VALS-QDAT-v7.6.0.docx)*
 
 - **Innovation Excellence**: Pioneering quantum aerospace technologies
 - **Sustainability First**: Net-zero operations by 2040
@@ -103,7 +103,7 @@ AQUA-V will become the world's first fully integrated quantum aerospace company,
 - Non-aerospace quantum applications
 
 ### 3.2 Strategic Objectives
-*Reference: AQA-MAS01-25MAD006-DES-BOB-ORG-TD-ATA-000-01-04-TPL-ORG-OBJS-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD006-DES-BOB-ORG-TD-ATA-000-01-04-TPL-ORG-OBJS-QDAT-v7.6.0](./Executive_Documents/Vision_Mission/AQA-MAS01-25MAD006-DES-BOB-ORG-TD-ATA-000-01-04-TPL-ORG-OBJS-QDAT-v7.6.0.xlsx)*
 
 | Objective | Target | Timeline |
 |-----------|--------|----------|
@@ -120,7 +120,7 @@ AQUA-V will become the world's first fully integrated quantum aerospace company,
 ## ARTICLE IV: ORGANIZATIONAL STRUCTURE
 
 ### 4.1 Governance Hierarchy
-*Reference: AQA-MAS01-25MAD025-DES-BOB-ORG-TD-ATA-000-06-01-TPL-ORG-GOVM-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD025-DES-BOB-ORG-TD-ATA-000-06-01-TPL-ORG-GOVM-QDAT-v7.6.0](./Organizational_Structure/Governance/AQA-MAS01-25MAD025-DES-BOB-ORG-TD-ATA-000-06-01-TPL-ORG-GOVM-QDAT-v7.6.0.pdf)*
 
 ```
 Board of Directors
@@ -143,7 +143,7 @@ Q-Division Architecture (12 Divisions)
 ```
 
 ### 4.2 Q-Division Structure
-*Reference: AQA-MAS01-25MAD029-DES-BOB-ORG-TD-ATA-000-07-01-TPL-ORG-ARCH-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD029-DES-BOB-ORG-TD-ATA-000-07-01-TPL-ORG-ARCH-QDAT-v7.6.0](./Organizational_Structure/Q_Divisions/AQA-MAS01-25MAD029-DES-BOB-ORG-TD-ATA-000-07-01-TPL-ORG-ARCH-QDAT-v7.6.0.vsdx)*
 
 The program operates through 12 specialized Quantum Divisions:
 
@@ -165,7 +165,7 @@ The program operates through 12 specialized Quantum Divisions:
 **Total Staff**: 3,780
 
 ### 4.3 Decision Rights
-*Reference: AQA-MAS01-25MAD028-DES-BOB-ORG-TD-ATA-000-06-04-TPL-ORG-RACI-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD028-DES-BOB-ORG-TD-ATA-000-06-04-TPL-ORG-RACI-QDAT-v7.6.0](./Organizational_Structure/Governance/AQA-MAS01-25MAD028-DES-BOB-ORG-TD-ATA-000-06-04-TPL-ORG-RACI-QDAT-v7.6.0.xlsx)*
 
 | Decision Type | Authority Level |
 |--------------|-----------------|
@@ -182,7 +182,7 @@ The program operates through 12 specialized Quantum Divisions:
 
 ### 5.1 Total Investment Authorization
 **€40,000,000,000** (Forty Billion Euros)
-*Reference: AQA-MAS01-25MAD045-DES-BOB-FIN-TD-DTCEC-386-00-01-TPL-FIN-INVJ-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD045-DES-BOB-FIN-TD-DTCEC-386-00-01-TPL-FIN-INVJ-QDAT-v7.6.0](./Financial_Framework/Investment_Structure/AQA-MAS01-25MAD045-DES-BOB-FIN-TD-DTCEC-386-00-01-TPL-FIN-INVJ-QDAT-v7.6.0.xlsx)*
 
 ### 5.2 Investment Allocation
 
@@ -205,7 +205,7 @@ The program operates through 12 specialized Quantum Divisions:
 | QUANTUM | Integrated | 10 Q-systems |
 
 ### 5.4 Financial Targets
-*Reference: AQA-MAS01-25MAD049-DES-BOB-FIN-TD-DTCEC-386-00-05-TPL-FIN-REVJ-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD049-DES-BOB-FIN-TD-DTCEC-386-00-05-TPL-FIN-REVJ-QDAT-v7.6.0](./Financial_Framework/Revenue_Projections/AQA-MAS01-25MAD049-DES-BOB-FIN-TD-DTCEC-386-00-05-TPL-FIN-REVJ-QDAT-v7.6.0.xlsx)*
 
 | Year | Revenue Target | Cumulative Investment |
 |------|----------------|----------------------|
@@ -224,7 +224,7 @@ The program operates through 12 specialized Quantum Divisions:
 ## ARTICLE VI: TECHNOLOGY FRAMEWORK
 
 ### 6.1 Core Quantum Technologies
-*Reference: AQA-MAS01-25MAD022-DES-BOB-TEC-TD-QCSAA-900-01-01-TPL-TEC-ARCH-QSCI-v7.6.0*
+*Reference: [AQA-MAS01-25MAD022-DES-BOB-TEC-TD-QCSAA-900-01-01-TPL-TEC-ARCH-QSCI-v7.6.0](./Program_Definition/Technology_Architecture/AQA-MAS01-25MAD022-DES-BOB-TEC-TD-QCSAA-900-01-01-TPL-TEC-ARCH-QSCI-v7.6.0.vsdx)*
 
 | System | Code | Function | Target TRL |
 |--------|------|----------|------------|
@@ -240,7 +240,7 @@ The program operates through 12 specialized Quantum Divisions:
 | Quantum AI Processor | QAI | Autonomous decisions | 4 |
 
 ### 6.2 Digital Twin Architecture
-*Reference: AQA-MAS01-25MAD024-DES-BOB-TEC-TD-DTCEC-300-01-01-TPL-TEC-DTWN-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD024-DES-BOB-TEC-TD-DTCEC-300-01-01-TPL-TEC-DTWN-QDAT-v7.6.0](./Program_Definition/Technology_Architecture/AQA-MAS01-25MAD024-DES-BOB-TEC-TD-DTCEC-300-01-01-TPL-TEC-DTWN-QDAT-v7.6.0.pdf)*
 
 - **ALI**: Physical system representation
 - **BOB**: Digital/virtual system
@@ -273,7 +273,7 @@ The program operates through 12 specialized Quantum Divisions:
 ## ARTICLE VIII: REGULATORY AND COMPLIANCE
 
 ### 8.1 Certification Strategy
-*Reference: AQA-MAS01-25MAD073-DES-BOB-REG-TD-ATA-000-14-01-TPL-REG-REGM-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD073-DES-BOB-REG-TD-ATA-000-14-01-TPL-REG-REGM-QDAT-v7.6.0](./Risk_Management/Compliance/AQA-MAS01-25MAD073-DES-BOB-REG-TD-ATA-000-14-01-TPL-REG-REGM-QDAT-v7.6.0.pdf)*
 
 | Phase | Timeline | Milestone |
 |-------|----------|-----------|
@@ -294,7 +294,7 @@ The program operates through 12 specialized Quantum Divisions:
 ## ARTICLE IX: RISK MANAGEMENT
 
 ### 9.1 Major Risk Categories
-*Reference: AQA-MAS01-25MAD069-DES-BOB-ORG-TD-ATA-000-13-01-TPL-ORG-RGRS-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD069-DES-BOB-ORG-TD-ATA-000-13-01-TPL-ORG-RGRS-QDAT-v7.6.0](./Risk_Management/Risk_Register/AQA-MAS01-25MAD069-DES-BOB-ORG-TD-ATA-000-13-01-TPL-ORG-RGRS-QDAT-v7.6.0.xlsx)*
 
 | Risk Category | Mitigation Strategy | Owner |
 |--------------|---------------------|-------|
@@ -315,7 +315,7 @@ The program operates through 12 specialized Quantum Divisions:
 ## ARTICLE X: SUSTAINABILITY COMMITMENTS
 
 ### 10.1 Environmental Targets
-*Reference: AQA-MAS01-25MAD087-DES-BOB-CES-TD-ATA-000-18-01-TPL-CES-CARB-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD087-DES-BOB-CES-TD-ATA-000-18-01-TPL-CES-CARB-QDAT-v7.6.0](./Sustainability_ESG/Environmental/AQA-MAS01-25MAD087-DES-BOB-CES-TD-ATA-000-18-01-TPL-CES-CARB-QDAT-v7.6.0.pdf)*
 
 - **2030**: 50% emission reduction
 - **2040**: Net-zero operations
@@ -421,7 +421,7 @@ This Charter may only be amended by:
 | Chief Legal Officer | [Name] | _________________ | 2025-01-15 |
 
 ### 14.3 External Validation
-*Reference: AQA-MAS01-25MAD096-DES-BOB-REG-TD-ATA-000-21-01-TPL-REG-VALJ-QDAT-v7.6.0*
+*Reference: [AQA-MAS01-25MAD096-DES-BOB-REG-TD-ATA-000-21-01-TPL-REG-VALJ-QDAT-v7.6.0](./External_Validation/AQA-MAS01-25MAD096-DES-BOB-REG-TD-ATA-000-21-01-TPL-REG-VALJ-QDAT-v7.6.0.pdf)*
 
 | Entity | Representative | Signature | Date |
 |--------|----------------|-----------|------|
@@ -434,16 +434,16 @@ This Charter may only be amended by:
 ## APPENDICES
 
 ### Appendix A: Detailed Financial Models
-*[Reference: AQA-MAS01-25MAD045-DES-BOB-FIN-TD-DTCEC-386-00-01-TPL-FIN-INVJ-QDAT-v7.6.0]*
+*[Reference: [AQA-MAS01-25MAD045-DES-BOB-FIN-TD-DTCEC-386-00-01-TPL-FIN-INVJ-QDAT-v7.6.0](./Financial_Framework/Investment_Structure/AQA-MAS01-25MAD045-DES-BOB-FIN-TD-DTCEC-386-00-01-TPL-FIN-INVJ-QDAT-v7.6.0.xlsx)]*
 
 ### Appendix B: Technology Roadmaps
-*[Reference: AQA-MAS01-25MAD022-DES-BOB-TEC-TD-QCSAA-900-01-01-TPL-TEC-ARCH-QSCI-v7.6.0]*
+*[Reference: [AQA-MAS01-25MAD022-DES-BOB-TEC-TD-QCSAA-900-01-01-TPL-TEC-ARCH-QSCI-v7.6.0](./Program_Definition/Technology_Architecture/AQA-MAS01-25MAD022-DES-BOB-TEC-TD-QCSAA-900-01-01-TPL-TEC-ARCH-QSCI-v7.6.0.vsdx)]*
 
 ### Appendix C: Risk Register
-*[Reference: AQA-MAS01-25MAD069-DES-BOB-ORG-TD-ATA-000-13-01-TPL-ORG-RGRS-QDAT-v7.6.0]*
+*[Reference: [AQA-MAS01-25MAD069-DES-BOB-ORG-TD-ATA-000-13-01-TPL-ORG-RGRS-QDAT-v7.6.0](./Risk_Management/Risk_Register/AQA-MAS01-25MAD069-DES-BOB-ORG-TD-ATA-000-13-01-TPL-ORG-RGRS-QDAT-v7.6.0.xlsx)]*
 
 ### Appendix D: Organizational Chart
-*[Reference: AQA-MAS01-25MAD044-DES-BOB-ORG-TD-ATA-000-08-03-TPL-ORG-ORGC-QDAT-v7.6.0]*
+*[Reference: [AQA-MAS01-25MAD044-DES-BOB-ORG-TD-ATA-000-08-03-TPL-ORG-ORGC-QDAT-v7.6.0](./Organizational_Structure/Leadership_Team/AQA-MAS01-25MAD044-DES-BOB-ORG-TD-ATA-000-08-03-TPL-ORG-ORGC-QDAT-v7.6.0.vsdx)]*
 
 ---
 
@@ -457,4 +457,5 @@ This Charter may only be amended by:
 © 2025 AQUA-V Technologies. All rights reserved.<br>
 Aerospace and Quantum United Advanced Venture
 </p>
+
 
