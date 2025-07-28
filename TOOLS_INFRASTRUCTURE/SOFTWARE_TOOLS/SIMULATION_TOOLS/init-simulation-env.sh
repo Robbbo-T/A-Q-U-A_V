@@ -66,7 +66,19 @@ else
 fi
 
 # Check available memory
-TOTAL_MEM=$(free -h | awk '/^Mem:/ {print $2}' 2>/dev/null || echo "Unknown")
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    TOTAL_MEM=$(free -h | awk '/^Mem:/ {print $2}' 2>/dev/null || echo "Unknown")
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    PAGE_SIZE=$(vm_stat | grep "page size of" | awk '{print $8}' | tr -d '.')
+    FREE_PAGES=$(vm_stat | grep "Pages free" | awk '{print $2}' | tr -d '.')
+    ACTIVE_PAGES=$(vm_stat | grep "Pages active" | awk '{print $2}' | tr -d '.')
+    INACTIVE_PAGES=$(vm_stat | grep "Pages inactive" | awk '{print $2}' | tr -d '.')
+    WIRED_PAGES=$(vm_stat | grep "Pages wired down" | awk '{print $2}' | tr -d '.')
+    TOTAL_MEM=$(echo "scale=2; ($PAGE_SIZE * ($FREE_PAGES + $ACTIVE_PAGES + $INACTIVE_PAGES + $WIRED_PAGES)) / (1024 * 1024)" | bc)
+    TOTAL_MEM="${TOTAL_MEM} GB"
+else
+    TOTAL_MEM="Unknown"
+fi
 echo -e "${GREEN}[OK]${NC} Total Memory: $TOTAL_MEM"
 
 # Check disk space
@@ -154,10 +166,25 @@ cat > "${SIMULATION_ROOT}/run-cfd-sim.sh" << 'EOF'
 # A.Q.U.A.-V. CFD Simulation Launcher
 # Document ID: AQV-SCR-25JU0001-OPS-SIM-TLS-TD-SIM-002-00-01-SCR-SIM-002-QDAT-v1.0.0
 
-source "${SIMULATION_ROOT}/.env"
+# Check and source environment variables if needed
+if [[ -z "\${SIMULATION_ROOT}" || -z "\${OPENFOAM_ROOT}" ]]; then
+    if [[ -f ".env" ]]; then
+        source ".env"
+    elif [[ -n "\${SIMULATION_ROOT}" && -f "\${SIMULATION_ROOT}/.env" ]]; then
+        source "\${SIMULATION_ROOT}/.env"
+    else
+        echo "ERROR: SIMULATION_ROOT and/or OPENFOAM_ROOT are not set, and .env file not found."
+        exit 1
+    fi
+fi
 
-CONFIG=${1:-"default"}
-MESH=${2:-"medium"}
+if [[ -z "\${SIMULATION_ROOT}" || -z "\${OPENFOAM_ROOT}" ]]; then
+    echo "ERROR: SIMULATION_ROOT and/or OPENFOAM_ROOT are not set after sourcing .env."
+    exit 1
+fi
+
+CONFIG=\${1:-"default"}
+MESH=\${2:-"medium"}
 
 echo "🛩️  Starting A.Q.U.A.-V. CFD Simulation..."
 echo "Configuration: $CONFIG"
@@ -218,10 +245,20 @@ AIRCRAFT=${1:-"BWB-Q100"}
 MODE=${2:-"simulation"}
 
 echo "🤖 Starting A.Q.U.A.-V. Digital Twin: ALI-BOB"
-echo "Aircraft: $AIRCRAFT"
-echo "Mode: $MODE"
+echo "Aircraft: \$AIRCRAFT"
+echo "Mode: \$MODE"
 
-cd "${DIGITAL_TWIN_ROOT}/ALI_BOB_CORE"
+if [ -z "\${DIGITAL_TWIN_ROOT}" ]; then
+  echo "[ERROR] DIGITAL_TWIN_ROOT environment variable is not set."
+  exit 1
+fi
+
+if [ ! -d "\${DIGITAL_TWIN_ROOT}/ALI_BOB_CORE" ]; then
+  echo "[ERROR] Directory \${DIGITAL_TWIN_ROOT}/ALI_BOB_CORE does not exist."
+  exit 1
+fi
+
+cd "\${DIGITAL_TWIN_ROOT}/ALI_BOB_CORE"
 # Digital twin startup commands would go here
 echo "Digital twin placeholder - implement ALI-BOB core here"
 EOF

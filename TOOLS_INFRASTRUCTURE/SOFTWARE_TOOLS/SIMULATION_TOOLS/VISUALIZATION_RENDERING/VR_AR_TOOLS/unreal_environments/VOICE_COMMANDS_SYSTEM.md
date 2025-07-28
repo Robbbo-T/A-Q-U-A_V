@@ -28,7 +28,7 @@ El sistema de comandos de voz de A.Q.U.A.-V. representa la vanguardia en tecnolo
 
 | Característica | Especificación | Estado |
 |----------------|----------------|--------|
-| **Precisión de Reconocimiento** | Word recognition accuracy: 98% (silencioso), 95% (cabina), 90% (alto ruido) | ✅ Implementado |
+| **Precisión de Reconocimiento** | 98% (silencioso), 95% (cabina), 90% (alto ruido) | ✅ Implementado |
 | **Latencia de Respuesta** | <100ms (local), <300ms (nube) | ✅ Optimizado |
 | **Idiomas Soportados** | 10+ idiomas principales | ✅ Completo |
 | **Comandos Simultáneos** | 50+ comandos activos | ✅ Configurado |
@@ -242,7 +242,7 @@ NoiseProfile CockpitProfile = {
     .HVACNoiseLevel = -35,                // dB
     .AvionicsHum = 1000,                  // Hz frecuencia central
     .WindNoiseThreshold = -25,            // dB
-    .QuantumSystemHum = 440               // Hz unique frequency of the quantum system
+    .QuantumSystemHum = 440               // Hz única del sistema cuántico
 };
 
 // Algoritmo de cancelación de eco adaptativo
