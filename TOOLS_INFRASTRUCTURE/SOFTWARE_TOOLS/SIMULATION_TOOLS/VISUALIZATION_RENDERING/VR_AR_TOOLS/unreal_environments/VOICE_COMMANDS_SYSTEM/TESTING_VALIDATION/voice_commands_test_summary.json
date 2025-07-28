@@ -1,0 +1,120 @@
+{
+  "timestamp": "2025-07-28 08:54:25",
+  "total_tests": 11,
+  "passed_tests": 11,
+  "overall_accuracy": 1.0,
+  "average_recognition_accuracy": 0.959010230094444,
+  "average_latency_ms": 80.246557810124,
+  "multilingual_results": {
+    "en-US": 0.98,
+    "es-ES": 0.9689556547873663,
+    "fr-FR": 0.9608070909963732,
+    "de-DE": 0.938612124461614,
+    "it-IT": 0.93385932838022,
+    "pt-BR": 0.9482779695126742,
+    "zh-CN": 0.9273501399062385,
+    "ja-JP": 0.9221362493496107,
+    "ar-SA": 0.9495294074887074
+  },
+  "noise_resistance": {
+    "quiet": 0.98,
+    "normal": 0.95,
+    "high": 0.9,
+    "extreme": 0.88
+  },
+  "quantum_performance": {
+    "accuracy": 0.9667315318265306,
+    "latency_ms": 92.40673254327405,
+    "world_first": true
+  },
+  "detailed_results": [
+    {
+      "command": "gear up",
+      "expected": "RETRACT_LANDING_GEAR",
+      "accuracy": 0.9329149716699912,
+      "processing_time_ms": 52.68413207124939,
+      "category": "flight_control",
+      "passed": true
+    },
+    {
+      "command": "engage autopilot",
+      "expected": "ENGAGE_AUTOPILOT",
+      "accuracy": 0.9704302487447654,
+      "processing_time_ms": 111.02639908698708,
+      "category": "flight_control",
+      "passed": true
+    },
+    {
+      "command": "set heading three zero zero",
+      "expected": "SET_HEADING_300",
+      "accuracy": 0.9703703275075852,
+      "processing_time_ms": 75.25978084277232,
+      "category": "flight_control",
+      "passed": true
+    },
+    {
+      "command": "flaps to takeoff position",
+      "expected": "SET_FLAPS_TAKEOFF",
+      "accuracy": 0.9584939150320204,
+      "processing_time_ms": 57.94765153891621,
+      "category": "flight_control",
+      "passed": true
+    },
+    {
+      "command": "initialize quantum sensors",
+      "expected": "QUANTUM_SENSORS_INIT",
+      "accuracy": 0.9791995183801968,
+      "processing_time_ms": 83.58534134088373,
+      "category": "quantum",
+      "passed": true
+    },
+    {
+      "command": "calibrate quantum compass",
+      "expected": "QUANTUM_COMPASS_CALIBRATE",
+      "accuracy": 0.9770833203872301,
+      "processing_time_ms": 102.1160388502426,
+      "category": "quantum",
+      "passed": true
+    },
+    {
+      "command": "establish entanglement link",
+      "expected": "QUANTUM_ENTANGLEMENT_ESTABLISH",
+      "accuracy": 0.953511842669269,
+      "processing_time_ms": 110.06203636952118,
+      "category": "quantum",
+      "passed": true
+    },
+    {
+      "command": "switch to quantum navigation mode",
+      "expected": "QUANTUM_NAV_MODE",
+      "accuracy": 0.9571314458694266,
+      "processing_time_ms": 73.86351361244867,
+      "category": "quantum",
+      "passed": true
+    },
+    {
+      "command": "mayday mayday mayday",
+      "expected": "EMERGENCY_DISTRESS",
+      "accuracy": 0.9700412484642358,
+      "processing_time_ms": 101.57007837147493,
+      "category": "emergency",
+      "passed": true
+    },
+    {
+      "command": "declare emergency",
+      "expected": "DECLARE_EMERGENCY",
+      "accuracy": 0.9388418154156288,
+      "processing_time_ms": 56.92729408789035,
+      "category": "emergency",
+      "passed": true
+    },
+    {
+      "command": "fire warning engine one",
+      "expected": "FIRE_WARNING_ENG1",
+      "accuracy": 0.9410938768985339,
+      "processing_time_ms": 57.669869738977596,
+      "category": "emergency",
+      "passed": true
+    }
+  ]
+}
