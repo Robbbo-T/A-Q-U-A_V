@@ -16,7 +16,7 @@
 - **Valor Total**: €40,000 millones
 - **Personal**: 3,780 empleados especializados
 - **Q-Divisions**: 12 divisiones técnicas
-- **Sitios Globales**: 6 centros de manufactura
+- **Sitios Globales**: 7 centros de manufactura
 - **Líneas de Producto**: 4 principales
 - **Proyección Año 20**: €144B en ingresos
 
@@ -25,7 +25,7 @@
 #### 4 Líneas de Producto Principales:
 1. **AMPEL360** (62.5% ingresos) - Aeronaves de pasajeros
 2. **GAIA AIR & SPACE** (17.4% ingresos) - Sistemas no tripulados
-3. **ROBBBO-T** (12.5% ingresos) - Robótica avanzada
+3. **ROBBBO_T** (12.5% ingresos) - Robótica avanzada
 4. **QUANTUM** (7.6% ingresos) - Tecnologías cuánticas
 
 #### 12 Q-Divisions Especializadas:
@@ -37,11 +37,12 @@
 ### 🌍 Red Global de Manufactura
 
 1. **Madrid, España** - Ensamblaje final y entrega
-2. **Toulouse, Francia** - I+D y pruebas
-3. **Munich, Alemania** - Propulsión y motores
-4. **Nápoles, Italia** - Estructuras compuestas
-5. **Singapur** - Aviónica y sistemas
-6. **Silicon Valley, EE.UU.** - Quantum y AI
+2. **Getafe, España** - Centro de pruebas y certificación  
+3. **Toulouse, Francia** - I+D y pruebas
+4. **Munich, Alemania** - Propulsión y motores
+5. **Nápoles, Italia** - Estructuras compuestas
+6. **Singapur** - Aviónica y sistemas cuánticos
+7. **Silicon Valley, EE.UU.** - Quantum y AI
 
 ### 🔧 Sistema UTCS
 

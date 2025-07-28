@@ -155,6 +155,12 @@ AQUA V. €40B Program/
 │   │   ├── AVIONICS_INTEGRATION/               # Integración de aviónica
 │   │   └── VALIDATION/                         # Validación
 │   │
+│   ├── GETAFE_SPAIN/                           # Centro de pruebas y certificación
+│   │   ├── FLIGHT_TESTING/                     # Pruebas de vuelo
+│   │   ├── CERTIFICATION/                      # Certificación
+│   │   ├── AVIONICS_INTEGRATION/               # Integración de aviónica
+│   │   └── VALIDATION/                         # Validación
+│   │
 │   ├── TOULOUSE_FRANCE/                        # I+D y pruebas
 │   │   ├── RESEARCH_LABS/                      # Laboratorios de investigación
 │   │   ├── WIND_TUNNELS/                       # Túneles de viento
@@ -173,11 +179,17 @@ AQUA V. €40B Program/
 │   │   ├── STRUCTURAL_TESTING/                 # Pruebas estructurales
 │   │   └── QUALITY_CONTROL/                    # Control de calidad
 │   │
-│   └── SINGAPORE/                              # Aviónica y sistemas cuánticos
-│       ├── AVIONICS_ASSEMBLY/                  # Ensamblaje de aviónica
-│       ├── QUANTUM_SYSTEMS/                    # Sistemas cuánticos
-│       ├── ELECTRONICS/                        # Electrónica
-│       └── SOFTWARE/                           # Software
+│   ├── SINGAPORE/                              # Aviónica y sistemas cuánticos
+│   │   ├── AVIONICS_ASSEMBLY/                  # Ensamblaje de aviónica
+│   │   ├── QUANTUM_SYSTEMS/                    # Sistemas cuánticos
+│   │   ├── ELECTRONICS/                        # Electrónica
+│   │   └── SOFTWARE/                           # Software
+│   │
+│   └── SILICON_VALLEY_USA/                     # Quantum y AI
+│       ├── QUANTUM_RESEARCH/                   # Investigación cuántica
+│       ├── AI_DEVELOPMENT/                     # Desarrollo de IA
+│       ├── SOFTWARE_ENGINEERING/               # Ingeniería de software
+│       └── INNOVATION_LABS/                    # Laboratorios de innovación
 │
 ├── 📊 BUSINESS_OPERATIONS/                     # Operaciones de Negocio
 │   ├── FINANCE/                                # Finanzas (€40B programa)

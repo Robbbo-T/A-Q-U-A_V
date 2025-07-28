@@ -41,24 +41,27 @@ To revolutionize aerospace by 2050 through the seamless integration of quantum c
 | **ROBBBO-T** | ROB | €5B (12.5%) | 18 models | €4B/year |
 | **QUANTUM** | QUA | Integrated | 10 Q-systems | Enabler for above |
 
-### Global Manufacturing Network (6 Strategic Sites)
+### Global Manufacturing Network (7 Strategic Sites)
 
 ```mermaid
 graph TD
     MA[Madrid - Global HQ & Final Assembly]
-    TO[Toulouse - Aerodynamics & Certification]
+    GE[Getafe - Testing & Certification]
+    TO[Toulouse - R&D & Testing]
     MU[Munich - Propulsion & Quantum]
     NA[Naples - Advanced Composites]
-    SG[Singapore - Asia Hub]
-    SV[Silicon Valley - Software & Quantum Computing]
+    SG[Singapore - Avionics & Quantum Systems]
+    SV[Silicon Valley - Quantum & AI]
     
     MA -->|Structures| NA
     MA -->|Testing| TO
+    MA -->|Testing Hub| GE
     MA -->|Engines| MU
     MA -->|Software| SV
     MA -->|Asia Ops| SG
     
     style MA fill:#f9f,stroke:#333,stroke-width:4px
+    style GE fill:#9ff,stroke:#333,stroke-width:2px
     style NA fill:#9ff,stroke:#333,stroke-width:2px
 ```
 
@@ -429,8 +432,8 @@ graph TD
 | Position | Name | Background | Location |
 |----------|------|------------|----------|
 | **CEO** | Amedeo Pelliccia | Founder, Aerospace & Quantum Visionary | Madrid |
-| **COO** | [To be appointed] | Operations Excellence, Ex-Airbus | Madrid |
-| **CTO** | [To be appointed] | Deep Tech, Ex-Boeing/SpaceX | Madrid |
+| **COO** | [To be appointed] | Operations Excellence, Aerospace Industry | Madrid |
+| **CTO** | [To be appointed] | Deep Tech, Aerospace/Space Industry | Madrid |
 | **CFO** | [To be appointed] | Aerospace Finance, Ex-Goldman Sachs | Madrid |
 | **CQO** | [To be appointed] | Quantum Computing, Ex-IBM Research | Munich |
 | **CSO** | [To be appointed] | Sustainability, Ex-UN Climate | Madrid |
@@ -665,11 +668,11 @@ licensing:
 
 | Name | Background | Expertise | Term |
 |------|------------|-----------|------|
-| **Dr. John Aerospace** | Ex-Boeing CTO | Aircraft Design | 3 years |
+| **Dr. John Aerospace** | Aerospace Industry CTO | Aircraft Design | 3 years |
 | **Prof. Maria Quantum** | MIT Quantum Lab | Quantum Computing | 3 years |
 | **Gen. Robert Defense** | Ex-NATO | Defense & Security | 2 years |
 | **Dr. Sarah Green** | UN Climate Panel | Sustainability | 3 years |
-| **Mr. David Finance** | Ex-Airbus CFO | Aerospace Finance | 2 years |
+| **Mr. David Finance** | Aerospace Industry CFO | Aerospace Finance | 2 years |
 | **Dr. Li Technology** | Ex-Huawei | 5G/6G Networks | 3 years |
 | **Ms. Anna Space** | Ex-SpaceX | Launch Systems | 3 years |
 | **Prof. Giuseppe Materials** | Politecnico Milano | Advanced Materials | 2 years |
@@ -18841,8 +18844,8 @@ market_validation:
 
 | Competitor | Market Position | Quantum Capability | Threat Level | AQUA V. Advantage |
 |------------|----------------|-------------------|--------------|-------------------|
-| **Boeing** | Incumbent leader | Developing | High | First-mover in quantum |
-| **Airbus** | Incumbent leader | Researching | High | Integrated approach |
+| **Traditional OEM 1** | Incumbent leader | Developing | High | First-mover in quantum |
+| **Traditional OEM 2** | Incumbent leader | Researching | High | Integrated approach |
 | **Lockheed** | Defense focus | Advanced | Medium | Commercial focus |
 | **SpaceX** | Disruptor | Limited | Medium | Aerospace expertise |
 | **Chinese OEMs** | Growing | Unknown | Medium | Western certification |
