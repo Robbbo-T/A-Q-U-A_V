@@ -213,14 +213,20 @@ done
 echo ""
 echo "🔍 Checking .gitkeep files..."
 GITKEEP_COUNT=$(find "$BASE_DIR" -name ".gitkeep" -type f | wc -l)
+EXPECTED_GITKEEP_COUNT=10  # Update this value based on the expected number of .gitkeep files
 echo "📁 Found $GITKEEP_COUNT .gitkeep files"
+
+if [ "$GITKEEP_COUNT" -ne "$EXPECTED_GITKEEP_COUNT" ]; then
+    echo "❌ MISMATCH: Expected $EXPECTED_GITKEEP_COUNT .gitkeep files, but found $GITKEEP_COUNT"
+    ((MISSING_ITEMS++))
+fi
 
 echo ""
 echo "📊 VALIDATION SUMMARY"
 echo "===================="
 echo "✅ Validated Directories: $TOTAL_DIRS"
 echo "✅ Validated Files: $TOTAL_FILES"
-echo "📁 .gitkeep Files: $GITKEEP_COUNT"
+echo "📁 .gitkeep Files: $GITKEEP_COUNT (Expected: $EXPECTED_GITKEEP_COUNT)"
 
 if [ $MISSING_ITEMS -eq 0 ]; then
     echo "🎉 ALL CHECKS PASSED!"
