@@ -472,7 +472,7 @@ public:
     float VoiceVolume = 1.0f;
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Voice")
-    bool bUseNoiseSupression = true;
+    bool bUseNoiseSuppression = true;
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Voice")
     bool bUse3DPositionalAudio = true;
