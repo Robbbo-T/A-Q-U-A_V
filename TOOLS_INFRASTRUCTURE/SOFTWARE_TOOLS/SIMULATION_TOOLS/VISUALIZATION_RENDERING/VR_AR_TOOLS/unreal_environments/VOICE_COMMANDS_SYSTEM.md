@@ -242,7 +242,7 @@ NoiseProfile CockpitProfile = {
     .HVACNoiseLevel = -35,                // dB
     .AvionicsHum = 1000,                  // Hz frecuencia central
     .WindNoiseThreshold = -25,            // dB
-    .QuantumSystemHum = 440               // Hz única del sistema cuántico
+    .QuantumSystemHum = 440               // Hz unique frequency of the quantum system
 };
 
 // Algoritmo de cancelación de eco adaptativo
