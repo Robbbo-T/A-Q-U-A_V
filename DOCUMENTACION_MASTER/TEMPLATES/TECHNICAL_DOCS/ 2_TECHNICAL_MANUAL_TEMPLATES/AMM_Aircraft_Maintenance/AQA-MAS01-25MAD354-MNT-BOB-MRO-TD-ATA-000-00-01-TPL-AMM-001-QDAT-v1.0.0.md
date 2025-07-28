@@ -149,11 +149,14 @@ aqua-validator --check-links AMM-MASTER-TEMPLATE.md
 
 ---
 
-**END OF APPENDICES**--------------|---------------------|--------|
-| AMM 32-10-00 | AMP-BWB01-[MSN]-MNT-ALI-MRO-TD-ATA-032-10-00-AMM-TSK-XXX-QDAT-v1.0.0 | Task number assigned sequentially |
-| IPC Fig 32-10-01 | AMP-BWB01-[MSN]-PRD-BOB-TEC-TD-ATA-032-10-01-IPC-FIG-001-QDAT-v1.0.0 | Digital figure |
-| SB 2025-32-01 | AMP-BWB01-[MSN]-MNT-BOB-MRO-TD-ATA-032-00-01-SB-001-QDAT-v1.0.0 | Year embedded in version |
-| CMM 32-41-15 | AMP-BWB01-[MSN]-MNT-ALI-MRO-TD-ATA-032-41-15-CMM-DOC-001-QDAT-v1.0.0 | Component-specific |
+**END OF APPENDICES**
+
+| Document Type     | Document Code                                                                 | Notes                             |
+|-------------------|-------------------------------------------------------------------------------|-----------------------------------|
+| AMM 32-10-00      | AMP-BWB01-[MSN]-MNT-ALI-MRO-TD-ATA-032-10-00-AMM-TSK-XXX-QDAT-v1.0.0          | Task number assigned sequentially |
+| IPC Fig 32-10-01  | AMP-BWB01-[MSN]-PRD-BOB-TEC-TD-ATA-032-10-01-IPC-FIG-001-QDAT-v1.0.0          | Digital figure                    |
+| SB 2025-32-01     | AMP-BWB01-[MSN]-MNT-BOB-MRO-TD-ATA-032-00-01-SB-001-QDAT-v1.0.0               | Year embedded in version          |
+| CMM 32-41-15      | AMP-BWB01-[MSN]-MNT-ALI-MRO-TD-ATA-032-41-15-CMM-DOC-001-QDAT-v1.0.0          | Component-specific                |
 
 ### E.2 S1000D Data Module to AQUA V. Cross-Reference
 
