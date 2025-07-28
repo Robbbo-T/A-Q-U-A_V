@@ -173,11 +173,17 @@ AQUA V. €40B Program/
 │   │   ├── STRUCTURAL_TESTING/                 # Pruebas estructurales
 │   │   └── QUALITY_CONTROL/                    # Control de calidad
 │   │
-│   └── SINGAPORE/                              # Aviónica y sistemas cuánticos
-│       ├── AVIONICS_ASSEMBLY/                  # Ensamblaje de aviónica
-│       ├── QUANTUM_SYSTEMS/                    # Sistemas cuánticos
-│       ├── ELECTRONICS/                        # Electrónica
-│       └── SOFTWARE/                           # Software
+│   ├── SINGAPORE/                              # Aviónica y sistemas cuánticos
+│   │   ├── AVIONICS_ASSEMBLY/                  # Ensamblaje de aviónica
+│   │   ├── QUANTUM_SYSTEMS/                    # Sistemas cuánticos
+│   │   ├── ELECTRONICS/                        # Electrónica
+│   │   └── SOFTWARE/                           # Software
+│   │
+│   └── SILICON_VALLEY_USA/                     # Quantum y AI
+│       ├── QUANTUM_LABS/                       # Laboratorios cuánticos
+│       ├── AI_DEVELOPMENT/                     # Desarrollo de IA
+│       ├── SOFTWARE_ENGINEERING/               # Ingeniería de software
+│       └── INNOVATION_CENTER/                  # Centro de innovación
 │
 ├── 📊 BUSINESS_OPERATIONS/                     # Operaciones de Negocio
 │   ├── FINANCE/                                # Finanzas (€40B programa)
