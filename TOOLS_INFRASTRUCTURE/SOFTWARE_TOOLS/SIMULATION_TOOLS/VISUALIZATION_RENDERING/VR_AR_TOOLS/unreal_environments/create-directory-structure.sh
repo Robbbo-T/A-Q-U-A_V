@@ -5,8 +5,8 @@
 
 echo "🎮 Creating A.Q.U.A.-V. Unreal Engine Environments Directory Structure..."
 
-# Base directory
-BASE_DIR="/workspaces/A.Q.U.A.-V./TOOLS_INFRASTRUCTURE/SOFTWARE_TOOLS/SIMULATION_TOOLS/VISUALIZATION_RENDERING/VR_AR_TOOLS/unreal_environments"
+# Base directory - Auto-detect current working directory  
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Array of all directories to create
 DIRECTORIES=(
