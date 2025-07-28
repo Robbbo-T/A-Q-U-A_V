@@ -843,50 +843,330 @@ void UVoiceCommandPluginComponent::OnResponseGenerated(const FString& ResponseTe
 bool UVoiceCommandPluginComponent::ExecuteFlightControlCommand(const FVoiceCommandData& CommandData)
 {
     UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Executing Flight Control Command: %s"), *CommandData.RecognizedIntent);
-    // Implementation would interface with flight control systems
-    return true;
+    
+    // Process specific flight control intents
+    if (CommandData.RecognizedIntent.Contains(TEXT("turn")))
+    {
+        // Extract direction and degrees from entities
+        FString Direction = CommandData.ExtractedEntities.FindRef(TEXT("direction"));
+        FString Degrees = CommandData.ExtractedEntities.FindRef(TEXT("degrees"));
+        
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Turn command: %s %s degrees"), *Direction, *Degrees);
+        
+        // Broadcast command execution
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("climb")) || CommandData.RecognizedIntent.Contains(TEXT("ascend")))
+    {
+        FString Altitude = CommandData.ExtractedEntities.FindRef(TEXT("altitude"));
+        FString FlightLevel = CommandData.ExtractedEntities.FindRef(TEXT("flight_level"));
+        
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Climb command: altitude %s, FL %s"), *Altitude, *FlightLevel);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("descend")))
+    {
+        FString Altitude = CommandData.ExtractedEntities.FindRef(TEXT("altitude"));
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Descend command: altitude %s"), *Altitude);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("autoland")))
+    {
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Autoland procedure initiated"));
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    
+    UE_LOG(LogVoiceCommandPlugin, Warning, TEXT("Unknown flight control command: %s"), *CommandData.RecognizedIntent);
+    OnVoiceCommandExecuted.Broadcast(CommandData, false);
+    return false;
 }
 
 bool UVoiceCommandPluginComponent::ExecuteCommunicationCommand(const FVoiceCommandData& CommandData)
 {
     UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Executing Communication Command: %s"), *CommandData.RecognizedIntent);
-    // Implementation would interface with communication systems
-    return true;
+    
+    // Process communication-specific intents
+    if (CommandData.RecognizedIntent.Contains(TEXT("frequency")))
+    {
+        FString Frequency = CommandData.ExtractedEntities.FindRef(TEXT("frequency"));
+        FString RadioNumber = CommandData.ExtractedEntities.FindRef(TEXT("radio_number"));
+        
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Set radio %s frequency: %s"), *RadioNumber, *Frequency);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("contact")) || CommandData.RecognizedIntent.Contains(TEXT("call")))
+    {
+        FString Station = CommandData.ExtractedEntities.FindRef(TEXT("station"));
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Contact station: %s"), *Station);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("announce")))
+    {
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Passenger announcement requested"));
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("intercom")))
+    {
+        FString CrewMember = CommandData.ExtractedEntities.FindRef(TEXT("crew_member"));
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Intercom to crew member: %s"), *CrewMember);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    
+    UE_LOG(LogVoiceCommandPlugin, Warning, TEXT("Unknown communication command: %s"), *CommandData.RecognizedIntent);
+    OnVoiceCommandExecuted.Broadcast(CommandData, false);
+    return false;
 }
 
 bool UVoiceCommandPluginComponent::ExecuteNavigationCommand(const FVoiceCommandData& CommandData)
 {
     UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Executing Navigation Command: %s"), *CommandData.RecognizedIntent);
-    // Implementation would interface with navigation systems
-    return true;
+    
+    // Process navigation-specific intents
+    if (CommandData.RecognizedIntent.Contains(TEXT("waypoint")))
+    {
+        FString WaypointName = CommandData.ExtractedEntities.FindRef(TEXT("waypoint_name"));
+        
+        if (CommandData.RecognizedIntent.Contains(TEXT("set")) || CommandData.RecognizedIntent.Contains(TEXT("add")))
+        {
+            UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Set waypoint: %s"), *WaypointName);
+        }
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("navigate")) || CommandData.RecognizedIntent.Contains(TEXT("direct")))
+    {
+        FString Destination = CommandData.ExtractedEntities.FindRef(TEXT("destination"));
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Navigate to destination: %s"), *Destination);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("route")))
+    {
+        FString Destination = CommandData.ExtractedEntities.FindRef(TEXT("destination"));
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Calculate route to: %s"), *Destination);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("chart")))
+    {
+        FString ChartType = CommandData.ExtractedEntities.FindRef(TEXT("chart_type"));
+        FString Location = CommandData.ExtractedEntities.FindRef(TEXT("location"));
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Display %s chart for %s"), *ChartType, *Location);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    
+    UE_LOG(LogVoiceCommandPlugin, Warning, TEXT("Unknown navigation command: %s"), *CommandData.RecognizedIntent);
+    OnVoiceCommandExecuted.Broadcast(CommandData, false);
+    return false;
 }
 
 bool UVoiceCommandPluginComponent::ExecuteSystemsCommand(const FVoiceCommandData& CommandData)
 {
-    UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Executing Systems Command: %s"), *CommandData.RecognizedIntent);
-    // Implementation would interface with aircraft systems
-    return true;
+    UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Executing Systems Management Command: %s"), *CommandData.RecognizedIntent);
+    
+    // Process systems management commands
+    if (CommandData.RecognizedIntent.Contains(TEXT("status")))
+    {
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("System status request"));
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("environmental")) || CommandData.RecognizedIntent.Contains(TEXT("air conditioning")))
+    {
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Environmental control command"));
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("power")) || CommandData.RecognizedIntent.Contains(TEXT("electrical")))
+    {
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Power system command"));
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("maintenance")))
+    {
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Maintenance system command"));
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    
+    UE_LOG(LogVoiceCommandPlugin, Warning, TEXT("Unknown systems management command: %s"), *CommandData.RecognizedIntent);
+    OnVoiceCommandExecuted.Broadcast(CommandData, false);
+    return false;
 }
 
 bool UVoiceCommandPluginComponent::ExecuteQuantumCommand(const FVoiceCommandData& CommandData)
 {
-    UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Executing Quantum Command: %s"), *CommandData.RecognizedIntent);
-    // Implementation would interface with quantum systems (QNS, QPU, QDS)
-    return true;
+    UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Executing Quantum Systems Command: %s"), *CommandData.RecognizedIntent);
+    
+    // Process quantum system-specific intents
+    if (CommandData.RecognizedIntent.Contains(TEXT("QNS")) || CommandData.RecognizedIntent.Contains(TEXT("quantum navigation")))
+    {
+        if (CommandData.RecognizedIntent.Contains(TEXT("activate")) || CommandData.RecognizedIntent.Contains(TEXT("engage")))
+        {
+            UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Activating Quantum Navigation System (QNS)"));
+        }
+        else if (CommandData.RecognizedIntent.Contains(TEXT("calibrate")))
+        {
+            UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Calibrating QNS sensors"));
+        }
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("QPU")) || CommandData.RecognizedIntent.Contains(TEXT("quantum processing")))
+    {
+        if (CommandData.RecognizedIntent.Contains(TEXT("initialize")) || CommandData.RecognizedIntent.Contains(TEXT("start")))
+        {
+            UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Initializing Quantum Processing Unit (QPU)"));
+        }
+        else if (CommandData.RecognizedIntent.Contains(TEXT("algorithm")))
+        {
+            FString AlgorithmName = CommandData.ExtractedEntities.FindRef(TEXT("algorithm_name"));
+            UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Executing quantum algorithm: %s"), *AlgorithmName);
+        }
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("QDS")) || CommandData.RecognizedIntent.Contains(TEXT("quantum data")))
+    {
+        if (CommandData.RecognizedIntent.Contains(TEXT("read")) || CommandData.RecognizedIntent.Contains(TEXT("access")))
+        {
+            UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Accessing Quantum Data Storage (QDS)"));
+        }
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    
+    UE_LOG(LogVoiceCommandPlugin, Warning, TEXT("Unknown quantum systems command: %s"), *CommandData.RecognizedIntent);
+    OnVoiceCommandExecuted.Broadcast(CommandData, false);
+    return false;
 }
 
 bool UVoiceCommandPluginComponent::ExecuteEmergencyCommand(const FVoiceCommandData& CommandData)
 {
-    UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Executing Emergency Command: %s"), *CommandData.RecognizedIntent);
-    // Implementation would handle emergency procedures with highest priority
-    return true;
+    UE_LOG(LogVoiceCommandPlugin, Error, TEXT("EMERGENCY COMMAND: %s"), *CommandData.RecognizedIntent);
+    
+    // Emergency commands have highest priority and require immediate execution
+    if (CommandData.RecognizedIntent.Contains(TEXT("emergency descent")))
+    {
+        UE_LOG(LogVoiceCommandPlugin, Error, TEXT("EMERGENCY: Initiating emergency descent procedure"));
+        
+        // Set state to executing emergency procedure
+        SetVoiceRecognitionState(EVoiceRecognitionState::Executing);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("engine failure")))
+    {
+        FString EngineNumber = CommandData.ExtractedEntities.FindRef(TEXT("engine_number"));
+        UE_LOG(LogVoiceCommandPlugin, Error, TEXT("EMERGENCY: Engine %s failure checklist initiated"), *EngineNumber);
+        
+        SetVoiceRecognitionState(EVoiceRecognitionState::Executing);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("fire")))
+    {
+        FString Location = CommandData.ExtractedEntities.FindRef(TEXT("location"));
+        UE_LOG(LogVoiceCommandPlugin, Error, TEXT("EMERGENCY: Fire emergency in %s"), *Location);
+        
+        SetVoiceRecognitionState(EVoiceRecognitionState::Executing);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("pressurization")) || CommandData.RecognizedIntent.Contains(TEXT("decompression")))
+    {
+        UE_LOG(LogVoiceCommandPlugin, Error, TEXT("EMERGENCY: Cabin pressurization emergency"));
+        
+        SetVoiceRecognitionState(EVoiceRecognitionState::Executing);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("hydraulic")))
+    {
+        FString SystemNumber = CommandData.ExtractedEntities.FindRef(TEXT("system_number"));
+        UE_LOG(LogVoiceCommandPlugin, Error, TEXT("EMERGENCY: Hydraulic system %s failure"), *SystemNumber);
+        
+        SetVoiceRecognitionState(EVoiceRecognitionState::Executing);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    
+    UE_LOG(LogVoiceCommandPlugin, Error, TEXT("EMERGENCY: Unknown emergency procedure: %s"), *CommandData.RecognizedIntent);
+    OnVoiceCommandExecuted.Broadcast(CommandData, false);
+    return false;
 }
 
 bool UVoiceCommandPluginComponent::ExecuteTrainingCommand(const FVoiceCommandData& CommandData)
 {
     UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Executing Training Command: %s"), *CommandData.RecognizedIntent);
-    // Implementation would interface with training scenario systems
-    return true;
+    
+    // Process training scenario commands
+    if (CommandData.RecognizedIntent.Contains(TEXT("start")) || CommandData.RecognizedIntent.Contains(TEXT("begin")))
+    {
+        FString ScenarioName = CommandData.ExtractedEntities.FindRef(TEXT("scenario_name"));
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Starting training scenario: %s"), *ScenarioName);
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("pause")) || CommandData.RecognizedIntent.Contains(TEXT("freeze")))
+    {
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Pausing training scenario"));
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("reset")) || CommandData.RecognizedIntent.Contains(TEXT("restart")))
+    {
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Resetting training scenario"));
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    else if (CommandData.RecognizedIntent.Contains(TEXT("evaluate")) || CommandData.RecognizedIntent.Contains(TEXT("performance")))
+    {
+        UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Evaluating training performance"));
+        
+        OnVoiceCommandExecuted.Broadcast(CommandData, true);
+        return true;
+    }
+    
+    UE_LOG(LogVoiceCommandPlugin, Warning, TEXT("Unknown training command: %s"), *CommandData.RecognizedIntent);
+    OnVoiceCommandExecuted.Broadcast(CommandData, false);
+    return false;
 }
 
 /*
