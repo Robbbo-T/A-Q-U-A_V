@@ -28,7 +28,7 @@ El sistema de comandos de voz de A.Q.U.A.-V. representa la vanguardia en tecnolo
 
 | Característica | Especificación | Estado |
 |----------------|----------------|--------|
-| **Precisión de Reconocimiento** | 98% (silencioso), 95% (cabina), 90% (alto ruido) | ✅ Implementado |
+| **Precisión de Reconocimiento** | Word recognition accuracy: 98% (silencioso), 95% (cabina), 90% (alto ruido) | ✅ Implementado |
 | **Latencia de Respuesta** | <100ms (local), <300ms (nube) | ✅ Optimizado |
 | **Idiomas Soportados** | 10+ idiomas principales | ✅ Completo |
 | **Comandos Simultáneos** | 50+ comandos activos | ✅ Configurado |
