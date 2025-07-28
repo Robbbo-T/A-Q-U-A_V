@@ -332,7 +332,7 @@ bool UVoiceCommandPluginComponent::InitializeVoiceRecognition(const FString& Con
     // Bind callbacks
     if (VoiceRecognitionEngine.IsValid())
     {
-        VoiceRecognitionEngine->OnRecognitionStarted.BindUObject(this, &UVoiceCommandPluginComponent::OnSpeechRecognitionComplete);
+        VoiceRecognitionEngine->OnRecognitionStarted.BindUObject(this, &UVoiceCommandPluginComponent::OnVoiceRecognitionStarted);
         VoiceRecognitionEngine->OnCommandRecognized.BindUObject(this, &UVoiceCommandPluginComponent::OnCommandParsingComplete);
         VoiceRecognitionEngine->OnRecognitionError.BindUObject(this, &UVoiceCommandPluginComponent::HandleSystemError);
     }
@@ -779,6 +779,12 @@ void UVoiceCommandPluginComponent::CleanupResources()
  * CALLBACK METHOD IMPLEMENTATIONS
  * ============================================================================
  */
+
+void UVoiceCommandPluginComponent::OnVoiceRecognitionStarted(const FString& SessionInfo)
+{
+    UE_LOG(LogVoiceCommandPlugin, Log, TEXT("Voice recognition started: %s"), *SessionInfo);
+    SetVoiceRecognitionState(EVoiceRecognitionState::Listening);
+}
 
 void UVoiceCommandPluginComponent::OnSpeechRecognitionComplete(const FString& RecognizedText, float Confidence)
 {

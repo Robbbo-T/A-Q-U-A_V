@@ -1,0 +1,462 @@
+{
+  "GrammarInfo": {
+    "Name": "AQUA V. Aerospace Command Grammar",
+    "Version": "7.6.0",
+    "Build": "AMP-TRAIN-VR001-DES-BOB-TEC-TD-DTCEC-392-01-01",
+    "Purpose": "Voice command grammar for aerospace training simulations",
+    "Compliance": ["EASA CS-25", "FAA Part 25", "DO-178C", "ICAO Annex 10"]
+  },
+  "CommandCategories": {
+    "FlightControl": {
+      "ATA_Chapter": "027",
+      "Intents": {
+        "BasicManeuvers": {
+          "turn": {
+            "patterns": [
+              "turn {direction} {degrees} degrees",
+              "turn {direction} to heading {heading}",
+              "execute {direction} turn {degrees} degrees"
+            ],
+            "entities": {
+              "direction": ["left", "right", "port", "starboard"],
+              "degrees": "number(1-180)",
+              "heading": "number(0-360)"
+            },
+            "priority": "normal",
+            "confidence_threshold": 0.85
+          },
+          "climb": {
+            "patterns": [
+              "climb to {altitude}",
+              "climb to flight level {flight_level}",
+              "ascend to {altitude} feet",
+              "climb and maintain {altitude}"
+            ],
+            "entities": {
+              "altitude": "number(1000-50000)",
+              "flight_level": "number(10-500)"
+            },
+            "priority": "critical",
+            "confidence_threshold": 0.90
+          },
+          "descend": {
+            "patterns": [
+              "descend to {altitude}",
+              "descend to flight level {flight_level}",
+              "descend and maintain {altitude}",
+              "descend via {procedure}"
+            ],
+            "entities": {
+              "altitude": "number(0-50000)",
+              "flight_level": "number(0-500)",
+              "procedure": "string"
+            },
+            "priority": "critical",
+            "confidence_threshold": 0.90
+          }
+        },
+        "AdvancedProcedures": {
+          "autoland": {
+            "patterns": [
+              "execute autoland procedure",
+              "initiate autoland",
+              "engage autoland system",
+              "commence automatic landing"
+            ],
+            "entities": {},
+            "priority": "critical",
+            "confidence_threshold": 0.95
+          },
+          "approach": {
+            "patterns": [
+              "initiate approach sequence",
+              "commence {approach_type} approach",
+              "execute approach to runway {runway}",
+              "begin {approach_type} approach runway {runway}"
+            ],
+            "entities": {
+              "approach_type": ["ILS", "VOR", "GPS", "visual", "RNAV"],
+              "runway": "string"
+            },
+            "priority": "critical",
+            "confidence_threshold": 0.92
+          }
+        },
+        "EmergencyProcedures": {
+          "emergency_descent": {
+            "patterns": [
+              "emergency descent",
+              "initiate emergency descent",
+              "commence emergency descent procedure"
+            ],
+            "entities": {},
+            "priority": "emergency",
+            "confidence_threshold": 0.98
+          },
+          "engine_failure": {
+            "patterns": [
+              "engine failure checklist",
+              "execute engine failure procedure",
+              "engine {engine_number} failure"
+            ],
+            "entities": {
+              "engine_number": ["one", "two", "three", "four", "1", "2", "3", "4"]
+            },
+            "priority": "emergency",
+            "confidence_threshold": 0.98
+          }
+        }
+      }
+    },
+    "Communications": {
+      "ATA_Chapter": "023",
+      "Intents": {
+        "RadioOperations": {
+          "frequency": {
+            "patterns": [
+              "set radio frequency {frequency}",
+              "tune to {frequency}",
+              "change frequency to {frequency}",
+              "radio {radio_number} frequency {frequency}"
+            ],
+            "entities": {
+              "frequency": "number(118.000-136.975)",
+              "radio_number": ["one", "two", "1", "2"]
+            },
+            "priority": "normal",
+            "confidence_threshold": 0.85
+          },
+          "contact": {
+            "patterns": [
+              "contact {station}",
+              "call {station}",
+              "switch to {station}",
+              "tune {station}"
+            ],
+            "entities": {
+              "station": [
+                "air traffic control", "ATC", "tower", "ground",
+                "approach", "departure", "center", "unicom",
+                "flight service", "emergency", "guard"
+              ]
+            },
+            "priority": "normal",
+            "confidence_threshold": 0.80
+          }
+        },
+        "IntercomSystems": {
+          "announce": {
+            "patterns": [
+              "announce to passengers",
+              "passenger announcement",
+              "make passenger announcement",
+              "cabin announcement"
+            ],
+            "entities": {},
+            "priority": "normal",
+            "confidence_threshold": 0.75
+          },
+          "crew_call": {
+            "patterns": [
+              "intercom to {crew_member}",
+              "call {crew_member}",
+              "contact {crew_member}"
+            ],
+            "entities": {
+              "crew_member": [
+                "first officer", "captain", "flight engineer",
+                "cabin crew", "purser", "flight attendant"
+              ]
+            },
+            "priority": "normal",
+            "confidence_threshold": 0.80
+          }
+        }
+      }
+    },
+    "Navigation": {
+      "ATA_Chapter": "034",
+      "Intents": {
+        "WaypointManagement": {
+          "set_waypoint": {
+            "patterns": [
+              "set waypoint {waypoint_name}",
+              "add waypoint {waypoint_name}",
+              "insert waypoint {waypoint_name}",
+              "create waypoint {waypoint_name}"
+            ],
+            "entities": {
+              "waypoint_name": "string"
+            },
+            "priority": "normal",
+            "confidence_threshold": 0.85
+          },
+          "navigate_to": {
+            "patterns": [
+              "navigate to {destination}",
+              "direct to {destination}",
+              "proceed to {destination}",
+              "go to {destination}"
+            ],
+            "entities": {
+              "destination": "string"
+            },
+            "priority": "normal",
+            "confidence_threshold": 0.80
+          }
+        },
+        "RoutePlanning": {
+          "calculate_route": {
+            "patterns": [
+              "calculate optimal route",
+              "compute route to {destination}",
+              "plan route to {destination}",
+              "optimize flight path"
+            ],
+            "entities": {
+              "destination": "string"
+            },
+            "priority": "normal",
+            "confidence_threshold": 0.75
+          },
+          "display_chart": {
+            "patterns": [
+              "display navigation chart",
+              "show approach chart",
+              "display {chart_type} chart",
+              "show chart for {location}"
+            ],
+            "entities": {
+              "chart_type": ["approach", "departure", "enroute", "airport"],
+              "location": "string"
+            },
+            "priority": "normal",
+            "confidence_threshold": 0.75
+          }
+        }
+      }
+    },
+    "QuantumSystems": {
+      "QCSAA_Code": "934-936",
+      "Intents": {
+        "QuantumNavigationSystem": {
+          "activate_qns": {
+            "patterns": [
+              "activate quantum navigation system",
+              "engage QNS",
+              "initialize quantum navigation",
+              "start quantum nav"
+            ],
+            "entities": {},
+            "priority": "critical",
+            "confidence_threshold": 0.92
+          },
+          "calibrate_qns": {
+            "patterns": [
+              "calibrate QNS sensors",
+              "calibrate quantum navigation",
+              "perform QNS calibration",
+              "quantum navigation calibration"
+            ],
+            "entities": {},
+            "priority": "normal",
+            "confidence_threshold": 0.90
+          }
+        },
+        "QuantumProcessingUnit": {
+          "initialize_qpu": {
+            "patterns": [
+              "initialize quantum processing unit",
+              "start QPU",
+              "engage quantum processor",
+              "activate quantum computing"
+            ],
+            "entities": {},
+            "priority": "critical",
+            "confidence_threshold": 0.92
+          },
+          "execute_quantum_algorithm": {
+            "patterns": [
+              "execute quantum algorithm {algorithm_name}",
+              "run quantum algorithm {algorithm_name}",
+              "process quantum calculation {algorithm_name}"
+            ],
+            "entities": {
+              "algorithm_name": [
+                "optimization", "pathfinding", "weather_analysis",
+                "fuel_optimization", "route_planning"
+              ]
+            },
+            "priority": "normal",
+            "confidence_threshold": 0.88
+          }
+        },
+        "QuantumDataStorage": {
+          "read_qds": {
+            "patterns": [
+              "read quantum data storage",
+              "access QDS",
+              "retrieve quantum data",
+              "display quantum history"
+            ],
+            "entities": {},
+            "priority": "normal",
+            "confidence_threshold": 0.85
+          }
+        }
+      }
+    },
+    "EmergencyProcedures": {
+      "ATA_Chapter": "025",
+      "Intents": {
+        "CriticalSystems": {
+          "fire_emergency": {
+            "patterns": [
+              "fire emergency",
+              "engine fire",
+              "cabin fire",
+              "fire in {location}"
+            ],
+            "entities": {
+              "location": ["engine", "cabin", "cargo", "lavatory"]
+            },
+            "priority": "emergency",
+            "confidence_threshold": 0.98
+          },
+          "pressurization": {
+            "patterns": [
+              "cabin pressurization failure",
+              "rapid decompression",
+              "pressurization emergency",
+              "cabin pressure loss"
+            ],
+            "entities": {},
+            "priority": "emergency",
+            "confidence_threshold": 0.98
+          },
+          "hydraulic_failure": {
+            "patterns": [
+              "hydraulic failure",
+              "hydraulic system {system_number} failure",
+              "loss of hydraulic pressure"
+            ],
+            "entities": {
+              "system_number": ["A", "B", "C", "1", "2", "3"]
+            },
+            "priority": "emergency",
+            "confidence_threshold": 0.98
+          }
+        }
+      }
+    },
+    "TrainingScenarios": {
+      "ACV_Code": "778",
+      "Intents": {
+        "ScenarioControl": {
+          "start_scenario": {
+            "patterns": [
+              "start training scenario {scenario_name}",
+              "begin scenario {scenario_name}",
+              "initiate training {scenario_name}",
+              "load scenario {scenario_name}"
+            ],
+            "entities": {
+              "scenario_name": [
+                "normal_operations", "emergency_procedures", "weather_scenarios",
+                "system_failures", "instrument_approaches", "night_operations"
+              ]
+            },
+            "priority": "training",
+            "confidence_threshold": 0.70
+          },
+          "pause_scenario": {
+            "patterns": [
+              "pause scenario",
+              "pause training",
+              "freeze scenario",
+              "hold training"
+            ],
+            "entities": {},
+            "priority": "training",
+            "confidence_threshold": 0.75
+          },
+          "reset_scenario": {
+            "patterns": [
+              "reset scenario",
+              "restart training",
+              "reset to initial conditions",
+              "begin scenario again"
+            ],
+            "entities": {},
+            "priority": "training",
+            "confidence_threshold": 0.75
+          }
+        },
+        "PerformanceEvaluation": {
+          "evaluate_performance": {
+            "patterns": [
+              "evaluate performance",
+              "show performance metrics",
+              "display training results",
+              "performance assessment"
+            ],
+            "entities": {},
+            "priority": "training",
+            "confidence_threshold": 0.70
+          }
+        }
+      }
+    }
+  },
+  "EntityTypes": {
+    "number": {
+      "type": "numeric",
+      "validation": "range"
+    },
+    "string": {
+      "type": "text",
+      "validation": "alphanumeric"
+    },
+    "frequency": {
+      "type": "numeric",
+      "validation": "aviation_frequency",
+      "format": "XXX.XXX"
+    },
+    "heading": {
+      "type": "numeric",
+      "validation": "range(0-360)",
+      "format": "degrees"
+    },
+    "altitude": {
+      "type": "numeric",
+      "validation": "range(0-50000)",
+      "format": "feet"
+    },
+    "flight_level": {
+      "type": "numeric",
+      "validation": "range(10-500)",
+      "format": "FL_XXX"
+    }
+  },
+  "GlobalSettings": {
+    "case_sensitive": false,
+    "partial_matching": true,
+    "fuzzy_matching": true,
+    "fuzzy_threshold": 0.8,
+    "context_aware": true,
+    "multi_intent": false,
+    "confidence_aggregation": "weighted_average"
+  },
+  "ComplianceNotes": {
+    "ICAO_Standards": {
+      "phraseology": "Standard ICAO phraseology supported",
+      "phonetic_alphabet": "NATO/ICAO phonetic alphabet integrated",
+      "standardization": "Compliant with Annex 10 communications"
+    },
+    "Safety_Considerations": {
+      "emergency_priority": "Emergency commands have highest priority and confidence requirements",
+      "fail_safe": "System defaults to safe state on ambiguous commands",
+      "backup_manual": "Manual override always available"
+    }
+  }
+}

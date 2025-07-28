@@ -470,6 +470,9 @@ private:
      * ========================================================================
      */
 
+    /** Called when voice recognition starts */
+    void OnVoiceRecognitionStarted(const FString& SessionInfo);
+
     /** Called when speech-to-text conversion completes */
     void OnSpeechRecognitionComplete(const FString& RecognizedText, float Confidence);
 

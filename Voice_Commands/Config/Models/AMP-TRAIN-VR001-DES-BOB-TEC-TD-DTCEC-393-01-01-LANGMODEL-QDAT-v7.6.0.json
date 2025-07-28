@@ -1,0 +1,276 @@
+{
+  "ModelInfo": {
+    "Name": "AQUA V. Aerospace Language Model - English (US)",
+    "Version": "7.6.0",
+    "Build": "AMP-TRAIN-VR001-DES-BOB-TEC-TD-DTCEC-393-01-01",
+    "Language": "en-US",
+    "Specialization": "Aerospace Training and Operations",
+    "Certification": ["DO-178C", "EASA CS-25", "FAA Part 25"]
+  },
+  "VocabularyDomains": {
+    "Aviation": {
+      "weight": 1.0,
+      "categories": [
+        "flight_control", "navigation", "communications", 
+        "weather", "instruments", "procedures", "emergencies"
+      ]
+    },
+    "Aerospace": {
+      "weight": 0.9,
+      "categories": [
+        "spacecraft", "orbital_mechanics", "launch_systems",
+        "life_support", "propulsion", "attitude_control"
+      ]
+    },
+    "Quantum_Systems": {
+      "weight": 0.8,
+      "categories": [
+        "quantum_navigation", "quantum_computing", "quantum_sensors",
+        "entanglement", "superposition", "decoherence"
+      ]
+    },
+    "Training": {
+      "weight": 0.7,
+      "categories": [
+        "simulation", "scenarios", "assessment", "performance",
+        "objectives", "curriculum", "certification"
+      ]
+    }
+  },
+  "AcousticModels": {
+    "Primary": {
+      "name": "aerospace_professional_v7.6",
+      "sample_rate": 48000,
+      "channels": 1,
+      "bit_depth": 16,
+      "features": ["mfcc", "delta", "delta_delta"],
+      "context_window": 9,
+      "noise_robustness": "adaptive"
+    },
+    "Backup": {
+      "name": "general_aviation_v7.5",
+      "sample_rate": 48000,
+      "channels": 1,
+      "bit_depth": 16,
+      "features": ["mfcc", "spectral"],
+      "context_window": 7,
+      "noise_robustness": "static"
+    }
+  },
+  "LanguageModel": {
+    "type": "statistical_trigram",
+    "smoothing": "kneser_ney",
+    "vocabulary_size": 50000,
+    "oov_handling": "phonetic_fallback",
+    "context_length": 3,
+    "interpolation_weights": [0.6, 0.3, 0.1]
+  },
+  "Pronunciation": {
+    "dictionary": "cmu_dict_aerospace_extended",
+    "phoneme_set": "arpabet_aviation",
+    "stress_marking": true,
+    "variant_support": true,
+    "custom_pronunciations": {
+      "TCAS": "T IH1 K AE2 S",
+      "ECAM": "IY1 K AE2 M",
+      "EFIS": "IY1 F IH0 S",
+      "EICAS": "AY1 K AE2 S",
+      "ILS": "AY1 EH1 L EH1 S",
+      "VOR": "V IY1 OW1 AA1 R",
+      "DME": "D IY1 EH1 M IY1",
+      "GPS": "JH IY1 P IY1 EH1 S",
+      "FMS": "EH1 F EH1 M EH1 S",
+      "MCDU": "EH1 M S IY1 D IY1 Y UW1",
+      "FADEC": "F EY1 D EH0 K",
+      "QPU": "K Y UW1 P IY1 Y UW1",
+      "QNS": "K Y UW1 EH1 N EH1 S",
+      "QDS": "K Y UW1 D IY1 EH1 S"
+    }
+  },
+  "IntentClassification": {
+    "model_type": "neural_network",
+    "architecture": "bidirectional_lstm",
+    "layers": [
+      {"type": "embedding", "size": 300},
+      {"type": "bidirectional_lstm", "units": 256},
+      {"type": "dropout", "rate": 0.3},
+      {"type": "dense", "units": 128, "activation": "relu"},
+      {"type": "dropout", "rate": 0.2},
+      {"type": "dense", "units": "num_intents", "activation": "softmax"}
+    ],
+    "training": {
+      "optimizer": "adam",
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "early_stopping": true,
+      "validation_split": 0.2
+    }
+  },
+  "EntityExtraction": {
+    "model_type": "conditional_random_field",
+    "features": [
+      "word_shape", "word_suffix", "word_prefix",
+      "pos_tag", "chunk_tag", "gazetteer_lookup"
+    ],
+    "gazetteers": {
+      "airports": "icao_airport_codes.txt",
+      "aircraft_types": "aircraft_designations.txt",
+      "navigation_aids": "navaid_identifiers.txt",
+      "airlines": "airline_codes.txt",
+      "frequencies": "aviation_frequencies.txt",
+      "quantum_terms": "quantum_terminology.txt"
+    }
+  },
+  "ContextualUnderstanding": {
+    "context_window": 5,
+    "conversation_memory": 10,
+    "dialogue_state_tracking": true,
+    "coreference_resolution": true,
+    "temporal_understanding": true,
+    "spatial_understanding": true
+  },
+  "SpecializedTerminology": {
+    "ATA_Chapters": {
+      "005": "Time Limits/Maintenance Checks",
+      "021": "Air Conditioning",
+      "022": "Auto Flight",
+      "023": "Communications",
+      "024": "Electrical Power",
+      "025": "Equipment/Furnishings",
+      "026": "Fire Protection",
+      "027": "Flight Controls",
+      "028": "Fuel",
+      "029": "Hydraulic Power",
+      "030": "Ice and Rain Protection",
+      "031": "Indicating/Recording Systems",
+      "032": "Landing Gear",
+      "033": "Lights",
+      "034": "Navigation",
+      "035": "Oxygen",
+      "036": "Pneumatic",
+      "037": "Vacuum",
+      "038": "Water/Waste"
+    },
+    "ICAO_Phonetic_Alphabet": {
+      "A": "Alpha", "B": "Bravo", "C": "Charlie", "D": "Delta",
+      "E": "Echo", "F": "Foxtrot", "G": "Golf", "H": "Hotel",
+      "I": "India", "J": "Juliet", "K": "Kilo", "L": "Lima",
+      "M": "Mike", "N": "November", "O": "Oscar", "P": "Papa",
+      "Q": "Quebec", "R": "Romeo", "S": "Sierra", "T": "Tango",
+      "U": "Uniform", "V": "Victor", "W": "Whiskey", "X": "X-ray",
+      "Y": "Yankee", "Z": "Zulu"
+    },
+    "Quantum_Systems": {
+      "QNS": "Quantum Navigation System",
+      "QPU": "Quantum Processing Unit",
+      "QDS": "Quantum Data Storage",
+      "QEE": "Quantum Entanglement Engine",
+      "QSS": "Quantum Sensor Suite",
+      "QCC": "Quantum Communication Channel"
+    }
+  },
+  "AccentAdaptation": {
+    "supported_accents": [
+      "american_general", "american_southern", "british_rp",
+      "british_scottish", "australian", "canadian", "irish"
+    ],
+    "accent_weights": {
+      "american_general": 0.4,
+      "british_rp": 0.2,
+      "australian": 0.1,
+      "canadian": 0.1,
+      "others": 0.2
+    },
+    "adaptation_method": "maximum_likelihood_linear_regression"
+  },
+  "NoiseRobustness": {
+    "noise_types": [
+      "cockpit_ambient", "engine_noise", "wind_noise",
+      "radio_static", "hvac_noise", "keyboard_clicks"
+    ],
+    "noise_adaptation": "spectral_subtraction",
+    "snr_threshold": 10.0,
+    "voice_activity_detection": "energy_entropy_based",
+    "noise_estimation": "minimum_statistics"
+  },
+  "PerformanceMetrics": {
+    "target_accuracy": 0.95,
+    "target_latency_ms": 300,
+    "confidence_threshold": 0.75,
+    "word_error_rate_target": 0.05,
+    "concept_error_rate_target": 0.03,
+    "false_acceptance_rate": 0.01,
+    "false_rejection_rate": 0.05
+  },
+  "Training_Data": {
+    "total_hours": 10000,
+    "speakers": 2500,
+    "environments": [
+      "simulator", "actual_aircraft", "classroom",
+      "control_tower", "maintenance_hangar"
+    ],
+    "recording_conditions": {
+      "sample_rate": 48000,
+      "bit_depth": 16,
+      "channels": 1,
+      "microphone_types": [
+        "headset_boom", "handheld", "desktop", "aircraft_intercom"
+      ]
+    }
+  },
+  "ValidationSets": {
+    "development": {
+      "hours": 500,
+      "speakers": 100,
+      "purpose": "parameter_tuning"
+    },
+    "test": {
+      "hours": 500,
+      "speakers": 100,
+      "purpose": "final_evaluation"
+    },
+    "certification": {
+      "hours": 200,
+      "speakers": 50,
+      "purpose": "compliance_validation"
+    }
+  },
+  "MultilingualSupport": {
+    "base_language": "en-US",
+    "supported_languages": [
+      "en-GB", "fr-FR", "de-DE", "es-ES", "it-IT", "pt-BR"
+    ],
+    "cross_lingual_transfer": true,
+    "code_switching_support": false,
+    "multilingual_training": true
+  },
+  "UpdateMechanism": {
+    "adaptive_learning": true,
+    "online_adaptation": false,
+    "update_frequency": "monthly",
+    "user_feedback_integration": true,
+    "performance_monitoring": true,
+    "automatic_retraining": false
+  },
+  "ComplianceFeatures": {
+    "DO_178C": {
+      "software_level": "DAL-C",
+      "verification_methods": ["testing", "analysis"],
+      "traceability": "requirements_to_test",
+      "configuration_management": true
+    },
+    "EASA_CS25": {
+      "human_factors": true,
+      "failure_conditions": "major",
+      "certification_basis": "CS-25.1302",
+      "design_approval": "ETSO"
+    },
+    "FAA_Part25": {
+      "human_factors": true,
+      "failure_conditions": "major",
+      "certification_basis": "25.1302",
+      "design_approval": "TSO"
+    }
+  }
+}
