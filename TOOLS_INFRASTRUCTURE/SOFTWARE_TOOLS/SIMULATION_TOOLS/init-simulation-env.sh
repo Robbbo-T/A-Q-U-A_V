@@ -245,10 +245,20 @@ AIRCRAFT=${1:-"BWB-Q100"}
 MODE=${2:-"simulation"}
 
 echo "🤖 Starting A.Q.U.A.-V. Digital Twin: ALI-BOB"
-echo "Aircraft: $AIRCRAFT"
-echo "Mode: $MODE"
+echo "Aircraft: \$AIRCRAFT"
+echo "Mode: \$MODE"
 
-cd "${DIGITAL_TWIN_ROOT}/ALI_BOB_CORE"
+if [ -z "\${DIGITAL_TWIN_ROOT}" ]; then
+  echo "[ERROR] DIGITAL_TWIN_ROOT environment variable is not set."
+  exit 1
+fi
+
+if [ ! -d "\${DIGITAL_TWIN_ROOT}/ALI_BOB_CORE" ]; then
+  echo "[ERROR] Directory \${DIGITAL_TWIN_ROOT}/ALI_BOB_CORE does not exist."
+  exit 1
+fi
+
+cd "\${DIGITAL_TWIN_ROOT}/ALI_BOB_CORE"
 # Digital twin startup commands would go here
 echo "Digital twin placeholder - implement ALI-BOB core here"
 EOF
