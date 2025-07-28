@@ -1,0 +1,99 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "7.6.0",
+  "FriendlyName": "AQUA V. Voice Commands System",
+  "Description": "Advanced Voice Recognition and Command Processing System for Aerospace Training Simulations. Provides complete voice interaction capabilities with ATA chapter compliance, emergency protocols, and quantum systems integration for eVTOL pilot training in VR environments.",
+  "Category": "AQUA V",
+  "CreatedBy": "ROBBBO-T GAIA AIR & SPACE - QDAT Division",
+  "CreatedByURL": "https://gaia-air-space.com",
+  "DocsURL": "https://docs.gaia-air-space.com/aqua-v/voice-commands",
+  "MarketplaceURL": "",
+  "SupportURL": "https://support.gaia-air-space.com",
+  "EngineVersion": "5.0.0",
+  "CanContainContent": true,
+  "IsBetaVersion": false,
+  "IsExperimentalVersion": false,
+  "Installed": false,
+  "EnabledByDefault": true,
+  "RequiresBuildPlatform": false,
+  
+  "Modules": [
+    {
+      "Name": "VoiceCommands",
+      "Type": "Runtime",
+      "LoadingPhase": "PostConfigInit",
+      "AdditionalDependencies": [
+        "Engine",
+        "CoreUObject",
+        "AudioCapture",
+        "AudioMixer",
+        "HeadMountedDisplay"
+      ],
+      "WhitelistPlatforms": [
+        "Win64",
+        "Linux",
+        "Mac"
+      ]
+    }
+  ],
+  
+  "Plugins": [
+    {
+      "Name": "AudioCapture",
+      "Enabled": true,
+      "Optional": false
+    },
+    {
+      "Name": "AudioMixer",
+      "Enabled": true,
+      "Optional": false
+    },
+    {
+      "Name": "SteamVR",
+      "Enabled": true,
+      "Optional": true
+    },
+    {
+      "Name": "OculusVR",
+      "Enabled": true,
+      "Optional": true
+    },
+    {
+      "Name": "OpenXR",
+      "Enabled": true,
+      "Optional": true
+    },
+    {
+      "Name": "EnhancedInput",
+      "Enabled": true,
+      "Optional": false
+    },
+    {
+      "Name": "MetaSound",
+      "Enabled": true,
+      "Optional": true
+    }
+  ],
+  
+  "LocalizationTargets": [
+    {
+      "Name": "VoiceCommands",
+      "LoadingPolicy": "Always"
+    }
+  ],
+  
+  "Pre": "",
+  "Post": "",
+  
+  "AdditionalFieldNotification": {
+    "FieldNotifies": [
+      "VoiceCommandProcessed",
+      "SystemStateChanged",
+      "PerformanceMetricsUpdated",
+      "VoiceSystemError"
+    ]
+  },
+  
+  "EditorCustomVirtualPath": "/AQUA_V/VoiceCommands"
+}
