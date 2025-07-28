@@ -1,0 +1,298 @@
+# AQUA V. Voice Command System - CMake Configuration
+# AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-325-00-01-CMAKE-QMEC-v7.6.0
+
+cmake_minimum_required(VERSION 3.20)
+
+# Project Configuration
+project(AQUA_V_VoiceCommandSystem
+    VERSION 7.6.0
+    DESCRIPTION "AQUA V. Voice Command System for Aerospace Training"
+    LANGUAGES CXX C
+)
+
+# === AQUA V. PROJECT METADATA ===
+set(AQUA_V_PROJECT_CODE "AMP-TRAIN-VR001")
+set(AQUA_V_DESIGN_PHASE "DES-BOB")
+set(AQUA_V_Q_DIVISION "QMEC")
+set(AQUA_V_VERSION "v7.6.0")
+
+# === COMPILER REQUIREMENTS ===
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# === BUILD CONFIGURATION ===
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Build type" FORCE)
+endif()
+
+# === UNREAL ENGINE INTEGRATION ===
+# Find Unreal Engine installation
+find_path(UNREAL_ENGINE_PATH
+    NAMES Engine/Build/BatchFiles/Build.bat Engine/Build/BatchFiles/Build.sh
+    PATHS
+        "C:/Program Files/Epic Games/UE_5.0"
+        "C:/Program Files/Epic Games/UE_5.1"
+        "C:/Program Files/Epic Games/UE_5.2"
+        "C:/Program Files/Epic Games/UE_5.3"
+        "/opt/UnrealEngine"
+        "/usr/local/UnrealEngine"
+        "$ENV{UE5_ROOT}"
+        "$ENV{UNREAL_ENGINE_ROOT}"
+    DOC "Unreal Engine installation directory"
+)
+
+if(UNREAL_ENGINE_PATH)
+    message(STATUS "Found Unreal Engine at: ${UNREAL_ENGINE_PATH}")
+    set(UE_INCLUDE_DIR "${UNREAL_ENGINE_PATH}/Engine/Source/Runtime")
+    set(UE_THIRD_PARTY_DIR "${UNREAL_ENGINE_PATH}/Engine/Source/ThirdParty")
+else()
+    message(WARNING "Unreal Engine not found. Some features may not be available.")
+endif()
+
+# === PLATFORM SPECIFIC SETTINGS ===
+if(WIN32)
+    # Windows specific settings
+    add_definitions(-DPLATFORM_WINDOWS=1)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4 /EHsc")
+    if(CMAKE_BUILD_TYPE STREQUAL "Release")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /O2 /DNDEBUG")
+    endif()
+elseif(LINUX)
+    # Linux specific settings
+    add_definitions(-DPLATFORM_LINUX=1)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pthread")
+    if(CMAKE_BUILD_TYPE STREQUAL "Release")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -DNDEBUG")
+    endif()
+elseif(APPLE)
+    # macOS specific settings
+    add_definitions(-DPLATFORM_MAC=1)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+    if(CMAKE_BUILD_TYPE STREQUAL "Release")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -DNDEBUG")
+    endif()
+endif()
+
+# === AEROSPACE COMPLIANCE FLAGS ===
+add_definitions(-DEASA_CS25_COMPLIANCE=1)
+add_definitions(-DFAA_PART25_COMPLIANCE=1)
+add_definitions(-DDO178C_COMPLIANCE=1)
+add_definitions(-DAS9100_COMPLIANCE=1)
+
+# === VOICE SYSTEM CONFIGURATION ===
+add_definitions(-DVOICE_SYSTEM_VERSION="${PROJECT_VERSION}")
+add_definitions(-DAUDIO_SAMPLE_RATE=48000)
+add_definitions(-DRECOGNITION_LATENCY_MS=300)
+add_definitions(-DACCURACY_THRESHOLD=0.95)
+add_definitions(-DMAX_CONCURRENT_USERS=4)
+
+# === QUANTUM SYSTEMS SUPPORT ===
+option(ENABLE_QUANTUM_SYSTEMS "Enable Quantum Systems (QNS, QPU, QDS)" ON)
+if(ENABLE_QUANTUM_SYSTEMS)
+    add_definitions(-DQUANTUM_SYSTEMS_ENABLED=1)
+    add_definitions(-DQNS_SUPPORT=1)
+    add_definitions(-DQPU_SUPPORT=1)
+    add_definitions(-DQDS_SUPPORT=1)
+endif()
+
+# === FIND REQUIRED PACKAGES ===
+
+# Audio Processing Libraries
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(PORTAUDIO REQUIRED portaudio-2.0)
+pkg_check_modules(SNDFILE REQUIRED sndfile)
+
+# Math Libraries
+find_package(FFTW3 REQUIRED)
+
+# Threading
+find_package(Threads REQUIRED)
+
+# OpenSSL for encryption
+find_package(OpenSSL REQUIRED)
+
+# === THIRD PARTY LIBRARIES ===
+
+# Speech Recognition
+set(SPEECH_RECOGNITION_LIBS "")
+if(EXISTS "${CMAKE_SOURCE_DIR}/ThirdParty/Sphinx")
+    list(APPEND SPEECH_RECOGNITION_LIBS "sphinx")
+    add_definitions(-DSPHINX_SUPPORT=1)
+endif()
+
+if(EXISTS "${CMAKE_SOURCE_DIR}/ThirdParty/Kaldi")
+    list(APPEND SPEECH_RECOGNITION_LIBS "kaldi")
+    add_definitions(-DKALDI_SUPPORT=1)
+endif()
+
+# Natural Language Processing
+if(EXISTS "${CMAKE_SOURCE_DIR}/ThirdParty/NLTK")
+    add_definitions(-DNLTK_SUPPORT=1)
+endif()
+
+# === INCLUDE DIRECTORIES ===
+include_directories(
+    ${CMAKE_SOURCE_DIR}/Core/VoiceRecognitionEngine/SpeechToText
+    ${CMAKE_SOURCE_DIR}/Core/VoiceRecognitionEngine/NaturalLanguageProcessing
+    ${CMAKE_SOURCE_DIR}/Core/VoiceRecognitionEngine/CommandParser
+    ${CMAKE_SOURCE_DIR}/Core/VoiceRecognitionEngine/ResponseGenerator
+    ${CMAKE_SOURCE_DIR}/Core/AudioProcessing/NoiseFiltering
+    ${CMAKE_SOURCE_DIR}/Core/AudioProcessing/FeatureExtraction
+    ${CMAKE_SOURCE_DIR}/Core/AudioProcessing/VoiceActivityDetection
+    ${CMAKE_SOURCE_DIR}/Core/CommandRegistry
+    ${CMAKE_SOURCE_DIR}/Integration/UnrealEnginePlugins/VoiceCommandPlugin/Source
+)
+
+if(UNREAL_ENGINE_PATH)
+    include_directories(
+        ${UE_INCLUDE_DIR}/Core/Public
+        ${UE_INCLUDE_DIR}/CoreUObject/Public
+        ${UE_INCLUDE_DIR}/Engine/Public
+        ${UE_INCLUDE_DIR}/AudioMixer/Public
+        ${UE_THIRD_PARTY_DIR}
+    )
+endif()
+
+# === SOURCE FILES ===
+
+# Core Voice Recognition Engine
+set(VOICE_ENGINE_SOURCES
+    Core/VoiceRecognitionEngine/SpeechToText/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-341-01-01-SPEECHRECOG-QDAT-v7.6.0.cpp
+    Core/VoiceRecognitionEngine/SpeechToText/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-341-02-01-AUDIOSTREAM-QDAT-v7.6.0.cpp
+    Core/VoiceRecognitionEngine/SpeechToText/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-341-03-01-WAVEFORM-QDAT-v7.6.0.cpp
+    Core/VoiceRecognitionEngine/SpeechToText/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-341-04-01-LANGMODEL-QDAT-v7.6.0.cpp
+)
+
+# Natural Language Processing
+set(NLP_SOURCES
+    Core/VoiceRecognitionEngine/NaturalLanguageProcessing/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-342-01-01-NLPENGINE-QDAT-v7.6.0.cpp
+    Core/VoiceRecognitionEngine/NaturalLanguageProcessing/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-342-02-01-INTENTCLASS-QDAT-v7.6.0.cpp
+    Core/VoiceRecognitionEngine/NaturalLanguageProcessing/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-342-03-01-ENTITYEXT-QDAT-v7.6.0.cpp
+    Core/VoiceRecognitionEngine/NaturalLanguageProcessing/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-342-04-01-CONTEXTMGR-QDAT-v7.6.0.cpp
+)
+
+# Command Parser
+set(PARSER_SOURCES
+    Core/VoiceRecognitionEngine/CommandParser/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-343-01-01-CMDPARSER-QDAT-v7.6.0.cpp
+    Core/VoiceRecognitionEngine/CommandParser/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-343-02-01-CMDVALID-QDAT-v7.6.0.cpp
+    Core/VoiceRecognitionEngine/CommandParser/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-343-03-01-SYNTAXTREE-QDAT-v7.6.0.cpp
+)
+
+# Response Generator
+set(RESPONSE_SOURCES
+    Core/VoiceRecognitionEngine/ResponseGenerator/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-344-01-01-RESPENGINE-QDAT-v7.6.0.cpp
+    Core/VoiceRecognitionEngine/ResponseGenerator/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-344-02-01-TTSINTER-QDAT-v7.6.0.cpp
+)
+
+# Audio Processing
+set(AUDIO_SOURCES
+    Core/AudioProcessing/NoiseFiltering/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-345-01-01-NOISEFILTER-QDAT-v7.6.0.cpp
+    Core/AudioProcessing/NoiseFiltering/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-345-02-01-SPECTRSUB-QDAT-v7.6.0.cpp
+    Core/AudioProcessing/NoiseFiltering/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-345-03-01-ADAPTFILT-QDAT-v7.6.0.cpp
+    Core/AudioProcessing/FeatureExtraction/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-346-01-01-MFCCEXTRACT-QDAT-v7.6.0.cpp
+    Core/AudioProcessing/FeatureExtraction/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-346-02-01-ZEROCROSS-QDAT-v7.6.0.cpp
+    Core/AudioProcessing/VoiceActivityDetection/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-347-01-01-VADENGINE-QDAT-v7.6.0.cpp
+)
+
+# Unreal Engine Integration
+set(UE_INTEGRATION_SOURCES
+    Integration/UnrealEnginePlugins/VoiceCommandPlugin/Source/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-351-01-01-VCPLUGIN-QHPC-v7.6.0.cpp
+    Integration/UnrealEnginePlugins/VoiceCommandPlugin/Source/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-351-02-01-VCACTOR-QHPC-v7.6.0.cpp
+    Integration/UnrealEnginePlugins/VoiceCommandPlugin/Source/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-351-03-01-VCCOMP-QHPC-v7.6.0.cpp
+    Integration/SimulatorIntegration/AMP-TRAIN-VR001-DES-BOB-TEC-SM-DTCEC-355-01-01-SIMIF-QHPC-v7.6.0.cpp
+)
+
+# === BUILD TARGETS ===
+
+# Core Voice Command Library
+add_library(VoiceCommandCore STATIC
+    ${VOICE_ENGINE_SOURCES}
+    ${NLP_SOURCES}
+    ${PARSER_SOURCES}
+    ${RESPONSE_SOURCES}
+    ${AUDIO_SOURCES}
+)
+
+target_link_libraries(VoiceCommandCore
+    ${PORTAUDIO_LIBRARIES}
+    ${SNDFILE_LIBRARIES}
+    ${FFTW3_LIBRARIES}
+    Threads::Threads
+    OpenSSL::SSL
+    OpenSSL::Crypto
+)
+
+# Unreal Engine Plugin (if available)
+if(UNREAL_ENGINE_PATH)
+    add_library(VoiceCommandUE SHARED
+        ${UE_INTEGRATION_SOURCES}
+    )
+    
+    target_link_libraries(VoiceCommandUE
+        VoiceCommandCore
+    )
+endif()
+
+# === TESTING ===
+option(BUILD_TESTS "Build test suite" ON)
+if(BUILD_TESTS)
+    enable_testing()
+    
+    # Unit Tests
+    add_executable(VoiceCommandTests
+        Testing/UnitTests/CommandRecognition/test_main.cpp
+    )
+    
+    target_link_libraries(VoiceCommandTests
+        VoiceCommandCore
+    )
+    
+    add_test(NAME VoiceCommandUnitTests COMMAND VoiceCommandTests)
+endif()
+
+# === INSTALLATION ===
+install(TARGETS VoiceCommandCore
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
+
+install(DIRECTORY Core/
+    DESTINATION include/AQUA_V/VoiceCommands
+    FILES_MATCHING PATTERN "*.h"
+)
+
+install(FILES
+    AMP-TRAIN-VR001-DES-BOB-R&I-TD-ACV-771-00-01-README-QSTR-v7.6.0.md
+    AMP-TRAIN-VR001-DES-BOB-S&L-TD-CYB-823-00-01-LICENSE-QSTR-v7.6.0.md
+    DESTINATION share/doc/AQUA_V_VoiceCommands
+)
+
+# === PACKAGING ===
+set(CPACK_PACKAGE_NAME "AQUA_V_VoiceCommandSystem")
+set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "${PROJECT_DESCRIPTION}")
+set(CPACK_PACKAGE_VENDOR "AQUA V. Corporation")
+set(CPACK_PACKAGE_CONTACT "support@aquav.aero")
+
+if(WIN32)
+    set(CPACK_GENERATOR "NSIS;ZIP")
+elseif(APPLE)
+    set(CPACK_GENERATOR "DragNDrop;TGZ")
+else()
+    set(CPACK_GENERATOR "DEB;RPM;TGZ")
+endif()
+
+include(CPack)
+
+# === STATUS MESSAGES ===
+message(STATUS "")
+message(STATUS "AQUA V. Voice Command System Configuration Summary:")
+message(STATUS "  Project: ${AQUA_V_PROJECT_CODE}")
+message(STATUS "  Version: ${PROJECT_VERSION}")
+message(STATUS "  Build Type: ${CMAKE_BUILD_TYPE}")
+message(STATUS "  Unreal Engine: ${UNREAL_ENGINE_PATH}")
+message(STATUS "  Quantum Systems: ${ENABLE_QUANTUM_SYSTEMS}")
+message(STATUS "  Tests: ${BUILD_TESTS}")
+message(STATUS "")
