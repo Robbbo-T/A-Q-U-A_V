@@ -66,7 +66,19 @@ else
 fi
 
 # Check available memory
-TOTAL_MEM=$(free -h | awk '/^Mem:/ {print $2}' 2>/dev/null || echo "Unknown")
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    TOTAL_MEM=$(free -h | awk '/^Mem:/ {print $2}' 2>/dev/null || echo "Unknown")
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    PAGE_SIZE=$(vm_stat | grep "page size of" | awk '{print $8}' | tr -d '.')
+    FREE_PAGES=$(vm_stat | grep "Pages free" | awk '{print $2}' | tr -d '.')
+    ACTIVE_PAGES=$(vm_stat | grep "Pages active" | awk '{print $2}' | tr -d '.')
+    INACTIVE_PAGES=$(vm_stat | grep "Pages inactive" | awk '{print $2}' | tr -d '.')
+    WIRED_PAGES=$(vm_stat | grep "Pages wired down" | awk '{print $2}' | tr -d '.')
+    TOTAL_MEM=$(echo "scale=2; ($PAGE_SIZE * ($FREE_PAGES + $ACTIVE_PAGES + $INACTIVE_PAGES + $WIRED_PAGES)) / (1024 * 1024)" | bc)
+    TOTAL_MEM="${TOTAL_MEM} GB"
+else
+    TOTAL_MEM="Unknown"
+fi
 echo -e "${GREEN}[OK]${NC} Total Memory: $TOTAL_MEM"
 
 # Check disk space
