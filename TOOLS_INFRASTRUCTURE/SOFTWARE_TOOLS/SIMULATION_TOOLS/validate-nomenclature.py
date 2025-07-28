@@ -103,7 +103,7 @@ def check_file_headers(file_path):
 
 def validate_directory_structure():
     """Validate the directory structure follows nomenclature"""
-    simulation_root = Path("/workspaces/A.Q.U.A.-V./TOOLS_INFRASTRUCTURE/SOFTWARE_TOOLS/SIMULATION_TOOLS")
+    simulation_root = Path(os.getenv("SIMULATION_ROOT", "/workspaces/A.Q.U.A.-V./TOOLS_INFRASTRUCTURE/SOFTWARE_TOOLS/SIMULATION_TOOLS"))
     
     required_dirs = [
         "AERODYNAMICS_SIMULATION",
