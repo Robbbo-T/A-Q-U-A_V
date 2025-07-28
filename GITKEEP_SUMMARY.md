@@ -61,7 +61,7 @@ Se han añadido **439 archivos `.gitkeep`** en toda la estructura del proyecto:
 - Base sólida para desarrollo futuro
 
 ### 📈 **Estadísticas Finales**
-```
+```text
 Total archivos .gitkeep creados: 439
 Directorios mantenidos: 439
 Estructura completa: ✅ 100%
