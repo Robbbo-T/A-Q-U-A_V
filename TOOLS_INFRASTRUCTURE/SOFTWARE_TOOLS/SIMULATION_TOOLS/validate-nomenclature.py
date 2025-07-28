@@ -44,24 +44,7 @@ def print_header():
 
 def validate_document_id(doc_id):
     """Validate document ID against A.Q.U.A.-V. nomenclature v3.1"""
-    # Define the regex pattern for document ID using named groups for clarity
-    pattern = (
-        r'^AQV-'  # Prefix
-        r'(?P<category>[A-Z]{3})-'  # Category (3 uppercase letters)
-        r'(?P<date>\d{8})-'  # Date (8 digits)
-        r'(?P<type>[A-Z]{3})-'  # Type (3 uppercase letters)
-        r'(?P<identifier>[A-Z0-9-]{3,})-'  # Identifier (alphanumeric and hyphens, 3 or more characters)
-        r'(?P<region>[A-Z]{2})-'  # Region (2 uppercase letters)
-        r'(?P<subtype>[A-Z]{3})-'  # Subtype (3 uppercase letters)
-        r'(?P<serial>\d{3})-'  # Serial number (3 digits)
-        r'(?P<revision>\d{2})-'  # Revision number (2 digits)
-        r'(?P<version>\d{2})-'  # Version number (2 digits)
-        r'(?P<module>[A-Z]{3})-'  # Module (3 uppercase letters)
-        r'(?P<system>[A-Z]{3})-'  # System (3 uppercase letters)
-        r'(?P<code>\d{3})-'  # Code (3 digits)
-        r'(?P<project>[A-Z]{4})-'  # Project (4 uppercase letters)
-        r'v(?P<version_number>\d+\.\d+\.\d+)$'  # Version number (semantic versioning)
-    )
+    pattern = r'^AQV-[A-Z]{3}-\d{8}-[A-Z]{3}-[A-Z0-9-]{3,}-[A-Z]{2}-[A-Z]{3}-\d{3}-\d{2}-\d{2}-[A-Z]{3}-[A-Z]{3}-\d{3}-[A-Z]{4}-v\d+\.\d+\.\d+$'
     return re.match(pattern, doc_id) is not None
 
 def check_file_headers(file_path):
@@ -103,7 +86,7 @@ def check_file_headers(file_path):
 
 def validate_directory_structure():
     """Validate the directory structure follows nomenclature"""
-    simulation_root = Path(os.getenv("SIMULATION_ROOT", "/workspaces/A.Q.U.A.-V./TOOLS_INFRASTRUCTURE/SOFTWARE_TOOLS/SIMULATION_TOOLS"))
+    simulation_root = Path("/workspaces/A.Q.U.A.-V./TOOLS_INFRASTRUCTURE/SOFTWARE_TOOLS/SIMULATION_TOOLS")
     
     required_dirs = [
         "AERODYNAMICS_SIMULATION",

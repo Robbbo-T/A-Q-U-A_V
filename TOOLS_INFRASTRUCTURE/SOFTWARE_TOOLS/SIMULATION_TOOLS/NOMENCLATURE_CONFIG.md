@@ -30,7 +30,7 @@ AQV-[TYPE]-[DATE]-[ORG]-[DIV]-[SUB]-[TD]-[CAT]-[SEQ]-[VER]-[REV]-[EXT]-[ID]-[OWN
 Where:
 AQV     = A.Q.U.A. Venture identifier
 TYPE    = Document type (DOC, STD, CFG, SCR, LIC, etc.)
-DATE    = Creation date (YYMONNNN)  (e.g., 25JU0001, where '25' is year, 'JU' is month abbreviation, '0001' is sequence)
+DATE    = Creation date (YYMM####) 
 ORG     = Organization level (OPS)
 DIV     = Division (SIM-TLS = Simulation Tools)
 SUB     = Sub-division (TD = Technical Documentation)
