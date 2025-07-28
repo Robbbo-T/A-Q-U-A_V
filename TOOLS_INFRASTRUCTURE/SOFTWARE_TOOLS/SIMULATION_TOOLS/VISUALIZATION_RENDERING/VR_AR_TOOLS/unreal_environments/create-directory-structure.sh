@@ -241,7 +241,7 @@ for dir in "${DIRECTORIES[@]}"; do
 done
 
 echo ""
-echo "🎉 Successfully created ${#DIRECTORIES[@]} directories!"
+echo "🎉 Successfully created $(echo ${DIRECTORIES[@]} | wc -w) directories!"
 echo "📁 All directories include .gitkeep files for Git tracking"
 echo "🔒 All directories marked with AQUA V. INTERNAL - RESTRICTED classification"
 echo ""

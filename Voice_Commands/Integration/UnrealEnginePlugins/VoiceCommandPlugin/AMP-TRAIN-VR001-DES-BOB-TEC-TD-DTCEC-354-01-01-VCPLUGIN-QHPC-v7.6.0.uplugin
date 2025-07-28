@@ -1,0 +1,50 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "7.6.0",
+	"FriendlyName": "AQUA V. Voice Command Plugin",
+	"Description": "Professional voice recognition and command processing system for aerospace training simulations. Provides real-time speech-to-text, natural language processing, and command execution capabilities designed for AMPEL360 Training VR System.",
+	"Category": "AQUA V. Training Systems",
+	"CreatedBy": "ROBBBO-T GAIA AIR & SPACE",
+	"CreatedByURL": "https://gaia-air-space.com",
+	"DocsURL": "https://docs.gaia-air-space.com/aqua-v/voice-commands",
+	"MarketplaceURL": "",
+	"SupportURL": "https://support.gaia-air-space.com/aqua-v",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"RequiresBuildPlatform": true,
+	"Modules": [
+		{
+			"Name": "VoiceCommandPlugin",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "AudioCapture",
+			"Enabled": true
+		},
+		{
+			"Name": "SignalProcessing",
+			"Enabled": true
+		},
+		{
+			"Name": "AudioSynesthesia",
+			"Enabled": true
+		}
+	],
+	"LocalizationTargets": [
+		{
+			"Name": "VoiceCommandPlugin",
+			"LoadingPolicy": "Always"
+		}
+	]
+}

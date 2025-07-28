@@ -241,7 +241,7 @@ if [ $MISSING_ITEMS -eq 0 ]; then
 else
     echo "⚠️  VALIDATION ISSUES FOUND: $MISSING_ITEMS missing items"
     echo "❌ Please resolve missing directories/files before proceeding"
-    exit 2  # Exit code 2 indicates validation failure due to missing items
+    exit 1
 fi
 
 echo ""
