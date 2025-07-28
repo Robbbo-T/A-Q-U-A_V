@@ -1,0 +1,116 @@
+# Voice Commands - Build Artifacts and Dependencies
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Build outputs
+build/
+dist/
+out/
+bin/
+lib/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Audio files and models (large binaries)
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.model
+*.dat
+*.rrd
+*.db
+*.zip
+
+# User data and profiles
+Config/UserProfiles/user_voices/
+Config/UserProfiles/user_preferences/
+Config/UserProfiles/user_progress/
+
+# Logs and analytics
+*.log
+Analytics/UsageMetrics/daily_reports/
+Analytics/PerformanceData/ResponseTimes/*.csv
+Analytics/Reports/
+
+# Environment and deployment
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+production.env
+development.env
+testing.env
+
+# SSL and certificates
+ssl_certificates/
+*.pem
+*.key
+*.crt
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Test results
+test-results/
+coverage/
+*.cover
+.coverage
+
+# Unreal Engine
+Binaries/
+Intermediate/
+Saved/
+.vs/
+*.opensdf
+*.sdf
+*.sln
+*.suo
+
+# Language model cache
+LanguageSupport/*/Cache/
+*.cache
+
+# Training data (sensitive)
+TrainingScenarios/*/SessionData/
+Testing/*/test_results/
+Testing/ValidationReports/*/TestData/
+
+# Quantum system configurations (classified)
+CommandCategories/SystemsManagement/QuantumSystems/*/SecureConfig/
+Config/SystemSettings/QuantumSecuritySettings.config
