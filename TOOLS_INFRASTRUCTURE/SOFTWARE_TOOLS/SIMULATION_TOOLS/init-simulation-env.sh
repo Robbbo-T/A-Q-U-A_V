@@ -166,10 +166,25 @@ cat > "${SIMULATION_ROOT}/run-cfd-sim.sh" << 'EOF'
 # A.Q.U.A.-V. CFD Simulation Launcher
 # Document ID: AQV-SCR-25JU0001-OPS-SIM-TLS-TD-SIM-002-00-01-SCR-SIM-002-QDAT-v1.0.0
 
-source "${SIMULATION_ROOT}/.env"
+# Check and source environment variables if needed
+if [[ -z "\${SIMULATION_ROOT}" || -z "\${OPENFOAM_ROOT}" ]]; then
+    if [[ -f ".env" ]]; then
+        source ".env"
+    elif [[ -n "\${SIMULATION_ROOT}" && -f "\${SIMULATION_ROOT}/.env" ]]; then
+        source "\${SIMULATION_ROOT}/.env"
+    else
+        echo "ERROR: SIMULATION_ROOT and/or OPENFOAM_ROOT are not set, and .env file not found."
+        exit 1
+    fi
+fi
 
-CONFIG=${1:-"default"}
-MESH=${2:-"medium"}
+if [[ -z "\${SIMULATION_ROOT}" || -z "\${OPENFOAM_ROOT}" ]]; then
+    echo "ERROR: SIMULATION_ROOT and/or OPENFOAM_ROOT are not set after sourcing .env."
+    exit 1
+fi
+
+CONFIG=\${1:-"default"}
+MESH=\${2:-"medium"}
 
 echo "🛩️  Starting A.Q.U.A.-V. CFD Simulation..."
 echo "Configuration: $CONFIG"
