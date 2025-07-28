@@ -142,12 +142,18 @@ AQUA V. €40B Program/
 │       ├── QUANTUM_COMMUNICATIONS/             # Comunicaciones cuánticas
 │       └── QUANTUM_SOFTWARE/                   # Software cuántico
 │
-├── 🏭 MANUFACTURING_SITES/                     # 6 Sitios de Manufactura Globales
+├── 🏭 MANUFACTURING_SITES/                     # 7 Sitios de Manufactura Globales
 │   ├── MADRID_SPAIN/                           # Sede principal y ensamblaje final
 │   │   ├── FINAL_ASSEMBLY/                     # Ensamblaje final
 │   │   ├── INTEGRATION/                        # Integración
 │   │   ├── TESTING/                            # Pruebas
 │   │   └── DELIVERY/                           # Entrega
+│   │
+│   ├── GETAFE_SPAIN/                           # Centro de pruebas y certificación
+│   │   ├── FLIGHT_TESTING/                     # Pruebas de vuelo
+│   │   ├── CERTIFICATION/                      # Certificación
+│   │   ├── AVIONICS_INTEGRATION/               # Integración de aviónica
+│   │   └── VALIDATION/                         # Validación
 │   │
 │   ├── TOULOUSE_FRANCE/                        # I+D y pruebas
 │   │   ├── RESEARCH_LABS/                      # Laboratorios de investigación
@@ -167,17 +173,11 @@ AQUA V. €40B Program/
 │   │   ├── STRUCTURAL_TESTING/                 # Pruebas estructurales
 │   │   └── QUALITY_CONTROL/                    # Control de calidad
 │   │
-│   ├── SINGAPORE/                              # Aviónica y sistemas
-│   │   ├── AVIONICS_ASSEMBLY/                  # Ensamblaje de aviónica
-│   │   ├── ELECTRONICS/                        # Electrónica
-│   │   ├── SOFTWARE/                           # Software
-│   │   └── TESTING/                            # Pruebas
-│   │
-│   └── SILICON_VALLEY_USA/                     # Quantum y AI
-│       ├── QUANTUM_LABS/                       # Laboratorios cuánticos
-│       ├── AI_DEVELOPMENT/                     # Desarrollo de IA
-│       ├── SOFTWARE_ENGINEERING/               # Ingeniería de software
-│       └── INNOVATION_CENTER/                  # Centro de innovación
+│   └── SINGAPORE/                              # Aviónica y sistemas cuánticos
+│       ├── AVIONICS_ASSEMBLY/                  # Ensamblaje de aviónica
+│       ├── QUANTUM_SYSTEMS/                    # Sistemas cuánticos
+│       ├── ELECTRONICS/                        # Electrónica
+│       └── SOFTWARE/                           # Software
 │
 ├── 📊 BUSINESS_OPERATIONS/                     # Operaciones de Negocio
 │   ├── FINANCE/                                # Finanzas (€40B programa)
@@ -435,7 +435,7 @@ AQUA V. €40B Program/
 ### Estadísticas Organizacionales
 - **Total de Personal**: 3,780 empleados
 - **Q-Divisions**: 12 divisiones especializadas
-- **Sitios de Manufactura**: 6 ubicaciones globales
+- **Sitios de Manufactura**: 7 ubicaciones globales
 - **Líneas de Producto**: 4 principales + servicios
 - **Valor del Programa**: €40 mil millones
 - **Sistema UTCS**: 1,000 capítulos de clasificación
