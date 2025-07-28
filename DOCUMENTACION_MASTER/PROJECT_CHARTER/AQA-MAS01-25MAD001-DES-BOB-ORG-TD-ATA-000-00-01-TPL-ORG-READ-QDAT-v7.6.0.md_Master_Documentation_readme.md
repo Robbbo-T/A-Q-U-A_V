@@ -1,5 +1,5 @@
 # AQUA-V PROJECT CHARTER - Master Documentation README
-## AQUAV-MASTER-DOC001-DES-BOB-ORG-TD-ATA-000-00-01-README-QSTR-v7.6.0.md
+## AQA-MAS01-25MAD001-DES-BOB-ORG-TD-ATA-000-00-01-TPL-ORG-READ-QDAT-v7.6.0.md
 
 <p align="center">
   <img src="https://img.shields.io/badge/Program-AQUA--V-blue?style=for-the-badge" alt="AQUA-V Program"/>
@@ -11,12 +11,30 @@
 
 ---
 
+## 📋 NOMENCLATURE COMPLIANCE
+
+| Field | Value | Description |
+|-------|-------|-------------|
+| **LÍNEA** | AQA | AQUA V. Master Program Documents |
+| **PRODUCTO** | MAS01 | Master Documentation Series 01 |
+| **MSN** | 25MAD001 | 2025 Madrid Development 001 |
+| **FASE** | DES | Design Phase |
+| **ALI/BOB** | BOB | Digital/Virtual System |
+| **ARTIFACT** | ORG | Organizational Artifacts |
+| **TYPE** | TD | Technical Document |
+| **UTCS** | ATA-000-00-01 | General Information - Overview |
+| **TEMPLATE** | TPL-ORG-READ | Organizational README Template |
+| **QD** | QDAT | Q-Data Governance Division |
+| **VERSION** | v7.6.0 | Version 7.6.0 |
+
+---
+
 ## 🌊 AEROSPACE AND QUANTUM UNITED ADVANCED VENTURE
 
 ### Document Information
-- **Document ID**: AQUAV-MASTER-DOC001-DES-BOB-ORG-TD-ATA-000-00-01-README-QSTR-v7.6.0
+- **Document ID**: AQA-MAS01-25MAD001-DES-BOB-ORG-TD-ATA-000-00-01-TPL-ORG-READ-QDAT-v7.6.0
 - **Classification**: Executive/Strategic
-- **Q-Division Owner**: QSTR (Quantum Structures)
+- **Q-Division Owner**: QDAT (Quantum Data Governance)
 - **Created**: 2025-01-15
 - **Last Updated**: 2025-07-28
 - **Review Cycle**: Quarterly
@@ -29,11 +47,12 @@
 1. [Executive Overview](#executive-overview)
 2. [Charter Purpose & Scope](#charter-purpose--scope)
 3. [Document Structure](#document-structure)
-4. [Program Architecture](#program-architecture)
-5. [Access Control & Governance](#access-control--governance)
-6. [Navigation Guide](#navigation-guide)
-7. [Key Stakeholders](#key-stakeholders)
-8. [Document Maintenance](#document-maintenance)
+4. [Nomenclature Guide](#nomenclature-guide)
+5. [Program Architecture](#program-architecture)
+6. [Access Control & Governance](#access-control--governance)
+7. [Navigation Guide](#navigation-guide)
+8. [Key Stakeholders](#key-stakeholders)
+9. [Document Maintenance](#document-maintenance)
 
 ---
 
@@ -102,13 +121,51 @@ PROJECT_CHARTER/
 └── Approvals_Signatures/       # Official Authorizations
 ```
 
-### Document Types
-- **Policy Documents** (.pdf) - Formal governance and policies
-- **Working Documents** (.docx) - Editable strategic content
-- **Financial Models** (.xlsx) - Investment and revenue projections
-- **Presentations** (.pptx) - Executive briefings
-- **Technical Diagrams** (.vsdx) - Architecture and workflows
-- **Project Plans** (.mpp) - Schedules and timelines
+### Document Types & Templates
+
+| Template Code | Description | Usage |
+|---------------|-------------|-------|
+| TPL-ORG-XXXX | Organizational Templates | Governance, structure, strategy |
+| TPL-FIN-XXXX | Financial Templates | Investment, revenue, costs |
+| TPL-SLG-XXXX | Stakeholder & Legal Templates | Legal structure, IP, stakeholders |
+| TPL-REG-XXXX | Regulatory Templates | Compliance, certification |
+| TPL-CES-XXXX | Circular Economy & Sustainability | ESG documentation |
+| TPL-TEC-XXXX | Technical Templates | Architecture, technology |
+
+---
+
+## 🔤 Nomenclature Guide
+
+### Master Document Naming Convention
+
+All Project Charter documents follow the AQUA V. Official Nomenclature System v3.1:
+
+```
+AQA-MAS01-25MADXXX-DES-BOB-[ARTIFACT]-TD-[UTCS]-TPL-[CAT]-[DESC]-QDAT-v7.6.0.[ext]
+```
+
+Where:
+- **AQA**: AQUA V. Master program line code
+- **MAS01**: Master Documentation Series 01
+- **25MADXXX**: 2025 Madrid sequential numbering (001-999)
+- **DES**: Design phase (all charter docs)
+- **BOB**: Digital/virtual system
+- **ARTIFACT**: ORG, FIN, S&L, REG, CES, TEC
+- **TD**: Technical Document type
+- **UTCS**: Universal Technology Classification
+- **TPL-[CAT]-[DESC]**: Template category and descriptor
+- **QDAT**: Q-Data Governance (default owner)
+- **v7.6.0**: Version number
+- **[ext]**: File extension (pdf, docx, xlsx, etc.)
+
+### UTCS Codes Used
+
+| UTCS Code | Description | Usage |
+|-----------|-------------|-------|
+| ATA-000-XX-YY | General aerospace information | Organizational docs |
+| DTCEC-304-00-01 | Standards and ontologies | Foundational docs |
+| DTCEC-386-00-XX | Financial analytics | Financial framework |
+| QCSAA-900-01-XX | Quantum systems architecture | Technical architecture |
 
 ---
 
@@ -173,27 +230,40 @@ PROJECT_CHARTER/
 
 ## 🧭 Navigation Guide
 
-### Quick Links to Key Documents
+### Key Documents by MSN
+
+| MSN | Document | Description |
+|-----|----------|-------------|
+| 25MAD001 | This README | Master navigation guide |
+| 25MAD002 | Project Charter | Main charter document |
+| 25MAD003 | Vision Statement | Long-term vision |
+| 25MAD004 | Mission Statement | Operational mission |
+| 25MAD005 | Values Declaration | Core values |
+| 25MAD045 | €40B Investment Plan | Financial structure |
+| 25MAD077 | Master Schedule | Timeline 2025-2050 |
+| 25MAD096 | External Validation | Independent verification |
+
+### Quick Links by Category
 
 #### 🎯 Strategic Documents
-- [Vision Statement](./Executive_Documents/Vision_Mission/AQUAV-MASTER-DOC001-DES-BOB-ORG-TD-ATA-000-01-01-VISION-QSTR-v7.6.0.docx)
-- [Mission Statement](./Executive_Documents/Vision_Mission/AQUAV-MASTER-DOC001-DES-BOB-ORG-TD-ATA-000-01-02-MISSION-QSTR-v7.6.0.docx)
-- [Strategic Roadmap](./Executive_Documents/Strategic_Framework/AQUAV-MASTER-DOC001-DES-BOB-ORG-TD-ATA-000-02-02-ROADMAP-QSTR-v7.6.0.mpp)
+- Vision: `AQA-MAS01-25MAD003-DES-BOB-ORG-TD-ATA-000-01-01-TPL-ORG-VISN-QDAT-v7.6.0.docx`
+- Mission: `AQA-MAS01-25MAD004-DES-BOB-ORG-TD-ATA-000-01-02-TPL-ORG-MISS-QDAT-v7.6.0.docx`
+- Roadmap: `AQA-MAS01-25MAD008-DES-BOB-ORG-TD-ATA-000-02-02-TPL-ORG-RODM-QDAT-v7.6.0.mpp`
 
 #### 💰 Financial Documents
-- [€40B Investment Plan](./Financial_Framework/Investment_Structure/AQUAV-MASTER-DOC001-DES-BOB-FIN-TD-ATA-000-09-01-INVEST40B-QSTR-v7.6.0.xlsx)
-- [Revenue Projections](./Financial_Framework/Revenue_Projections/AQUAV-MASTER-DOC001-DES-BOB-FIN-TD-ATA-000-10-01-REVMODEL-QSTR-v7.6.0.xlsx)
-- [ROI Analysis](./Financial_Framework/Investment_Structure/AQUAV-MASTER-DOC001-DES-BOB-FIN-TD-ATA-000-09-04-ROI-QSTR-v7.6.0.xlsx)
+- Investment: `AQA-MAS01-25MAD045-DES-BOB-FIN-TD-DTCEC-386-00-01-TPL-FIN-INVJ-QDAT-v7.6.0.xlsx`
+- Revenue: `AQA-MAS01-25MAD049-DES-BOB-FIN-TD-DTCEC-386-00-05-TPL-FIN-REVJ-QDAT-v7.6.0.xlsx`
+- ROI: `AQA-MAS01-25MAD048-DES-BOB-FIN-TD-DTCEC-386-00-04-TPL-FIN-ROIJ-QDAT-v7.6.0.xlsx`
 
 #### 🏢 Organizational Documents
-- [Governance Model](./Organizational_Structure/Governance/AQUAV-MASTER-DOC001-DES-BOB-ORG-TD-ATA-000-06-01-GOVMODEL-QSTR-v7.6.0.pdf)
-- [Q-Division Architecture](./Organizational_Structure/Q_Divisions/AQUAV-MASTER-DOC001-DES-BOB-ORG-TD-ATA-000-07-01-QDIVARCH-QSTR-v7.6.0.vsdx)
-- [Organization Chart](./Organizational_Structure/Leadership_Team/AQUAV-MASTER-DOC001-DES-BOB-ORG-TD-ATA-000-08-03-ORGCHART-QSTR-v7.6.0.vsdx)
+- Governance: `AQA-MAS01-25MAD025-DES-BOB-ORG-TD-ATA-000-06-01-TPL-ORG-GOVM-QDAT-v7.6.0.pdf`
+- Q-Divisions: `AQA-MAS01-25MAD029-DES-BOB-ORG-TD-ATA-000-07-01-TPL-ORG-ARCH-QDAT-v7.6.0.vsdx`
+- Org Chart: `AQA-MAS01-25MAD044-DES-BOB-ORG-TD-ATA-000-08-03-TPL-ORG-ORGC-QDAT-v7.6.0.vsdx`
 
 #### ⚖️ Legal & Compliance
-- [Corporate Structure](./Stakeholder_Legal/Legal_Structure/AQUAV-MASTER-DOC001-DES-BOB-S&L-TD-CYB-800-01-01-CORPORATE-QSTR-v7.6.0.pdf)
-- [IP Strategy](./Stakeholder_Legal/Intellectual_Property/AQUAV-MASTER-DOC001-DES-BOB-S&L-TD-CYB-801-01-01-IPSTRAT-QSTR-v7.6.0.pdf)
-- [Regulatory Compliance](./Risk_Management/Compliance/AQUAV-MASTER-DOC001-DES-BOB-REG-TD-ATA-000-14-01-REGMAP-QGRO-v7.6.0.pdf)
+- Corporate: `AQA-MAS01-25MAD061-DES-BOB-S&L-TD-ATA-000-06-01-TPL-SLG-CORP-QDAT-v7.6.0.pdf`
+- IP Strategy: `AQA-MAS01-25MAD065-DES-BOB-S&L-TD-ATA-000-07-01-TPL-SLG-IPST-QDAT-v7.6.0.pdf`
+- Compliance: `AQA-MAS01-25MAD073-DES-BOB-REG-TD-ATA-000-14-01-TPL-REG-REGM-QDAT-v7.6.0.pdf`
 
 ---
 
@@ -245,15 +315,15 @@ PROJECT_CHARTER/
 ## 🔄 Related Documents
 
 ### Master Annexes
-- [Annex A - Detailed Organization Chart](../Annexes/ANNEX_A/)
-- [Annex B - Q-Division Competency Matrix](../Annexes/ANNEX_B/)
-- [Annex D - Official Nomenclature System](../Annexes/ANNEX_D/)
-- [Annex K - Financial Models](../Annexes/ANNEX_K/)
+- [Annex A - Detailed Organization Chart](../../Annexes/ANNEX_A/)
+- [Annex B - Q-Division Competency Matrix](../../Annexes/ANNEX_B/)
+- [Annex D - Official Nomenclature System](../../Annexes/ANNEX_D/)
+- [Annex K - Financial Models](../../Annexes/ANNEX_K/)
 
 ### Technical Documentation
-- [UTCS Classification System](../Technical_Docs/UTCS/)
-- [ALI-BOB Digital Twin Architecture](../Technical_Docs/Digital_Twin/)
-- [Quantum Integration Framework](../Technical_Docs/Quantum/)
+- [UTCS Classification System](../../Technical_Docs/UTCS/)
+- [ALI-BOB Digital Twin Architecture](../../Technical_Docs/Digital_Twin/)
+- [Quantum Integration Framework](../../Technical_Docs/Quantum/)
 
 ---
 
@@ -261,10 +331,10 @@ PROJECT_CHARTER/
 
 | Role | Name | Signature | Date |
 |------|------|-----------|------|
-| Chairman of the Board | [Name] | [Digital Signature] | 2025-01-15 |
-| Chief Executive Officer | [Name] | [Digital Signature] | 2025-01-15 |
-| Chief Financial Officer | [Name] | [Digital Signature] | 2025-01-15 |
-| Chief Legal Officer | [Name] | [Digital Signature] | 2025-01-15 |
+| Director, QDAT | [Name] | [Digital Signature] | 2025-07-28 |
+| PMO Director | [Name] | [Digital Signature] | 2025-07-28 |
+| Chief Data Officer | [Name] | [Digital Signature] | 2025-07-28 |
+| Document Controller | [Name] | [Digital Signature] | 2025-07-28 |
 
 ---
 
@@ -277,11 +347,5 @@ Distribution is limited to authorized personnel only.</i>
 © 2025 AQUA-V Technologies. All rights reserved.<br>
 Aerospace and Quantum United Advanced Venture
 </p>
-```
 
-This README provides a comprehensive overview of the AQUA-V Project Charter, including navigation guidance, stakeholder information, and document governance. Would you like me to create any of the other key documents referenced in this README?
 
-<p align="center">
-© 2025 AQUA-V Technologies. All rights reserved.<br>
-Aerospace and Quantum United Advanced Venture
-</p>
