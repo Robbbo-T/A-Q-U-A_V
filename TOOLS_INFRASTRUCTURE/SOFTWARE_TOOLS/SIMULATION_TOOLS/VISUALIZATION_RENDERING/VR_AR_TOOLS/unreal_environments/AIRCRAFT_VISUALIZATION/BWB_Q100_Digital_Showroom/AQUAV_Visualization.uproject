@@ -1,0 +1,215 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.3",
+	"Category": "",
+	"Description": "A.Q.U.A.-V. Immersive Visualization & Training Environments - Advanced aerospace simulation platform with VR/AR capabilities, quantum system visualization, and collaborative design tools.",
+	"Modules": [
+		{
+			"Name": "AQUAVVisualization",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"CoreUObject",
+				"UMG",
+				"HeadMountedDisplay",
+				"OpenXR",
+				"OculusVR",
+				"SteamVR",
+				"HoloLens",
+				"AudioMixer",
+				"OnlineSubsystem",
+				"OnlineSubsystemUtils",
+				"Json",
+				"JsonUtilities",
+				"HTTP",
+				"WebSockets",
+				"Networking",
+				"Sockets"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "OculusVR",
+			"Enabled": true
+		},
+		{
+			"Name": "OpenXR",
+			"Enabled": true
+		},
+		{
+			"Name": "SteamVR",
+			"Enabled": true
+		},
+		{
+			"Name": "HoloLens",
+			"Enabled": true
+		},
+		{
+			"Name": "ARCore",
+			"Enabled": true
+		},
+		{
+			"Name": "ARKit",
+			"Enabled": true
+		},
+		{
+			"Name": "MagicLeap",
+			"Enabled": false
+		},
+		{
+			"Name": "VaRest",
+			"Enabled": true
+		},
+		{
+			"Name": "WebSocketNetworking",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemSteam",
+			"Enabled": true
+		},
+		{
+			"Name": "JsonBlueprintUtilities",
+			"Enabled": true
+		},
+		{
+			"Name": "PixelStreaming",
+			"Enabled": true
+		},
+		{
+			"Name": "VirtualCamera",
+			"Enabled": true
+		},
+		{
+			"Name": "VirtualProduction",
+			"Enabled": true
+		},
+		{
+			"Name": "RemoteSession",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLink",
+			"Enabled": true
+		},
+		{
+			"Name": "Takes",
+			"Enabled": true
+		},
+		{
+			"Name": "SequencerScripting",
+			"Enabled": true
+		},
+		{
+			"Name": "PythonScriptPlugin",
+			"Enabled": true
+		},
+		{
+			"Name": "EditorScriptingUtilities",
+			"Enabled": true
+		},
+		{
+			"Name": "DatasmithContent",
+			"Enabled": true
+		},
+		{
+			"Name": "CADImporter",
+			"Enabled": true
+		},
+		{
+			"Name": "VariantManagerContent",
+			"Enabled": true
+		},
+		{
+			"Name": "MultiUserClient",
+			"Enabled": true
+		},
+		{
+			"Name": "ConcertSyncClient",
+			"Enabled": true
+		},
+		{
+			"Name": "DisasterRecoveryClient",
+			"Enabled": true
+		},
+		{
+			"Name": "VirtualCameraCore",
+			"Enabled": true
+		},
+		{
+			"Name": "AQUAV_Core",
+			"Enabled": true,
+			"Optional": false,
+			"Path": "Plugins/AQUAV_Core/"
+		},
+		{
+			"Name": "AQUAV_QuantumVisualization",
+			"Enabled": true,
+			"Optional": false,
+			"Path": "Plugins/AQUAV_QuantumVisualization/"
+		},
+		{
+			"Name": "AQUAV_DigitalTwin",
+			"Enabled": true,
+			"Optional": false,
+			"Path": "Plugins/AQUAV_DigitalTwin/"
+		},
+		{
+			"Name": "AQUAV_Analytics",
+			"Enabled": true,
+			"Optional": false,
+			"Path": "Plugins/AQUAV_Analytics/"
+		},
+		{
+			"Name": "AQUAV_Security",
+			"Enabled": true,
+			"Optional": false,
+			"Path": "Plugins/AQUAV_Security/"
+		}
+	],
+	"TargetPlatforms": [
+		"Windows",
+		"Android",
+		"HoloLens",
+		"IOS",
+		"Mac",
+		"Linux"
+	],
+	"EpicSampleNameHash": "0",
+	"PreBuildSteps": {
+		"Win64": [
+			"echo Building A.Q.U.A.-V. Visualization Platform...",
+			"echo Validating ITAR compliance...",
+			"powershell -ExecutionPolicy Bypass -File \"Scripts/Pre-Build-Validation.ps1\""
+		],
+		"Android": [
+			"echo Building for Android/Quest platforms...",
+			"echo Optimizing for mobile VR...",
+			"bash Scripts/pre-build-mobile.sh"
+		],
+		"HoloLens": [
+			"echo Building for HoloLens 2...",
+			"echo Configuring AR features...",
+			"powershell -ExecutionPolicy Bypass -File \"Scripts/Pre-Build-HoloLens.ps1\""
+		]
+	},
+	"PostBuildSteps": {
+		"Win64": [
+			"echo A.Q.U.A.-V. Build Completed Successfully",
+			"echo Running post-build validation...",
+			"powershell -ExecutionPolicy Bypass -File \"Scripts/Post-Build-Package.ps1\""
+		],
+		"Android": [
+			"echo Android/Quest build completed",
+			"echo Packaging for distribution...",
+			"bash Scripts/post-build-mobile.sh"
+		],
+		"HoloLens": [
+			"echo HoloLens build completed",
+			"echo Preparing deployment package...",
+			"powershell -ExecutionPolicy Bypass -File \"Scripts/Post-Build-HoloLens.ps1\""
+		]
+	}
+}
