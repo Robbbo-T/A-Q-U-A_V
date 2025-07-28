@@ -58,24 +58,23 @@ Los sistemas operativos tradicionales fueron diseñados para gestionar **recurso
 El Sistema Operativo Cuántico (QOS) de A.Q.U.A.-V. se concibe como el intermediario esencial entre las aplicaciones aeroespaciales avanzadas y la compleja interacción de hardware cuántico y clásico. Su propósito es abstraer las complejidades del hardware, optimizar la utilización de recursos cuánticos frágiles y proporcionar un entorno operativo seguro y confiable para cargas de trabajo híbridas.
 
 ```mermaid
-graph TD
-    subgraph "Sistema Operativo Cuántico AQUA"
-        APP[Aplicaciones<br/>Aeroespaciales]
-        QOS[Quantum OS Core]
-        QRES[Gestión Recursos<br/>Cuánticos]
-        CRES[Gestión Recursos<br/>Clásicos]
-        QHW[Hardware<br/>Cuántico (QPU)]
-        CHW[Hardware<br/>Clásico (CPU/GPU)]
-        
+flowchart TD
+    subgraph AQUA [Sistema Operativo Cuántico AQUA]
+        APP["`Aplicaciones aeroespaciales`"]
+        QOS["`Quantum OS Core`"]
+        QRES["`Gestión\nRecursos Cuánticos`"]
+        CRES["`Gestión\nRecursos Clásicos`"]
+        QHW["`Hardware\nCuántico QPU`"]
+        CHW["`Hardware\nClásico CPU/GPU`"]
+
         APP --> QOS
         QOS --> QRES
         QOS --> CRES
         QRES --> QHW
         CRES --> CHW
-        
         QRES <--> CRES
     end
-    
+
     style QOS fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
@@ -90,18 +89,16 @@ El QOS se estructura en capas y componentes clave para manejar la naturaleza hí
 La arquitectura del QOS se define en un modelo de capas, donde cada capa proporciona servicios a la superior y abstrae detalles de la inferior, culminando en un microkernel cuántico de bajo nivel.
 
 ```mermaid
-graph TD
-    subgraph "Arquitectura QOS en Capas"
-        L5[Capa 5: APIs y Servicios de Aplicación]
-        L4[Capa 4: Gestión de Procesos Cuánticos]
-        L3[Capa 3: Sistema de Archivos Cuántico (QFS)]
-        L2[Capa 2: Scheduler Híbrido y Gestión de Memoria]
-        L1[Capa 1: Abstracción de Hardware (HAL Cuántica)]
-        L0[Capa 0: Microkernel Cuántico (QMK)]
-        
+flowchart TD
+    subgraph QOS["Arquitectura QOS en Capas"]
+        L5["Capa 5: APIs y Servicios de Aplicación"]
+        L4["Capa 4: Gestión de Procesos Cuánticos"]
+        L3["Capa 3: Sistema de Archivos Cuántico QFS"]
+        L2["Capa 2: Scheduler Híbrido y Gestión de Memoria"]
+        L1["Capa 1: Abstracción de Hardware HAL Cuántica"]
+        L0["Capa 0: Microkernel Cuántico QMK"]
         L5 --> L4 --> L3 --> L2 --> L1 --> L0
     end
-    
     style L0 fill:#9ff,stroke:#333,stroke-width:2px
 ```
 
@@ -623,7 +620,7 @@ La **Pulse Abstraction Layer** dentro del Microkernel Cuántico expone una API d
 ```mermaid
 graph LR
     QOS[QOS Microkernel] --> PAPI[Pulse API]
-    PAPI --> SCHED[Pulse Scheduler (en QPU Controller)]
+    PAPI --> SCHED[Pulse Scheduler en QPU Controller]
     SCHED --> QPU[Quantum Processing Unit]
 ```
 
@@ -984,12 +981,12 @@ El proceso de certificación será un enfoque iterativo y basado en la evidencia
 
 ```mermaid
 flowchart TD
-    A[QOS Código Fuente] --> B{Herramientas Cualificadas<br/>(Simulador, Compilador, Transpilador)}
+    A[QOS Código Fuente] --> B{Herramientas Cualificadas<br/>Simulador, Compilador, Transpilador}
     B --> C[Revisión de Código + Plan de Pruebas]
-    C --> D[Pruebas de Integración QPU (Hardware Real/Mock)]
+    C --> D[Pruebas de Integración QPU Hardware Real/Mock]
     D --> E[Banco de Pruebas de Vuelo + Simulador QPU]
-    E --> F[Documentación de Certificación<br/>(DO-178C, DO-326A, DO-178Q/326Q)]
-    F --> G[Auditoría por Regulador<br/>(EASA, FAA, JAA)]
+    E --> F[Documentación de Certificación<br/>DO-178C, DO-326A, DO-178Q/326Q]
+    F --> G[Auditoría por Regulador<br/>EASA, FAA, JAA]
     G --> H[Certificación Aeroespacial QOS]
 ```
 
