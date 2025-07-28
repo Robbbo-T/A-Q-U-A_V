@@ -1,5 +1,10 @@
 # AQUA V. Voice Command Plugin - Implementation Summary
 
+## ⚠️ **Correct Location Notice**
+**Current Location**: `TOOLS_INFRASTRUCTURE/SOFTWARE_TOOLS/SIMULATION_TOOLS/VISUALIZATION_RENDERING/VR_AR_TOOLS/unreal_environments/TRAINING_SIMULATIONS/Pilot_Training_VR/Content/VR_Interactions/Voice_Commands/`
+
+This system has been correctly placed within the AQUA V. directory structure for VR training simulations.
+
 ## Files Created and Implemented
 
 ### Core Plugin Files
