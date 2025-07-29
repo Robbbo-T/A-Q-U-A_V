@@ -1,7 +1,5 @@
 # AQUA V. Quantum Software Design Phase Folder Structure - FINAL REVISION
 
-# AQUA V. Quantum Software - Concept to Design Cross-Reference Matrix
-
 ## Document Evolution Tracking: TRL 1-3 (Concept) → TRL 4-6 (Design)
 
 This cross-reference matrix maps specific concept phase documents to their corresponding design phase implementations, including all document references cited in regulatory compliance plans.
@@ -169,16 +167,20 @@ All DO-178C referenced documents have specific AQUA V. equivalents:
     └── /QUANTUM/
         └── /QUANTUM_SOFTWARE/
             └── /DESIGN/
+                ├── README.md
+                ├── .gitignore
+                ├── .gitkeep
+                │
                 ├── /QNS_NAVIGATION/
                 │   ├── /DES_TECHNICAL/
                 │   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-TD-QCSAA-910-000-00-01-TPL-DES-200-QSTR-v1.0.0.md
-                │   │   │   # System Architecture Design
+                │   │   │   # System Architecture Design (SRD)
                 │   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-TD-QCSAA-911-000-00-01-TPL-DES-201-QSTR-v1.0.0.md
-                │   │   │   # Software Architecture Design
+                │   │   │   # Software Architecture Design (SDD)
                 │   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-TD-QCSAA-912-000-00-01-TPL-DES-202-QSTR-v1.0.0.md
-                │   │   │   # Interface Control Document
+                │   │   │   # Interface Control Document (IRD/IDD)
                 │   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-TD-QCSAA-913-000-00-01-TPL-DES-203-QSTR-v1.0.0.md
-                │   │   │   # Database Design Document
+                │   │   │   # Database Design Document (DDD)
                 │   │   └── QUA-QNS01-25SVD0001-DES-BOB-TEC-TD-QCSAA-914-000-00-01-TPL-DES-204-QSTR-v1.0.0.md
                 │   │       # Algorithm Design Specification
                 │   │
@@ -199,8 +201,18 @@ All DO-178C referenced documents have specific AQUA V. equivalents:
                 │   └── /DES_REGULATORY/
                 │       ├── QUA-QNS01-25SVD0001-DES-BOB-REG-TD-QCSAA-910-001-00-01-TPL-DES-230-QSTR-v1.0.0.md
                 │       │   # DO-178C Compliance Plan
-                │       └── QUA-QNS01-25SVD0001-DES-BOB-REG-TD-QCSAA-910-002-00-01-TPL-DES-231-QSTR-v1.0.0.md
-                │           # Safety Assessment Design
+                │       ├── QUA-QNS01-25SVD0001-DES-BOB-REG-TD-QCSAA-910-002-00-01-TPL-DES-231-QSTR-v1.0.0.md
+                │       │   # Safety Assessment Design
+                │       ├── QUA-QNS01-25SVD0001-DES-BOB-REG-TD-QCSAA-910-003-00-01-TPL-DES-232-QSTR-v1.0.0.md
+                │       │   # Plan for Software Aspects of Certification (PSAC)
+                │       ├── QUA-QNS01-25SVD0001-DES-BOB-REG-TD-QCSAA-910-004-00-01-TPL-DES-233-QSTR-v1.0.0.md
+                │       │   # Software Development Plan (SDP)
+                │       ├── QUA-QNS01-25SVD0001-DES-BOB-REG-TD-QCSAA-910-005-00-01-TPL-DES-234-QSTR-v1.0.0.md
+                │       │   # Software Verification Plan (SVP)
+                │       ├── QUA-QNS01-25SVD0001-DES-BOB-REG-TD-QCSAA-910-006-00-01-TPL-DES-235-QSTR-v1.0.0.md
+                │       │   # Software Configuration Management Plan (SCMP)
+                │       └── QUA-QNS01-25SVD0001-DES-BOB-REG-TD-QCSAA-910-007-00-01-TPL-DES-236-QSTR-v1.0.0.md
+                │           # Software Quality Assurance Plan (SQAP)
                 │
                 ├── /QDS_DIAGNOSTIC/
                 │   ├── /DES_TECHNICAL/
@@ -311,41 +323,92 @@ All DO-178C referenced documents have specific AQUA V. equivalents:
                 │   ├── /DES_ARCHITECTURE/
                 │   │   ├── QUA-COM01-25SVD0011-DES-BOB-TEC-TD-DTCEC-300-000-00-01-TPL-DES-500-QDAT-v1.0.0.md
                 │   │   │   # Quantum Software Platform Architecture
-                │   │   └── QUA-COM01-25SVD0011-DES-BOB-TEC-TD-DTCEC-301-000-00-01-TPL-DES-501-QDAT-v1.0.0.md
-                │   │       # Common Services Design
+                │   │   ├── QUA-COM01-25SVD0011-DES-BOB-TEC-TD-DTCEC-301-000-00-01-TPL-DES-501-QDAT-v1.0.0.md
+                │   │   │   # Common Services Design (HAL)
+                │   │   └── QUA-COM01-25SVD0011-DES-BOB-TEC-TD-DTCEC-302-000-00-01-TPL-DES-502-QDAT-v1.0.0.md
+                │   │       # Quantum Middleware Services
                 │   │
                 │   ├── /DES_INTEGRATION/
                 │   │   ├── QUA-COM01-25SVD0011-DES-BOB-IND-TD-DTCEC-310-000-00-01-TPL-DES-510-QIND-v1.0.0.md
                 │   │   │   # System Integration Framework
-                │   │   └── QUA-COM01-25SVD0011-DES-BOB-IND-TD-DTCEC-311-000-00-01-TPL-DES-511-QIND-v1.0.0.md
-                │   │       # API Design Specifications
+                │   │   ├── QUA-COM01-25SVD0011-DES-BOB-IND-TD-DTCEC-311-000-00-01-TPL-DES-511-QIND-v1.0.0.md
+                │   │   │   # API Design Specifications
+                │   │   └── QUA-COM01-25SVD0011-DES-BOB-IND-TD-DTCEC-312-000-00-01-TPL-DES-512-QIND-v1.0.0.md
+                │   │       # ALI-BOB Synchronization Protocol
                 │   │
                 │   └── /DES_CYBERSECURITY/
                 │       ├── QUA-COM01-25SVD0011-DES-BOB-CDG-TD-CYB-820-000-00-01-TPL-DES-520-QDAT-v1.0.0.md
                 │       │   # Quantum Security Framework
-                │       └── QUA-COM01-25SVD0011-DES-BOB-CDG-TD-CYB-821-000-00-01-TPL-DES-521-QDAT-v1.0.0.md
-                │           # Data Governance Design
+                │       ├── QUA-COM01-25SVD0011-DES-BOB-CDG-TD-CYB-821-000-00-01-TPL-DES-521-QDAT-v1.0.0.md
+                │       │   # Data Governance Design
+                │       └── QUA-COM01-25SVD0011-DES-BOB-CDG-TD-CYB-822-000-00-01-TPL-DES-522-QDAT-v1.0.0.md
+                │           # Quantum-Safe Cryptography Implementation
                 │
-                └── /DESIGN_REVIEWS/
-                    ├── /PDR_PRELIMINARY/
-                    │   ├── AQA-MAS01-25MAD0104-DES-BOB-ORG-IR-ATA-000-001-00-01-TPL-DES-600-QSTR-v1.0.0.md
-                    │   │   # Preliminary Design Review Package
-                    │   └── AQA-MAS01-25MAD0104-DES-BOB-ORG-PM-ATA-000-002-00-01-TPL-DES-601-QSTR-v1.0.0.pdf
-                    │       # PDR Presentation Materials
-                    │
-                    ├── /CDR_CRITICAL/
-                    │   ├── AQA-MAS01-25MAD0105-DES-BOB-ORG-IR-ATA-000-003-00-01-TPL-DES-610-QSTR-v1.0.0.md
-                    │   │   # Critical Design Review Package
-                    │   └── AQA-MAS01-25MAD0105-DES-BOB-ORG-PM-ATA-000-004-00-01-TPL-DES-611-QSTR-v1.0.0.pdf
-                    │       # CDR Presentation Materials
-                    │
-                    └── /DESIGN_ARTIFACTS/
-                        ├── AQA-MAS01-25MAD0106-DES-BOB-TEC-DT-DTCEC-320-000-00-01-TPL-DES-620-QDAT-v1.0.0/
-                        │   └── # System Architecture Models (UML/SysML)
-                        ├── AQA-MAS01-25MAD0106-DES-BOB-TEC-DT-DTCEC-321-000-00-01-TPL-DES-621-QDAT-v1.0.0/
-                        │   └── # Interface Definition Files
-                        └── AQA-MAS01-25MAD0106-DES-BOB-TEC-DT-DTCEC-322-000-00-01-TPL-DES-622-QDAT-v1.0.0/
-                            └── # Simulation Models
+                ├── /DESIGN_REVIEWS/
+                │   ├── /PDR_PRELIMINARY/
+                │   │   ├── AQA-MAS01-25MAD0104-DES-BOB-ORG-IR-ATA-000-001-00-01-TPL-DES-600-QSTR-v1.0.0.md
+                │   │   │   # Preliminary Design Review Package
+                │   │   ├── AQA-MAS01-25MAD0104-DES-BOB-ORG-PM-ATA-000-002-00-01-TPL-DES-601-QSTR-v1.0.0.pdf
+                │   │   │   # PDR Presentation Materials
+                │   │   └── AQA-MAS01-25MAD0104-DES-BOB-ORG-IR-ATA-000-003-00-01-TPL-DES-602-QSTR-v1.0.0.md
+                │   │       # PDR Action Items & Resolution
+                │   │
+                │   ├── /CDR_CRITICAL/
+                │   │   ├── AQA-MAS01-25MAD0105-DES-BOB-ORG-IR-ATA-000-003-00-01-TPL-DES-610-QSTR-v1.0.0.md
+                │   │   │   # Critical Design Review Package
+                │   │   ├── AQA-MAS01-25MAD0105-DES-BOB-ORG-PM-ATA-000-004-00-01-TPL-DES-611-QSTR-v1.0.0.pdf
+                │   │   │   # CDR Presentation Materials
+                │   │   └── AQA-MAS01-25MAD0105-DES-BOB-ORG-IR-ATA-000-005-00-01-TPL-DES-612-QSTR-v1.0.0.md
+                │   │       # CDR Action Items & Resolution
+                │   │
+                │   └── /DESIGN_ARTIFACTS/
+                │       ├── AQA-MAS01-25MAD0106-DES-BOB-TEC-DT-DTCEC-320-000-00-01-TPL-DES-620-QDAT-v1.0.0/
+                │       │   ├── system_architecture.uml
+                │       │   ├── software_architecture.sysml
+                │       │   └── # System Architecture Models (UML/SysML)
+                │       ├── AQA-MAS01-25MAD0106-DES-BOB-TEC-DT-DTCEC-321-000-00-01-TPL-DES-621-QDAT-v1.0.0/
+                │       │   ├── qns_interface.idl
+                │       │   ├── common_api.yaml
+                │       │   └── # Interface Definition Files
+                │       └── AQA-MAS01-25MAD0106-DES-BOB-TEC-DT-DTCEC-322-000-00-01-TPL-DES-622-QDAT-v1.0.0/
+                │           ├── quantum_sim_models/
+                │           ├── performance_models/
+                │           └── # Simulation Models
+                │
+                ├── /SOFTWARE_PLANS/
+                │   ├── /DEVELOPMENT_PLANS/
+                │   │   ├── QUA-QSOFT-25SVD0001-DES-BOB-REG-TD-ATA-000-100-00-01-TPL-DES-700-QSTR-v1.0.0.md
+                │   │   │   # Master Software Development Plan
+                │   │   ├── QUA-QSOFT-25SVD0001-DES-BOB-REG-TD-ATA-000-101-00-01-TPL-DES-701-QSTR-v1.0.0.md
+                │   │   │   # Quantum Software Standards Document
+                │   │   └── QUA-QSOFT-25SVD0001-DES-BOB-REG-TD-ATA-000-102-00-01-TPL-DES-702-QSTR-v1.0.0.md
+                │   │       # Development Environment Setup Guide
+                │   │
+                │   ├── /VERIFICATION_PLANS/
+                │   │   ├── QUA-QSOFT-25SVD0001-DES-BOB-REG-TD-ATA-000-110-00-01-TPL-DES-710-QSTR-v1.0.0.md
+                │   │   │   # Master Software Verification Plan
+                │   │   ├── QUA-QSOFT-25SVD0001-DES-BOB-REG-TD-ATA-000-111-00-01-TPL-DES-711-QSTR-v1.0.0.md
+                │   │   │   # Test Case Development Guidelines
+                │   │   └── QUA-QSOFT-25SVD0001-DES-BOB-REG-TD-ATA-000-112-00-01-TPL-DES-712-QSTR-v1.0.0.md
+                │   │       # Coverage Analysis Requirements
+                │   │
+                │   └── /CONFIGURATION_MANAGEMENT/
+                │       ├── QUA-QSOFT-25SVD0001-DES-BOB-REG-TD-ATA-000-120-00-01-TPL-DES-720-QSTR-v1.0.0.md
+                │       │   # Software Configuration Management Plan
+                │       ├── QUA-QSOFT-25SVD0001-DES-BOB-REG-TD-ATA-000-121-00-01-TPL-DES-721-QSTR-v1.0.0.md
+                │       │   # Version Control Guidelines
+                │       └── QUA-QSOFT-25SVD0001-DES-BOB-REG-TD-ATA-000-122-00-01-TPL-DES-722-QSTR-v1.0.0.md
+                │           # Baseline Management Procedures
+                │
+                └── /TOOLS_QUALIFICATION/
+                    ├── QUA-TOOLS-25SVD0001-DES-BOB-REG-TD-ATA-000-130-00-01-TPL-DES-730-QSTR-v1.0.0.md
+                    │   # Tool Qualification Plan (DO-330)
+                    ├── QUA-TOOLS-25SVD0001-DES-BOB-REG-TD-ATA-000-131-00-01-TPL-DES-731-QSTR-v1.0.0.md
+                    │   # QNS-COV Coverage Tool Qualification
+                    ├── QUA-TOOLS-25SVD0001-DES-BOB-REG-TD-ATA-000-132-00-01-TPL-DES-732-QSTR-v1.0.0.md
+                    │   # QNS-STAT Static Analysis Tool Qualification
+                    └── QUA-TOOLS-25SVD0001-DES-BOB-REG-TD-ATA-000-133-00-01-TPL-DES-733-QSTR-v1.0.0.md
+                        # QNS-TEST Test Automation Tool Qualification
 ```
 
 ## Final Revision Summary
