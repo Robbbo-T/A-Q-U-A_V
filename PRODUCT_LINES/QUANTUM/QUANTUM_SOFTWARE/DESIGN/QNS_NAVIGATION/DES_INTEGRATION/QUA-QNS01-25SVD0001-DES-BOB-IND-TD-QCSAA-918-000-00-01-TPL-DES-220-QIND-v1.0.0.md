@@ -416,35 +416,78 @@ flowchart TD
 ### 7.3 Certification Timeline
 
 ```mermaid
-%%{init: {'theme':'neutral', 'gantt': {'numberSectionStyles': 4, 'fontSize': 12, 'fontFamily': 'Arial, sans-serif'}}}%%
-gantt
-    title QNS Certification Timeline - EASA/FAA Approval Path
-    dateFormat YYYY-MM-DD
-    section Planning Phase
-    Certification Plan Development     :done, plan1, 2025-07-01, 2025-09-30
-    Authority Engagement              :done, engage1, 2025-08-15, 2025-10-15
-    Certification Plan Approval       :crit, approval1, 2025-09-15, 2025-10-31
+%%{init: {'theme':'neutral', 'themeVariables': {'primaryTextColor':'#000', 'fontFamily':'Arial, sans-serif'}}}%%
+flowchart LR
+    subgraph "2025 - Planning"
+        A1[Q3 2025<br/>Certification Plan<br/>Development]
+        A2[Q4 2025<br/>Authority Engagement<br/>& Plan Approval]
+    end
     
-    section Ground Testing
-    Component Testing                 :active, test1, 2025-11-01, 2026-02-28
-    System Integration Testing        :test2, 2026-03-01, 2026-05-31
-    EMI/EMC Compliance               :test3, 2026-04-01, 2026-06-30
-    Ground Test Completion           :milestone, 2026-06-30, 0d
+    subgraph "2026 - Ground Testing"
+        B1[Q1 2026<br/>Component<br/>Testing]
+        B2[Q2 2026<br/>System Integration<br/>Testing]
+        B3[Q2-Q3 2026<br/>EMI/EMC<br/>Compliance]
+        B4[June 2026<br/>Ground Test<br/>Completion]
+    end
     
-    section Flight Testing
-    Phase A - Basic Functionality    :flight1, 2027-01-01, 2027-03-31
-    Phase B - Performance Envelope   :flight2, 2027-04-01, 2027-07-31
-    Phase C - Failure Modes         :flight3, 2027-08-01, 2027-10-31
-    Phase D - Certification Flights  :crit, flight4, 2027-11-01, 2028-02-29
+    subgraph "2027 - Flight Testing"
+        C1[Q1 2027<br/>Phase A<br/>Basic Functions<br/>20 flights]
+        C2[Q2 2027<br/>Phase B<br/>Performance<br/>30 flights]
+        C3[Q3 2027<br/>Phase C<br/>Failure Modes<br/>15 flights]
+        C4[Q4 2027-Q1 2028<br/>Phase D<br/>Certification<br/>25 flights]
+    end
     
-    section Certification
-    Final Test Report Submission     :cert1, 2028-03-01, 2028-03-31
-    Authority Review                 :cert2, 2028-04-01, 2028-05-31
-    Type Certification              :crit, milestone, cert3, 2028-06-01, 2028-06-30
-    Production Approval             :prod1, 2028-07-01, 2028-12-31
+    subgraph "2028 - Certification"
+        D1[Q1 2028<br/>Final Test<br/>Report]
+        D2[Q2 2028<br/>Authority<br/>Review]
+        D3[June 2028<br/>Type<br/>Certification]
+        D4[Q3-Q4 2028<br/>Production<br/>Approval]
+    end
+    
+    A1 --> A2
+    A2 --> B1
+    B1 --> B2
+    B2 --> B3
+    B3 --> B4
+    B4 --> C1
+    C1 --> C2
+    C2 --> C3
+    C3 --> C4
+    C4 --> D1
+    D1 --> D2
+    D2 --> D3
+    D3 --> D4
+    
+    %% Styling
+    classDef planning fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000
+    classDef testing fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000
+    classDef flight fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
+    classDef cert fill:#e8f5e9,stroke:#388e3c,stroke-width:3px,color:#000
+    classDef milestone fill:#ffebee,stroke:#d32f2f,stroke-width:3px,color:#000
+    
+    class A1,A2 planning
+    class B1,B2,B3 testing
+    class C1,C2,C3,C4 flight
+    class D1,D2,D4 cert
+    class B4,D3 milestone
 ```
 
-- **2025 Q3:** Certification plan approval
+**Key Milestones Summary:**
+
+| Phase | Period | Key Activities | Duration | Status |
+|-------|--------|----------------|----------|---------|
+| **Planning** | 2025 Q3-Q4 | Certification plan development & approval | 6 months | ✅ In Progress |
+| **Ground Testing** | 2026 Q1-Q2 | Component & system testing, EMI/EMC | 6 months | 🔄 Planned |
+| **Flight Testing** | 2027 Full Year | 90 flight test campaign (4 phases) | 12 months | 🔄 Planned |
+| **Certification** | 2028 Q1-Q2 | Final review & type certification | 6 months | 🔄 Planned |
+| **Production** | 2028 Q3-Q4 | Production approval & ramp-up | 6 months | 🔄 Planned |
+
+**Critical Path Items:**
+- 🔴 **Certification Plan Approval** - October 2025
+- 🔴 **Ground Test Completion** - June 2026  
+- 🔴 **Flight Test Start** - January 2027
+- 🔴 **Type Certification** - June 2028
+- 🔴 **First Delivery** - December 2028
 - **2026 Q2:** Ground test completion
 - **2027 Q1:** Flight test start
 - **2028 Q2:** Type certification
