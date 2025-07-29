@@ -391,39 +391,9 @@ graph TD
 
 #### 4.1.2 Diagnostic Display Screen
 
-```
-╔══════════════════════════════════════════════════════════╗
-║            QNS MAINTENANCE TERMINAL v1.0                 ║
-╠══════════════════════════════════════════════════════════╣
-║                                                          ║
-║  QUANTUM SENSOR DIAGNOSTICS            [HOME] [HELP]     ║
-║  ─────────────────────────                              ║
-║                                                          ║
-║  Sensor      Status    Fidelity   SNR    Temp    Action ║
-║  ─────────────────────────────────────────────────────  ║
-║  QINT-X     [PASS]     98.5%     42dB   -196°C   [TEST] ║
-║  QINT-Y     [PASS]     97.8%     41dB   -196°C   [TEST] ║
-║  QINT-Z     [PASS]     99.1%     43dB   -196°C   [TEST] ║
-║  QMAG       [PASS]     95.2%     38dB    22°C    [TEST] ║
-║  QGRV       [WARN]     89.7%     35dB    23°C    [CAL]  ║
-║  QCLK       [PASS]     99.9%     48dB    25°C    [TEST] ║
-║                                                          ║
-║  Overall System Health: 94.2%                            ║
-║                                                          ║
-║  ┌────────────────────────────────────┐                ║
-║  │ Coherence Time History (24hr)      │                ║
-║  │ 200┤ ╱╲    ╱╲                      │                ║
-║  │ 150┤╱  ╲  ╱  ╲  ___________       │                ║
-║  │ 100┤    ╲╱    ╲╱                   │                ║
-║  │  50┤                               │                ║
-║  │   0└─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬   │                ║
-║  │     00 04 08 12 16 20 24 (hours)  │                ║
-║  └────────────────────────────────────┘                ║
-║                                                          ║
-║  [RUN COMPREHENSIVE TEST]  [EXPORT DATA]  [VIEW LOGS]    ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
-```
+<img width="350" height="602" alt="imagen" src="https://github.com/user-attachments/assets/813cea82-636a-40f0-b473-85ee3f720b0b" />
+
+
 
 ### 4.2 Calibration Interface
 
