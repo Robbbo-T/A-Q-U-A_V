@@ -1,4 +1,3 @@
-<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/49957888-8888-4dde-a643-3ff183e430bc" />
 # AQUA V. - Aerospace and Quantum United Advanced Venture
 ## Master README v7.6 - Complete Documentation Portal
 
@@ -10,6 +9,9 @@
   <img src="https://img.shields.io/badge/Validation-94%25_Accurate-purple?style=for-the-badge" alt="94% Validated"/>
   <img src="https://img.shields.io/badge/Templates-251-yellow?style=for-the-badge" alt="251 Templates"/>
 </p>
+
+
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/49957888-8888-4dde-a643-3ff183e430bc" />
 
 ---
 
