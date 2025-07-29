@@ -373,16 +373,16 @@ compliance:
 
 -----
 
-\<p align="center"\>
-\<i\>"The best way to predict the future is to invent it." - Alan Kay\</i\>\<br\>
-\<b\>At AQUA V., we're not predicting the future of aerospace—we're creating it.\</b\>
-\</p\>
+<p align="center">
+  <i>"The best way to predict the future is to invent it." - Alan Kay</i><br>
+  <b>At AQUA V., we're not predicting the future of aerospace—we're creating it.</b>
+</p>
 
-\<p align="center"\>
-© 2025 AQUA V. Technologies. All rights reserved.\<br\>
-Aerospace and Quantum United Advanced Venture\<br\>
-\<b\>Transform. Innovate. Transcend.\</b\>
-\</p\>
+<p align="center">
+  © 2025 AQUA V. Technologies. All rights reserved.<br>
+  Aerospace and Quantum United Advanced Venture<br>
+  <b>Transform. Innovate. Transcend.</b>
+</p>
 
 ---
 
