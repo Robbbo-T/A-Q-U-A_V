@@ -669,18 +669,7 @@ licensing:
 
 #### Executive Advisory Board (10 members)
 
-| Name | Background | Expertise | Term |
-|------|------------|-----------|------|
-| **Dr. John Aerospace** | Ex-Boeing CTO | Aircraft Design | 3 years |
-| **Prof. Maria Quantum** | MIT Quantum Lab | Quantum Computing | 3 years |
-| **Gen. Robert Defense** | Ex-NATO | Defense & Security | 2 years |
-| **Dr. Sarah Green** | UN Climate Panel | Sustainability | 3 years |
-| **Mr. David Finance** | Ex-Airbus CFO | Aerospace Finance | 2 years |
-| **Dr. Li Technology** | Ex-Huawei | 5G/6G Networks | 3 years |
-| **Ms. Anna Space** | Ex-SpaceX | Launch Systems | 3 years |
-| **Prof. Giuseppe Materials** | Politecnico Milano | Advanced Materials | 2 years |
-| **Dr. Raj Computing** | Ex-Google | AI/ML Systems | 3 years |
-| **Ms. Sophie Regulation** | Ex-EASA | Certification | 2 years |
+**TBD**
 
 #### Technical Advisory Committees
 
