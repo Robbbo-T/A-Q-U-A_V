@@ -113,10 +113,10 @@ graph TB
     end
     
     subgraph "Software QA Team"
-        SQAE1[SQA<br/>Engineer 1<br/>(Planning)]
-        SQAE2[SQA<br/>Engineer 2<br/>(Development)]
-        SQAE3[SQA<br/>Engineer 3<br/>(Verification)]
-        SQAE4[SQA<br/>Engineer 4<br/>(Quantum)]
+        SQAE1[SQA<br/>Engineer 1<br/>Planning]
+        SQAE2[SQA<br/>Engineer 2<br/>Development]
+        SQAE3[SQA<br/>Engineer 3<br/>Verification]
+        SQAE4[SQA<br/>Engineer 4<br/>Quantum]
     end
     
     subgraph "External QA"
