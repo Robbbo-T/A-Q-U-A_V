@@ -5,14 +5,14 @@
 
 ## Master README v7.7 - Complete Documentation Portal
 
-\<p align="center"\>
-\<img src="[https://img.shields.io/badge/Version-7.7-blue?style=for-the-badge](https://www.google.com/search?q=https://img.shields.io/badge/Version-7.7-blue%3Fstyle%3Dfor-the-badge)" alt="Version 7.7"/\>
-\<img src="[https://img.shields.io/badge/Investment-](https://www.google.com/search?q=https://img.shields.io/badge/Investment-)€40B-green?style=for-the-badge" alt="€40B Investment"/\>
-\<img src="[https://img.shields.io/badge/Products-40+-orange?style=for-the-badge](https://www.google.com/search?q=https://img.shields.io/badge/Products-40%2B-orange%3Fstyle%3Dfor-the-badge)" alt="40+ Products"/\>
-\<img src="[https://img.shields.io/badge/Sites-6\_Global-red?style=for-the-badge](https://www.google.com/search?q=https://img.shields.io/badge/Sites-6_Global-red%3Fstyle%3Dfor-the-badge)" alt="6 Global Sites"/\>
-\<img src="[https://img.shields.io/badge/Validation-94%25\_Accurate-purple?style=for-the-badge](https://www.google.com/search?q=https://img.shields.io/badge/Validation-94%2525_Accurate-purple%3Fstyle%3Dfor-the-badge)" alt="94% Validated"/\>
-\<img src="[https://img.shields.io/badge/Templates-251\_Approved-yellow?style=for-the-badge](https://www.google.com/search?q=https://img.shields.io/badge/Templates-251_Approved-yellow%3Fstyle%3Dfor-the-badge)" alt="251 Approved Templates"/\>
-\</p\>
+<p align="center">
+  <img src="https://img.shields.io/badge/Version-7.7-blue?style=for-the-badge" alt="Version 7.7"/>
+  <img src="https://img.shields.io/badge/Investment-€40B-green?style=for-the-badge" alt="€40B Investment"/>
+  <img src="https://img.shields.io/badge/Products-40+-orange?style=for-the-badge" alt="40+ Products"/>
+  <img src="https://img.shields.io/badge/Sites-6_Global-red?style=for-the-badge" alt="6 Global Sites"/>
+  <img src="https://img.shields.io/badge/Validation-94%25_Accurate-purple?style=for-the-badge" alt="94% Validated"/>
+  <img src="https://img.shields.io/badge/Templates-251_Approved-yellow?style=for-the-badge" alt="251 Approved Templates"/>
+</p>
 
 -----
 
