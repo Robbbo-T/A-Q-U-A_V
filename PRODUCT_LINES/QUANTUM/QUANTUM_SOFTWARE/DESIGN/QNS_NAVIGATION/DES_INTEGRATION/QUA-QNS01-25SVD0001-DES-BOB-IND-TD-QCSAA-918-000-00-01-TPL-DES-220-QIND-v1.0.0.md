@@ -1,4 +1,4 @@
-# QUA-QNS01-25SVD0001-DES-BOB-IND-TD-QCSAA-918-000-00-01-TPL-DES-220-QIND-v1.0.0
+# QUA-QNS01-25SVD0001-DES-BOB-IND-TD-QCSAA-918-000-00-01-TPL-DES-221-QIND-v1.0.0
 
 ## Quantum Navigation System (QNS) - Aircraft Integration Design Document
 
@@ -38,6 +38,7 @@ This design covers QNS integration into:
 ### 2.1 QNS Subsystem Components
 
 ```mermaid
+%%{init: {'theme':'neutral', 'themeVariables': {'primaryTextColor':'#000', 'primaryColor':'#e8f4f8', 'primaryBorderColor':'#0066cc', 'secondaryColor':'#fff3e0', 'tertiaryColor':'#e8f5e9', 'fontFamily':'Arial, sans-serif'}}}%%
 graph TB
     subgraph "QNS INTEGRATED SYSTEM"
         subgraph "Quantum Core"
@@ -80,9 +81,9 @@ graph TB
     DIO --> HMS
     
     %% Styling
-    classDef quantum fill:#e8f4f8,stroke:#0066cc,stroke-width:2px
-    classDef interface fill:#fff3e0,stroke:#ff6b00,stroke-width:2px
-    classDef aircraft fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef quantum fill:#e8f4f8,stroke:#0066cc,stroke-width:2px,color:#000
+    classDef interface fill:#fff3e0,stroke:#ff6b00,stroke-width:2px,color:#000
+    classDef aircraft fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
     
     class QGR,QMG,QPU,QCN quantum
     class ARINC,MIL,ETH,DIO interface
@@ -102,6 +103,7 @@ graph TB
 3. QMG-W1/W2: Wing stations WS250 (left/right)
 
 ```mermaid
+%%{init: {'theme':'neutral', 'themeVariables': {'primaryTextColor':'#000', 'primaryColor':'#e8f4f8', 'primaryBorderColor':'#0066cc', 'lineColor':'#666'}}}%%
 graph LR
     subgraph "Aircraft Physical Layout - Top View"
         subgraph "Forward Section"
@@ -126,8 +128,8 @@ graph LR
     FS680 -.->|Shielded Cable<br/>45m| AC
     
     %% Styling
-    classDef sensor fill:#e8f4f8,stroke:#0066cc,stroke-width:2px
-    classDef core fill:#fff3e0,stroke:#ff6b00,stroke-width:3px
+    classDef sensor fill:#e8f4f8,stroke:#0066cc,stroke-width:2px,color:#000
+    classDef core fill:#fff3e0,stroke:#ff6b00,stroke-width:3px,color:#000
     
     class FS120,FS680,WS250L,WS250R sensor
     class AC core
@@ -161,6 +163,7 @@ graph LR
 - Aircraft configuration: On change
 
 ```mermaid
+%%{init: {'theme':'neutral', 'themeVariables': {'primaryTextColor':'#000', 'primaryColor':'#ff6b00', 'secondaryColor':'#e8f4f8'}}}%%
 graph TB
     subgraph "QNS Interface Architecture"
         QNS[QNS Core Unit<br/>QPU Processor]
@@ -199,10 +202,10 @@ graph TB
     PWR2 --> QNS
     
     %% Styling
-    classDef core fill:#ff6b00,stroke:#333,stroke-width:3px
-    classDef data fill:#e8f4f8,stroke:#0066cc,stroke-width:2px
-    classDef power fill:#ffe0b2,stroke:#ff6b00,stroke-width:2px
-    classDef system fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef core fill:#ff6b00,stroke:#333,stroke-width:3px,color:#000
+    classDef data fill:#e8f4f8,stroke:#0066cc,stroke-width:2px,color:#000
+    classDef power fill:#ffe0b2,stroke:#ff6b00,stroke-width:2px,color:#000
+    classDef system fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
     
     class QNS core
     class FMS_IF,AP_IF,DIS_IF data
@@ -223,6 +226,7 @@ graph TB
 ### 4.1 Installation Sequence
 
 ```mermaid
+%%{init: {'theme':'neutral', 'themeVariables': {'primaryTextColor':'#000', 'fontFamily':'Arial, sans-serif'}}}%%
 flowchart TD
     Start([QNS Installation Start]) --> Phase1[Pre-Installation Phase]
     
@@ -273,10 +277,10 @@ flowchart TD
     Final --> Complete([QNS Installation<br/>Complete])
     
     %% Styling
-    classDef phase fill:#e8f4f8,stroke:#0066cc,stroke-width:2px
-    classDef task fill:#fff3e0,stroke:#666,stroke-width:1px
-    classDef gate fill:#ffe0b2,stroke:#ff6b00,stroke-width:2px
-    classDef endpoint fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
+    classDef phase fill:#e8f4f8,stroke:#0066cc,stroke-width:2px,color:#000
+    classDef task fill:#fff3e0,stroke:#666,stroke-width:1px,color:#000
+    classDef gate fill:#ffe0b2,stroke:#ff6b00,stroke-width:2px,color:#000
+    classDef endpoint fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px,color:#000
     
     class Phase1,Phase2,Phase3,Phase4 phase
     class P1A,P1B,P1C,P1D,P2A,P2B,P2C,P2D,P3A,P3B,P3C,P3D,P4A,P4B,P4C,P4D task
@@ -412,6 +416,7 @@ flowchart TD
 ### 7.3 Certification Timeline
 
 ```mermaid
+%%{init: {'theme':'neutral', 'gantt': {'numberSectionStyles': 4, 'fontSize': 12, 'fontFamily': 'Arial, sans-serif'}}}%%
 gantt
     title QNS Certification Timeline - EASA/FAA Approval Path
     dateFormat YYYY-MM-DD
@@ -465,6 +470,7 @@ gantt
 | Technology maturation | Low | High | Parallel development paths |
 
 ```mermaid
+%%{init: {'theme':'neutral', 'themeVariables': {'quadrant1TextFill':'#000', 'quadrant2TextFill':'#000', 'quadrant3TextFill':'#000', 'quadrant4TextFill':'#000', 'quadrantPointTextFill':'#000'}}}%%
 quadrantChart
     title Risk Assessment Matrix - QNS Integration Program
     x-axis Low Probability --> High Probability
@@ -486,6 +492,7 @@ quadrantChart
 ### Risk Mitigation Strategy Overview
 
 ```mermaid
+%%{init: {'theme':'neutral', 'themeVariables': {'primaryTextColor':'#000', 'fontFamily':'Arial, sans-serif'}}}%%
 flowchart LR
     subgraph "Technical Risk Mitigation"
         TR1[Quantum Decoherence] --> MIT1[Enhanced Shielding +<br/>Active Compensation]
@@ -501,8 +508,8 @@ flowchart LR
     end
     
     %% Styling
-    classDef risk fill:#ffe0e0,stroke:#d32f2f,stroke-width:2px
-    classDef mitigation fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef risk fill:#ffe0e0,stroke:#d32f2f,stroke-width:2px,color:#000
+    classDef mitigation fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
     
     class TR1,TR2,TR3,TR4,PR1,PR2,PR3 risk
     class MIT1,MIT2,MIT3,MIT4,MIT5,MIT6,MIT7 mitigation
