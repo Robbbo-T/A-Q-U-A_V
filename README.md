@@ -169,18 +169,18 @@ AMP-BWB01-25MAP0001-DES-BOB-TEC-TD-ATA-053-00-01-TPL-DES-012-QSTR-v3.1.0
 
 ### ⚛️ QUANTUM - Core Quantum Technologies (10 Systems)
 
-| System | Code | Function | TRL | Status |
-|--------|------|----------|-----|--------|
-| **Quantum Navigation System** | QNS | GPS-denied navigation | 6 | Flight testing |
-| **Quantum Diagnostic System** | QDS | Molecular-level diagnostics | 5 | Lab validation |
-| **Quantum Structural Monitor** | QSM | Real-time health monitoring | 6 | Prototype |
-| **Quantum Processing Unit** | QPU | Optimization computing | 7 | Production ready |
-| **Quantum Key Distribution** | QKD | Unhackable communications | 8 | Certified |
-| **Quantum Radar System** | QRS | Stealth detection | 4 | Development |
-| **Quantum Gravitometer** | QGR | Gravity field navigation | 5 | Testing |
-| **Quantum Magnetometer** | QMG | Magnetic anomaly detection | 6 | Prototype |
-| **Quantum Clock Network** | QCN | Ultra-precise timing | 7 | Operational |
-| **Quantum AI Processor** | QAI | Sentient computing | 3 | Research |
+| System Code | Function                         | Current TRL | Current Status (Based on TRL Definition)                 |
+| :---------- | :------------------------------- | :---------- | :------------------------------------------------------- |
+| **QNS** | GPS-independent navigation       | **4** | Technology validated in lab environment                  |
+| **QDS** | Molecular-level diagnostics      | **2** | Technology concept formulated                            |
+| **QSM** | Real-time health monitoring      | **2** | Technology concept formulated                            |
+| **QPU** | Optimization computing           | **3** | Experimental proof of concept                            |
+| **QKD** | Unhackable communications        | **7** | System prototype demonstration in operational environment |
+| **QRS** | Stealth detection                | **4** | Technology validated in lab environment                  |
+| **QGR** | Gravity field navigation         | **3** | Experimental proof of concept                            |
+| **QMG** | Magnetic anomaly detection       | **7** | System prototype demonstration in operational environment |
+| **QCN** | Ultra-precise timing             | **8** | Actual system completed and qualified                    |
+| **QAI** | Sentient computing               | **1** | Basic principles observed                                |
 
 ---
 
