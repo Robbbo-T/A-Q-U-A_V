@@ -1,4 +1,5 @@
-# 🌊 AQUA V. - Aerospace and Quantum United Advanced Venture
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/49957888-8888-4dde-a643-3ff183e430bc" />
+# AQUA V. - Aerospace and Quantum United Advanced Venture
 ## Master README v7.6 - Complete Documentation Portal
 
 <p align="center">
