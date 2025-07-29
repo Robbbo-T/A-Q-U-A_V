@@ -512,25 +512,52 @@ flowchart LR
 | Supply chain (quantum components) | Medium | Medium | Dual sourcing strategy |
 | Technology maturation | Low | High | Parallel development paths |
 
+### Risk Assessment Matrix
+
 ```mermaid
-%%{init: {'theme':'neutral', 'themeVariables': {'quadrant1TextFill':'#000', 'quadrant2TextFill':'#000', 'quadrant3TextFill':'#000', 'quadrant4TextFill':'#000', 'quadrantPointTextFill':'#000'}}}%%
-quadrantChart
-    title Risk Assessment Matrix - QNS Integration Program
-    x-axis Low Probability --> High Probability
-    y-axis Low Impact --> High Impact
-    quadrant-1 Monitor Closely
-    quadrant-2 Critical Risks
-    quadrant-3 Low Priority
-    quadrant-4 Manage Actively
+%%{init: {'theme':'neutral', 'themeVariables': {'primaryTextColor':'#000', 'fontFamily':'Arial, sans-serif'}}}%%
+flowchart TB
+    subgraph "Risk Matrix - QNS Integration Program"
+        subgraph "Critical Risks [High Impact]"
+            R1[Quantum Decoherence<br/>Probability: Medium<br/>Impact: High<br/>Score: 6]
+            R2[EMI Interference<br/>Probability: Medium<br/>Impact: High<br/>Score: 6]
+            R3[Certification Delay<br/>Probability: Medium<br/>Impact: High<br/>Score: 6]
+            R4[Technology Maturation<br/>Probability: Low<br/>Impact: High<br/>Score: 3]
+        end
+        
+        subgraph "Moderate Risks [Medium Impact]"
+            R5[Integration Complexity<br/>Probability: High<br/>Impact: Medium<br/>Score: 6]
+            R6[Supply Chain<br/>Probability: Medium<br/>Impact: Medium<br/>Score: 4]
+            R7[Cooling Capacity<br/>Probability: Low<br/>Impact: Medium<br/>Score: 2]
+        end
+    end
     
-    "Cooling capacity": [0.25, 0.5]
-    "Technology maturation": [0.25, 0.75]
-    "EMI interference": [0.5, 0.75]
-    "Quantum decoherence": [0.5, 0.75]
-    "Supply chain": [0.5, 0.5]
-    "Certification delay": [0.5, 0.75]
-    "Integration complexity": [0.75, 0.5]
+    %% Risk scoring legend
+    subgraph "Risk Scoring"
+        L1[Score = Probability × Impact<br/>Low=1, Medium=2, High=3]
+    end
+    
+    %% Styling
+    classDef critical fill:#ffcdd2,stroke:#d32f2f,stroke-width:3px,color:#000
+    classDef moderate fill:#ffe0b2,stroke:#f57c00,stroke-width:2px,color:#000
+    classDef legend fill:#f5f5f5,stroke:#666,stroke-width:1px,color:#000
+    
+    class R1,R2,R3,R4 critical
+    class R5,R6,R7 moderate
+    class L1 legend
 ```
+
+**Risk Prioritization Table:**
+
+| Priority | Risk | Probability | Impact | Risk Score | Action Required |
+|----------|------|-------------|--------|------------|-----------------|
+| 1 | Quantum Decoherence | Medium (2) | High (3) | 6 | Enhanced shielding + active compensation |
+| 1 | EMI Interference | Medium (2) | High (3) | 6 | Dedicated EMI test campaign |
+| 1 | Certification Delay | Medium (2) | High (3) | 6 | Early authority engagement |
+| 1 | Integration Complexity | High (3) | Medium (2) | 6 | Incremental integration + digital twin |
+| 2 | Supply Chain | Medium (2) | Medium (2) | 4 | Dual sourcing strategy |
+| 3 | Technology Maturation | Low (1) | High (3) | 3 | Parallel development paths |
+| 4 | Cooling Capacity | Low (1) | Medium (2) | 2 | Pre-validated thermal solution |
 
 ### Risk Mitigation Strategy Overview
 
