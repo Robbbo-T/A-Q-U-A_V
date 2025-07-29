@@ -436,38 +436,8 @@ class CalibrationWizard:
 
 #### 4.2.2 Calibration Visualization
 
-```
-╔══════════════════════════════════════════════════════════╗
-║           QUANTUM INTERFEROMETER CALIBRATION             ║
-╠══════════════════════════════════════════════════════════╣
-║                                                          ║
-║  Step 3 of 6: Multi-Position Calibration                ║
-║  ────────────────────────────────────                   ║
-║                                                          ║
-║  Orient Aircraft to Position: NOSE UP (+X)               ║
-║                                                          ║
-║     ┌─────────────────────────┐                        ║
-║     │         ___             │   Target: +1g on X     ║
-║     │        ╱   ╲            │   Current: +0.92g      ║
-║     │       ╱  ►  ╲           │                        ║
-║     │      │   │   │          │   ┌──────────────┐    ║
-║     │      │   │   │          │   │ ▓▓▓▓▓▓▓▓░░  │    ║
-║     │       ╲  │  ╱           │   │    92%       │    ║
-║     │        ╲_│_╱            │   └──────────────┘    ║
-║     │          │              │                        ║
-║     └─────────────────────────┘                        ║
-║                                                          ║
-║  Instructions:                                           ║
-║  1. Slowly rotate aircraft to nose-up position          ║
-║  2. Hold steady when indicator reaches green zone       ║
-║  3. Wait for "CAPTURE" button to enable                 ║
-║                                                          ║
-║  Time in position: 00:18 / 00:30                       ║
-║                                                          ║
-║  [← PREVIOUS]        [CAPTURE]         [SKIP →]         ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
-```
+<img width="1024" height="1024" alt="imagen" src="https://github.com/user-attachments/assets/8c3e7372-e7f0-4648-973c-b6e06efa44bb" />
+
 
 ### 4.3 Data Management Interface
 
@@ -704,24 +674,8 @@ class InputValidation:
 
 #### 5.4.2 Confirmation Dialogs
 
-```
-┌─────────────────────────────────┐
-│        CONFIRM ACTION           │
-├─────────────────────────────────┤
-│                                 │
-│  Reset QNS to factory defaults? │
-│                                 │
-│  This will:                     │
-│  • Clear all calibrations       │
-│  • Reset sensor configurations  │
-│  • Delete logged data           │
-│                                 │
-│  This action cannot be undone.  │
-│                                 │
-├─────────────────────────────────┤
-│  [CANCEL]         [CONFIRM]     │
-└─────────────────────────────────┘
-```
+<img width="1024" height="1024" alt="imagen" src="https://github.com/user-attachments/assets/3bcbb648-29da-4196-983b-e3a776a7f3f4" />
+
 
 ---
 
