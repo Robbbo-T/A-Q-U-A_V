@@ -151,3 +151,129 @@ DES_SOFTWARE_DEV/
     │  ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-SM-DTCEC-310-01-02-TPL-SCR-001-QSCI-v1.0.0.py
     │  └── .gitkeep
     └── .gitkeep
+````
+
+---
+
+### Chronological Plan of Generation for AQUA V. QNS Project
+
+**Phase 1: Project Foundation & Initial Setup**
+
+This phase establishes the barebones repository, essential project-level files, and initial empty directory structures.
+
+1.  **Repository Initialization & Core Configuration:**
+    *   `DES_SOFTWARE_DEV/` **(newly generated)**
+        *   `.gitkeep` **(newly generated)**
+        *   `QUA-QNS01-25SVD0001-DES-BOB-S&L-TD-ATA-000-00-02-TPL-LIC-001-S&L-v1.0.0.txt` **(newly generated)**
+        *   `QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-DTCEC-360-00-01-TPL-CFG-001-QDAT-v1.0.0.gitignore` **(newly generated)**
+
+2.  **High-Level Documentation & Placeholders:**
+    *   `DES_SOFTWARE_DEV/` **(already generated)**
+        *   `.gitkeep` **(already generated)**
+        *   `QUA-QNS01-25SVD0001-DES-BOB-S&L-TD-ATA-000-00-02-TPL-LIC-001-S&L-v1.0.0.txt` **(already generated)**
+        *   `QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-DTCEC-360-00-01-TPL-CFG-001-QDAT-v1.0.0.gitignore` **(already generated)**
+        *   `QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-ATA-000-00-01-TPL-DOC-001-QCOM-v1.1.0.md` **(newly generated)**
+        *   `docs/` **(newly generated)**
+            *   `docs/.gitkeep` **(newly generated)**
+            *   `docs/design/` **(newly generated)**
+                *   `docs/design/.gitkeep` **(newly generated)**
+            *   `docs/api/` **(newly generated)**
+                *   `docs/api/.gitkeep` **(newly generated)**
+
+3.  **Initial Tools Infrastructure:**
+    *   `DES_SOFTWARE_DEV/` **(already generated)**
+        *   `.gitkeep` **(already generated)**
+        *   `QUA-QNS01-25SVD0001-DES-BOB-S&L-TD-ATA-000-00-02-TPL-LIC-001-S&L-v1.0.0.txt` **(already generated)**
+        *   `QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-DTCEC-360-00-01-TPL-CFG-001-QDAT-v1.0.0.gitignore` **(already generated)**
+        *   `QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-ATA-000-00-01-TPL-DOC-001-QCOM-v1.1.0.md` **(already generated)**
+        *   `docs/` **(already generated)**
+            *   `docs/.gitkeep` **(already generated)**
+            *   `docs/design/` **(already generated)**
+                *   `docs/design/.gitkeep` **(already generated)**
+            *   `docs/api/` **(already generated)**
+                *   `docs/api/.gitkeep` **(already generated)**
+        *   `tools/` **(newly generated)**
+            *   `tools/.gitkeep` **(newly generated)**
+            *   `tools/config/` **(newly generated)**
+                *   `tools/config/.gitkeep` **(newly generated)**
+            *   `tools/scripts/` **(newly generated)**
+                *   `tools/scripts/.gitkeep` **(newly generated)**
+
+**Phase 2: Core Build System & Initial Code/Test Structure**
+
+Focus shifts to enabling the build process and establishing the basic source code and test layouts.
+
+1.  **Build System Setup:**
+    *   `DES_SOFTWARE_DEV/` **(already generated)**
+        *   `(all previous files/directories)` **(already generated)**
+        *   `build/` **(newly generated)**
+            *   `build/.gitkeep` **(newly generated)**
+            *   `build/cmake/` **(newly generated)**
+                *   `build/cmake/.gitkeep` **(newly generated)**
+            *   `QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-00-01-TPL-BLD-001-QDAT-v1.0.0.cmake` **(newly generated)**
+            *   `QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-00-02-TPL-BLD-001-QDAT-v1.0.0.mk` **(newly generated)**
+
+2.  **Source Code Structure (Empty/Placeholder):**
+    *   `DES_SOFTWARE_DEV/` **(already generated)**
+        *   `(all previous files/directories)` **(already generated)**
+        *   `src/` **(newly generated)**
+            *   `src/.gitkeep` **(newly generated)**
+            *   `src/core/` **(newly generated)**
+                *   `src/core/.gitkeep` **(newly generated)**
+            *   `src/hal/` **(newly generated)**
+                *   `src/hal/.gitkeep` **(newly generated)**
+            *   `src/interfaces/` **(newly generated)**
+                *   `src/interfaces/.gitkeep` **(newly generated)**
+            *   `src/quantum/` **(newly generated)**
+                *   `src/quantum/.gitkeep` **(newly generated)**
+            *   `src/main/` **(newly generated)**
+                *   `src/main/.gitkeep` **(newly generated)**
+
+3.  **Initial Test Structure (Empty/Placeholder):**
+    *   `DES_SOFTWARE_DEV/` **(already generated)**
+        *   `(all previous files/directories)` **(already generated)**
+        *   `tests/` **(newly generated)**
+            *   `tests/.gitkeep` **(newly generated)**
+            *   `tests/unit/` **(newly generated)**
+                *   `tests/unit/.gitkeep` **(newly generated)**
+            *   `tests/integration/` **(newly generated)**
+                *   `tests/integration/.gitkeep` **(newly generated)**
+            *   `tests/performance/` **(newly generated)**
+                *   `tests/performance/.gitkeep` **(newly generated)**
+
+**Phase 3: CI/CD Pipeline Foundation & Initial Implementation**
+
+This phase involves setting up the core CI/CD infrastructure and developing the very first pieces of source code and tests.
+
+1.  **Core CI/CD Configuration:**
+    *   `DES_SOFTWARE_DEV/` **(already generated)**
+        *   `(all previous files/directories)` **(already generated)**
+        *   `build/` **(already generated)**
+            *   `(all previous build files/directories)` **(already generated)**
+            *   `build/ci/` **(newly generated)**
+                *   `build/ci/.gitkeep` **(newly generated)**
+                *   `QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-02-TPL-CI-002-QDAT-v1.0.0.dockerfile` **(newly generated)**
+                *   `QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-04-TPL-CI-004-QDAT-v1.0.0.properties` **(newly generated)**
+                *   `QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-03-TPL-CI-003-QDAT-v1.0.1.groovy` **(newly generated)**
+                *   `QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-01-TPL-CI-001-QDAT-v1.0.0.yml` **(newly generated)**
+
+2.  **Initial Source Code & Module Build Configuration:**
+    *   `DES_SOFTWARE_DEV/` **(already generated)**
+        *   `(all previous files/directories)` **(already generated)**
+        *   `src/` **(already generated)**
+            *   `(all previous src directories)` **(already generated)**
+            *   `src/core/QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-001-00-01-TPL-DEV-301-QSTR-v1.0.0.cpp` **(newly generated)**
+            *   `src/core/QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-001-00-01-TPL-DEV-301-QSTR-v1.0.0.h` **(newly generated)**
+            *   `src/QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-02-01-TPL-BLD-001-QHPC-v1.0.0.cmake` **(newly generated)**
+
+3.  **Initial Test Implementation & Test Build Configuration:**
+    *   `DES_SOFTWARE_DEV/` **(already generated)**
+        *   `(all previous files/directories)` **(already generated)**
+        *   `tests/` **(already generated)**
+            *   `(all previous tests directories)` **(already generated)**
+            *   `tests/unit/QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-DTCEC-304-04-01-TPL-TST-001-QHPC-v1.0.0.cpp` **(newly generated)**
+            *   `tests/integration/QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-DTCEC-304-04-03-TPL-TST-001-QHPC-v1.0.0.cpp` **(newly generated)**
+            *   `tests/performance/QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-DTCEC-304-04-04-TPL-TST-001-QHPC-v1.0.0.cpp` **(newly generated)**
+            *   `tests/QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-DTCEC-304-03-01-TPL-BLD-001-QHPC-v1.0.0.cmake` **(newly generated)**
+
+---
