@@ -607,6 +607,8 @@ class IQuantumSensorFusion;
 class ISafetyMonitor;
 class IWatchdogTimer;
 class IRedundancyManager;
+class IInertialSensor;
+class IGnssReceiver;
 
 // =============================================================================
 // ENHANCED ABSTRACT BASE INTERFACES
@@ -844,6 +846,57 @@ public:
     /// @param[out] time_remaining_ms Time remaining before timeout
     /// @return Operation result
     SAFETY_CRITICAL virtual HalResult get_watchdog_status(bool& is_running, uint32_t& time_remaining_ms) = 0;
+};
+
+/// @brief Interface for inertial sensors
+class IInertialSensor : public IHalDevice {
+public:
+    virtual ~IInertialSensor() = default;
+    
+    /// @brief Start inertial measurements
+    /// @param update_rate_hz Measurement update rate in Hz
+    /// @return Operation result
+    SAFETY_CRITICAL virtual HalResult start_measurements(double update_rate_hz) = 0;
+    
+    /// @brief Stop inertial measurements
+    /// @return Operation result
+    SAFETY_CRITICAL virtual HalResult stop_measurements() = 0;
+    
+    /// @brief Calibrate inertial sensor
+    /// @return Operation result
+    SAFETY_CRITICAL virtual HalResult calibrate() = 0;
+    
+    /// @brief Get latest measurement
+    /// @param[out] data Latest sensor data
+    /// @return Operation result
+    SAFETY_CRITICAL virtual HalResult get_measurement(InertialSensorData& data) const = 0;
+    
+    /// @brief Set measurement callback
+    /// @param callback Measurement callback function
+    virtual void set_measurement_callback(InertialSensorCallback callback) = 0;
+};
+
+/// @brief Interface for GNSS receivers
+class IGnssReceiver : public IHalDevice {
+public:
+    virtual ~IGnssReceiver() = default;
+    
+    /// @brief Start GNSS acquisition
+    /// @return Operation result
+    SAFETY_CRITICAL virtual HalResult start_acquisition() = 0;
+    
+    /// @brief Stop GNSS acquisition
+    /// @return Operation result
+    SAFETY_CRITICAL virtual HalResult stop_acquisition() = 0;
+    
+    /// @brief Get latest position
+    /// @param[out] data Latest GNSS data
+    /// @return Operation result
+    SAFETY_CRITICAL virtual HalResult get_position(GnssData& data) const = 0;
+    
+    /// @brief Set position callback
+    /// @param callback Position callback function
+    virtual void set_position_callback(GnssCallback callback) = 0;
 };
 
 // =============================================================================

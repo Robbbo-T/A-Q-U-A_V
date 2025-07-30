@@ -488,6 +488,8 @@ public:
     }
     
     SAFETY_CRITICAL uint8_t get_redundancy_level() const override {
+        return device_info_.redundancy_factor;
+    }
     
     // =============================================================================
     // IQuantumSensor interface implementation
