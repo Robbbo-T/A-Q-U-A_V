@@ -1,106 +1,153 @@
 ```
 DES_SOFTWARE_DEV/
-├── build/
-│   ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-00-01-TPL-BLD-001-QDAT-v1.0.0.cmake
-│   ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-00-02-TPL-BLD-001-QDAT-v1.0.0.mk
-│   ├── ci/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-01-TPL-CI-001-QDAT-v1.0.0.yml
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-02-TPL-CI-002-QDAT-v1.0.0.dockerfile
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-03-TPL-CI-003-QDAT-v1.0.0.groovy
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-04-TPL-CI-004-QDAT-v1.0.0.properties
-│   │   └── .gitkeep
-│   ├── cmake/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-01-TPL-BLD-001-QHPC-v1.0.0.cmake
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-02-TPL-BLD-001-QHPC-v1.0.0.cmake
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-03-TPL-BLD-001-QHPC-v1.0.0.cmake
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-04-TPL-BLD-001-QHPC-v1.0.0.cmake
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-05-TPL-BLD-001-QHPC-v1.0.0.h.in
-│   │   └── .gitkeep
-│   └── .gitkeep
-│
-├── docs/
-│   ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-ATA-000-00-01-TPL-DOC-001-QCOM-v1.0.0.md
-│   ├── api/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-TD-QCSAA-914-10-01-TPL-API-001-QCOM-v1.0.0.md
-│   │   └── .gitkeep
-│   ├── design/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-TD-QCSAA-914-00-01-TPL-DES-001-QCOM-v1.0.0.md
-│   │   └── .gitkeep
-│   └── .gitkeep
-│
-├── src/
-│   ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-02-01-TPL-BLD-001-QHPC-v1.0.0.cmake
-│   ├── core/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-01-01-TPL-SRC-001-QHPC-v1.0.0.cpp
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-01-01-TPL-SRC-001-QHPC-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-02-01-TPL-SRC-001-QHPC-v1.0.0.cpp
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-02-01-TPL-SRC-001-QHPC-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-03-01-TPL-SRC-001-QHPC-v1.0.0.cpp
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-03-01-TPL-SRC-001-QHPC-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-04-01-TPL-SRC-001-QHPC-v1.0.0.cpp
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-04-01-TPL-SRC-001-QHPC-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-05-01-TPL-SRC-001-QHPC-v1.0.0.cpp
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-05-01-TPL-SRC-001-QHPC-v1.0.0.h
-│   │   └── .gitkeep
-│   │
-│   ├── hal/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-EPTA-415-01-01-TPL-SRC-001-QPOW-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-EPTA-415-01-01-TPL-SRC-001-QPOW-v1.0.0.cpp
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-EPTA-415-02-01-TPL-SRC-001-QPOW-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-EPTA-415-02-01-TPL-SRC-001-QPOW-v1.0.0.cpp
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-EPTA-415-03-01-TPL-SRC-001-QPOW-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-EPTA-415-03-01-TPL-SRC-001-QPOW-v1.0.0.cpp
-│   │   └── .gitkeep
-│   │
-│   ├── interfaces/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-912-01-01-TPL-SRC-001-QDAT-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-912-01-01-TPL-SRC-001-QDAT-v1.0.0.cpp
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-912-02-01-TPL-SRC-001-QDAT-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-912-02-01-TPL-SRC-001-QDAT-v1.0.0.cpp
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-912-03-01-TPL-SRC-001-QDAT-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-912-03-01-TPL-SRC-001-QDAT-v1.0.0.cpp
-│   │   └── .gitkeep
-│   │
-│   ├── quantum/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-R&I-SM-QCSAA-900-01-01-TPL-SRC-001-QSCI-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-R&I-SM-QCSAA-900-01-01-TPL-SRC-001-QSCI-v1.0.0.cpp
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-R&I-SM-QCSAA-900-02-01-TPL-SRC-001-QSCI-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-R&I-SM-QCSAA-900-02-01-TPL-SRC-001-QSCI-v1.0.0.cpp
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-R&I-SM-QCSAA-900-03-01-TPL-SRC-001-QSCI-v1.0.0.h
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-R&I-SM-QCSAA-900-03-01-TPL-SRC-001-QSCI-v1.0.0.cpp
-│   │   └── .gitkeep
-│   │
-│   ├── main/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-00-01-TPL-SRC-001-QHPC-v1.0.0.cpp
-│   │   └── .gitkeep
-│   └── .gitkeep
-│
-├── tests/
-│   ├── QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-DTCEC-304-03-01-TPL-BLD-001-QHPC-v1.0.0.cmake
-│   ├── unit/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-DTCEC-304-04-01-TPL-TST-001-QHPC-v1.0.0.cpp
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-DTCEC-304-04-02-TPL-TST-001-QHPC-v1.0.0.cpp
-│   │   └── .gitkeep
-│   ├── integration/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-DTCEC-304-04-03-TPL-TST-001-QHPC-v1.0.0.cpp
-│   │   └── .gitkeep
-│   ├── performance/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-DTCEC-304-04-04-TPL-TST-001-QHPC-v1.0.0.cpp
-│   │   └── .gitkeep
-│   └── .gitkeep
-│
-├── tools/
-│   ├── config/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-DTCEC-360-01-01-TPL-CFG-001-QDAT-v1.0.0.json
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-DTCEC-360-01-02-TPL-CFG-001-QDAT-v1.0.0.yaml
-│   │   └── .gitkeep
-│   ├── scripts/
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-SM-DTCEC-310-01-01-TPL-SCR-001-QHPC-v1.0.0.sh
-│   │   ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-SM-DTCEC-310-01-02-TPL-SCR-001-QSCI-v1.0.0.py
-│   │   └── .gitkeep
-│   └── .gitkeep
-│
+├── .gitkeep
+├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-DTCEC-360-00-01-TPL-CFG-001-QDAT-v1.0.0.gitignore
 ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-ATA-000-00-01-TPL-DOC-001-QCOM-v1.0.0.md
 ├── QUA-QNS01-25SVD0001-DES-BOB-S&L-TD-ATA-000-00-02-TPL-LIC-001-S&L-v1.0.0.txt
-├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-DTCEC-360-00-01-TPL-CFG-001-QDAT-v1.0.0.gitignore
-└── .gitkeep
+│
+├── DevOps Pipeline Stages (Conceptual Flow)
+│   ├── 0. Source Code Fetch & Initialization
+│   │   └── Trigger: git push / Merge Request (MR)
+│   │
+│   └── 1. Build Environment Setup
+│       ├── Uses Dockerfile for consistent environment
+│       │   └── build/ci/QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-02-TPL-CI-002-QDAT-v1.0.0.dockerfile
+│       └── May use properties for configuration
+│           └── build/ci/QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-04-TPL-CI-004-QDAT-v1.0.0.properties
+│
+│   └── 2. Build
+│       ├── Main project CMake configuration
+│       │   └── build/QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-00-01-TPL-BLD-001-QDAT-v1.0.0.cmake
+│       ├── Core Make/Build script
+│       │   └── build/QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-00-02-TPL-BLD-001-QDAT-v1.0.0.mk
+│       ├── Helper CMake modules
+│       │   └── build/cmake/ (various .cmake files)
+│       ├── Source code to be compiled
+│       │   └── src/ (all .cpp, .h files)
+│       │       └── src/QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-02-01-TPL-BLD-001-QHPC-v1.0.0.cmake (src-specific build rules)
+│       │
+│   └── 3. Static Analysis & Linting (Implicit, part of CI config)
+│       ├── CI Pipeline Definition (orchestrates tools)
+│       │   ├── build/ci/QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-01-TPL-CI-001-QDAT-v1.0.0.yml
+│       │   └── build/ci/QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-03-TPL-CI-003-QDAT-v1.0.0.groovy
+│       └── Source code to be analyzed
+│           └── src/ (all .cpp, .h files)
+│
+│   └── 4. Unit Testing
+│       ├── Test build configuration
+│       │   └── tests/QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-DTCEC-304-03-01-TPL-BLD-001-QHPC-v1.0.0.cmake
+│       └── Unit test source files
+│           └── tests/unit/ (all .cpp unit tests)
+│
+│   └── 5. Integration Testing
+│       ├── Test build configuration (likely shared or similar)
+│       │   └── tests/QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-DTCEC-304-03-01-TPL-BLD-001-QHPC-v1.0.0.cmake
+│       └── Integration test source files
+│           └── tests/integration/ (all .cpp integration tests)
+│
+│   └── 6. Performance Testing
+│       ├── Test build configuration (likely shared or similar)
+│       │   └── tests/QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-DTCEC-304-03-01-TPL-BLD-001-QHPC-v1.0.0.cmake
+│       └── Performance test source files
+│           └── tests/performance/ (all .cpp performance tests)
+│
+│   └── 7. Documentation Generation & Validation
+│       ├── Source for API documentation
+│       │   └── src/ (code comments in .cpp, .h)
+│       ├── Source for general and design documentation
+│       │   ├── docs/
+│       │   │   ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-ATA-000-00-01-TPL-DOC-001-QCOM-v1.0.0.md
+│       │   │   ├── api/ (API markdown docs)
+│       │   │   └── design/ (design markdown docs)
+│       └── Main project documentation (likely overall README/landing page)
+│           └── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-ATA-000-00-01-TPL-DOC-001-QCOM-v1.0.0.md (at root)
+│
+│   └── 8. Artifact Generation & Storage
+│       ├── Output of Build Stage (executables, libraries)
+│       ├── Test reports and coverage results (output from Testing stages)
+│       ├── Configuration files to be bundled
+│       │   └── tools/config/ (all .json, .yaml config files)
+│       └── Dockerfile (if producing container images as artifacts)
+│           └── build/ci/QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-02-TPL-CI-002-QDAT-v1.0.0.dockerfile
+│
+│   └── 9. Deployment (Staging/Production) - (Optional, usually external to repo, but uses assets)
+│       ├── Deployment scripts
+│       │   └── tools/scripts/ (all .sh, .py scripts)
+│       ├── Runtime configuration files
+│       │   └── tools/config/ (all .json, .yaml config files)
+│       ├── Main application entry point
+│       │   └── src/main/QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-00-01-TPL-SRC-001-QHPC-v1.0.0.cpp (the compiled executable)
+│       └── License information
+│           └── QUA-QNS01-25SVD0001-DES-BOB-S&L-TD-ATA-000-00-02-TPL-LIC-001-S&L-v1.0.0.txt
+│
+├── build/
+│  ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-00-01-TPL-BLD-001-QDAT-v1.0.0.cmake (Main CMake config for build stage)
+│  ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-00-02-TPL-BLD-001-QDAT-v1.0.0.mk (Makefile for build stage)
+│  ├── ci/
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-01-TPL-CI-001-QDAT-v1.0.0.yml (Main CI pipeline definition)
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-02-TPL-CI-002-QDAT-v1.0.0.dockerfile (Build environment setup)
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-03-TPL-CI-003-QDAT-v1.0.0.groovy (CI scripting/orchestration)
+│  │  └── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-04-TPL-CI-004-QDAT-v1.0.0.properties (CI configuration properties)
+│  │  └── .gitkeep
+│  ├── cmake/ (Helper CMake modules for build process)
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-01-TPL-BLD-001-QHPC-v1.0.0.cmake
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-02-TPL-BLD-001-QHPC-v1.0.0.cmake
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-03-TPL-BLD-001-QHPC-v1.0.0.cmake
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-04-TPL-BLD-001-QHPC-v1.0.0.cmake
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-05-TPL-BLD-001-QHPC-v1.0.0.h.in
+│  │  └── .gitkeep
+│  └── .gitkeep
+│
+├── docs/ (Documentation for documentation generation stage)
+│  ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-ATA-000-00-01-TPL-DOC-001-QCOM-v1.0.0.md (General doc)
+│  ├── api/ (API docs)
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-TD-QCSAA-914-10-01-TPL-API-001-QCOM-v1.0.0.md
+│  │  └── .gitkeep
+│  ├── design/ (Design docs)
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-TD-QCSAA-914-00-01-TPL-DES-001-QCOM-v1.0.0.md
+│  │  └── .gitkeep
+│  └── .gitkeep
+│
+├── src/ (Source code for build stage and static analysis)
+│  ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-02-01-TPL-BLD-001-QHPC-v1.0.0.cmake (src-specific build rules)
+│  ├── core/ (Core modules)
+│  │  ├── (various .cpp, .h files)
+│  │  └── .gitkeep
+│  ├── hal/ (Hardware Abstraction Layer)
+│  │  ├── (various .h, .cpp files)
+│  │  └── .gitkeep
+│  ├── interfaces/ (Interface definitions)
+│  │  ├── (various .h, .cpp files)
+│  │  └── .gitkeep
+│  ├── quantum/ (Quantum-specific modules)
+│  │  ├── (various .h, .cpp files)
+│  │  └── .gitkeep
+│  ├── main/ (Main application entry point for deployment)
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-00-01-TPL-SRC-001-QHPC-v1.0.0.cpp
+│  │  └── .gitkeep
+│  └── .gitkeep
+│
+├── tests/ (Test files for unit, integration, performance testing stages)
+│  ├── QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-DTCEC-304-03-01-TPL-BLD-001-QHPC-v1.0.0.cmake (Test build config)
+│  ├── unit/ (Unit test source files)
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-DTCEC-304-04-01-TPL-TST-001-QHPC-v1.0.0.cpp
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-DTCEC-304-04-02-TPL-TST-001-QHPC-v1.0.0.cpp
+│  │  └── .gitkeep
+│  ├── integration/ (Integration test source files)
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-DTCEC-304-04-03-TPL-TST-001-QHPC-v1.0.0.cpp
+│  │  └── .gitkeep
+│  ├── performance/ (Performance test source files)
+│  │  ├── QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-DTCEC-304-04-04-TPL-TST-001-QHPC-v1.0.0.cpp
+│  │  └── .gitkeep
+│  └── .gitkeep
+│
+└── tools/ (Scripts and configurations for deployment and other stages)
+    ├── config/ (Configuration files for artifact generation/deployment)
+    │  ├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-DTCEC-360-01-01-TPL-CFG-001-QDAT-v1.0.0.json
+    │  ├── QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-DTCEC-360-01-02-TPL-CFG-001-QDAT-v1.0.0.yaml
+    │  └── .gitkeep
+    ├── scripts/ (Deployment/Utility scripts for various stages)
+    │  ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-SM-DTCEC-310-01-01-TPL-SCR-001-QHPC-v1.0.0.sh
+    │  ├── QUA-QNS01-25SVD0001-DES-BOB-ORG-SM-DTCEC-310-01-02-TPL-SCR-001-QSCI-v1.0.0.py
+    │  └── .gitkeep
+    └── .gitkeep
