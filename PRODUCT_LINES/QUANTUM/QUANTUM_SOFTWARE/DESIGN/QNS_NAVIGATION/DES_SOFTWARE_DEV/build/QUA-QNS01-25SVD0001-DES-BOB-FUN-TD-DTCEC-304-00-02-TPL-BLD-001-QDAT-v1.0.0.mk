@@ -1,5 +1,5 @@
 # AQUA V. Quantum Navigation System - Convenience Makefile
-# Document: QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-00-02-TPL-BLD-001-QDAT-v1.0.0.mk
+# Document: QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-DTCEC-304-00-02-TPL-BLD-001-QDAT-v1.0.0.mk
 # Owner: QDAT (Data Governance Division)
 # Site: Silicon Valley (25SVD)
 # =============================================================================
@@ -29,7 +29,7 @@ CPACK ?= cpack
 ENABLE_QUANTUM_HARDWARE ?= OFF
 ENABLE_QUANTUM_SIMULATOR ?= ON
 ENABLE_ALI_BOB_SYNC ?= ON
-QNS_UPDATE_RATE ?= 1000
+QNS_UPDATE_RATE ?= 50  # Current: 50 Hz (lab), Target: 100 Hz
 
 # Color output
 RED := \033[0;31m
@@ -143,7 +143,7 @@ test-performance: build
 .PHONY: quantum-test
 quantum-test: build
 	@echo "$(BLUE)Running quantum validation tests...$(NC)"
-	@cd $(BUILD_DIR) && ./bin/quantum_validator --trl=6 --update-rate=$(QNS_UPDATE_RATE)
+	@cd $(BUILD_DIR) && ./bin/quantum_validator --trl=3 --update-rate=$(QNS_UPDATE_RATE)
 	@echo "$(GREEN)✓ Quantum validation complete$(NC)"
 
 .PHONY: quantum-benchmark
@@ -160,8 +160,8 @@ quantum-benchmark: build
 calibrate: build
 	@echo "$(BLUE)Running sensor calibration...$(NC)"
 	@cd $(BUILD_DIR) && ./bin/aqua_v_qns --calibrate \
-		--gravitometer-sensitivity=1e-12 \
-		--magnetometer-range=1e-9
+		--gravitometer-sensitivity=1e-6 \
+		--magnetometer-range=100e-15
 	@echo "$(GREEN)✓ Calibration complete$(NC)"
 
 .PHONY: flight-sim
@@ -284,9 +284,9 @@ info:
 	@echo "$(BLUE)AQUA V. QNS Build Information$(NC)"
 	@echo "=============================="
 	@echo "Program: Quantum Navigation System (QNS)"
-	@echo "TRL: 6 (Flight Testing)"
+	@echo "TRL: 3 (Laboratory Testing)"
 	@echo "Site: Silicon Valley (25SVD)"
-	@echo "Update Rate: $(QNS_UPDATE_RATE) Hz"
+	@echo "Update Rate: $(QNS_UPDATE_RATE) Hz (Target: 100 Hz)"
 	@echo "Build Directory: $(BUILD_DIR)"
 	@echo "Build Type: $(BUILD_TYPE)"
 	@echo "Install Prefix: $(INSTALL_PREFIX)"
