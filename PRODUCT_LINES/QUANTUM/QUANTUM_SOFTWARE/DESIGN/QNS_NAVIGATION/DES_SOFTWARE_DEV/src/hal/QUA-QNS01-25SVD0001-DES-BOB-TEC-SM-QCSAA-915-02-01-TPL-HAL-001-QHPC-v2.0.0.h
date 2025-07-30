@@ -43,6 +43,8 @@
 #include <atomic>
 #include <mutex>
 #include <type_traits>
+#include <cmath>
+#include <cstring>
 
 // Safety-critical compilation directives
 #ifdef DO_178C_COMPLIANT
@@ -174,7 +176,7 @@ enum class DeviceStatus : uint32_t {
     QUANTUM_ERROR_CORRECTING = 0x00000800, ///< Quantum error correction active
     
     // Safety-critical states
-    SAFETY_CRITICAL = 0x00001000,       ///< Device in safety-critical mode
+    SAFETY_CRITICAL_MODE = 0x00001000,       ///< Device in safety-critical mode
     REDUNDANCY_ACTIVE = 0x00002000,     ///< Redundancy system active
     SELF_TEST_RUNNING = 0x00004000,     ///< Self-test in progress
     FAULT_TOLERANT = 0x00008000,        ///< Fault-tolerant mode active
