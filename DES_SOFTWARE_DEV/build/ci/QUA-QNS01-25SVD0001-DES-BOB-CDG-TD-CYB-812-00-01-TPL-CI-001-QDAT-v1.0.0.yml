@@ -1,0 +1,334 @@
+# Quantum Software CI/CD Pipeline
+# Version: 1.0.0
+# ATA-Chapter: CYB-812 (Cybersecurity & DevOps)
+
+name: Quantum-Software-Pipeline
+
+on:
+  push:
+    branches: [ main, develop, feature/* ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+env:
+  BUILD_TYPE: Release
+  CMAKE_VERSION: 3.28.0
+  ARTIFACT_RETENTION_DAYS: 30
+  QUANTUM_SDK_VERSION: 2.0.0
+
+jobs:
+  # Stage 0: Source Code Fetch & Initialization
+  initialize:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      commit: ${{ steps.commit.outputs.sha }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: recursive
+      
+      - name: Extract Version
+        id: version
+        run: |
+          VERSION=$(grep -oP 'v\d+\.\d+\.\d+' <<< "${{ github.ref_name }}" || echo "v1.0.0")
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+      
+      - name: Get Commit SHA
+        id: commit
+        run: echo "sha=${GITHUB_SHA::8}" >> $GITHUB_OUTPUT
+
+  # Stage 1: Build Environment Setup
+  setup-environment:
+    needs: initialize
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build CI Environment
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: build/ci/QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-02-TPL-CI-002-QDAT-v1.0.0.dockerfile
+          tags: quantum-ci:${{ needs.initialize.outputs.version }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          push: false
+          load: true
+
+  # Stage 2: Build
+  build:
+    needs: [initialize, setup-environment]
+    runs-on: ubuntu-latest
+    container:
+      image: quantum-ci:${{ needs.initialize.outputs.version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Configure CMake
+        run: |
+          cmake -B build \
+            -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
+            -DQUANTUM_SDK_VERSION=${{ env.QUANTUM_SDK_VERSION }} \
+            -DBUILD_SHARED_LIBS=ON \
+            -DENABLE_TESTING=ON
+      
+      - name: Build Project
+        run: cmake --build build --config ${{ env.BUILD_TYPE }} --parallel $(nproc)
+      
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts-${{ needs.initialize.outputs.commit }}
+          path: |
+            build/bin/
+            build/lib/
+          retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
+
+  # Stage 3: Static Analysis & Linting
+  static-analysis:
+    needs: [initialize, build]
+    runs-on: ubuntu-latest
+    container:
+      image: quantum-ci:${{ needs.initialize.outputs.version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Run Clang-Tidy
+        run: |
+          find src -name '*.cpp' -o -name '*.h' | \
+          xargs clang-tidy -p build --config-file=.clang-tidy
+      
+      - name: Run CPPCheck
+        run: |
+          cppcheck --enable=all --suppress=missingInclude \
+            --error-exitcode=1 --inline-suppr \
+            -I include src/
+      
+      - name: Check Code Format
+        run: |
+          find src tests -name '*.cpp' -o -name '*.h' | \
+          xargs clang-format --dry-run --Werror
+
+  # Stage 4: Unit Testing
+  unit-tests:
+    needs: [initialize, build]
+    runs-on: ubuntu-latest
+    container:
+      image: quantum-ci:${{ needs.initialize.outputs.version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts-${{ needs.initialize.outputs.commit }}
+          path: build
+      
+      - name: Run Unit Tests
+        run: |
+          cd build
+          ctest -C ${{ env.BUILD_TYPE }} --label-regex "unit" \
+            --output-on-failure --parallel $(nproc)
+      
+      - name: Generate Coverage Report
+        run: |
+          cd build
+          gcov -abcfu src/CMakeFiles/*.dir/*.gcno
+          lcov --capture --directory . --output-file coverage.info
+          lcov --remove coverage.info '/usr/*' --output-file coverage.info
+      
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./build/coverage.info
+          flags: unittests
+
+  # Stage 5: Integration Testing
+  integration-tests:
+    needs: [initialize, unit-tests]
+    runs-on: ubuntu-latest
+    container:
+      image: quantum-ci:${{ needs.initialize.outputs.version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts-${{ needs.initialize.outputs.commit }}
+          path: build
+      
+      - name: Setup Test Environment
+        run: |
+          ./tools/scripts/setup-test-env.sh integration
+      
+      - name: Run Integration Tests
+        run: |
+          cd build
+          ctest -C ${{ env.BUILD_TYPE }} --label-regex "integration" \
+            --output-on-failure --timeout 300
+
+  # Stage 6: Performance Testing
+  performance-tests:
+    needs: [initialize, integration-tests]
+    runs-on: ubuntu-latest
+    container:
+      image: quantum-ci:${{ needs.initialize.outputs.version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts-${{ needs.initialize.outputs.commit }}
+          path: build
+      
+      - name: Run Performance Tests
+        run: |
+          cd build
+          ctest -C ${{ env.BUILD_TYPE }} --label-regex "performance" \
+            --output-on-failure --verbose
+      
+      - name: Analyze Performance Results
+        run: |
+          python3 tools/scripts/analyze-performance.py \
+            --input build/Testing/Performance \
+            --output performance-report.json
+      
+      - name: Upload Performance Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-report-${{ needs.initialize.outputs.commit }}
+          path: performance-report.json
+
+  # Stage 7: Documentation Generation & Validation
+  documentation:
+    needs: [initialize, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Install Documentation Tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen graphviz plantuml
+          pip install mkdocs mkdocs-material pymdown-extensions
+      
+      - name: Generate API Documentation
+        run: |
+          doxygen Doxyfile
+          
+      - name: Build Documentation Site
+        run: |
+          mkdocs build --strict
+      
+      - name: Validate Documentation Links
+        run: |
+          python3 tools/scripts/validate-docs.py --path site/
+      
+      - name: Upload Documentation
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentation-${{ needs.initialize.outputs.commit }}
+          path: site/
+
+  # Stage 8: Artifact Generation & Storage
+  package:
+    needs: [initialize, unit-tests, integration-tests, performance-tests, documentation]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+      
+      - name: Create Release Package
+        run: |
+          mkdir -p release/bin release/lib release/config release/docs
+          cp -r artifacts/build-artifacts-*/bin/* release/bin/
+          cp -r artifacts/build-artifacts-*/lib/* release/lib/
+          cp -r tools/config/* release/config/
+          cp -r artifacts/documentation-*/. release/docs/
+          cp QUA-QNS01-25SVD0001-DES-BOB-S&L-TD-ATA-000-00-02-TPL-LIC-001-S&L-v1.0.0.txt release/LICENSE
+          
+          tar -czf quantum-software-${{ needs.initialize.outputs.version }}.tar.gz release/
+      
+      - name: Create Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: build/ci/QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-02-TPL-CI-002-QDAT-v1.0.0.dockerfile
+          tags: |
+            quantum-software:${{ needs.initialize.outputs.version }}
+            quantum-software:latest
+          push: false
+      
+      - name: Upload Release Package
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ needs.initialize.outputs.version }}
+          path: quantum-software-${{ needs.initialize.outputs.version }}.tar.gz
+          retention-days: 90
+
+  # Stage 9: Deployment (Staging)
+  deploy-staging:
+    if: github.ref == 'refs/heads/develop'
+    needs: [initialize, package]
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Download Release Package
+        uses: actions/download-artifact@v4
+        with:
+          name: release-${{ needs.initialize.outputs.version }}
+      
+      - name: Deploy to Staging
+        run: |
+          ./tools/scripts/deploy.sh staging ${{ needs.initialize.outputs.version }}
+      
+      - name: Run Smoke Tests
+        run: |
+          ./tools/scripts/smoke-test.sh staging
+
+  # Stage 9: Deployment (Production)
+  deploy-production:
+    if: github.ref == 'refs/heads/main' && startsWith(github.ref, 'refs/tags/v')
+    needs: [initialize, package]
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Download Release Package
+        uses: actions/download-artifact@v4
+        with:
+          name: release-${{ needs.initialize.outputs.version }}
+      
+      - name: Deploy to Production
+        run: |
+          ./tools/scripts/deploy.sh production ${{ needs.initialize.outputs.version }}
+      
+      - name: Verify Deployment
+        run: |
+          ./tools/scripts/verify-deployment.sh production

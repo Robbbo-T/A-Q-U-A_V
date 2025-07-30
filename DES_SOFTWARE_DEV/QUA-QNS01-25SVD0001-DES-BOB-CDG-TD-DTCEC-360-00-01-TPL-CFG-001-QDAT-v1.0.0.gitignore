@@ -1,0 +1,185 @@
+# Quantum Software Development .gitignore
+# Version: 1.0.0
+# ATA-Chapter: DTCEC-360 (Configuration Management)
+
+# Build outputs
+build/
+dist/
+*.build/
+out/
+bin/
+lib/
+target/
+
+# CMake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+cmake-build-*/
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+*.cmake
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Testing
+Testing/
+test-results/
+*.gcda
+*.gcno
+*.gcov
+coverage/
+*.coverage
+htmlcov/
+.coverage
+.pytest_cache/
+__pycache__/
+
+# Performance analysis
+perf.data
+perf.data.old
+*.prof
+*.massif
+callgrind.out.*
+
+# Quantum SDK specific
+.qiskit/
+.quantum_cache/
+quantum_results/
+*.qasm
+*.qobj
+*.quantum_state
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.cproject
+.settings/
+*.sublime-*
+
+# Documentation
+docs/_build/
+site/
+*.doxygen
+html/
+latex/
+
+# Logs
+*.log
+logs/
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.env
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+tmp/
+temp/
+
+# Archives
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.rar
+
+# Certificates and keys (security)
+*.pem
+*.key
+*.crt
+*.csr
+*.der
+*.p12
+*.pfx
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# CI/CD artifacts
+artifacts/
+.cache/
+node_modules/
+
+# Python
+*.py[cod]
+*$py.class
+*.egg-info/
+pip-log.txt
+pip-delete-this-directory.txt
+.Python
+env/
+venv/
+ENV/
+
+# Quantum simulation outputs
+simulation_results/
+quantum_circuits/
+measurement_data/
+
+# Custom ignore patterns
+/local/
+/private/
+/scratch/
