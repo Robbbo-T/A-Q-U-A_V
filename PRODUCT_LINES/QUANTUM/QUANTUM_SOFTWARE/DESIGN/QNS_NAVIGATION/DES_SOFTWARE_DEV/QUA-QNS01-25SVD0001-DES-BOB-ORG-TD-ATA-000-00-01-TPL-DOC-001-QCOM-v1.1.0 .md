@@ -333,7 +333,7 @@ stateDiagram-v2
     [*] --> Initialization
     
     Initialization --> Running: System Start
-    
+
     state Running {
         [*] --> ALI_Active
         ALI_Active --> BOB_Sync: Update Event
@@ -357,8 +357,12 @@ stateDiagram-v2
     Recovery --> Shutdown: Failure
     Shutdown --> [*]
     
-    note right of Running: Sync rate: 100Hz
-    note right of Error: Max retries: 3
+    note right of Running
+        Sync rate: 100Hz
+    end note
+    note right of Error
+        Max retries: 3
+    end note
 ```
 
 ### 3.4 Performance Monitoring
@@ -1476,21 +1480,22 @@ gantt
 ##### E.6.1 Classification Status
 
 ```mermaid
-graph TD
+flowchart TD
     subgraph "Export Control Classifications"
         QNS[QNS System]
-        
-        ITAR_CLASS[ITAR Category XV(e)<br/>USML XV(e)(14)]
-        EAR_CLASS[EAR ECCN 7D994<br/>AT Column 1]
-        EU_CLASS[EU Dual-Use 7D004]
-        WASS_CLASS[Wassenaar Cat 7.D.4.a]
+        ITAR_CLASS["`ITAR Category XV(e)
+USML XV(e)(14)`"]
+        EAR_CLASS["`EAR ECCN 7D994
+AT Column 1`"]
+        EU_CLASS["`EU Dual-Use 7D004`"]
+        WASS_CLASS["`Wassenaar Cat 7.D.4.a`"]
     end
-    
+
     QNS --> ITAR_CLASS
     QNS --> EAR_CLASS
     QNS --> EU_CLASS
     QNS --> WASS_CLASS
-    
+
     style ITAR_CLASS fill:#faa,stroke:#333,stroke-width:2px
     style EAR_CLASS fill:#fda,stroke:#333,stroke-width:2px
 ```
