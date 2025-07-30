@@ -1,0 +1,138 @@
+# AQUA V. Quantum Software - Code Quality Configuration
+# Document: QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-815-01-01-TPL-CFG-001-QDAT-v1.0.0.txt
+# Version: 1.0.0
+# Owner: QDAT (Data Governance Division)
+
+# Disable specific checks that may not apply to quantum computing code
+Checks: |
+  -*,
+  bugprone-*,
+  cert-*,
+  clang-analyzer-*,
+  cppcoreguidelines-*,
+  google-*,
+  hicpp-*,
+  misc-*,
+  modernize-*,
+  performance-*,
+  portability-*,
+  readability-*,
+  
+  # Disable some overly strict checks
+  -bugprone-easily-swappable-parameters,
+  -cert-err58-cpp,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-macro-usage,
+  -cppcoreguidelines-non-private-member-variables-in-classes,
+  -cppcoreguidelines-owning-memory,
+  -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+  -cppcoreguidelines-pro-bounds-constant-array-index,
+  -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+  -cppcoreguidelines-pro-type-cstyle-cast,
+  -cppcoreguidelines-pro-type-reinterpret-cast,
+  -cppcoreguidelines-pro-type-union-access,
+  -cppcoreguidelines-pro-type-vararg,
+  -cppcoreguidelines-special-member-functions,
+  -google-build-using-namespace,
+  -google-readability-namespace-comments,
+  -google-runtime-references,
+  -hicpp-*,
+  -misc-non-private-member-variables-in-classes,
+  -modernize-use-trailing-return-type,
+  -readability-convert-member-functions-to-static,
+  -readability-function-cognitive-complexity,
+  -readability-identifier-length,
+  -readability-magic-numbers,
+  -readability-named-parameter
+
+# Check options
+CheckOptions:
+  # Line length limit
+  readability-line-length.LineLength: 120
+  
+  # Function length limits
+  readability-function-size.LineThreshold: 80
+  readability-function-size.StatementThreshold: 50
+  readability-function-size.BranchThreshold: 12
+  readability-function-size.ParameterThreshold: 8
+  
+  # Variable naming conventions
+  readability-identifier-naming.ClassCase: CamelCase
+  readability-identifier-naming.StructCase: CamelCase
+  readability-identifier-naming.EnumCase: CamelCase
+  readability-identifier-naming.FunctionCase: camelBack
+  readability-identifier-naming.MethodCase: camelBack
+  readability-identifier-naming.VariableCase: camelBack
+  readability-identifier-naming.ParameterCase: camelBack
+  readability-identifier-naming.MemberCase: camelBack
+  readability-identifier-naming.PrivateMemberPrefix: m_
+  readability-identifier-naming.ConstantCase: UPPER_CASE
+  readability-identifier-naming.ConstantPrefix: ""
+  readability-identifier-naming.ConstantSuffix: ""
+  readability-identifier-naming.MacroCase: UPPER_CASE
+  readability-identifier-naming.NamespaceCase: lower_case
+  
+  # Quantum-specific prefixes
+  readability-identifier-naming.ClassPrefix: ""
+  readability-identifier-naming.ClassSuffix: ""
+  readability-identifier-naming.StructPrefix: ""
+  readability-identifier-naming.StructSuffix: ""
+  readability-identifier-naming.EnumPrefix: ""
+  readability-identifier-naming.EnumSuffix: ""
+  
+  # Performance settings
+  performance-for-range-copy.WarnOnAllAutoCopies: false
+  performance-unnecessary-copy-initialization.ExcludedContainerTypes: "::std::basic_string;::std::vector;::std::array"
+  
+  # Modernization settings
+  modernize-loop-convert.MaxCopySize: 16
+  modernize-loop-convert.MinConfidence: reasonable
+  modernize-pass-by-value.IncludeStyle: llvm
+  modernize-replace-auto-ptr.IncludeStyle: llvm
+  modernize-use-auto.MinTypeNameLength: 5
+  modernize-use-emplace.ContainersWithPushBack: "::std::vector;::std::list;::std::deque"
+  modernize-use-emplace.SmartPointers: "::std::shared_ptr;::std::unique_ptr;::std::auto_ptr;::std::weak_ptr"
+  
+  # Core Guidelines
+  cppcoreguidelines-avoid-goto.IgnoreMacros: true
+  cppcoreguidelines-init-variables.MathHeader: cmath
+  cppcoreguidelines-narrowing-conversions.PedanticMode: false
+  cppcoreguidelines-narrowing-conversions.WarnOnFloatingPointNarrowingConversion: true
+  cppcoreguidelines-narrowing-conversions.WarnOnIntegerNarrowingConversion: true
+  cppcoreguidelines-pro-type-member-init.IgnoreArrays: true
+  
+  # Google style
+  google-readability-braces-around-statements.ShortStatementLines: 1
+  google-readability-function-size.StatementThreshold: 800
+  google-readability-namespace-comments.ShortNamespaceLines: 10
+  google-readability-namespace-comments.SpacesBeforeComments: 2
+  
+  # Bug prevention
+  bugprone-argument-comment.StrictMode: false
+  bugprone-assert-side-effect.AssertMacros: "assert,ASSERT_TRUE,ASSERT_FALSE"
+  bugprone-exception-escape.FunctionsThatShouldNotThrow: ""
+  bugprone-infinite-loop.CheckedConditions: "::std::atomic;::std::shared_ptr"
+  bugprone-sizeof-expression.WarnOnSizeOfConstant: true
+  bugprone-sizeof-expression.WarnOnSizeOfIntegerExpression: false
+  bugprone-string-constructor.WarnOnLargeLength: true
+  bugprone-string-constructor.LargeLengthThreshold: 0x800000
+  bugprone-suspicious-enum-usage.StrictMode: false
+  bugprone-too-small-loop-variable.MagnitudeBitsUpperLimit: 16
+  
+  # Portability
+  portability-simd-intrinsics.Suggest: false
+  
+# Header filter (include paths that should be checked)
+HeaderFilterRegex: '^.*/(src|include|tests)/.*\.(h|hpp)$'
+
+# System headers to ignore
+SystemHeaders: false
+
+# Format style for fix suggestions
+FormatStyle: file
+
+# Additional compiler arguments
+ExtraArgs:
+  - -std=c++20
+  - -DQUANTUM_SOFTWARE_BUILD
+  - -DAQUA_V_VERSION="1.0.0"

@@ -1,0 +1,234 @@
+# MkDocs Configuration for AQUA V. Quantum Software Documentation
+# Document: QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-DTCEC-350-01-01-TPL-CFG-001-QDAT-v1.0.0.yml
+# Version: 1.0.0
+# Owner: QDAT (Data Governance Division)
+
+site_name: AQUA V. Quantum Software Documentation
+site_description: Comprehensive documentation for AQUA V. Quantum Software Development Platform
+site_author: GAIA AIR - ROBBBO-T
+site_url: https://docs.aqua-v.aerospace/quantum
+
+# Repository information
+repo_name: Robbbo-T/A-Q-U-A_V
+repo_url: https://github.com/Robbbo-T/A-Q-U-A_V
+edit_uri: edit/main/docs/
+
+# Copyright information
+copyright: Copyright &copy; 2025 GAIA AIR - ROBBBO-T. Part of €40B AQUA V. Program.
+
+# Theme configuration
+theme:
+  name: material
+  custom_dir: docs/overrides
+  logo: assets/aqua-v-logo.png
+  favicon: assets/favicon.ico
+  
+  # Color scheme
+  palette:
+    - scheme: default
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  # Features
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+    - content.action.view
+
+# Navigation structure
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Quick Start: getting-started/quick-start.md
+    - Installation: getting-started/installation.md
+    - Configuration: getting-started/configuration.md
+    - First Quantum Circuit: getting-started/first-circuit.md
+  
+  - User Guide:
+    - Overview: user-guide/overview.md
+    - Quantum Algorithms: user-guide/quantum-algorithms.md
+    - Circuit Builder: user-guide/circuit-builder.md
+    - Simulation: user-guide/simulation.md
+    - Hardware Integration: user-guide/hardware.md
+    - Performance Optimization: user-guide/performance.md
+  
+  - API Reference:
+    - Core API: api/core.md
+    - Quantum Module: api/quantum.md
+    - Circuit Operations: api/circuits.md
+    - Measurements: api/measurements.md
+    - Error Handling: api/errors.md
+    - Utilities: api/utilities.md
+  
+  - Developer Guide:
+    - Architecture: developer/architecture.md
+    - Building from Source: developer/building.md
+    - Testing: developer/testing.md
+    - Contributing: developer/contributing.md
+    - Code Style: developer/code-style.md
+    - CI/CD Pipeline: developer/cicd.md
+  
+  - DevOps:
+    - Deployment: devops/deployment.md
+    - Monitoring: devops/monitoring.md
+    - Security: devops/security.md
+    - Backup & Recovery: devops/backup.md
+    - Troubleshooting: devops/troubleshooting.md
+    - Performance Tuning: devops/performance.md
+  
+  - AQUA V. Program:
+    - Program Overview: aqua-v/overview.md
+    - Technology Roadmap: aqua-v/roadmap.md
+    - Quantum Technologies: aqua-v/quantum.md
+    - Compliance: aqua-v/compliance.md
+    - Certification: aqua-v/certification.md
+  
+  - Tutorials:
+    - Basic Quantum Circuits: tutorials/basic-circuits.md
+    - Quantum Algorithms: tutorials/algorithms.md
+    - Error Correction: tutorials/error-correction.md
+    - Hybrid Computing: tutorials/hybrid.md
+    - Performance Analysis: tutorials/performance.md
+  
+  - Release Notes: releases.md
+  - FAQ: faq.md
+  - Glossary: glossary.md
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-\.]+'
+  
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: true
+            show_root_heading: true
+  
+  - git-revision-date-localized:
+      type: datetime
+      fallback_to_build_date: true
+  
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+        remove_comments: true
+  
+  - macros:
+      module_name: docs/macros
+      variables:
+        program_investment: "€40 Billion"
+        program_version: "7.6.0"
+        site_code: "25SVD"
+        trl_level: "6"
+
+# Markdown extensions
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      title: Page Contents
+  
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Extra configuration
+extra:
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+  
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Robbbo-T/A-Q-U-A_V
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/company/aqua-v
+    - icon: fontawesome/solid/envelope
+      link: mailto:quantum-support@aqua-v.aerospace
+  
+  version:
+    provider: mike
+    default: latest
+  
+  # AQUA V. specific variables
+  aqua_v:
+    program_investment: "€40 Billion"
+    program_version: "7.6.0"
+    site_code: "25SVD"
+    site_name: "Silicon Valley"
+    trl_level: "6"
+    quantum_sdk_version: "2.0.0"
+
+# Extra CSS and JavaScript
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/quantum.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/quantum-visualizer.js
+
+# Watch for changes
+watch:
+  - docs/
+  - src/
+  - DES_SOFTWARE_DEV/tools/scripts/

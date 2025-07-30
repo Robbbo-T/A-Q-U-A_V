@@ -1,0 +1,262 @@
+# AQUA V. Quantum Software - Docker Compose Configuration
+# Document: QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-DTCEC-360-02-01-TPL-CFG-001-QDAT-v1.0.0.yml
+# Version: 1.0.0
+# Owner: QDAT (Data Governance Division)
+
+version: '3.8'
+
+services:
+  # Main Quantum Software Application
+  quantum-app:
+    build:
+      context: .
+      dockerfile: DES_SOFTWARE_DEV/build/ci/QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-02-TPL-CI-002-QDAT-v1.0.0.dockerfile
+    image: aqua-v/quantum-software:latest
+    container_name: quantum-software
+    restart: unless-stopped
+    ports:
+      - "8080:8080"  # Main application port
+      - "50051:50051"  # gRPC port
+      - "8081:8081"  # WebSocket port
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=INFO
+      - QUANTUM_SDK_PATH=/opt/quantum-sdk
+      - POSTGRES_HOST=postgres
+      - REDIS_HOST=redis
+      - MONGODB_HOST=mongodb
+    volumes:
+      - quantum-data:/data
+      - quantum-logs:/var/log/quantum
+      - quantum-config:/etc/quantum
+      - ./DES_SOFTWARE_DEV/tools/config:/etc/quantum/config:ro
+    depends_on:
+      - postgres
+      - redis
+      - mongodb
+    networks:
+      - quantum-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    container_name: quantum-postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=quantum_db
+      - POSTGRES_USER=quantum_user
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-quantum_pass}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./DES_SOFTWARE_DEV/tools/config/database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - quantum-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U quantum_user -d quantum_db"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: quantum-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis_pass}
+    volumes:
+      - redis-data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - quantum-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # MongoDB for Quantum Circuit Storage
+  mongodb:
+    image: mongo:6
+    container_name: quantum-mongodb
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=quantum_admin
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD:-mongo_pass}
+      - MONGO_INITDB_DATABASE=quantum_circuits
+    volumes:
+      - mongodb-data:/data/db
+      - ./DES_SOFTWARE_DEV/tools/config/database/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    ports:
+      - "27017:27017"
+    networks:
+      - quantum-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Prometheus Monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: quantum-prometheus
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    volumes:
+      - ./DES_SOFTWARE_DEV/tools/config/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - quantum-network
+    depends_on:
+      - quantum-app
+
+  # Grafana Dashboard
+  grafana:
+    image: grafana/grafana:latest
+    container_name: quantum-grafana
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin_pass}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./DES_SOFTWARE_DEV/tools/config/monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./DES_SOFTWARE_DEV/tools/config/monitoring/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    ports:
+      - "3000:3000"
+    networks:
+      - quantum-network
+    depends_on:
+      - prometheus
+
+  # Jaeger Tracing
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: quantum-jaeger
+    restart: unless-stopped
+    environment:
+      - COLLECTOR_ZIPKIN_HOST_PORT=:9411
+    ports:
+      - "16686:16686"  # Jaeger UI
+      - "14268:14268"  # Jaeger collector
+    networks:
+      - quantum-network
+
+  # Elasticsearch for Logging
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.8.0
+    container_name: quantum-elasticsearch
+    restart: unless-stopped
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    networks:
+      - quantum-network
+
+  # Kibana for Log Visualization
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.8.0
+    container_name: quantum-kibana
+    restart: unless-stopped
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    networks:
+      - quantum-network
+    depends_on:
+      - elasticsearch
+
+  # NGINX Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: quantum-nginx
+    restart: unless-stopped
+    volumes:
+      - ./DES_SOFTWARE_DEV/tools/config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./DES_SOFTWARE_DEV/tools/config/nginx/ssl:/etc/nginx/ssl:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - quantum-network
+    depends_on:
+      - quantum-app
+
+  # Quantum Circuit Simulator (Optional)
+  quantum-simulator:
+    build:
+      context: .
+      dockerfile: DES_SOFTWARE_DEV/tools/config/simulator/Dockerfile
+    image: aqua-v/quantum-simulator:latest
+    container_name: quantum-simulator
+    restart: unless-stopped
+    environment:
+      - SIMULATOR_MODE=local
+      - MAX_QUBITS=32
+      - NOISE_MODEL=realistic
+    volumes:
+      - simulator-data:/data
+    ports:
+      - "8090:8090"  # Simulator API
+    networks:
+      - quantum-network
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+
+# Named Volumes
+volumes:
+  quantum-data:
+    driver: local
+  quantum-logs:
+    driver: local
+  quantum-config:
+    driver: local
+  postgres-data:
+    driver: local
+  redis-data:
+    driver: local
+  mongodb-data:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
+  elasticsearch-data:
+    driver: local
+  simulator-data:
+    driver: local
+
+# Networks
+networks:
+  quantum-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

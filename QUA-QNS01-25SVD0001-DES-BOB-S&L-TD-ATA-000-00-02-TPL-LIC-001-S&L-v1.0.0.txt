@@ -1,0 +1,64 @@
+# AQUA V. - Quantum Software Development License
+# Document: QUA-QNS01-25SVD0001-DES-BOB-S&L-TD-ATA-000-00-02-TPL-LIC-001-S&L-v1.0.0.txt
+# Version: 1.0.0
+# Owner: S&L (Security & Legal Division)
+# Site: Silicon Valley (25SVD)
+# =============================================================================
+# Copyright (C) 2025 GAIA AIR - ROBBBO-T
+# Aerospace and Quantum United Advanced Venture (AQUA V.)
+# =============================================================================
+
+MIT License
+
+Copyright (c) 2025 GAIA AIR - ROBBBO-T
+Aerospace and Quantum United Advanced Venture (AQUA V.)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+=============================================================================
+AQUA V. PROGRAM SPECIFICATIONS:
+=============================================================================
+Program Investment: €40 Billion
+TRL Level: 6 (Technology Readiness Level)
+Status: Flight Testing Phase
+Classification: Public Release with Commercial License
+
+This software is part of the AQUA V. Quantum Software Development initiative,
+focusing on quantum-enhanced aerospace technologies for the next generation
+of aircraft, space systems, and robotic platforms.
+
+For commercial use, enterprise licensing, or integration with quantum hardware
+systems, please contact: licensing@aqua-v.aerospace
+
+=============================================================================
+EXPORT CONTROL NOTICE:
+=============================================================================
+This software may be subject to export control regulations. Users are 
+responsible for ensuring compliance with applicable export control laws.
+
+=============================================================================
+QUANTUM TECHNOLOGY DISCLAIMER:
+=============================================================================
+This software includes quantum computing algorithms and may require specific
+quantum hardware or simulation environments. Performance characteristics
+may vary based on the quantum computing platform used.
+
+For technical support: quantum-support@aqua-v.aerospace
+For licensing inquiries: licensing@aqua-v.aerospace
+For security concerns: security@aqua-v.aerospace
