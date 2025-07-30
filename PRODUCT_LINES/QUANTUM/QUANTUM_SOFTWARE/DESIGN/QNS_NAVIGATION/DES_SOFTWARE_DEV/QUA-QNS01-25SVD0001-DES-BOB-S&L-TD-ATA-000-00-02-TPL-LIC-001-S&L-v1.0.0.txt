@@ -1,0 +1,359 @@
+================================================================================
+AQUA V. QUANTUM NAVIGATION SYSTEM SOFTWARE LICENSE AGREEMENT
+================================================================================
+Document: QUA-QNS01-25SVD0001-DES-BOB-S&L-TD-ATA-000-00-02-TPL-LIC-001-S&L-v1.0.0.txt
+Owner: S&L (Stakeholder & Legal Division)
+Classification: CONFIDENTIAL - PROPRIETARY
+Site: Silicon Valley (25SVD)
+================================================================================
+Copyright (C) 2025 GAIA AIR - ROBBBO-T
+Aerospace and Quantum United Advanced Venture (AQUA V.)
+All Rights Reserved
+================================================================================
+
+IMPORTANT: READ CAREFULLY BEFORE USING THIS SOFTWARE
+
+This Software License Agreement ("Agreement") is a legal agreement between you 
+(either an individual or a single entity, "Licensee") and GAIA AIR - ROBBBO-T, 
+operating under the Aerospace and Quantum United Advanced Venture (AQUA V.) 
+program ("Licensor"), for the AQUA V. Quantum Navigation System software, 
+including all associated quantum algorithms, sensor integration modules, 
+documentation, and any updates or modifications thereto (collectively, the 
+"Software").
+
+BY INSTALLING, COPYING, OR OTHERWISE USING THE SOFTWARE, YOU AGREE TO BE BOUND 
+BY THE TERMS OF THIS AGREEMENT. IF YOU DO NOT AGREE TO THE TERMS OF THIS 
+AGREEMENT, DO NOT INSTALL OR USE THE SOFTWARE.
+
+================================================================================
+1. DEFINITIONS
+================================================================================
+
+1.1 "Quantum Components" means the quantum algorithms, quantum state processing 
+    modules, and quantum sensor integration software included in the Software.
+
+1.2 "TRL 6 Configuration" means the Software configuration validated for 
+    Technology Readiness Level 6 flight testing.
+
+1.3 "Authorized Hardware" means quantum computing hardware and sensors that have 
+    been certified by Licensor for use with the Software.
+
+1.4 "Restricted Technology" means any component of the Software subject to 
+    export control regulations, including but not limited to ITAR and EAR.
+
+1.5 "Safety-Critical Functions" means navigation, positioning, and timing 
+    functions that directly affect aircraft safety.
+
+================================================================================
+2. GRANT OF LICENSE
+================================================================================
+
+2.1 LIMITED LICENSE
+    Subject to the terms and conditions of this Agreement, Licensor hereby 
+    grants Licensee a non-exclusive, non-transferable, revocable license to:
+    
+    a) Install and use the Software solely on Authorized Hardware;
+    b) Use the Software exclusively for aerospace navigation applications;
+    c) Make one (1) backup copy of the Software for archival purposes only.
+
+2.2 RESTRICTIONS
+    Licensee SHALL NOT:
+    
+    a) Reverse engineer, decompile, or disassemble the Software, except to the 
+       extent permitted by applicable law;
+    b) Modify, adapt, or create derivative works based on the Software;
+    c) Remove or alter any proprietary notices or labels on the Software;
+    d) Use the Software for any military or weapons-related applications;
+    e) Transfer, sublicense, rent, lease, or lend the Software to any third 
+       party;
+    f) Use the Software in any manner that violates export control laws;
+    g) Use the Software with non-Authorized Hardware;
+    h) Disable or circumvent any security features or quantum encryption;
+    i) Use the Software for autonomous weapons systems.
+
+================================================================================
+3. QUANTUM TECHNOLOGY PROVISIONS
+================================================================================
+
+3.1 QUANTUM STATE PROTECTION
+    Licensee acknowledges that the Software processes quantum states that may 
+    be fragile and subject to decoherence. Licensee agrees to operate the 
+    Software only in environments meeting Licensor's specifications.
+
+3.2 QUANTUM CALIBRATION
+    Licensee must perform quantum sensor calibration according to Licensor's 
+    procedures at intervals not exceeding 24 hours of operation.
+
+3.3 ALI-BOB SYNCHRONIZATION
+    The Software includes proprietary ALI-BOB synchronization technology. 
+    Licensee agrees not to analyze, document, or disclose the operation of 
+    this technology.
+
+================================================================================
+4. SAFETY AND REGULATORY COMPLIANCE
+================================================================================
+
+4.1 AEROSPACE COMPLIANCE
+    Licensee acknowledges that the Software is designed to comply with:
+    - EASA CS-25 and CS-23
+    - FAA Part 25 and Part 23
+    - ICAO Annex 8, 16, and 19
+    - DO-178C (Software) and DO-254 (Hardware)
+
+4.2 SAFETY-CRITICAL OPERATION
+    Licensee acknowledges that the Software performs Safety-Critical Functions 
+    and agrees to:
+    a) Maintain redundant navigation systems as required by regulations;
+    b) Perform all required pre-flight checks and calibrations;
+    c) Report any anomalies to Licensor within 24 hours;
+    d) Not use the Software as the sole means of navigation.
+
+4.3 CERTIFICATION STATUS
+    The Software is provided at TRL 6. Full type certification is pending. 
+    Licensee acknowledges that additional certification may be required for 
+    commercial operation.
+
+================================================================================
+5. EXPORT CONTROL
+================================================================================
+
+5.1 EXPORT RESTRICTIONS
+    The Software contains Restricted Technology subject to export control laws, 
+    including but not limited to:
+    - U.S. International Traffic in Arms Regulations (ITAR)
+    - U.S. Export Administration Regulations (EAR)
+    - EU Dual-Use Regulation
+    - Wassenaar Arrangement
+
+5.2 COMPLIANCE OBLIGATION
+    Licensee agrees to comply with all applicable export control laws and 
+    regulations and to obtain any required licenses or authorizations before 
+    exporting, re-exporting, or transferring the Software.
+
+5.3 PROHIBITED DESTINATIONS
+    Licensee shall not export or re-export the Software to any country subject 
+    to U.S. or EU trade embargoes or sanctions.
+
+================================================================================
+6. INTELLECTUAL PROPERTY
+================================================================================
+
+6.1 OWNERSHIP
+    The Software and all intellectual property rights therein are and shall 
+    remain the exclusive property of Licensor and its licensors. This Agreement 
+    does not grant Licensee any rights to trademarks or service marks.
+
+6.2 QUANTUM ALGORITHMS
+    The quantum algorithms contained in the Software are protected by patents 
+    and trade secrets. Licensee acknowledges that these algorithms represent 
+    significant investment and innovation by Licensor.
+
+6.3 FEEDBACK
+    Any feedback, suggestions, or improvements provided by Licensee shall become 
+    the property of Licensor without compensation to Licensee.
+
+================================================================================
+7. DATA COLLECTION AND PRIVACY
+================================================================================
+
+7.1 TELEMETRY DATA
+    The Software collects operational telemetry data including:
+    - System performance metrics
+    - Quantum state fidelity measurements
+    - Sensor calibration data
+    - Error and anomaly logs
+
+7.2 DATA USE
+    Collected data may be used by Licensor for:
+    - Software improvement and debugging
+    - Safety analysis and reporting
+    - Regulatory compliance
+    - Research and development
+
+7.3 DATA SECURITY
+    All data transmission uses quantum key distribution (QKD) when available 
+    and AES-256 encryption as fallback.
+
+================================================================================
+8. WARRANTY DISCLAIMER
+================================================================================
+
+8.1 AS-IS BASIS
+    THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+    IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS 
+    FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+
+8.2 QUANTUM UNCERTAINTY
+    LICENSOR DOES NOT WARRANT THAT QUANTUM COMPUTATIONS WILL BE ERROR-FREE OR 
+    THAT QUANTUM STATES WILL MAINTAIN COHERENCE UNDER ALL CONDITIONS.
+
+8.3 NO WARRANTY OF ACCURACY
+    LICENSOR MAKES NO WARRANTY REGARDING THE ACCURACY OF NAVIGATION SOLUTIONS 
+    PROVIDED BY THE SOFTWARE. LICENSEE ASSUMES ALL RISK ASSOCIATED WITH USE OF 
+    THE SOFTWARE FOR NAVIGATION.
+
+================================================================================
+9. LIMITATION OF LIABILITY
+================================================================================
+
+9.1 LIMITATION
+    IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, 
+    CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF 
+    PROFITS, DATA, OR USE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+9.2 MAXIMUM LIABILITY
+    LICENSOR'S TOTAL LIABILITY SHALL NOT EXCEED THE LICENSE FEES PAID BY 
+    LICENSEE IN THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO 
+    LIABILITY.
+
+9.3 ESSENTIAL PURPOSE
+    THE LIMITATIONS IN THIS SECTION SHALL APPLY EVEN IF ANY REMEDY FAILS OF 
+    ITS ESSENTIAL PURPOSE.
+
+================================================================================
+10. INDEMNIFICATION
+================================================================================
+
+10.1 LICENSEE INDEMNIFICATION
+     Licensee agrees to indemnify, defend, and hold harmless Licensor from any 
+     claims, damages, or expenses arising from:
+     a) Licensee's use of the Software;
+     b) Licensee's violation of this Agreement;
+     c) Licensee's violation of any laws or regulations;
+     d) Use of the Software with non-Authorized Hardware.
+
+================================================================================
+11. TERM AND TERMINATION
+================================================================================
+
+11.1 TERM
+     This Agreement is effective until terminated.
+
+11.2 TERMINATION FOR BREACH
+     Licensor may terminate this Agreement immediately if Licensee breaches any 
+     term of this Agreement.
+
+11.3 EFFECT OF TERMINATION
+     Upon termination, Licensee must:
+     a) Cease all use of the Software;
+     b) Destroy all copies of the Software;
+     c) Certify destruction in writing to Licensor;
+     d) Return any Authorized Hardware if applicable.
+
+================================================================================
+12. UPDATES AND SUPPORT
+================================================================================
+
+12.1 UPDATES
+     Licensor may provide updates to the Software at its discretion. Updates 
+     are subject to this Agreement unless accompanied by a new license agreement.
+
+12.2 CRITICAL UPDATES
+     Licensee agrees to install critical safety and security updates within 
+     seven (7) days of notification.
+
+12.3 SUPPORT
+     Support services, if any, are provided under separate agreement.
+
+================================================================================
+13. CONFIDENTIALITY
+================================================================================
+
+13.1 CONFIDENTIAL INFORMATION
+     The Software and all related documentation constitute confidential and 
+     proprietary information of Licensor.
+
+13.2 OBLIGATIONS
+     Licensee agrees to maintain the confidentiality of the Software and not 
+     disclose it to third parties without Licensor's prior written consent.
+
+13.3 SURVIVAL
+     Confidentiality obligations survive termination of this Agreement for a 
+     period of ten (10) years.
+
+================================================================================
+14. GENERAL PROVISIONS
+================================================================================
+
+14.1 GOVERNING LAW
+     This Agreement is governed by the laws of California, USA, without regard 
+     to conflict of law principles.
+
+14.2 DISPUTE RESOLUTION
+     Any disputes shall be resolved through binding arbitration in San Francisco, 
+     California, under ICC rules.
+
+14.3 ENTIRE AGREEMENT
+     This Agreement constitutes the entire agreement between the parties and 
+     supersedes all prior agreements and understandings.
+
+14.4 SEVERABILITY
+     If any provision is held invalid, the remainder of the Agreement shall 
+     continue in effect.
+
+14.5 NO WAIVER
+     No waiver of any breach shall constitute a waiver of any subsequent breach.
+
+14.6 FORCE MAJEURE
+     Neither party shall be liable for delays or failures due to causes beyond 
+     their reasonable control.
+
+14.7 ASSIGNMENT
+     Licensee may not assign this Agreement without Licensor's prior written 
+     consent.
+
+14.8 NOTICES
+     All notices shall be in writing and sent to:
+     
+     GAIA AIR - ROBBBO-T
+     AQUA V. Program Office
+     Legal Department - S&L Division
+     [Address]
+     Email: legal@aqua-v.aerospace
+
+================================================================================
+15. ACKNOWLEDGMENT
+================================================================================
+
+BY USING THE SOFTWARE, LICENSEE ACKNOWLEDGES THAT IT HAS READ THIS AGREEMENT, 
+UNDERSTANDS IT, AND AGREES TO BE BOUND BY ITS TERMS AND CONDITIONS.
+
+================================================================================
+LICENSE KEY ACTIVATION
+================================================================================
+
+This Software requires activation with a valid license key.
+
+License Type: [TRL-6-FLIGHT-TEST / COMMERCIAL / RESEARCH / EVALUATION]
+License Key: [TO BE PROVIDED SEPARATELY]
+Hardware ID: [TO BE PROVIDED BY AUTHORIZED HARDWARE]
+
+For license activation, contact:
+licensing@aqua-v.aerospace
+
+================================================================================
+REGULATORY NOTICE
+================================================================================
+
+This Software is classified as dual-use technology under export control 
+regulations. Distribution is restricted. Violations may result in severe 
+civil and criminal penalties.
+
+U.S. ECCN: 7D994
+EU Classification: 7D004
+Wassenaar: Cat 7.D.4.a
+
+================================================================================
+END OF LICENSE AGREEMENT
+================================================================================
+Document Version: 1.0.0
+Effective Date: January 1, 2025
+Last Updated: July 30, 2025
+
+Approved by:
+- S&L Division Head: [Digital Signature Required]
+- QDAT Division Head: [Digital Signature Required]
+- Chief Legal Officer: [Digital Signature Required]
+- Program Director: [Digital Signature Required]
+
+[END OF DOCUMENT]
