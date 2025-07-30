@@ -1,5 +1,5 @@
 # AQUA V. Quantum Navigation System - Main Build Configuration
-# Document: QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-00-01-TPL-BLD-001-QDAT-v1.0.0.cmake
+# Document: QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-DTCEC-304-00-01-TPL-BLD-001-QDAT-v1.0.0.cmake
 # Owner: QDAT (Data Governance Division)
 # Site: Silicon Valley (25SVD)
 # =============================================================================
@@ -12,8 +12,8 @@ cmake_minimum_required(VERSION 3.20)
 # Project definition per AQUA V. specifications
 project(AQUA_V_QNS 
     VERSION 1.0.0
-    DESCRIPTION "Quantum Navigation System - GPS-denied navigation (TRL 6)"
-    HOMEPAGE_URL "https://aqua-v.aerospace/quantum/qns"
+    DESCRIPTION "Quantum Navigation System - GPS-denied navigation (TRL 3)"
+    HOMEPAGE_URL "https://aqua-v.aerospace/quantum/QUA-QNS01"
     LANGUAGES CXX C
 )
 
@@ -21,16 +21,16 @@ project(AQUA_V_QNS
 # AQUA V. PROGRAM CONSTANTS
 # =============================================================================
 set(AQUA_V_PROGRAM_INVESTMENT "40B EUR")
-set(AQUA_V_QNS_TRL "6")
-set(AQUA_V_QNS_STATUS "Flight Testing")
+set(AQUA_V_QNS_TRL "3")  # Corrected from 6 to 3 per actual status
+set(AQUA_V_QNS_STATUS "Laboratory Testing")  # Corrected status
 set(AQUA_V_SITE_CODE "25SVD")
 set(AQUA_V_SITE_NAME "Silicon Valley")
 
-# QNS Technical Specifications from Master Document v7.6
-set(QNS_UPDATE_RATE_HZ 1000)
-set(QNS_GRAVITOMETER_SENSITIVITY "1e-12")
-set(QNS_MAGNETOMETER_RANGE "1e-9")
-set(QNS_POSITION_ACCURACY_TARGET "0.1")  # meters
+# QNS Technical Specifications from Master Document v7.7
+set(QNS_UPDATE_RATE_HZ 50)  # Current: 50Hz (lab), Target: 100Hz
+set(QNS_GRAVITOMETER_SENSITIVITY "1e-6")  # Current: 10^-6, Target: 10^-8
+set(QNS_MAGNETOMETER_RANGE "100e-15")  # Current: 100 fT/√Hz, Target: 1-10 fT/√Hz
+set(QNS_POSITION_ACCURACY_TARGET "10")  # Current: ~50m (lab), Requirement: <10m
 set(QNS_GPS_DENIED_CAPABLE TRUE)
 
 # =============================================================================
@@ -70,11 +70,11 @@ endforeach()
 # =============================================================================
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-# Load AQUA V. specific modules
-include(QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-01-TPL-BLD-001-QHPC-v1.0.0) # CompilerOptions
-include(QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-02-TPL-BLD-001-QHPC-v1.0.0) # QuantumConfig
-include(QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-03-TPL-BLD-001-QHPC-v1.0.0) # Dependencies
-include(QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-DTCEC-304-01-04-TPL-BLD-001-QHPC-v1.0.0) # Testing
+# Load AQUA V. specific modules - corrected from ORG to FUN
+include(QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-DTCEC-304-01-01-TPL-BLD-001-QHPC-v1.0.0) # CompilerOptions
+include(QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-DTCEC-304-01-02-TPL-BLD-001-QHPC-v1.0.0) # QuantumConfig
+include(QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-DTCEC-304-01-03-TPL-BLD-001-QHPC-v1.0.0) # Dependencies
+include(QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-DTCEC-304-01-04-TPL-BLD-001-QHPC-v1.0.0) # Testing
 
 # =============================================================================
 # GLOBAL COMPILE OPTIONS
@@ -134,7 +134,7 @@ add_subdirectory(docs)
 # =============================================================================
 # Define the main QNS executable
 add_executable(${PROJECT_NAME}
-    src/main/QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-00-01-TPL-SRC-001-QHPC-v1.0.0.cpp
+    src/main/QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-QCSAA-914-00-01-TPL-SRC-001-QHPC-v1.0.0.cpp
 )
 
 # Set target properties
@@ -152,8 +152,9 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 # =============================================================================
 # Add new QKF library target
 add_library(qns_qkf STATIC
-    src/qkf/QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-00-02-TPL-SRC-001-QHPC-v1.0.0.cpp
-    src/qkf/QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-00-02-TPL-SRC-001-QHPC-v1.0.0.hpp
+    src/algorithms/kalman/QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-QCSAA-920-01-01-TPL-ALG-001-QSCI-v1.0.0.cpp
+    src/algorithms/kalman/QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-QCSAA-920-01-01-TPL-ALG-001-QSCI-v1.0.0.h
+    src/algorithms/kalman/QUA-QNS01-25SVD0001-DES-BOB-FUN-SM-QCSAA-920-01-03-TPL-ALG-001-QSCI-v1.0.0.cpp
 )
 
 # Set target properties for QKF
@@ -170,7 +171,7 @@ set_target_properties(qns_qkf PROPERTIES
 target_link_libraries(qns_qkf
     PUBLIC
         Eigen3::Eigen
-        ${QUANTUM_SDK_LIBRARIES}  # Assuming QuantumAlgorithms is part of this
+        ${QUANTUM_SDK_LIBRARIES}
     PRIVATE
         qns_core
 )
@@ -178,7 +179,7 @@ target_link_libraries(qns_qkf
 # Include directories for QKF
 target_include_directories(qns_qkf
     PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/qkf>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/algorithms/kalman>
         $<INSTALL_INTERFACE:include/aqua-v/qns/qkf>
 )
 
@@ -193,7 +194,7 @@ target_link_libraries(${PROJECT_NAME}
         qns_hal            # Hardware abstraction layer
         qns_interfaces     # System interfaces
         qns_quantum        # Quantum algorithms
-        qns_qkf            # Quantum Kalman Filter (NEW)
+        qns_qkf            # Quantum Kalman Filter
         
         # External dependencies
         Threads::Threads
@@ -284,9 +285,10 @@ message(STATUS "Install prefix:    ${CMAKE_INSTALL_PREFIX}")
 message(STATUS "")
 message(STATUS "QNS Specifications:")
 message(STATUS "  TRL Level:       ${AQUA_V_QNS_TRL} (${AQUA_V_QNS_STATUS})")
-message(STATUS "  Update Rate:     ${QNS_UPDATE_RATE_HZ} Hz")
-message(STATUS "  Gravitometer:    ${QNS_GRAVITOMETER_SENSITIVITY} sensitivity")
-message(STATUS "  Magnetometer:    ${QNS_MAGNETOMETER_RANGE} range")
+message(STATUS "  Update Rate:     ${QNS_UPDATE_RATE_HZ} Hz (Target: 100 Hz)")
+message(STATUS "  Gravitometer:    ${QNS_GRAVITOMETER_SENSITIVITY} g/√Hz (Target: 10^-8)")
+message(STATUS "  Magnetometer:    ${QNS_MAGNETOMETER_RANGE} T/√Hz (Target: 1-10 fT/√Hz)")
+message(STATUS "  Position Acc:    <${QNS_POSITION_ACCURACY_TARGET}m (Current: ~50m lab)")
 message(STATUS "  GPS-Denied:      ${QNS_GPS_DENIED_CAPABLE}")
 message(STATUS "")
 message(STATUS "Modules:")
