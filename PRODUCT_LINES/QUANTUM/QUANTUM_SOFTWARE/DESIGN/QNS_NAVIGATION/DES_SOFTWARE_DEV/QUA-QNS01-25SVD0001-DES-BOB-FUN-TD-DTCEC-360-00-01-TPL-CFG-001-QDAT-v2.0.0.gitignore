@@ -1,14 +1,3 @@
-# ================================================================
-# AQUA V. QUANTUM NAVIGATION SYSTEM
-# Git Ignore Configuration - DO-178C/DO-254 Compliant
-# ================================================================
-# WARNING: This repository contains ITAR-controlled technical data
-# Ensure all commits are reviewed for export control compliance
-# ================================================================
-# Version: 1.1.0 - Enhanced with DevOps recommendations
-# See also: .gitattributes for Git LFS configuration
-# ================================================================
-
 # ===========================
 # SECURITY & COMPLIANCE
 # ===========================
