@@ -1,0 +1,143 @@
+# Quantum Software Deployment Configuration
+# Version: 1.0.0
+# ATA-Chapter: DTCEC-360 (Configuration Management)
+
+---
+# Development Environment Configuration
+development:
+  deployment:
+    host: dev.quantum.local
+    port: 22
+    user: quantum-dev
+    path: /opt/quantum-software/dev
+    service_name: quantum-dev
+    health_check: http://localhost:8080/api/health
+  
+  environment:
+    NODE_ENV: development
+    LOG_LEVEL: DEBUG
+    ENABLE_DEBUG: true
+    QUANTUM_SDK_PATH: /opt/quantum-sdk/dev
+  
+  resources:
+    cpu_limit: 4
+    memory_limit: 4Gi
+    gpu_enabled: false
+  
+  features:
+    hot_reload: true
+    debug_endpoints: true
+    mock_quantum_hardware: true
+
+# Staging Environment Configuration
+staging:
+  deployment:
+    host: staging.quantum.example.com
+    port: 22
+    user: quantum-staging
+    path: /opt/quantum-software/staging
+    service_name: quantum-staging
+    health_check: https://staging.quantum.example.com/api/health
+  
+  environment:
+    NODE_ENV: staging
+    LOG_LEVEL: INFO
+    ENABLE_DEBUG: false
+    QUANTUM_SDK_PATH: /opt/quantum-sdk/staging
+  
+  resources:
+    cpu_limit: 8
+    memory_limit: 16Gi
+    gpu_enabled: true
+    gpu_count: 1
+  
+  features:
+    performance_monitoring: true
+    error_tracking: true
+    quantum_simulator: true
+    limited_hardware_access: true
+  
+  scaling:
+    min_instances: 2
+    max_instances: 4
+    target_cpu_utilization: 70
+
+# Production Environment Configuration
+production:
+  deployment:
+    host: quantum.example.com
+    port: 22
+    user: quantum-prod
+    path: /opt/quantum-software/production
+    service_name: quantum-production
+    health_check: https://quantum.example.com/api/health
+  
+  environment:
+    NODE_ENV: production
+    LOG_LEVEL: WARNING
+    ENABLE_DEBUG: false
+    QUANTUM_SDK_PATH: /opt/quantum-sdk/production
+  
+  resources:
+    cpu_limit: 16
+    memory_limit: 32Gi
+    gpu_enabled: true
+    gpu_count: 4
+  
+  features:
+    performance_monitoring: true
+    error_tracking: true
+    quantum_hardware_access: true
+    circuit_caching: true
+    result_persistence: true
+  
+  scaling:
+    min_instances: 3
+    max_instances: 10
+    target_cpu_utilization: 60
+    scale_down_delay: 300
+  
+  high_availability:
+    enabled: true
+    replicas: 3
+    zones:
+      - us-east-1a
+      - us-east-1b
+      - us-east-1c
+  
+  backup:
+    enabled: true
+    frequency: daily
+    retention_days: 30
+    storage: s3://quantum-backups/production
+
+# Common Configuration
+common:
+  security:
+    ssl_enabled: true
+    ssl_cert_path: /etc/ssl/certs/quantum.crt
+    ssl_key_path: /etc/ssl/private/quantum.key
+    allowed_origins:
+      - https://quantum.example.com
+      - https://staging.quantum.example.com
+    
+  monitoring:
+    prometheus_enabled: true
+    prometheus_port: 9090
+    grafana_enabled: true
+    alerts_enabled: true
+    
+  logging:
+    format: json
+    destinations:
+      - stdout
+      - file
+      - elasticsearch
+    elasticsearch_url: https://logs.quantum.example.com
+    
+  quantum_config:
+    default_backend: qiskit
+    optimization_level: 3
+    error_mitigation: true
+    circuit_depth_limit: 1000
+    measurement_error_mitigation: true

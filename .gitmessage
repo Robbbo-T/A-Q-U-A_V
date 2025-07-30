@@ -1,0 +1,25 @@
+# Type: feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert
+# Scope: optional, e.g., (api), (core), (tests)
+# Subject: imperative mood, max 50 chars
+# Example: feat(ci): add comprehensive DevOps pipeline
+
+# <type>(<scope>): <subject>
+
+# Body: Explain *what* and *why* (not *how*), wrap at 72 chars
+# 
+
+# Footer: References to issues, breaking changes, etc.
+# 
+
+# Types:
+# - feat: A new feature
+# - fix: A bug fix
+# - docs: Documentation only changes
+# - style: Code style changes (formatting, missing semicolons, etc.)
+# - refactor: Code change that neither fixes a bug nor adds a feature
+# - test: Adding missing tests or correcting existing tests
+# - chore: Changes to build process or auxiliary tools
+# - perf: Code change that improves performance
+# - ci: Changes to CI configuration files and scripts
+# - build: Changes that affect the build system or dependencies
+# - revert: Reverts a previous commit
