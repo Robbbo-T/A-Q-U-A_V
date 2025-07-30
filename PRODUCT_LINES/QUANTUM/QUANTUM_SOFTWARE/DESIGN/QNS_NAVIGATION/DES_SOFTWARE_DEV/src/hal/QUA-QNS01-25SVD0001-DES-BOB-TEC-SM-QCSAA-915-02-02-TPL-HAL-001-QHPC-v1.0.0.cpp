@@ -1,324 +1,337 @@
 /**
  * @file QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-915-02-02-TPL-HAL-001-QHPC-v1.0.0.cpp
  * @brief AQUA V. Quantum Navigation System - Sensor HAL Implementation
- * 
- * Document: QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-915-02-02-TPL-HAL-001-QHPC-v1.0.0
- * Owner: QHPC (High Performance Computing Division)
- * Site: Silicon Valley (25SVD)
- * ATA Chapter: QCSAA-915 (Quantum Control Systems and Algorithms)
- * 
- * =============================================================================
- * Copyright (C) 2025 GAIA AIR - ROBBBO-T
- * Aerospace and Quantum United Advanced Venture (AQUA V.)
- * =============================================================================
- * 
- * This file implements specialized HAL components for quantum and inertial
- * sensors used in the AQUA V. Quantum Navigation System. It provides
- * high-performance interfaces for real-time sensor data acquisition.
- * 
- * TRL: 6 (Flight Testing)
- * Compliance: DO-178C Level A, RTCA/DO-254, MIL-STD-1553
+ * @author AQUA V. Quantum High-Performance Computing Division (QHPC)
+ * @version 1.0.0
+ * @date 2025-08-20
+ *
+ * @copyright Copyright (c) 2025 AQUA V. Aerospace
+ *
+ * @details Implementation of quantum and classical sensor interfaces for the
+ *          AQUA V. QNS. Includes quantum gravitometer, magnetometer, IMU,
+ *          and GNSS implementations with safety-critical features.
+ *
+ * UTCS Classification: QCSAA-915 (Quantum Control Systems and Algorithms)
+ * Q-Division: QHPC (Quantum High-Performance Computing)
  */
 
-#include "QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-915-02-01-TPL-HAL-001-QHPC-v1.0.0.h"
-
-#include <algorithm>
+#include "QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-915-02-01-TPL-HAL-001-QHPC-v2.0.0.h"
 #include <cmath>
-#include <complex>
-#include <fftw3.h>  // For quantum signal processing
-#include <eigen3/Eigen/Dense>  // For matrix operations
+#include <random>
+#include <thread>
+#include <chrono>
 
 namespace aqua_v {
 namespace qns {
 namespace hal {
 
-// =============================================================================
-// ADVANCED QUANTUM GRAVIMETER IMPLEMENTATION
-// =============================================================================
-
-class QuantumGravimeter : public IQuantumSensor {
-private:
-    static constexpr double EARTH_GRAVITY = 9.80665;  // m/s²
-    static constexpr double QUANTUM_NOISE_FLOOR = 1e-15;  // m/s²
-    static constexpr double COHERENCE_TIME_NOMINAL = 1e-3;  // seconds
-    
+// ============================================================================
+// QUANTUM SENSOR BASE IMPLEMENTATION
+// ============================================================================
+class QuantumSensorBase : public IQuantumSensor {
+protected:
     DeviceInfo device_info_;
     std::atomic<DeviceStatus> status_;
     std::atomic<bool> measuring_;
-    std::atomic<double> update_rate_;
+    std::atomic<double> update_rate_hz_;
     QuantumSensitivity sensitivity_;
+    QuantumErrorCorrectionScheme error_correction_;
     QuantumSensorCallback measurement_callback_;
-    ErrorCallback error_callback_;
+    QuantumErrorCallback error_callback_;
+    SafetyCriticalCallback safety_callback_;
     
     // Quantum state management
+    mutable std::mutex quantum_mutex_;
+    QuantumState quantum_state_;
+    QuantumMetrics quantum_metrics_;
+    
+    // Latest measurement
+    mutable std::mutex measurement_mutex_;
+    QuantumSensorData latest_measurement_;
+    
+    // Measurement thread
     std::thread measurement_thread_;
-    std::mutex quantum_state_mutex_;
     std::atomic<bool> should_stop_;
-    std::atomic<double> coherence_time_;
-    std::atomic<double> fidelity_;
     
-    // Atom interferometry parameters
-    struct AtomInterferometryParams {
-        double laser_frequency;      // Hz
-        double pulse_duration;       // seconds
-        double free_fall_time;      // seconds
-        double baseline_length;     // meters
-        double temperature;         // Kelvin
-        int atom_count;            // Number of atoms
-    } interferometry_params_;
+    // Health monitoring
+    std::atomic<double> health_factor_;
+    std::atomic<uint32_t> error_count_;
     
-    // Sensor fusion with classical accelerometers
-    std::vector<Vector3D> classical_readings_;
-    std::vector<Vector3D> quantum_readings_;
-    Eigen::Matrix3d calibration_matrix_;
-    
-    // Signal processing
-    mutable std::mutex data_mutex_;
-    QuantumSensorData latest_data_;
-    std::vector<double> signal_buffer_;
-    size_t buffer_size_;
-    
-    // Environmental compensation
-    double temperature_compensation_;
-    double pressure_compensation_;
-    Vector3D magnetic_compensation_;
+    // Calibration data
+    Vector3D calibration_offset_;
+    double calibration_scale_;
+    Timestamp last_calibration_time_;
     
 public:
-    explicit QuantumGravimeter(uint32_t device_id) 
+    QuantumSensorBase(uint32_t device_id, DeviceType type, const char* model)
         : status_(DeviceStatus::OFFLINE)
         , measuring_(false)
-        , update_rate_(0.0)
-        , sensitivity_(QuantumSensitivity::ULTRA_HIGH)
+        , update_rate_hz_(100.0)
+        , sensitivity_(QuantumSensitivity::STANDARD)
+        , error_correction_(QuantumErrorCorrectionScheme::SURFACE_CODE)
         , should_stop_(false)
-        , coherence_time_(COHERENCE_TIME_NOMINAL)
-        , fidelity_(0.99)
-        , buffer_size_(1024)
-        , temperature_compensation_(1.0)
-        , pressure_compensation_(1.0)
-    {
-        // Initialize device info
+        , health_factor_(1.0)
+        , error_count_(0)
+        , calibration_scale_(1.0) {
+        
         device_info_.device_id = device_id;
-        device_info_.type = DeviceType::QUANTUM_SENSOR;
-        std::strcpy(device_info_.manufacturer, "AQUA V. Quantum");
-        std::strcpy(device_info_.model, "QGM-2000-AI");
-        std::strcpy(device_info_.serial_number, "QG002468135");
-        std::strcpy(device_info_.firmware_version, "v3.2.1");
-        device_info_.capabilities = 0x000001FF; // Advanced quantum capabilities
-        
-        // Initialize interferometry parameters
-        interferometry_params_.laser_frequency = 384.2304844685e12; // Cesium D2 line
-        interferometry_params_.pulse_duration = 10e-6; // 10 μs
-        interferometry_params_.free_fall_time = 100e-3; // 100 ms
-        interferometry_params_.baseline_length = 0.1; // 10 cm
-        interferometry_params_.temperature = 1e-6; // μK regime
-        interferometry_params_.atom_count = 1e6; // 1 million atoms
-        
-        // Initialize calibration matrix (identity for now)
-        calibration_matrix_ = Eigen::Matrix3d::Identity();
-        
-        // Initialize buffers
-        signal_buffer_.resize(buffer_size_, 0.0);
-        classical_readings_.reserve(100);
-        quantum_readings_.reserve(100);
-        
-        // Initialize measurement data
-        reset_measurement_data();
+        device_info_.type = type;
+        std::strncpy(device_info_.manufacturer, "AQUA V. Quantum", sizeof(device_info_.manufacturer));
+        std::strncpy(device_info_.model, model, sizeof(device_info_.model));
+        std::snprintf(device_info_.serial_number, sizeof(device_info_.serial_number), 
+                     "QS%08X", device_id);
+        std::strncpy(device_info_.firmware_version, "v2.0.0", sizeof(device_info_.firmware_version));
+        std::strncpy(device_info_.safety_certification, "DO-178C DAL-A", sizeof(device_info_.safety_certification));
+        device_info_.capabilities = 0x000001FF;
+        device_info_.safety_level = 1; // DAL-A
+        device_info_.redundancy_factor = 3; // Triple redundancy
+        device_info_.fault_tolerant = true;
     }
     
-    ~QuantumGravimeter() override {
-        shutdown();
+    virtual ~QuantumSensorBase() {
+        if (measuring_.load()) {
+            stop_measurements();
+        }
+        if (status_ != DeviceStatus::OFFLINE) {
+            shutdown();
+        }
     }
     
-    HalResult initialize() override {
-        std::lock_guard<std::mutex> lock(quantum_state_mutex_);
+    // IHalDevice implementation
+    SAFETY_CRITICAL HalResult initialize() override {
+        REQUIREMENT_TRACE("SENSOR-INIT-001");
         
-        // Laser system initialization
-        if (!initialize_laser_system()) {
-            return HalResult::ERROR_HARDWARE_FAULT;
+        if (status_ != DeviceStatus::OFFLINE) {
+            return HalResult::ERROR_INVALID_STATE;
         }
         
-        // Atom trap initialization
-        if (!initialize_atom_trap()) {
-            return HalResult::ERROR_HARDWARE_FAULT;
+        // Initialize quantum state
+        quantum_state_ = QuantumState();
+        quantum_state_.fidelity = 0.99;
+        quantum_state_.purity = 0.98;
+        quantum_state_.qubit_count = 100;
+        quantum_state_.t1_time = 1000.0; // 1ms coherence time
+        quantum_state_.t2_time = 500.0;  // 0.5ms dephasing time
+        
+        // Initialize quantum metrics
+        quantum_metrics_ = QuantumMetrics();
+        quantum_metrics_.gate_error_rate = 0.001;
+        quantum_metrics_.readout_error = 0.005;
+        quantum_metrics_.coherence_limit = 0.999;
+        
+        // Perform hardware initialization
+        HalResult result = initialize_hardware();
+        if (is_error(result)) {
+            return result;
         }
         
-        // Vacuum system check
-        if (!verify_vacuum_system()) {
-            return HalResult::ERROR_HARDWARE_FAULT;
-        }
-        
-        // Magnetic shielding verification
-        if (!verify_magnetic_shielding()) {
-            return HalResult::ERROR_HARDWARE_FAULT;
-        }
-        
-        status_ = DeviceStatus::ONLINE;
+        status_ = DeviceStatus::ONLINE | DeviceStatus::QUANTUM_COHERENT;
         return HalResult::SUCCESS;
     }
     
-    HalResult shutdown() override {
-        stop_measurements();
+    SAFETY_CRITICAL HalResult shutdown() override {
+        REQUIREMENT_TRACE("SENSOR-SHUTDOWN-001");
         
-        // Shutdown laser system safely
-        shutdown_laser_system();
+        if (measuring_.load()) {
+            stop_measurements();
+        }
         
-        // Release atoms from trap
-        release_atom_trap();
+        shutdown_hardware();
         
         status_ = DeviceStatus::OFFLINE;
         return HalResult::SUCCESS;
     }
     
-    HalResult reset() override {
+    SAFETY_CRITICAL HalResult reset() override {
+        REQUIREMENT_TRACE("SENSOR-RESET-001");
+        
         HalResult result = shutdown();
         if (is_success(result)) {
-            std::this_thread::sleep_for(std::chrono::seconds(2));
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
             result = initialize();
         }
         return result;
     }
     
-    HalResult get_device_info(DeviceInfo& info) const override {
+    SAFETY_CRITICAL HalResult emergency_shutdown() override {
+        REQUIREMENT_TRACE("SENSOR-EMERGENCY-001");
+        
+        should_stop_.store(true);
+        if (measurement_thread_.joinable()) {
+            measurement_thread_.join();
+        }
+        
+        emergency_shutdown_hardware();
+        status_ = DeviceStatus::OFFLINE;
+        
+        return HalResult::SUCCESS;
+    }
+    
+    SAFETY_CRITICAL HalResult get_device_info(DeviceInfo& info) const override {
         info = device_info_;
         return HalResult::SUCCESS;
     }
     
-    DeviceStatus get_status() const override {
+    SAFETY_CRITICAL DeviceStatus get_status() const override {
         return status_.load();
     }
     
-    HalResult self_test() override {
-        if (status_ != DeviceStatus::ONLINE) {
-            return HalResult::ERROR_DEVICE_NOT_FOUND;
+    SAFETY_CRITICAL HalResult self_test() override {
+        REQUIREMENT_TRACE("SENSOR-TEST-001");
+        
+        if (measuring_.load()) {
+            return HalResult::ERROR_DEVICE_BUSY;
         }
         
-        // Test laser stability
-        if (!test_laser_stability()) {
-            return HalResult::ERROR_HARDWARE_FAULT;
+        // Test quantum coherence
+        if (!test_quantum_coherence()) {
+            return HalResult::ERROR_QUANTUM_DECOHERENCE;
         }
         
-        // Test atom loading
-        if (!test_atom_loading()) {
-            return HalResult::ERROR_HARDWARE_FAULT;
+        // Test measurement accuracy
+        if (!test_measurement_accuracy()) {
+            return HalResult::ERROR_CALIBRATION;
         }
         
-        // Test interferometry sequence
-        if (!test_interferometry_sequence()) {
+        // Test error correction
+        if (!test_error_correction()) {
+            return HalResult::ERROR_QUANTUM_ERROR_CORRECTION_FAILED;
+        }
+        
+        return HalResult::SUCCESS;
+    }
+    
+    REAL_TIME HalResult built_in_test() override {
+        REQUIREMENT_TRACE("SENSOR-BIT-001");
+        
+        // Quick health check
+        double coherence_time, fidelity;
+        if (!is_quantum_coherent(coherence_time, fidelity)) {
+            health_factor_.store(health_factor_.load() * 0.9);
             return HalResult::ERROR_QUANTUM_DECOHERENCE;
         }
         
         return HalResult::SUCCESS;
     }
     
-    void set_error_callback(ErrorCallback callback) override {
+    void set_error_callback(QuantumErrorCallback callback) override {
         error_callback_ = callback;
     }
     
-    HalResult start_measurements(double update_rate_hz) override {
-        if (status_ != DeviceStatus::ONLINE) {
-            return HalResult::ERROR_DEVICE_NOT_FOUND;
+    void set_safety_callback(SafetyCriticalCallback callback) override {
+        safety_callback_ = callback;
+    }
+    
+    SAFETY_CRITICAL double get_health_factor() const override {
+        return health_factor_.load();
+    }
+    
+    SAFETY_CRITICAL bool is_safety_critical() const override {
+        return true; // All quantum sensors are safety-critical
+    }
+    
+    SAFETY_CRITICAL uint8_t get_redundancy_level() const override {
+        return device_info_.redundancy_factor;
+    }
+    
+    // IQuantumSensor implementation
+    SAFETY_CRITICAL HalResult start_measurements(
+        double update_rate_hz,
+        QuantumSensitivity sensitivity,
+        QuantumErrorCorrectionScheme error_correction) override {
+        
+        REQUIREMENT_TRACE("SENSOR-START-001");
+        
+        if (measuring_.load()) {
+            return HalResult::ERROR_INVALID_STATE;
         }
         
-        if (update_rate_hz <= 0.0 || update_rate_hz > 1000.0) {
-            return HalResult::ERROR_INVALID_PARAMETER;
-        }
+        update_rate_hz_.store(update_rate_hz);
+        sensitivity_ = sensitivity;
+        error_correction_ = error_correction;
         
-        stop_measurements();
+        // Start measurement thread
+        should_stop_.store(false);
+        measuring_.store(true);
+        measurement_thread_ = std::thread(&QuantumSensorBase::measurement_loop, this);
         
-        update_rate_ = update_rate_hz;
-        measuring_ = true;
-        should_stop_ = false;
-        
-        // Start high-priority measurement thread
-        measurement_thread_ = std::thread(&QuantumGravimeter::measurement_loop, this);
-        
-        // Set thread priority (platform-specific)
-#ifdef __linux__
-        pthread_t thread_id = measurement_thread_.native_handle();
-        struct sched_param param;
-        param.sched_priority = 99; // Highest RT priority
-        pthread_setschedparam(thread_id, SCHED_FIFO, &param);
-#endif
+        // Update status
+        status_ = status_.load() | DeviceStatus::QUANTUM_ERROR_CORRECTING;
         
         return HalResult::SUCCESS;
     }
     
-    HalResult stop_measurements() override {
-        measuring_ = false;
-        should_stop_ = true;
+    SAFETY_CRITICAL HalResult stop_measurements() override {
+        REQUIREMENT_TRACE("SENSOR-STOP-001");
         
+        if (!measuring_.load()) {
+            return HalResult::ERROR_INVALID_STATE;
+        }
+        
+        should_stop_.store(true);
         if (measurement_thread_.joinable()) {
             measurement_thread_.join();
         }
         
+        measuring_.store(false);
+        
+        // Update status
+        status_ = status_.load() & ~DeviceStatus::QUANTUM_ERROR_CORRECTING;
+        
         return HalResult::SUCCESS;
     }
     
-    HalResult set_sensitivity(QuantumSensitivity sensitivity) override {
+    SAFETY_CRITICAL HalResult set_sensitivity(QuantumSensitivity sensitivity) override {
+        REQUIREMENT_TRACE("SENSOR-SENSITIVITY-001");
+        
         sensitivity_ = sensitivity;
         
-        // Adjust interferometry parameters based on sensitivity
+        // Update quantum parameters based on sensitivity
         switch (sensitivity) {
-            case QuantumSensitivity::STANDARD:
-                interferometry_params_.free_fall_time = 50e-3;
-                interferometry_params_.atom_count = 1e5;
-                break;
-            case QuantumSensitivity::HIGH:
-                interferometry_params_.free_fall_time = 100e-3;
-                interferometry_params_.atom_count = 5e5;
+            case QuantumSensitivity::QUANTUM_LIMITED:
+                quantum_state_.qubit_count = 1000;
+                quantum_state_.t1_time = 10000.0; // 10ms
+                quantum_state_.t2_time = 5000.0;  // 5ms
                 break;
             case QuantumSensitivity::ULTRA_HIGH:
-                interferometry_params_.free_fall_time = 200e-3;
-                interferometry_params_.atom_count = 1e6;
+                quantum_state_.qubit_count = 500;
+                quantum_state_.t1_time = 5000.0;
+                quantum_state_.t2_time = 2500.0;
                 break;
-            case QuantumSensitivity::QUANTUM_LIMITED:
-                interferometry_params_.free_fall_time = 500e-3;
-                interferometry_params_.atom_count = 5e6;
+            case QuantumSensitivity::HIGH:
+                quantum_state_.qubit_count = 200;
+                quantum_state_.t1_time = 2000.0;
+                quantum_state_.t2_time = 1000.0;
                 break;
             default:
-                return HalResult::ERROR_INVALID_PARAMETER;
+                quantum_state_.qubit_count = 100;
+                quantum_state_.t1_time = 1000.0;
+                quantum_state_.t2_time = 500.0;
+                break;
         }
         
         return HalResult::SUCCESS;
     }
     
-    HalResult calibrate() override {
-        if (status_ != DeviceStatus::ONLINE) {
-            return HalResult::ERROR_DEVICE_NOT_FOUND;
+    SAFETY_CRITICAL HalResult calibrate(const Vector3D& reference_field) override {
+        REQUIREMENT_TRACE("SENSOR-CALIBRATE-001");
+        
+        if (measuring_.load()) {
+            return HalResult::ERROR_DEVICE_BUSY;
         }
         
-        status_ = DeviceStatus::CALIBRATING;
-        
-        // Gravity calibration using known reference
-        if (!perform_gravity_calibration()) {
-            status_ = DeviceStatus::ERROR;
-            return HalResult::ERROR_CALIBRATION;
+        // Perform calibration sequence
+        HalResult result = perform_calibration_sequence(reference_field);
+        if (is_success(result)) {
+            last_calibration_time_ = Timestamp::now();
         }
         
-        // Bias and scale factor calibration
-        if (!perform_bias_calibration()) {
-            status_ = DeviceStatus::ERROR;
-            return HalResult::ERROR_CALIBRATION;
-        }
-        
-        // Temperature compensation calibration
-        if (!perform_temperature_calibration()) {
-            status_ = DeviceStatus::ERROR;
-            return HalResult::ERROR_CALIBRATION;
-        }
-        
-        status_ = static_cast<DeviceStatus>(
-            static_cast<uint32_t>(DeviceStatus::ONLINE) | 
-            static_cast<uint32_t>(DeviceStatus::QUANTUM_COHERENT) |
-            static_cast<uint32_t>(DeviceStatus::HIGH_PRECISION)
-        );
-        
-        return HalResult::SUCCESS;
+        return result;
     }
     
-    HalResult get_measurement(QuantumSensorData& data) const override {
-        std::lock_guard<std::mutex> lock(data_mutex_);
-        data = latest_data_;
+    SAFETY_CRITICAL HalResult get_measurement(QuantumSensorData& data) const override {
+        std::lock_guard<std::mutex> lock(measurement_mutex_);
+        data = latest_measurement_;
         return HalResult::SUCCESS;
     }
     
@@ -326,349 +339,698 @@ public:
         measurement_callback_ = callback;
     }
     
-    bool is_quantum_coherent() const override {
-        return coherence_time_.load() > 1e-6 && fidelity_.load() > 0.9;
-    }
-
-private:
-    void reset_measurement_data() {
-        latest_data_.timestamp = Timestamp::now();
-        latest_data_.acceleration = Vector3D(0.0, 0.0, -EARTH_GRAVITY);
-        latest_data_.magnetic_field = Vector3D(2.0e-5, 0.0, 4.0e-5);
-        latest_data_.coherence_time = COHERENCE_TIME_NOMINAL;
-        latest_data_.fidelity = 0.99;
-        latest_data_.measurement_count = 0;
-        latest_data_.uncertainty = get_sensitivity_uncertainty();
+    SAFETY_CRITICAL bool is_quantum_coherent(double& coherence_time, double& fidelity) const override {
+        std::lock_guard<std::mutex> lock(quantum_mutex_);
+        coherence_time = quantum_state_.t1_time;
+        fidelity = quantum_state_.fidelity;
+        return quantum_state_.fidelity > QUANTUM_DECOHERENCE_THRESHOLD;
     }
     
-    double get_sensitivity_uncertainty() const {
-        switch (sensitivity_) {
-            case QuantumSensitivity::STANDARD: return 1e-9;
-            case QuantumSensitivity::HIGH: return 1e-10;
-            case QuantumSensitivity::ULTRA_HIGH: return 1e-12;
-            case QuantumSensitivity::QUANTUM_LIMITED: return QUANTUM_NOISE_FLOOR;
-            default: return 1e-9;
-        }
+    SAFETY_CRITICAL HalResult get_quantum_state(QuantumState& state) const override {
+        std::lock_guard<std::mutex> lock(quantum_mutex_);
+        state = quantum_state_;
+        return HalResult::SUCCESS;
     }
     
-    bool initialize_laser_system() {
-        // Simulate laser system initialization
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    SAFETY_CRITICAL HalResult perform_error_correction(QuantumErrorCorrectionScheme scheme) override {
+        REQUIREMENT_TRACE("SENSOR-QEC-001");
         
-        // Check laser power and stability
-        double laser_power = 10.0; // mW
-        double frequency_stability = 1e-12; // Hz/Hz
+        error_correction_ = scheme;
         
-        return laser_power > 5.0 && frequency_stability < 1e-11;
-    }
-    
-    bool initialize_atom_trap() {
-        // Simulate MOT (Magneto-Optical Trap) initialization
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
-        
-        // Check magnetic field gradients and laser beam alignment
-        double magnetic_gradient = 10.0; // G/cm
-        double beam_alignment = 0.99; // Normalized
-        
-        return magnetic_gradient > 5.0 && beam_alignment > 0.95;
-    }
-    
-    bool verify_vacuum_system() {
-        // Check ultra-high vacuum
-        double pressure = 1e-11; // Torr
-        return pressure < 1e-10;
-    }
-    
-    bool verify_magnetic_shielding() {
-        // Check magnetic field stability
-        double field_stability = 1e-9; // T/Hz^(1/2)
-        return field_stability < 1e-8;
-    }
-    
-    bool test_laser_stability() {
-        // Measure laser frequency stability over time
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-        return true; // Simplified test
-    }
-    
-    bool test_atom_loading() {
-        // Test atom loading efficiency
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
-        int loaded_atoms = interferometry_params_.atom_count;
-        return loaded_atoms > interferometry_params_.atom_count * 0.8;
-    }
-    
-    bool test_interferometry_sequence() {
-        // Test complete interferometry sequence
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        double contrast = perform_single_measurement();
-        return contrast > 0.5; // Minimum acceptable contrast
-    }
-    
-    void shutdown_laser_system() {
-        // Safely power down lasers
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    }
-    
-    void release_atom_trap() {
-        // Release atoms from MOT
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
-    }
-    
-    bool perform_gravity_calibration() {
-        // Multi-point gravity calibration
-        std::vector<double> reference_values = {9.80665, 9.80664, 9.80666};
-        std::vector<double> measured_values;
-        
-        for (size_t i = 0; i < reference_values.size(); ++i) {
-            double measured = perform_single_measurement() * EARTH_GRAVITY;
-            measured_values.push_back(measured);
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        // Simulate error correction
+        {
+            std::lock_guard<std::mutex> lock(quantum_mutex_);
+            
+            // Apply error correction based on scheme
+            switch (scheme) {
+                case QuantumErrorCorrectionScheme::SURFACE_CODE:
+                    quantum_state_.fidelity = std::min(0.999, quantum_state_.fidelity * 1.1);
+                    quantum_metrics_.correction_count++;
+                    break;
+                case QuantumErrorCorrectionScheme::SHOR_9_QUBIT:
+                    quantum_state_.fidelity = std::min(0.998, quantum_state_.fidelity * 1.08);
+                    quantum_metrics_.correction_count++;
+                    break;
+                default:
+                    break;
+            }
         }
         
-        // Calculate calibration parameters
-        return calculate_calibration_matrix(reference_values, measured_values);
+        return HalResult::SUCCESS;
     }
     
-    bool perform_bias_calibration() {
-        // Zero-g calibration simulation
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        return true;
-    }
-    
-    bool perform_temperature_calibration() {
-        // Temperature coefficient calibration
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
-        temperature_compensation_ = 1.0 + 1e-6; // ppm/K
-        return true;
-    }
-    
-    bool calculate_calibration_matrix(const std::vector<double>& reference,
-                                    const std::vector<double>& measured) {
-        if (reference.size() != measured.size() || reference.empty()) {
-            return false;
+    SAFETY_CRITICAL HalResult test_bell_inequality(double& violation_measure) override {
+        REQUIREMENT_TRACE("SENSOR-BELL-001");
+        
+        // Simulate Bell inequality test
+        // In a real quantum system, this would measure correlations
+        std::lock_guard<std::mutex> lock(quantum_mutex_);
+        
+        if (quantum_state_.entanglement > 0.7) {
+            violation_measure = 2.82; // Maximum violation for quantum systems
+            quantum_metrics_.bell_violation = violation_measure;
+        } else {
+            violation_measure = 2.0; // Classical limit
         }
         
-        // Simple scale factor calculation
-        double scale_factor = 0.0;
-        for (size_t i = 0; i < reference.size(); ++i) {
-            scale_factor += reference[i] / measured[i];
-        }
-        scale_factor /= reference.size();
-        
-        // Update calibration matrix
-        calibration_matrix_ *= scale_factor;
-        return std::abs(scale_factor - 1.0) < 0.1; // Within 10%
+        return HalResult::SUCCESS;
     }
+    
+    SAFETY_CRITICAL HalResult get_quantum_metrics(QuantumMetrics& metrics) const override {
+        std::lock_guard<std::mutex> lock(quantum_mutex_);
+        metrics = quantum_metrics_;
+        return HalResult::SUCCESS;
+    }
+    
+protected:
+    // Virtual methods for derived classes
+    virtual HalResult initialize_hardware() = 0;
+    virtual void shutdown_hardware() = 0;
+    virtual void emergency_shutdown_hardware() = 0;
+    virtual bool test_quantum_coherence() = 0;
+    virtual bool test_measurement_accuracy() = 0;
+    virtual bool test_error_correction() = 0;
+    virtual HalResult perform_calibration_sequence(const Vector3D& reference) = 0;
+    virtual void perform_quantum_measurement(QuantumSensorData& data) = 0;
     
     void measurement_loop() {
-        const auto sleep_duration = std::chrono::microseconds(
-            static_cast<int64_t>(1000000.0 / update_rate_.load())
+        REQUIREMENT_TRACE("SENSOR-LOOP-001");
+        
+        const auto period = std::chrono::microseconds(
+            static_cast<int64_t>(1000000.0 / update_rate_hz_.load())
         );
         
-        while (!should_stop_) {
-            // Perform quantum interferometry measurement
-            double gravity_measurement = perform_single_measurement();
+        while (!should_stop_.load()) {
+            auto start = std::chrono::high_resolution_clock::now();
             
-            // Apply calibration and compensation
-            Vector3D calibrated_acceleration = apply_calibration(gravity_measurement);
+            // Perform measurement
+            QuantumSensorData new_measurement;
+            perform_quantum_measurement(new_measurement);
             
-            // Update measurement data
+            // Apply calibration
+            apply_calibration(new_measurement);
+            
+            // Update quantum state
+            update_quantum_state();
+            
+            // Store measurement
             {
-                std::lock_guard<std::mutex> lock(data_mutex_);
-                latest_data_.timestamp = Timestamp::now();
-                latest_data_.acceleration = calibrated_acceleration;
-                latest_data_.coherence_time = coherence_time_.load();
-                latest_data_.fidelity = fidelity_.load();
-                latest_data_.measurement_count++;
-                latest_data_.uncertainty = get_sensitivity_uncertainty();
+                std::lock_guard<std::mutex> lock(measurement_mutex_);
+                latest_measurement_ = new_measurement;
             }
             
             // Call callback if registered
             if (measurement_callback_) {
-                measurement_callback_(latest_data_);
+                measurement_callback_(new_measurement, HalResult::SUCCESS, device_info_.device_id);
             }
             
-            std::this_thread::sleep_for(sleep_duration);
+            // Wait for next measurement
+            auto end = std::chrono::high_resolution_clock::now();
+            auto elapsed = end - start;
+            if (elapsed < period) {
+                std::this_thread::sleep_for(period - elapsed);
+            }
         }
     }
     
-    double perform_single_measurement() {
-        // Simulate atom interferometry measurement
-        
-        // Phase 1: Atom preparation and cooling
-        std::this_thread::sleep_for(std::chrono::microseconds(10));
-        
-        // Phase 2: Raman pulse sequence (π/2 - π - π/2)
-        double phase_accumulation = simulate_interferometry_phase();
-        
-        // Phase 3: State detection
-        double contrast = detect_atomic_populations(phase_accumulation);
-        
-        // Convert phase to acceleration
-        double acceleration = phase_to_acceleration(phase_accumulation);
-        
-        // Update quantum state parameters
-        update_quantum_state(contrast);
-        
-        return acceleration / EARTH_GRAVITY; // Normalized to Earth gravity
+    void apply_calibration(QuantumSensorData& data) {
+        data.acceleration.x = (data.acceleration.x - calibration_offset_.x) * calibration_scale_;
+        data.acceleration.y = (data.acceleration.y - calibration_offset_.y) * calibration_scale_;
+        data.acceleration.z = (data.acceleration.z - calibration_offset_.z) * calibration_scale_;
     }
     
-    double simulate_interferometry_phase() {
-        // Simplified phase calculation for atom interferometry
-        double k_eff = 2.0 * M_PI / (780e-9 / 2.0); // Effective wave vector
-        double T = interferometry_params_.free_fall_time;
-        double g = EARTH_GRAVITY;
+    void update_quantum_state() {
+        std::lock_guard<std::mutex> lock(quantum_mutex_);
         
-        // Gravitational phase shift
-        double phase = k_eff * g * T * T;
+        // Simulate decoherence
+        quantum_state_.fidelity *= 0.9999;
+        quantum_state_.purity *= 0.9998;
         
-        // Add noise and environmental effects
-        std::random_device rd;
-        std::mt19937 gen(rd());
-        std::normal_distribution<double> noise(0.0, get_sensitivity_uncertainty() / g);
-        phase += noise(gen) * k_eff * T * T;
+        // Simulate error correction
+        if (error_correction_ != QuantumErrorCorrectionScheme::NONE) {
+            if (quantum_state_.fidelity < 0.95) {
+                perform_error_correction(error_correction_);
+            }
+        }
         
-        return phase;
-    }
-    
-    double detect_atomic_populations(double phase) {
-        // Simulate atomic state detection after interferometry
-        double contrast = 0.9 * std::cos(phase);
-        
-        // Add shot noise
-        std::random_device rd;
-        std::mt19937 gen(rd());
-        std::normal_distribution<double> shot_noise(0.0, 1.0 / std::sqrt(interferometry_params_.atom_count));
-        contrast += shot_noise(gen);
-        
-        return std::abs(contrast);
-    }
-    
-    double phase_to_acceleration(double phase) {
-        // Convert interferometry phase to acceleration
-        double k_eff = 2.0 * M_PI / (780e-9 / 2.0);
-        double T = interferometry_params_.free_fall_time;
-        
-        return phase / (k_eff * T * T);
-    }
-    
-    void update_quantum_state(double contrast) {
-        // Update coherence time based on contrast
-        double new_coherence = COHERENCE_TIME_NOMINAL * contrast;
-        coherence_time_.store(new_coherence);
-        
-        // Update fidelity
-        double new_fidelity = 0.99 * contrast;
-        fidelity_.store(new_fidelity);
-    }
-    
-    Vector3D apply_calibration(double raw_measurement) {
-        Vector3D result;
-        
-        // Apply temperature compensation
-        double temp_corrected = raw_measurement * temperature_compensation_;
-        
-        // Apply pressure compensation
-        double pressure_corrected = temp_corrected * pressure_compensation_;
-        
-        // Apply calibration matrix (simplified for 1D case)
-        result.x = 0.0;
-        result.y = 0.0;
-        result.z = pressure_corrected * EARTH_GRAVITY * calibration_matrix_(2, 2);
-        
-        return result;
+        // Update metrics
+        quantum_metrics_.gate_count++;
     }
 };
 
-// =============================================================================
-// HIGH-PRECISION INERTIAL MEASUREMENT UNIT
-// =============================================================================
+// ============================================================================
+// QUANTUM GRAVITOMETER IMPLEMENTATION
+// ============================================================================
+class QuantumGravitometer : public QuantumSensorBase {
+private:
+    // Gravitometer-specific parameters
+    double atom_cloud_temperature_; // μK
+    double interferometer_phase_;
+    double rabi_frequency_;
+    
+public:
+    QuantumGravitometer(uint32_t device_id) 
+        : QuantumSensorBase(device_id, DeviceType::QUANTUM_SENSOR, "QG-1000")
+        , atom_cloud_temperature_(1.0)
+        , interferometer_phase_(0.0)
+        , rabi_frequency_(1000.0) {
+    }
+    
+protected:
+    HalResult initialize_hardware() override {
+        REQUIREMENT_TRACE("GRAV-INIT-001");
+        
+        // Simulate hardware initialization
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        
+        // Initialize atom cooling system
+        atom_cloud_temperature_ = 1.0; // 1 μK
+        
+        return HalResult::SUCCESS;
+    }
+    
+    void shutdown_hardware() override {
+        // Simulate hardware shutdown
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+    
+    void emergency_shutdown_hardware() override {
+        // Immediate shutdown
+    }
+    
+    bool test_quantum_coherence() override {
+        // Test atom cloud coherence
+        return quantum_state_.fidelity > 0.9;
+    }
+    
+    bool test_measurement_accuracy() override {
+        // Test gravitometer accuracy
+        return true; // Simplified
+    }
+    
+    bool test_error_correction() override {
+        // Test error correction system
+        return true; // Simplified
+    }
+    
+    HalResult perform_calibration_sequence(const Vector3D& reference) override {
+        REQUIREMENT_TRACE("GRAV-CAL-001");
+        
+        // Perform gravitometer calibration
+        calibration_offset_ = reference;
+        calibration_scale_ = 1.0;
+        
+        return HalResult::SUCCESS;
+    }
+    
+    void perform_quantum_measurement(QuantumSensorData& data) override {
+        REQUIREMENT_TRACE("GRAV-MEAS-001");
+        
+        // Timestamp
+        data.timestamp = Timestamp::now();
+        
+        // Simulate quantum interferometry measurement
+        // Local gravity with quantum precision
+        double g_local = 9.80665; // m/s²
+        
+        // Add quantum noise based on sensitivity
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        
+        double noise_level = 1e-9; // 1 nano-g
+        switch (sensitivity_) {
+            case QuantumSensitivity::QUANTUM_LIMITED:
+                noise_level = 1e-15; // Planck-scale
+                break;
+            case QuantumSensitivity::ULTRA_HIGH:
+                noise_level = 1e-12; // pico-g
+                break;
+            case QuantumSensitivity::HIGH:
+                noise_level = 1e-10; // 0.1 nano-g
+                break;
+            default:
+                break;
+        }
+        
+        std::normal_distribution<> noise(0.0, noise_level);
+        
+        // Gravity vector (assuming vertical alignment)
+        data.acceleration.x = noise(gen);
+        data.acceleration.y = noise(gen);
+        data.acceleration.z = g_local + noise(gen);
+        
+        // Quantum state
+        data.quantum_state = quantum_state_;
+        data.metrics = quantum_metrics_;
+        
+        // Measurement metadata
+        data.measurement_count = quantum_metrics_.gate_count;
+        data.uncertainty = noise_level;
+        data.temperature = 4.0; // Kelvin (operating temperature)
+        data.error_flags = 0;
+        
+        // Simulate gravity gradient measurement
+        data.angular_velocity.x = 0.0; // Not used for gravitometer
+        data.angular_velocity.y = 0.0;
+        data.angular_velocity.z = 0.0;
+        
+        // Magnetic field (gravitometer doesn't measure this)
+        data.magnetic_field = Vector3D(0.0, 0.0, 0.0);
+    }
+};
 
-class PrecisionIMU : public IInertialSensor {
+// ============================================================================
+// QUANTUM MAGNETOMETER IMPLEMENTATION
+// ============================================================================
+class QuantumMagnetometer : public QuantumSensorBase {
+private:
+    // Magnetometer-specific parameters
+    double alkali_vapor_density_;
+    double pump_laser_power_;
+    double probe_laser_detuning_;
+    
+public:
+    QuantumMagnetometer(uint32_t device_id)
+        : QuantumSensorBase(device_id, DeviceType::QUANTUM_SENSOR, "QM-2000")
+        , alkali_vapor_density_(1e15)
+        , pump_laser_power_(10.0)
+        , probe_laser_detuning_(1.0) {
+    }
+    
+protected:
+    HalResult initialize_hardware() override {
+        REQUIREMENT_TRACE("MAG-INIT-001");
+        
+        // Simulate hardware initialization
+        std::this_thread::sleep_for(std::chrono::milliseconds(300));
+        
+        // Initialize alkali vapor cell
+        alkali_vapor_density_ = 1e15; // atoms/cm³
+        
+        return HalResult::SUCCESS;
+    }
+    
+    void shutdown_hardware() override {
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+    
+    void emergency_shutdown_hardware() override {
+        // Immediate shutdown
+    }
+    
+    bool test_quantum_coherence() override {
+        // Test spin coherence
+        return quantum_state_.fidelity > 0.85;
+    }
+    
+    bool test_measurement_accuracy() override {
+        return true; // Simplified
+    }
+    
+    bool test_error_correction() override {
+        return true; // Simplified
+    }
+    
+    HalResult perform_calibration_sequence(const Vector3D& reference) override {
+        REQUIREMENT_TRACE("MAG-CAL-001");
+        
+        // Perform magnetometer calibration
+        calibration_offset_ = Vector3D(0.0, 0.0, 0.0);
+        calibration_scale_ = 1.0;
+        
+        return HalResult::SUCCESS;
+    }
+    
+    void perform_quantum_measurement(QuantumSensorData& data) override {
+        REQUIREMENT_TRACE("MAG-MEAS-001");
+        
+        // Timestamp
+        data.timestamp = Timestamp::now();
+        
+        // Simulate quantum magnetometry measurement
+        // Earth's magnetic field
+        double B_earth = 50e-6; // 50 μT typical
+        
+        // Add quantum noise based on sensitivity
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        
+        double noise_level = 1e-12; // 1 pT
+        switch (sensitivity_) {
+            case QuantumSensitivity::QUANTUM_LIMITED:
+                noise_level = 1e-15; // 1 fT
+                break;
+            case QuantumSensitivity::ULTRA_HIGH:
+                noise_level = 1e-14; // 10 fT
+                break;
+            case QuantumSensitivity::HIGH:
+                noise_level = 1e-13; // 100 fT
+                break;
+            default:
+                break;
+        }
+        
+        std::normal_distribution<> noise(0.0, noise_level);
+        
+        // Magnetic field vector (simplified Earth field model)
+        data.magnetic_field.x = 20e-6 + noise(gen); // North component
+        data.magnetic_field.y = 5e-6 + noise(gen);  // East component
+        data.magnetic_field.z = 45e-6 + noise(gen); // Down component
+        
+        // Quantum state
+        data.quantum_state = quantum_state_;
+        data.metrics = quantum_metrics_;
+        
+        // Measurement metadata
+        data.measurement_count = quantum_metrics_.gate_count;
+        data.uncertainty = noise_level;
+        data.temperature = 300.0; // Kelvin (room temperature operation)
+        data.error_flags = 0;
+        
+        // Not measured by magnetometer
+        data.acceleration = Vector3D(0.0, 0.0, 0.0);
+        data.angular_velocity = Vector3D(0.0, 0.0, 0.0);
+    }
+};
+
+// ============================================================================
+// INERTIAL SENSOR INTERFACE
+// ============================================================================
+class IInertialSensor : public IHalDevice {
+public:
+    virtual ~IInertialSensor() = default;
+    
+    virtual HalResult start_measurements(double update_rate_hz) = 0;
+    virtual HalResult stop_measurements() = 0;
+    virtual HalResult calibrate() = 0;
+    virtual HalResult get_measurement(InertialSensorData& data) const = 0;
+    virtual void set_measurement_callback(InertialSensorCallback callback) = 0;
+};
+
+// ============================================================================
+// CLASSICAL IMU IMPLEMENTATION
+// ============================================================================
+class ClassicalIMU : public IInertialSensor {
 private:
     DeviceInfo device_info_;
     std::atomic<DeviceStatus> status_;
     std::atomic<bool> measuring_;
-    std::atomic<double> update_rate_;
+    std::atomic<double> update_rate_hz_;
     InertialSensorCallback measurement_callback_;
-    ErrorCallback error_callback_;
+    QuantumErrorCallback error_callback_;
+    SafetyCriticalCallback safety_callback_;
+    
+    // Latest measurement
+    mutable std::mutex measurement_mutex_;
+    InertialSensorData latest_measurement_;
+    
+    // Measurement thread
     std::thread measurement_thread_;
-    std::mutex data_mutex_;
-    InertialSensorData latest_data_;
     std::atomic<bool> should_stop_;
     
-    // IMU parameters
-    struct IMUParams {
-        double gyro_range;          // rad/s
-        double accel_range;         // m/s²
-        double gyro_noise_density;  // rad/s/√Hz
-        double accel_noise_density; // m/s²/√Hz
-        double temperature;         // °C
-    } imu_params_;
+    // Health monitoring
+    std::atomic<double> health_factor_;
     
-    // Kalman filter for sensor fusion
-    Eigen::VectorXd state_;
-    Eigen::MatrixXd covariance_;
-    Eigen::MatrixXd process_noise_;
-    Eigen::MatrixXd measurement_noise_;
+    // Calibration
+    Vector3D accel_bias_;
+    Vector3D gyro_bias_;
+    double temperature_coefficient_;
     
 public:
-    explicit PrecisionIMU(uint32_t device_id) 
+    ClassicalIMU(uint32_t device_id)
         : status_(DeviceStatus::OFFLINE)
         , measuring_(false)
-        , update_rate_(0.0)
+        , update_rate_hz_(100.0)
         , should_stop_(false)
-    {
-        // Initialize device info
+        , health_factor_(1.0)
+        , temperature_coefficient_(0.001) {
+        
         device_info_.device_id = device_id;
         device_info_.type = DeviceType::INERTIAL_SENSOR;
-        std::strcpy(device_info_.manufacturer, "AQUA V. Precision");
-        std::strcpy(device_info_.model, "IMU-3000-HP");
-        std::strcpy(device_info_.serial_number, "IM003691472");
-        std::strcpy(device_info_.firmware_version, "v4.1.2");
+        std::strncpy(device_info_.manufacturer, "AQUA V. Sensors", sizeof(device_info_.manufacturer));
+        std::strncpy(device_info_.model, "IMU-500", sizeof(device_info_.model));
+        std::snprintf(device_info_.serial_number, sizeof(device_info_.serial_number), 
+                     "IMU%08X", device_id);
+        std::strncpy(device_info_.firmware_version, "v1.5.0", sizeof(device_info_.firmware_version));
         device_info_.capabilities = 0x000000FF;
-        
-        // Initialize IMU parameters
-        imu_params_.gyro_range = 2000.0 * M_PI / 180.0; // ±2000°/s
-        imu_params_.accel_range = 16.0 * 9.80665; // ±16g
-        imu_params_.gyro_noise_density = 0.01 * M_PI / 180.0; // 0.01°/s/√Hz
-        imu_params_.accel_noise_density = 0.1e-3 * 9.80665; // 0.1 mg/√Hz
-        imu_params_.temperature = 25.0; // °C
-        
-        // Initialize Kalman filter
-        initialize_kalman_filter();
-        
-        // Initialize measurement data
-        reset_measurement_data();
+        device_info_.redundancy_factor = 2; // Dual redundancy
+        device_info_.fault_tolerant = true;
     }
     
-    // Implementation similar to QuantumGravimeter but for IMU...
-    // [Rest of implementation follows similar pattern]
+    ~ClassicalIMU() override {
+        if (measuring_.load()) {
+            stop_measurements();
+        }
+        if (status_ != DeviceStatus::OFFLINE) {
+            shutdown();
+        }
+    }
+    
+    // IHalDevice implementation
+    SAFETY_CRITICAL HalResult initialize() override {
+        REQUIREMENT_TRACE("IMU-INIT-001");
+        
+        if (status_ != DeviceStatus::OFFLINE) {
+            return HalResult::ERROR_INVALID_STATE;
+        }
+        
+        // Initialize hardware
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+        
+        status_ = DeviceStatus::ONLINE;
+        return HalResult::SUCCESS;
+    }
+    
+    SAFETY_CRITICAL HalResult shutdown() override {
+        if (measuring_.load()) {
+            stop_measurements();
+        }
+        
+        status_ = DeviceStatus::OFFLINE;
+        return HalResult::SUCCESS;
+    }
+    
+    SAFETY_CRITICAL HalResult reset() override {
+        HalResult result = shutdown();
+        if (is_success(result)) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
+            result = initialize();
+        }
+        return result;
+    }
+    
+    SAFETY_CRITICAL HalResult emergency_shutdown() override {
+        should_stop_.store(true);
+        if (measurement_thread_.joinable()) {
+            measurement_thread_.join();
+        }
+        status_ = DeviceStatus::OFFLINE;
+        return HalResult::SUCCESS;
+    }
+    
+    SAFETY_CRITICAL HalResult get_device_info(DeviceInfo& info) const override {
+        info = device_info_;
+        return HalResult::SUCCESS;
+    }
+    
+    SAFETY_CRITICAL DeviceStatus get_status() const override {
+        return status_.load();
+    }
+    
+    SAFETY_CRITICAL HalResult self_test() override {
+        // Perform IMU self-test
+        return HalResult::SUCCESS;
+    }
+    
+    REAL_TIME HalResult built_in_test() override {
+        return HalResult::SUCCESS;
+    }
+    
+    void set_error_callback(QuantumErrorCallback callback) override {
+        error_callback_ = callback;
+    }
+    
+    void set_safety_callback(SafetyCriticalCallback callback) override {
+        safety_callback_ = callback;
+    }
+    
+    SAFETY_CRITICAL double get_health_factor() const override {
+        return health_factor_.load();
+    }
+    
+    SAFETY_CRITICAL bool is_safety_critical() const override {
+        return true;
+    }
+    
+    SAFETY_CRITICAL uint8_t get_redundancy_level() const override {
+        return device_info_.redundancy_factor;
+    }
+    
+    // IInertialSensor implementation
+    HalResult start_measurements(double update_rate_hz) override {
+        REQUIREMENT_TRACE("IMU-START-001");
+        
+        if (measuring_.load()) {
+            return HalResult::ERROR_INVALID_STATE;
+        }
+        
+        update_rate_hz_.store(update_rate_hz);
+        should_stop_.store(false);
+        measuring_.store(true);
+        measurement_thread_ = std::thread(&ClassicalIMU::measurement_loop, this);
+        
+        return HalResult::SUCCESS;
+    }
+    
+    HalResult stop_measurements() override {
+        if (!measuring_.load()) {
+            return HalResult::ERROR_INVALID_STATE;
+        }
+        
+        should_stop_.store(true);
+        if (measurement_thread_.joinable()) {
+            measurement_thread_.join();
+        }
+        
+        measuring_.store(false);
+        return HalResult::SUCCESS;
+    }
+    
+    HalResult calibrate() override {
+        REQUIREMENT_TRACE("IMU-CAL-001");
+        
+        if (measuring_.load()) {
+            return HalResult::ERROR_DEVICE_BUSY;
+        }
+        
+        // Perform IMU calibration
+        accel_bias_ = Vector3D(0.01, -0.02, 0.03); // Example biases
+        gyro_bias_ = Vector3D(0.001, -0.002, 0.0015); // rad/s
+        
+        return HalResult::SUCCESS;
+    }
+    
+    HalResult get_measurement(InertialSensorData& data) const override {
+        std::lock_guard<std::mutex> lock(measurement_mutex_);
+        data = latest_measurement_;
+        return HalResult::SUCCESS;
+    }
+    
+    void set_measurement_callback(InertialSensorCallback callback) override {
+        measurement_callback_ = callback;
+    }
     
 private:
-    void initialize_kalman_filter() {
-        // 9-state filter: position, velocity, acceleration
-        state_ = Eigen::VectorXd::Zero(9);
-        covariance_ = Eigen::MatrixXd::Identity(9, 9) * 0.1;
-        process_noise_ = Eigen::MatrixXd::Identity(9, 9) * 1e-6;
-        measurement_noise_ = Eigen::MatrixXd::Identity(6, 6) * 1e-4;
+    void measurement_loop() {
+        const auto period = std::chrono::microseconds(
+            static_cast<int64_t>(1000000.0 / update_rate_hz_.load())
+        );
+        
+        while (!should_stop_.load()) {
+            auto start = std::chrono::high_resolution_clock::now();
+            
+            // Perform measurement
+            InertialSensorData new_measurement;
+            perform_measurement(new_measurement);
+            
+            // Apply calibration
+            apply_calibration(new_measurement);
+            
+            // Store measurement
+            {
+                std::lock_guard<std::mutex> lock(measurement_mutex_);
+                latest_measurement_ = new_measurement;
+            }
+            
+            // Call callback
+            if (measurement_callback_) {
+                measurement_callback_(new_measurement, HalResult::SUCCESS, device_info_.device_id);
+            }
+            
+            // Wait for next measurement
+            auto end = std::chrono::high_resolution_clock::now();
+            auto elapsed = end - start;
+            if (elapsed < period) {
+                std::this_thread::sleep_for(period - elapsed);
+            }
+        }
     }
     
-    void reset_measurement_data() {
-        latest_data_.timestamp = Timestamp::now();
-        latest_data_.linear_acceleration = Vector3D(0.0, 0.0, 0.0);
-        latest_data_.angular_velocity = Vector3D(0.0, 0.0, 0.0);
-        latest_data_.orientation = Quaternion(1.0, 0.0, 0.0, 0.0);
-        latest_data_.temperature = imu_params_.temperature;
-        latest_data_.status_flags = 0;
+    void perform_measurement(InertialSensorData& data) {
+        // Timestamp
+        data.timestamp = Timestamp::now();
+        
+        // Simulate IMU measurements
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::normal_distribution<> accel_noise(0.0, 0.001); // 1 mg noise
+        std::normal_distribution<> gyro_noise(0.0, 0.0001); // 0.1 mrad/s noise
+        
+        // Acceleration (stationary)
+        data.linear_acceleration.x = 0.0 + accel_noise(gen);
+        data.linear_acceleration.y = 0.0 + accel_noise(gen);
+        data.linear_acceleration.z = 9.80665 + accel_noise(gen);
+        
+        // Angular velocity (stationary)
+        data.angular_velocity.x = gyro_noise(gen);
+        data.angular_velocity.y = gyro_noise(gen);
+        data.angular_velocity.z = gyro_noise(gen);
+        
+        // Orientation (identity quaternion)
+        data.orientation = Quaternion(1.0, 0.0, 0.0, 0.0);
+        
+        // Temperature
+        data.temperature = 25.0 + std::uniform_real_distribution<>(-0.1, 0.1)(gen);
+        
+        // Status
+        data.status_flags = 0;
+        data.quantum_correlation = 0.0; // No quantum correlation for classical IMU
+        data.scale_factor_error = 0.001; // 0.1%
     }
     
-    // Additional IMU-specific methods would be implemented here...
+    void apply_calibration(InertialSensorData& data) {
+        // Apply bias correction
+        data.linear_acceleration = data.linear_acceleration - accel_bias_;
+        data.angular_velocity = data.angular_velocity - gyro_bias_;
+        
+        // Apply temperature compensation
+        double temp_delta = data.temperature - 25.0;
+        double temp_factor = 1.0 + temperature_coefficient_ * temp_delta;
+        
+        data.linear_acceleration.x *= temp_factor;
+        data.linear_acceleration.y *= temp_factor;
+        data.linear_acceleration.z *= temp_factor;
+    }
 };
+
+// ============================================================================
+// GNSS RECEIVER INTERFACE
+// ============================================================================
+class IGnssReceiver : public IHalDevice {
+public:
+    virtual ~IGnssReceiver() = default;
+    
+    virtual HalResult start_tracking() = 0;
+    virtual HalResult stop_tracking() = 0;
+    virtual HalResult get_position(GnssData& data) const = 0;
+    virtual void set_position_callback(GnssCallback callback) = 0;
+};
+
+// ============================================================================
+// SIMULATED DEVICE FACTORY
+// ============================================================================
+std::shared_ptr<IHalDevice> create_simulated_quantum_gravitometer(uint32_t device_id) {
+    return std::make_shared<QuantumGravitometer>(device_id);
+}
+
+std::shared_ptr<IHalDevice> create_simulated_quantum_magnetometer(uint32_t device_id) {
+    return std::make_shared<QuantumMagnetometer>(device_id);
+}
+
+std::shared_ptr<IHalDevice> create_simulated_imu(uint32_t device_id) {
+    return std::make_shared<ClassicalIMU>(device_id);
+}
 
 } // namespace hal
 } // namespace qns
 } // namespace aqua_v
-
-// End of file
