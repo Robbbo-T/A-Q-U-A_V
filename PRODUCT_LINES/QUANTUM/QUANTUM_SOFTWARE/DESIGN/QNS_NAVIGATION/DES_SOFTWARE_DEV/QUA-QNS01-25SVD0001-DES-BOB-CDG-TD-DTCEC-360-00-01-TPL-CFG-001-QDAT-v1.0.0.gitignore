@@ -1,0 +1,398 @@
+# ================================================================
+# AQUA V. QUANTUM NAVIGATION SYSTEM
+# Git Ignore Configuration - DO-178C/DO-254 Compliant
+# ================================================================
+# WARNING: This repository contains ITAR-controlled technical data
+# Ensure all commits are reviewed for export control compliance
+# ================================================================
+# Version: 1.1.0 - Enhanced with DevOps recommendations
+# See also: .gitattributes for Git LFS configuration
+# ================================================================
+
+# ===========================
+# SECURITY & COMPLIANCE
+# ===========================
+
+# ITAR/Export Controlled Files (NEVER commit these)
+*.itar
+*.ear
+*.classified
+*-CONFIDENTIAL*
+*-SECRET*
+*-RESTRICTED*
+/export-controlled/
+/itar-data/
+/classified-docs/
+
+# Security Keys and Certificates
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.csr
+*.jks
+*.keystore
+*.truststore
+private_key*
+id_rsa*
+id_dsa*
+id_ecdsa*
+id_ed25519*
+
+# Quantum Cryptography Keys (CRITICAL - Pre-commit hook enforced)
+*.qkey
+*.quantum-key
+/quantum-keys/
+/qkd-data/
+*.quantum-seed
+*.qrng-output
+
+# ===========================
+# ORGANIZATION-WIDE PATTERNS
+# ===========================
+# These extend AQUA V. global .gitignore policy
+# See: https://gitlab.aqua-v.aerospace/standards/gitignore-global
+
+# AQUA V. Standard Exclusions (inherited)
+*.aqua-internal
+/aqua-proprietary/
+*-INTERNAL-USE*
+
+# ===========================
+# DO-178C/DO-254 ARTIFACTS
+# ===========================
+
+# Temporary Certification Files
+/cert-temp/
+*.cert-draft
+*.review-pending
+*-UNSIGNED.pdf
+*-UNWITNESSED*
+*-DRAFT-*
+
+# Build Artifacts (regenerated)
+/build/
+/obj/
+/bin/
+/out/
+/target/
+/dist/
+/cmake-build-*/
+
+# Test Execution Results (preserve only baselined)
+/test-results-temp/
+*.test-run
+*.coverage-temp
+/coverage-reports-unvalidated/
+*.gcov
+*.gcda
+*.gcno
+
+# Tool Qualification Temporary Files
+/tool-qual-temp/
+*.tool-output-unreviewed
+/tool-logs-unqualified/
+
+# ===========================
+# DEVELOPMENT ENVIRONMENT
+# ===========================
+
+# IDE and Editor Files
+/.vscode/
+/.idea/
+*.swp
+*.swo
+*~
+/.project
+/.classpath
+/.settings/
+*.sublime-*
+/.atom/
+*.iml
+/.eclipse/
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ===========================
+# QUANTUM SIMULATION DATA
+# ===========================
+
+# Large Simulation Results (Git LFS enforced via .gitattributes)
+*.qsim
+*.quantum-state
+/simulation-results/raw/
+/quantum-dumps/
+*.wavefunction
+*.density-matrix
+
+# Temporary Quantum Processing
+/qpu-temp/
+*.qpu-cache
+*.quantum-temp
+/quantum-workspace/
+
+# ===========================
+# BUILD & DEPENDENCIES
+# ===========================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+/env/
+/venv/
+/ENV/
+/.venv/
+pip-log.txt
+.pytest_cache/
+.coverage
+.coverage.*
+/htmlcov/
+/.tox/
+*.egg-info/
+/.eggs/
+/wheelhouse/
+
+# C/C++ Objects
+*.o
+*.obj
+*.elf
+*.ko
+*.so
+*.so.*
+*.dylib
+*.dll
+*.lib
+*.a
+*.la
+*.lo
+*.exe
+*.out
+*.app
+*.dSYM/
+
+# MATLAB/Simulink Temporary
+*.asv
+*.m~
+*.mex*
+/slprj/
+*.slxc
+*.autosave
+/codegen/
+
+# Node.js (for documentation tools)
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+/.pnp/
+.pnp.js
+
+# ===========================
+# DOCUMENTATION
+# ===========================
+
+# Generated Documentation (rebuild from source)
+/docs/generated/
+/docs/html/
+/docs/pdf/draft/
+*.auto-generated.md
+/api-docs-temp/
+/doxygen-output/
+
+# LaTeX Temporary Files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+*.synctex.gz
+*.bbl
+*.blg
+
+# ===========================
+# DATA & LOGS
+# ===========================
+
+# Logs (Pre-commit hook scans for credentials)
+*.log
+*.log.*
+/logs/
+/log/
+# Exception: Structured compliance logs
+!compliance-*.log
+
+# Sensitive Flight Test Data
+/flight-data-raw/
+*.flight-log-unprocessed
+*.telemetry-raw
+/sensor-dumps/
+
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
+/db-backups-local/
+*.mdb
+*.accdb
+
+# ===========================
+# DIGITAL TWIN SPECIFIC
+# ===========================
+
+# ALI-BOB Synchronization Temporary
+/ali-bob-sync-temp/
+*.sync-cache
+*.twin-state-temp
+/digital-twin-workspace/
+
+# Cloud Configuration (local overrides)
+.env
+.env.local
+.env.*.local
+/config/local/
+/config/development/
+cloud-config-override.yaml
+*.local-config
+
+# Digital Twin State Dumps
+/dt-state-dumps/
+*.state-dump
+*.twin-snapshot-temp
+/alice-bob-deltas/
+
+# ===========================
+# CONTINUOUS INTEGRATION
+# ===========================
+
+# CI/CD Temporary Files
+/.gitlab-ci-local/
+/ci-artifacts-temp/
+*.ci-temp
+/.jenkins/
+/bamboo-specs/
+
+# Coverage Reports (only commit validated)
+/coverage-temp/
+/jacoco-temp/
+/lcov-temp/
+
+# ===========================
+# BACKUPS & TEMPORARY
+# ===========================
+
+# Backup Files
+*.bak
+*.backup
+*.old
+*.orig
+*.tmp
+*.temp
+~$*
+*.~*
+
+# Archive Files (use LFS for approved archives)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bz2
+
+# ===========================
+# CUSTOM PATTERNS
+# ===========================
+
+# AQUA V. Specific Temporary Files
+/aqua-temp/
+*.aqua-draft
+*-UNVALIDATED*
+*-DRAFT*
+*-WIP-*
+
+# Q-Division Working Files
+/q-division-temp/
+*.q-working
+/qdat-workspace/
+
+# Silicon Valley Site Specific
+/25svd-local/
+*.svd-temp
+/site-specific-temp/
+
+# ===========================
+# EXCEPTIONS (DO track these)
+# ===========================
+
+# DO-178C Required Documentation
+!*.PSAC.pdf
+!*.PHAC.pdf
+!*.SDP.pdf
+!*.SVP.pdf
+!*.SCMP.pdf
+!*.SQAP.pdf
+!*-DO178C-APPROVED.pdf
+!*-DO254-APPROVED.pdf
+
+# Baselined Test Evidence
+!/test-evidence-baselined/
+!*.test-evidence-final.pdf
+!*.test-report-signed.pdf
+
+# Approved Compliance Documents
+!/compliance-approved/
+!*-APPROVED-*.pdf
+!*-BASELINED-*.pdf
+
+# Configuration Management
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/LICENSE.md
+!/SECURITY.md
+!/.gitlab-ci.yml
+
+# Required Hooks
+!/.githooks/
+!/.githooks/pre-commit
+!/.githooks/pre-push
+
+# ===========================
+# NOTES FOR DEVELOPERS
+# ===========================
+# 1. Use Git LFS for large binary files (>1MB)
+#    - See .gitattributes for enforced patterns
+# 2. Never commit unencrypted sensitive data
+# 3. All commits must pass ITAR review
+# 4. Follow DO-178C traceability requirements
+# 5. Pre-commit hooks scan for:
+#    - Credentials in logs
+#    - Quantum keys
+#    - ITAR markers
+# 6. Contact QDAT team for exceptions
+# ===========================
+
+# End of .gitignore configuration
