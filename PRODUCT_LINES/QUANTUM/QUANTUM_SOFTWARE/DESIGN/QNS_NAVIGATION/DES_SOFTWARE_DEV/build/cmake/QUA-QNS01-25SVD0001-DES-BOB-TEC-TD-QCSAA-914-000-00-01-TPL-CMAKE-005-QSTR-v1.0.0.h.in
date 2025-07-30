@@ -1,0 +1,45 @@
+// Quantum Navigation System Configuration Header
+#ifndef AQUA_V_QUANTUM_CONFIG_H
+#define AQUA_V_QUANTUM_CONFIG_H
+
+// Version information
+#define QNS_VERSION_MAJOR @PROJECT_VERSION_MAJOR@
+#define QNS_VERSION_MINOR @PROJECT_VERSION_MINOR@
+#define QNS_VERSION_PATCH @PROJECT_VERSION_PATCH@
+#define QNS_VERSION_STRING "@PROJECT_VERSION@"
+
+// Build information
+#define QNS_BUILD_TYPE "@CMAKE_BUILD_TYPE@"
+#define QNS_COMPILER_ID "@CMAKE_CXX_COMPILER_ID@"
+#define QNS_COMPILER_VERSION "@CMAKE_CXX_COMPILER_VERSION@"
+
+// Feature flags
+#cmakedefine ENABLE_QUANTUM_HARDWARE
+#cmakedefine ENABLE_QUANTUM_SIMULATOR
+#cmakedefine ENABLE_ALI_BOB_SYNC
+#cmakedefine ENABLE_QUANTUM_ENCRYPTION
+#cmakedefine ENABLE_QUANTUM_TELEMETRY
+
+// Numeric types
+using quantum_float = @QUANTUM_FLOAT_PRECISION@;
+
+// System parameters
+constexpr int QNS_UPDATE_RATE_HZ = @QNS_UPDATE_RATE_HZ@;
+constexpr quantum_float QNS_GRAVITOMETER_SENSITIVITY = @QNS_GRAVITOMETER_SENSITIVITY@;
+constexpr quantum_float QNS_MAGNETOMETER_RANGE = @QNS_MAGNETOMETER_RANGE@;
+constexpr quantum_float QNS_POSITION_ACCURACY_M = @QNS_POSITION_ACCURACY_M@;
+constexpr quantum_float QNS_VELOCITY_ACCURACY_MS = @QNS_VELOCITY_ACCURACY_MS@;
+
+// Sensor configuration
+constexpr int QNS_SENSOR_WARMUP_TIME_S = @QNS_SENSOR_WARMUP_TIME_S@;
+constexpr int QNS_SENSOR_CALIBRATION_INTERVAL_S = @QNS_SENSOR_CALIBRATION_INTERVAL_S@;
+
+// Performance tuning
+constexpr int QNS_THREAD_POOL_SIZE = @QNS_THREAD_POOL_SIZE@;
+constexpr int QNS_BUFFER_SIZE_MB = @QNS_BUFFER_SIZE_MB@;
+
+// Safety limits
+constexpr quantum_float QNS_MAX_ACCELERATION_G = @QNS_MAX_ACCELERATION_G@;
+constexpr quantum_float QNS_MAX_ROTATION_RATE_DPS = @QNS_MAX_ROTATION_RATE_DPS@;
+
+#endif // AQUA_V_QUANTUM_CONFIG_H
