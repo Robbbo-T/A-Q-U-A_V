@@ -147,6 +147,44 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
+# =============================================================================
+# QUANTUM KALMAN FILTER (QKF) MODULE
+# =============================================================================
+# Add new QKF library target
+add_library(qns_qkf STATIC
+    src/qkf/QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-00-02-TPL-SRC-001-QHPC-v1.0.0.cpp
+    src/qkf/QUA-QNS01-25SVD0001-DES-BOB-TEC-SM-QCSAA-914-00-02-TPL-SRC-001-QHPC-v1.0.0.hpp
+)
+
+# Set target properties for QKF
+set_target_properties(qns_qkf PROPERTIES
+    CXX_STANDARD 20
+    CXX_STANDARD_REQUIRED ON
+    CXX_EXTENSIONS OFF
+    VERSION ${PROJECT_VERSION}
+    SOVERSION ${PROJECT_VERSION_MAJOR}
+    OUTPUT_NAME "qns_qkf"
+)
+
+# Link dependencies for QKF
+target_link_libraries(qns_qkf
+    PUBLIC
+        Eigen3::Eigen
+        ${QUANTUM_SDK_LIBRARIES}  # Assuming QuantumAlgorithms is part of this
+    PRIVATE
+        qns_core
+)
+
+# Include directories for QKF
+target_include_directories(qns_qkf
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/qkf>
+        $<INSTALL_INTERFACE:include/aqua-v/qns/qkf>
+)
+
+# =============================================================================
+# LINK LIBRARIES TO MAIN EXECUTABLE
+# =============================================================================
 # Link libraries to the main executable
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
@@ -155,6 +193,7 @@ target_link_libraries(${PROJECT_NAME}
         qns_hal            # Hardware abstraction layer
         qns_interfaces     # System interfaces
         qns_quantum        # Quantum algorithms
+        qns_qkf            # Quantum Kalman Filter (NEW)
         
         # External dependencies
         Threads::Threads
@@ -186,6 +225,14 @@ install(TARGETS ${PROJECT_NAME}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     COMPONENT runtime
+)
+
+# Install QKF library
+install(TARGETS qns_qkf
+    EXPORT ${PROJECT_NAME}Targets
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    COMPONENT development
 )
 
 # Install headers
@@ -241,6 +288,13 @@ message(STATUS "  Update Rate:     ${QNS_UPDATE_RATE_HZ} Hz")
 message(STATUS "  Gravitometer:    ${QNS_GRAVITOMETER_SENSITIVITY} sensitivity")
 message(STATUS "  Magnetometer:    ${QNS_MAGNETOMETER_RANGE} range")
 message(STATUS "  GPS-Denied:      ${QNS_GPS_DENIED_CAPABLE}")
+message(STATUS "")
+message(STATUS "Modules:")
+message(STATUS "  Core:            qns_core")
+message(STATUS "  HAL:             qns_hal")
+message(STATUS "  Interfaces:      qns_interfaces")
+message(STATUS "  Quantum:         qns_quantum")
+message(STATUS "  QKF:             qns_qkf (Quantum Kalman Filter)")
 message(STATUS "")
 message(STATUS "Site Information:")
 message(STATUS "  Code:            ${AQUA_V_SITE_CODE}")
