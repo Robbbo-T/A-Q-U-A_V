@@ -1,16 +1,16 @@
 # AQUA V. Quantum Navigation System (QNS) - Project Overview
 
-**Document ID:** QUA-QNS01-25SVD0001-DES-BOB-ORG-TD-ATA-000-00-01-TPL-DOC-001-QCOM-v1.2.0  
+**Document ID:** QUA-QNS01-25SVD0001-DES-BOB-TEC-TD-ATA-000-00-01-TPL-DOC-001-QCOM-v1.2.0  
 **Classification:** Public Release - Technical Accuracy Verified  
 **Site:** Silicon Valley (25SVD)  
 **Last Updated:** 2025-07-30  
 **Version:** 1.2.0 (Corrected for Technical Accuracy)  
 
-![Build Status](https://ci.aqua-v.aerospace/qns/badge/build)
-![Coverage](https://ci.aqua-v.aerospace/qns/badge/coverage)
-![TRL Status](https://ci.aqua-v.aerospace/qns/badge/trl/3)
-![Docs](https://ci.aqua-v.aerospace/qns/badge/docs)
-![Security](https://ci.aqua-v.aerospace/qns/badge/security)
+![Build Status](https://ci.aqua-v.aerospace/QUA-QNS01/badge/build)
+![Coverage](https://ci.aqua-v.aerospace/QUA-QNS01/badge/coverage)
+![TRL Status](https://ci.aqua-v.aerospace/QUA-QNS01/badge/trl/3)
+![Docs](https://ci.aqua-v.aerospace/QUA-QNS01/badge/docs)
+![Security](https://ci.aqua-v.aerospace/QUA-QNS01/badge/security)
 
 ---
 
@@ -46,7 +46,7 @@ mindmap
 ### Performance Status Dashboard
 
 <div id="performance-dashboard" class="status-metrics">
-<iframe src="https://grafana.aqua-v.aerospace/d/qns-development?orgId=1&refresh=30s" width="100%" height="300" frameborder="0"></iframe>
+<iframe src="https://grafana.aqua-v.aerospace/d/QUA-QNS01-development?orgId=1&refresh=30s" width="100%" height="300" frameborder="0"></iframe>
 </div>
 
 ---
@@ -625,7 +625,7 @@ graph LR
 
 ```mermaid
 graph TD
-    ROOT[qns/<br/>📊 47,831 files<br/>💾 4.7 GB]
+    ROOT[QUA-QNS01/<br/>📊 47,831 files<br/>💾 4.7 GB]
     
     ROOT --> SRC[src/<br/>📄 2,543 files<br/>💾 823 MB]
     ROOT --> TESTS[tests/<br/>📄 1,921 files<br/>💾 412 MB]
@@ -705,10 +705,10 @@ graph TD
 # Requires: ITAR clearance, NDA signed
 
 # Clone repository (internal GitLab)
-git clone https://gitlab-secure.aqua-v.aerospace/quantum/qns.git
+git clone https://gitlab-secure.aqua-v.aerospace/quantum/QUA-QNS01.git
 
 # Install development tools
-cd qns
+cd QUA-QNS01
 ./scripts/install-dev-tools.sh --do178c-compliant
 
 # Setup quantum simulation environment
@@ -739,9 +739,9 @@ graph TD
     end
     
     subgraph "Support Channels"
-        SLACK[Slack: #qns-dev]
-        JIRA[Jira: QNS Project]
-        WIKI[Confluence: QNS Wiki]
+        SLACK[Slack: #QUA-QNS01-dev]
+        JIRA[Jira: QUA-QNS01 Project]
+        WIKI[Confluence: QUA-QNS01 Wiki]
     end
     
     subgraph "Escalation"
@@ -885,6 +885,16 @@ graph LR
     <span>TRL Status: 3 (Laboratory Validation)</span> |
     <span>Target TRL 6: 2030</span>
 </div>
+
+<!-- Documentation monitoring script -->
+<script src="./assets/js/doc-monitor.js"></script>
+<script src="./assets/js/compliance-tracker.js"></script>
+<script src="./assets/js/trl-dashboard.js"></script>
+
+
+---
+
+¿Procedemos con el siguiente archivo (LICENSE)?
 
 ## 12. Appendices
 
