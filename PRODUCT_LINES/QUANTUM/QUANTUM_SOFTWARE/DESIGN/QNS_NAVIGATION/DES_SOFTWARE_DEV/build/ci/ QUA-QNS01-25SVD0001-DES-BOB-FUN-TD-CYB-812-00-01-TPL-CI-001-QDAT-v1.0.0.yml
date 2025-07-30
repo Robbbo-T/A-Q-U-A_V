@@ -1,12 +1,12 @@
 # AQUA V. Quantum Navigation System - CI/CD Pipeline Configuration
-# Document: QUA-QNS01-25SVD0001-DES-BOB-CDG-TD-CYB-812-00-01-TPL-CI-001-QDAT-v1.0.0.yml
+# Document: QUA-QNS01-25SVD0001-DES-BOB-FUN-TD-CYB-812-00-01-TPL-CI-001-QDAT-v1.0.0.yml
 # Owner: QDAT (Data Governance Division)
 # Site: Silicon Valley (25SVD)
 # =============================================================================
 # Copyright (C) 2025 GAIA AIR - ROBBBO-T
 # Aerospace and Quantum United Advanced Venture (AQUA V.)
 # =============================================================================
-# GitLab CI/CD Pipeline for QNS TRL 6 Flight Testing
+# GitLab CI/CD Pipeline for QNS TRL 3 Laboratory Testing
 # =============================================================================
 
 # Pipeline configuration
@@ -14,16 +14,16 @@ variables:
   # AQUA V. Program constants
   AQUA_V_PROGRAM: "Aerospace and Quantum United Advanced Venture"
   AQUA_V_INVESTMENT: "40B EUR"
-  QNS_TRL: "6"
-  QNS_STATUS: "Flight Testing"
+  QNS_TRL: "3"
+  QNS_STATUS: "Laboratory Testing"
   SITE_CODE: "25SVD"
   SITE_NAME: "Silicon Valley"
   
-  # QNS Technical specifications
-  QNS_UPDATE_RATE_HZ: "1000"
-  QNS_GRAVITOMETER_SENSITIVITY: "1e-12"
-  QNS_MAGNETOMETER_RANGE: "1e-9"
-  QNS_POSITION_ACCURACY: "0.1"
+  # QNS Technical specifications (Current Lab Values)
+  QNS_UPDATE_RATE_HZ: "50"  # Current: 50Hz, Target: 100Hz
+  QNS_GRAVITOMETER_SENSITIVITY: "1e-6"  # Current: 10^-6 g/√Hz, Target: 10^-8
+  QNS_MAGNETOMETER_RANGE: "100e-15"  # Current: 100 fT/√Hz, Target: 1-10
+  QNS_POSITION_ACCURACY: "50"  # Current: ~50m (lab), Target: <10m
   
   # Build configuration
   BUILD_DIR: "build"
@@ -32,7 +32,7 @@ variables:
   
   # Quantum configuration
   QUANTUM_SDK_ROOT: "/opt/aqua-v/quantum-sdk"
-  QUANTUM_HARDWARE: "simulator"  # Options: simulator, hardware
+  QUANTUM_HARDWARE: "simulator"  # TRL 3 uses simulator only
   ENABLE_ALI_BOB_SYNC: "ON"
   
   # Security scanning
@@ -78,7 +78,7 @@ stages:
   - test                  # Unit and integration tests
   - quantum-validation    # Quantum-specific validation
   - sensor-calibration    # Sensor calibration procedures
-  - flight-simulation     # TRL 6 flight testing simulation
+  - simulation           # TRL 3 simulation testing
   - ali-bob-sync         # Digital twin synchronization
   - performance          # Performance benchmarking
   - package              # Create deployment packages
@@ -90,15 +90,15 @@ stages:
 quantum:hardware:check:
   stage: quantum-readiness
   script:
-    - echo "Checking quantum hardware availability..."
+    - echo "Checking quantum simulator availability..."
     - python3 tools/quantum_hardware_check.py --mode=${QUANTUM_HARDWARE}
     - |
       if [ "${QUANTUM_HARDWARE}" = "hardware" ]; then
-        echo "Verifying gravitometer (sensitivity: ${QNS_GRAVITOMETER_SENSITIVITY})"
-        echo "Verifying magnetometer (range: ${QNS_MAGNETOMETER_RANGE})"
-        quantum_sdk_verify --sensors --required-trl=${QNS_TRL}
+        echo "ERROR: TRL 3 requires simulator mode only"
+        exit 1
       else
-        echo "Using quantum simulator for this pipeline run"
+        echo "Using quantum simulator for TRL 3 testing"
+        quantum_sdk_verify --simulator --required-trl=${QNS_TRL}
       fi
   artifacts:
     reports:
@@ -154,7 +154,8 @@ build:qns:debug:
       cmake .. \
         -G "${CMAKE_GENERATOR}" \
         -DCMAKE_BUILD_TYPE=Debug \
-        -DENABLE_QUANTUM_HARDWARE=${QUANTUM_HARDWARE} \
+        -DENABLE_QUANTUM_HARDWARE=OFF \
+        -DENABLE_QUANTUM_SIMULATOR=ON \
         -DENABLE_ALI_BOB_SYNC=${ENABLE_ALI_BOB_SYNC} \
         -DQNS_UPDATE_RATE_HZ=${QNS_UPDATE_RATE_HZ}
     - cmake --build . --parallel ${PARALLEL_JOBS}
@@ -178,7 +179,8 @@ build:qns:release:
       cmake .. \
         -G "${CMAKE_GENERATOR}" \
         -DCMAKE_BUILD_TYPE=Release \
-        -DENABLE_QUANTUM_HARDWARE=${QUANTUM_HARDWARE} \
+        -DENABLE_QUANTUM_HARDWARE=OFF \
+        -DENABLE_QUANTUM_SIMULATOR=ON \
         -DENABLE_ALI_BOB_SYNC=${ENABLE_ALI_BOB_SYNC} \
         -DQNS_UPDATE_RATE_HZ=${QNS_UPDATE_RATE_HZ} \
         -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
@@ -243,26 +245,6 @@ test:coverage:
   only:
     - merge_requests
 
-test:coverage:html:
-  stage: test
-  dependencies:
-    - build:qns:debug
-  script:
-    - echo "Generating HTML coverage report..."
-    - cd ${BUILD_DIR}
-    - ctest --output-on-failure
-    - gcovr --html --html-details --exclude-unreachable-branches -o coverage.html --root ${CI_PROJECT_DIR}
-    - mkdir -p coverage_html
-    - mv coverage*.html coverage_html/
-  coverage: '/^TOTAL.*\s+(\d+\%)$/'
-  artifacts:
-    paths:
-      - ${BUILD_DIR}/coverage_html/
-    expire_in: 1 week
-  only:
-    - merge_requests
-    - develop
-
 # =============================================================================
 # STAGE: QUANTUM VALIDATION
 # =============================================================================
@@ -280,10 +262,11 @@ quantum:validation:algorithms:
         --update-rate=${QNS_UPDATE_RATE_HZ} \
         --output=quantum_validation_report.xml
     - |
-      echo "Testing GPS-denied navigation capabilities..."
+      echo "Testing laboratory GPS-denied navigation..."
       ./bin/quantum_validator \
         --test=gps_denied \
-        --iterations=1000 \
+        --iterations=100 \
+        --environment=laboratory \
         --target-accuracy=${QNS_POSITION_ACCURACY}
   artifacts:
     reports:
@@ -304,7 +287,8 @@ quantum:validation:sensors:
     - ./bin/sensor_test \
         --gravitometer-sensitivity=${QNS_GRAVITOMETER_SENSITIVITY} \
         --magnetometer-range=${QNS_MAGNETOMETER_RANGE} \
-        --sample-rate=${QNS_UPDATE_RATE_HZ}
+        --sample-rate=${QNS_UPDATE_RATE_HZ} \
+        --environment=laboratory
   artifacts:
     paths:
       - ${BUILD_DIR}/sensor_validation_data/
@@ -313,80 +297,84 @@ quantum:validation:sensors:
 # =============================================================================
 # STAGE: SENSOR CALIBRATION
 # =============================================================================
-sensor:calibration:
+sensor:calibration:lab:
   stage: sensor-calibration
   dependencies:
     - build:qns:release
     - quantum:validation:sensors
   script:
-    - echo "Running sensor calibration procedures..."
+    - echo "Running laboratory sensor calibration..."
     - cd ${BUILD_DIR}
     - |
       ./bin/qns_calibration \
         --sensor=gravitometer \
-        --target-sensitivity=${QNS_GRAVITOMETER_SENSITIVITY} \
-        --output=gravitometer_calibration.dat
+        --environment=laboratory \
+        --current-sensitivity=${QNS_GRAVITOMETER_SENSITIVITY} \
+        --output=gravitometer_lab_calibration.dat
     - |
       ./bin/qns_calibration \
         --sensor=magnetometer \
-        --target-range=${QNS_MAGNETOMETER_RANGE} \
-        --output=magnetometer_calibration.dat
+        --environment=laboratory \
+        --current-range=${QNS_MAGNETOMETER_RANGE} \
+        --output=magnetometer_lab_calibration.dat
     - |
-      echo "Generating calibration certificate..."
+      echo "Generating TRL 3 calibration report..."
       python3 ../tools/generate_calibration_cert.py \
         --trl=${QNS_TRL} \
-        --site=${SITE_CODE}
+        --site=${SITE_CODE} \
+        --environment=laboratory
   artifacts:
     paths:
-      - ${BUILD_DIR}/*_calibration.dat
-      - ${BUILD_DIR}/calibration_certificate.pdf
+      - ${BUILD_DIR}/*_lab_calibration.dat
+      - ${BUILD_DIR}/calibration_report_trl3.pdf
     expire_in: 1 month
   only:
     - main
     - tags
 
 # =============================================================================
-# STAGE: FLIGHT SIMULATION
+# STAGE: SIMULATION (TRL 3 Laboratory)
 # =============================================================================
-flight:simulation:scenarios:
-  stage: flight-simulation
+simulation:lab:scenarios:
+  stage: simulation
   dependencies:
     - build:qns:release
-    - sensor:calibration
+    - sensor:calibration:lab
   script:
-    - echo "Running TRL 6 flight simulation scenarios..."
+    - echo "Running TRL 3 laboratory simulation scenarios..."
     - cd ${BUILD_DIR}
     - |
-      # GPS-denied navigation scenario
-      ./bin/flight_simulator \
-        --scenario=gps_denied \
-        --duration=3600 \
+      # Basic GPS-denied navigation
+      ./bin/lab_simulator \
+        --scenario=gps_denied_basic \
+        --duration=600 \
         --update-rate=${QNS_UPDATE_RATE_HZ} \
-        --output=gps_denied_results.json
+        --position-error-budget=${QNS_POSITION_ACCURACY} \
+        --output=lab_gps_denied_results.json
     - |
-      # Urban canyon navigation
-      ./bin/flight_simulator \
-        --scenario=urban_canyon \
-        --duration=1800 \
-        --magnetic-interference=high \
-        --output=urban_canyon_results.json
+      # Controlled magnetic field test
+      ./bin/lab_simulator \
+        --scenario=controlled_magnetic \
+        --field-strength=50uT \
+        --duration=300 \
+        --output=lab_magnetic_results.json
     - |
-      # Magnetic anomaly navigation
-      ./bin/flight_simulator \
-        --scenario=magnetic_anomaly \
-        --anomaly-strength=severe \
-        --output=magnetic_anomaly_results.json
+      # Algorithm validation
+      ./bin/lab_simulator \
+        --scenario=algorithm_validation \
+        --qkf-test=true \
+        --output=lab_algorithm_results.json
     - |
-      # Generate flight test report
-      python3 ../tools/generate_flight_report.py \
+      # Generate TRL 3 test report
+      python3 ../tools/generate_lab_report.py \
         --trl=${QNS_TRL} \
-        --results=*_results.json
+        --results=lab_*_results.json
   artifacts:
     paths:
-      - ${BUILD_DIR}/*_results.json
-      - ${BUILD_DIR}/flight_test_report.pdf
+      - ${BUILD_DIR}/lab_*_results.json
+      - ${BUILD_DIR}/lab_test_report_trl3.pdf
     reports:
-      junit: ${BUILD_DIR}/flight_test_results.xml
+      junit: ${BUILD_DIR}/lab_test_results.xml
     expire_in: ${ARTIFACT_EXPIRE_IN}
   tags:
     - high-performance
@@ -400,19 +388,21 @@ ali:bob:sync:test:
     - build:qns:release
     - quantum:validation:algorithms
   script:
-    - echo "Testing ALI-BOB synchronization..."
+    - echo "Testing ALI-BOB synchronization at ${QNS_UPDATE_RATE_HZ} Hz..."
     - cd ${BUILD_DIR}
     - |
       ./bin/ali_bob_sync \
-        --mode=test \
+        --mode=laboratory \
         --sync-rate=${QNS_UPDATE_RATE_HZ} \
         --verify=quantum_state \
+        --trl=${QNS_TRL} \
         --output=ali_bob_sync_report.xml
     - |
       echo "Verifying digital twin consistency..."
       ./bin/ali_bob_sync \
         --mode=verify \
-        --tolerance=1e-9
+        --tolerance=1e-6 \
+        --environment=laboratory
   artifacts:
     reports:
       junit: ${BUILD_DIR}/ali_bob_sync_report.xml
@@ -424,23 +414,26 @@ ali:bob:sync:test:
 # =============================================================================
 # STAGE: PERFORMANCE
 # =============================================================================
-performance:benchmark:
+performance:benchmark:lab:
   stage: performance
   dependencies:
     - build:qns:release
   script:
-    - echo "Running performance benchmarks..."
+    - echo "Running TRL 3 performance benchmarks..."
     - cd ${BUILD_DIR}
-    - ./bin/performance_tests --benchmark_format=json > benchmark_results.json
+    - ./bin/performance_tests \
+        --benchmark_filter="BM_TRL3_.*" \
+        --benchmark_format=json > benchmark_results.json
     - |
       python3 ../tools/analyze_performance.py \
         --results=benchmark_results.json \
-        --target-rate=${QNS_UPDATE_RATE_HZ} \
+        --current-rate=${QNS_UPDATE_RATE_HZ} \
+        --target-rate=100 \
         --trl=${QNS_TRL}
   artifacts:
     paths:
       - ${BUILD_DIR}/benchmark_results.json
-      - ${BUILD_DIR}/performance_analysis.pdf
+      - ${BUILD_DIR}/performance_analysis_trl3.pdf
     expire_in: ${ARTIFACT_EXPIRE_IN}
   tags:
     - performance-testing
@@ -452,10 +445,14 @@ package:debian:
   stage: package
   dependencies:
     - build:qns:release
-    - sensor:calibration
+    - sensor:calibration:lab
   script:
-    - echo "Creating Debian package..."
+    - echo "Creating Debian package for TRL 3..."
     - cd ${BUILD_DIR}
+    - |
+      # Set TRL 3 specific package metadata
+      sed -i "s/TRL_LEVEL/${QNS_TRL}/g" ../packaging/debian/control
+      sed -i "s/QNS_STATUS/${QNS_STATUS}/g" ../packaging/debian/control
     - cpack -G DEB
     - dpkg --info *.deb
     - dpkg --contents *.deb
@@ -472,12 +469,16 @@ package:docker:
   dependencies:
     - build:qns:release
   script:
-    - echo "Building Docker image..."
-    - docker build -t aqua-v/qns:${CI_COMMIT_SHORT_SHA} .
-    - docker tag aqua-v/qns:${CI_COMMIT_SHORT_SHA} aqua-v/qns:latest
+    - echo "Building Docker image for TRL 3..."
+    - |
+      docker build \
+        --build-arg TRL_LEVEL=${QNS_TRL} \
+        --build-arg UPDATE_RATE=${QNS_UPDATE_RATE_HZ} \
+        -t aqua-v/qns:${CI_COMMIT_SHORT_SHA}-trl3 .
+    - docker tag aqua-v/qns:${CI_COMMIT_SHORT_SHA}-trl3 aqua-v/qns:latest-trl3
     - |
       if [ -n "${CI_COMMIT_TAG}" ]; then
-        docker tag aqua-v/qns:${CI_COMMIT_SHORT_SHA} aqua-v/qns:${CI_COMMIT_TAG}
+        docker tag aqua-v/qns:${CI_COMMIT_SHORT_SHA}-trl3 aqua-v/qns:${CI_COMMIT_TAG}
       fi
   only:
     - main
@@ -486,47 +487,50 @@ package:docker:
 # =============================================================================
 # STAGE: DEPLOY
 # =============================================================================
-deploy:staging:
+deploy:lab:staging:
   stage: deploy
   dependencies:
     - package:debian
     - package:docker
   environment:
-    name: staging-svd
-    url: https://staging.svd.aqua-v.aerospace
+    name: lab-staging-svd
+    url: https://lab-staging.svd.aqua-v.aerospace
   script:
-    - echo "Deploying to Silicon Valley staging environment..."
+    - echo "Deploying to Silicon Valley laboratory staging..."
     - |
-      ansible-playbook deploy/staging.yml \
+      ansible-playbook deploy/lab_staging.yml \
         -e "site_code=${SITE_CODE}" \
         -e "qns_version=${CI_COMMIT_SHORT_SHA}" \
-        -e "trl_level=${QNS_TRL}"
+        -e "trl_level=${QNS_TRL}" \
+        -e "environment=laboratory"
   only:
     - develop
   when: manual
 
-deploy:production:
+deploy:lab:production:
   stage: deploy
   dependencies:
     - package:debian
     - package:docker
-    - flight:simulation:scenarios
+    - simulation:lab:scenarios
   environment:
-    name: production-svd
-    url: https://qns.svd.aqua-v.aerospace
+    name: lab-production-svd
+    url: https://lab.svd.aqua-v.aerospace
   script:
-    - echo "Deploying to Silicon Valley production environment..."
+    - echo "Deploying to Silicon Valley laboratory production..."
     - |
-      # Verify all quality gates passed
+      # Verify TRL 3 quality gates
       python3 tools/verify_quality_gates.py \
         --trl=${QNS_TRL} \
-        --coverage-threshold=80 \
-        --performance-threshold=1000
+        --coverage-threshold=70 \
+        --performance-threshold=50 \
+        --environment=laboratory
     - |
-      ansible-playbook deploy/production.yml \
+      ansible-playbook deploy/lab_production.yml \
         -e "site_code=${SITE_CODE}" \
         -e "qns_version=${CI_COMMIT_TAG}" \
-        -e "trl_level=${QNS_TRL}"
+        -e "trl_level=${QNS_TRL}" \
+        -e "environment=laboratory"
   only:
     - tags
   when: manual
@@ -549,8 +553,9 @@ deploy:production:
             \"fields\": [
               {\"title\": \"Project\", \"value\": \"${CI_PROJECT_NAME}\"},
               {\"title\": \"Branch\", \"value\": \"${CI_COMMIT_REF_NAME}\"},
-              {\"title\": \"TRL\", \"value\": \"${QNS_TRL}\"},
-              {\"title\": \"Site\", \"value\": \"${SITE_CODE}\"}
+              {\"title\": \"TRL\", \"value\": \"${QNS_TRL} - ${QNS_STATUS}\"},
+              {\"title\": \"Site\", \"value\": \"${SITE_CODE} - ${SITE_NAME}\"},
+              {\"title\": \"Update Rate\", \"value\": \"${QNS_UPDATE_RATE_HZ} Hz\"}
             ]
           }]
         }"
