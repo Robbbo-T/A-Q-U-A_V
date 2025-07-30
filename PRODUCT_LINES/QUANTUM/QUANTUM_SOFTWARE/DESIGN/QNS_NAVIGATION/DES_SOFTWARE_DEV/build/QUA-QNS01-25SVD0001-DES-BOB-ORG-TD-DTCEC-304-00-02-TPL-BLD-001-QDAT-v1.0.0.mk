@@ -72,6 +72,7 @@ help:
 	@echo ""
 	@echo "Quantum-specific targets:"
 	@echo "  make quantum-test   - Run quantum validation tests"
+	@echo "  make quantum-benchmark - Run quantum algorithm benchmarks"
 	@echo "  make calibrate      - Run sensor calibration"
 	@echo "  make flight-sim     - Run flight simulation tests"
 	@echo ""
@@ -144,6 +145,16 @@ quantum-test: build
 	@echo "$(BLUE)Running quantum validation tests...$(NC)"
 	@cd $(BUILD_DIR) && ./bin/quantum_validator --trl=6 --update-rate=$(QNS_UPDATE_RATE)
 	@echo "$(GREEN)✓ Quantum validation complete$(NC)"
+
+.PHONY: quantum-benchmark
+quantum-benchmark: build
+	@echo "$(BLUE)Running quantum algorithm benchmarks...$(NC)"
+	@cd $(BUILD_DIR) && ./bin/performance_tests \
+		--benchmark_filter="BM_Quantum.*" \
+		--benchmark_format=console \
+		--benchmark_out=quantum_benchmark_results.json \
+		--benchmark_out_format=json
+	@echo "$(GREEN)✓ Quantum benchmark complete. Results saved to $(BUILD_DIR)/quantum_benchmark_results.json$(NC)"
 
 .PHONY: calibrate
 calibrate: build
