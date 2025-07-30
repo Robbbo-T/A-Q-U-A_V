@@ -148,10 +148,15 @@ if(ENABLE_TESTING)
     # Try to find Google Test
     find_package(GTest QUIET)
     if(NOT GTest_FOUND)
-        message(STATUS "Google Test not found, will use embedded version")
-        set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
-        set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
-        add_subdirectory(third_party/googletest EXCLUDE_FROM_ALL)
+        message(STATUS "Google Test not found - testing will use basic framework")
+        # Don't try to add googletest subdirectory if it doesn't exist
+        if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/third_party/googletest)
+            set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
+            set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
+            add_subdirectory(third_party/googletest EXCLUDE_FROM_ALL)
+        else()
+            message(STATUS "Google Test third_party directory not found - skipping")
+        endif()
     endif()
     
     # CTest configuration
@@ -222,28 +227,38 @@ endif()
 # SUBDIRECTORIES
 # =============================================================================
 # Add source directories
-if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/src)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/src AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/src/CMakeLists.txt)
     add_subdirectory(src)
+else()
+    message(STATUS "Source directory (src/) not found or no CMakeLists.txt - skipping")
 endif()
 
 # Add tests
-if(ENABLE_TESTING AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tests)
+if(ENABLE_TESTING AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tests AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tests/CMakeLists.txt)
     add_subdirectory(tests)
+else()
+    message(STATUS "Tests directory (tests/) not found or no CMakeLists.txt - skipping")
 endif()
 
 # Add tools
-if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tools)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tools AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tools/CMakeLists.txt)
     add_subdirectory(tools)
+else()
+    message(STATUS "Tools directory (tools/) not found or no CMakeLists.txt - skipping")
 endif()
 
 # Add examples
-if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/examples)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/examples AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/examples/CMakeLists.txt)
     add_subdirectory(examples)
+else()
+    message(STATUS "Examples directory (examples/) not found or no CMakeLists.txt - skipping")
 endif()
 
 # Add benchmarks
-if(ENABLE_PERFORMANCE_TESTS AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/benchmarks)
+if(ENABLE_PERFORMANCE_TESTS AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/benchmarks AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/benchmarks/CMakeLists.txt)
     add_subdirectory(benchmarks)
+else()
+    message(STATUS "Benchmarks directory (benchmarks/) not found or no CMakeLists.txt - skipping")
 endif()
 
 # =============================================================================

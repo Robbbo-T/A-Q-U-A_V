@@ -1,0 +1,10 @@
+/home/runner/work/A-Q-U-A_V/A-Q-U-A_V/build/CMakeFiles/format.dir
+/home/runner/work/A-Q-U-A_V/A-Q-U-A_V/build/CMakeFiles/lint.dir
+/home/runner/work/A-Q-U-A_V/A-Q-U-A_V/build/CMakeFiles/package.dir
+/home/runner/work/A-Q-U-A_V/A-Q-U-A_V/build/CMakeFiles/package_source.dir
+/home/runner/work/A-Q-U-A_V/A-Q-U-A_V/build/CMakeFiles/edit_cache.dir
+/home/runner/work/A-Q-U-A_V/A-Q-U-A_V/build/CMakeFiles/rebuild_cache.dir
+/home/runner/work/A-Q-U-A_V/A-Q-U-A_V/build/CMakeFiles/list_install_components.dir
+/home/runner/work/A-Q-U-A_V/A-Q-U-A_V/build/CMakeFiles/install.dir
+/home/runner/work/A-Q-U-A_V/A-Q-U-A_V/build/CMakeFiles/install/local.dir
+/home/runner/work/A-Q-U-A_V/A-Q-U-A_V/build/CMakeFiles/install/strip.dir
