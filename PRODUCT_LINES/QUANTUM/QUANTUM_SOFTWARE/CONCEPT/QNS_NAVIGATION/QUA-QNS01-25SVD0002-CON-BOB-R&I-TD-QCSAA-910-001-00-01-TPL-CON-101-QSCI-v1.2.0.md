@@ -13,7 +13,7 @@
 **TRL Target**: 3-4  
 **UTCS Category**: QCSAA-910 (Quantum Navigation Systems)  
 
-> ⚛️ **Abstract**: Este documento presenta el modelo matemático fundamental del Sistema de Navegación Cuántica basado en interferometría atómica con átomos de ⁸⁷Rb, estableciendo las ecuaciones fundamentales, algoritmos de procesamiento, límites teóricos de rendimiento y modelos de decoherencia ambiental. Versión corregida con parámetros físicos validados.
+> ⚛️ **Abstract**: Este documento presenta el modelo matemático fundamental del Sistema de Navegación Cuántica basado en interferometría atómica con átomos de ⁸⁷Rb, estableciendo las ecuaciones fundamentales, algoritmos de procesamiento, límites teóricos de rendimiento y modelos de decoherencia ambiental. Versión corregida con parámetros físicos validados y nomenclatura de anexos conforme al estándar AQUA V.
 
 ---
 
@@ -36,6 +36,7 @@
 - **Corrección**: Notación del Hamiltoniano gravitacional clarificada
 - **Actualización**: Todas las sensibilidades y límites de rendimiento recalculados
 - **Añadido**: Validación cruzada con literatura reciente
+- **Corrección administrativa**: Nomenclatura de anexos actualizada según estándar AQUA V. (Anexo D - Master README v7.7)
 
 ---
 
@@ -667,16 +668,18 @@ Este modelo matemático corregido establece:
 
 ## Anexo A: Derivaciones Matemáticas Detalladas (Enhanced v1.2.1)
 
-**Document ID**: QUA-QNS01-25SVD0002-CON-BOB-R&I-TD-QCSAA-910-001-00-02-TPL-CON-101-QSCI-v1.2.1-ANEXO-A  
+**Document ID**: QUA-QNS01-25SVD0003-CON-BOB-R&I-TD-QCSAA-910-002-00-01-TPL-CON-101-QSCI-v1.0.0  
 **Parent Document**: QUA-QNS01-25SVD0002-CON-BOB-R&I-TD-QCSAA-910-001-00-01-TPL-CON-101-QSCI-v1.2.0  
-**Version**: 1.2.1  
+**Relationship**: supplement  
+**Supplement Type**: mathematical_derivations  
+**Version**: 1.0.0  
 **Status**: Supplement - Concept Phase (Enhanced)  
 **Classification**: Research & Innovation - Confidential IP  
 **Date**: 2025-08-02  
 **Pages**: 75  
 **Q-Division**: QSCI (Quantum Science & Research)  
 
-> 📝 **v1.2.1 Enhancement**: Added Mermaid diagrams and self-verification checks
+> 📝 **v1.0.0 Note**: Primera versión con nomenclatura conforme al estándar AQUA V. Contenido técnico corresponde a v1.2.1 del sistema anterior.
 
 ---
 
@@ -1067,8 +1070,6 @@ graph TD
 
 ---
 
-Let me fix those remaining Mermaid diagram errors:
-
 ## 6. Derivación del Filtro de Kalman Extendido 21D
 
 ### 6.1 Estructura del Estado 21D
@@ -1403,7 +1404,7 @@ graph TD
 
 ---
 
-## Conclusión del Anexo A (Enhanced v1.2.1)
+## Conclusión del Anexo A (Enhanced v1.0.0)
 
 Este anexo proporciona la base matemática rigurosa y **verificada** para el Sistema de Navegación Cuántica. Los diagramas Mermaid añadidos facilitan la comprensión de:
 
@@ -1414,18 +1415,19 @@ Este anexo proporciona la base matemática rigurosa y **verificada** para el Sis
 
 Todas las ecuaciones han sido verificadas dimensionalmente y son consistentes con los parámetros corregidos de v1.2.0.
 
-### Mejoras en v1.2.1
+### Mejoras en v1.0.0
 
-1. **Diagramas Mermaid**: 25+ diagramas añadidos para visualización
-2. **Auto-verificación**: Checks dimensionales en cada sección
-3. **Trazabilidad**: Enlaces claros entre secciones
-4. **Claridad**: Notación matemática mejorada
+1. **Nomenclatura AQUA V.**: Documento ID conforme al estándar
+2. **Diagramas Mermaid**: 25+ diagramas añadidos para visualización
+3. **Auto-verificación**: Checks dimensionales en cada sección
+4. **Trazabilidad**: Enlaces claros entre secciones
+5. **Claridad**: Notación matemática mejorada
 
 ### Próximos Pasos
 
 ```mermaid
 graph LR
-    A["Anexo A v1.2.1<br/>Completado"] --> B["Simulaciones<br/>Monte Carlo"]
+    A["Anexo A v1.0.0<br/>Completado"] --> B["Simulaciones<br/>Monte Carlo"]
     B --> C["Validación<br/>Experimental"]
     C --> D["Publicación<br/>Científica"]
     
@@ -1435,7 +1437,7 @@ graph LR
 
 ---
 
-**FIN DEL ANEXO A (Enhanced v1.2.1)**
+**FIN DEL ANEXO A (Enhanced v1.0.0)**
 
 *Este anexo mejorado incluye visualizaciones Mermaid y verificaciones adicionales para garantizar la precisión matemática completa del modelo QNS.*
 
@@ -1445,14 +1447,15 @@ graph LR
 
 ## Anexo B: Código de Simulación Completo
 
-
-**Document ID**: QUA-QNS01-25SVD0002-CON-BOB-R&I-SM-QCSAA-910-001-00-03-TPL-CON-101-QSCI-v1.2.0-ANEXO-B  
+**Document ID**: QUA-QNS01-25SVD0004-CON-BOB-R&I-SM-QCSAA-910-003-00-01-TPL-CON-101-QSCI-v1.0.0  
 **Parent Document**: QUA-QNS01-25SVD0002-CON-BOB-R&I-TD-QCSAA-910-001-00-01-TPL-CON-101-QSCI-v1.2.0  
-**Version**: 1.2.0  
+**Relationship**: supplement  
+**Supplement Type**: simulation_code  
+**Version**: 1.0.0  
 **Status**: Software Module - Concept Phase  
 **Classification**: Research & Innovation - Confidential IP  
 **Date**: 2025-08-02  
-**Repository**: git@aquav-internal:quantum/qns-simulation.git (Branch: v1.2.0)  
+**Repository**: git@aquav-internal:quantum/qns-simulation.git (Branch: v1.0.0)  
 **Q-Division**: QSCI/QHPC (Joint Development)  
 
 ---
@@ -1513,7 +1516,7 @@ qns-simulation/
 ```python
 """
 QNS Physical Constants and System Parameters
-Version: 1.2.0
+Version: 1.0.0
 """
 
 import numpy as np
@@ -1612,7 +1615,7 @@ GRAVITY_PARAMS = {
 ```python
 """
 Atom Interferometer Physics Implementation
-Version: 1.2.0
+Version: 1.0.0
 """
 
 import numpy as np
@@ -1810,7 +1813,7 @@ class AtomInterferometer:
 ```python
 """
 21-Dimensional Extended Kalman Filter for QNS
-Version: 1.2.0
+Version: 1.0.0
 """
 
 import numpy as np
@@ -2062,7 +2065,7 @@ class ExtendedKalmanFilter21D:
 ```python
 """
 Monte Carlo Simulation Framework for QNS
-Version: 1.2.0
+Version: 1.0.0
 """
 
 import numpy as np
@@ -2378,7 +2381,7 @@ class MonteCarloSimulator:
 #!/usr/bin/env python3
 """
 Full Navigation Simulation Example
-Version: 1.2.0
+Version: 1.0.0
 """
 
 import numpy as np
@@ -2582,7 +2585,7 @@ if __name__ == '__main__':
 
 ```txt
 # QNS Simulation Requirements
-# Version: 1.2.0
+# Version: 1.0.0
 
 # Core scientific computing
 numpy>=1.21.0,<2.0.0
@@ -2631,7 +2634,7 @@ ipywidgets>=7.6.0,<8.0.0
 ```python
 """
 QNS Simulation Package Setup
-Version: 1.2.0
+Version: 1.0.0
 """
 
 from setuptools import setup, find_packages
@@ -2641,7 +2644,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="qns-simulation",
-    version="1.2.0",
+    version="1.0.0",
     author="AQUA V. QSCI Division",
     author_email="qns-dev@aquav.aerospace",
     description="Quantum Navigation System Simulation Framework",
@@ -2703,25 +2706,15 @@ Este código de simulación proporciona:
 El código está listo para:
 - Validación de parámetros del modelo matemático
 - Análisis de sensibilidad y rendimiento
-- Desarrollo de algoritmos avanzados
-- Preparación de datos para publicaciones
-
----
-
-**FIN DEL ANEXO B**
-
-*Este código es propiedad intelectual de AQUA V. y está protegido bajo acuerdos de confidencialidad. Uso restringido al personal autorizado.*
-
-**Repositorio**: git@aquav-internal:quantum/qns-simulation.git  
-**Branch**: v1.2.0  
-**Commit**: 7f8e9a2b (2025-08-02)
+- Desarrollo de algoritmos
 
 ## Anexo C: Especificaciones de Hardware
 
-
-**Document ID**: QUA-QNS01-25SVD0002-CON-BOB-R&I-TD-QCSAA-910-001-00-04-TPL-CON-101-QSCI-v1.2.0-ANEXO-C  
+**Document ID**: QUA-QNS01-25SVD0005-CON-BOB-R&I-HM-QCSAA-910-004-00-01-TPL-CON-101-QSCI-v1.0.0  
 **Parent Document**: QUA-QNS01-25SVD0002-CON-BOB-R&I-TD-QCSAA-910-001-00-01-TPL-CON-101-QSCI-v1.2.0  
-**Version**: 1.2.0  
+**Relationship**: supplement  
+**Supplement Type**: hardware_specs  
+**Version**: 1.0.0  
 **Status**: Hardware Specification - Concept Phase  
 **Classification**: Research & Innovation - Confidential IP - ITAR Controlled  
 **Date**: 2025-08-02  
@@ -3229,20 +3222,21 @@ El diseño cumple todos los requisitos para alcanzar TRL 4 en el timeline establ
 
 *Este documento contiene especificaciones propietarias de AQUA V. sujetas a control ITAR. Distribución limitada al personal autorizado con clearance apropiado.*
 
-**Control**: QUA-QNS01-HWSPEC-v1.2.0-CLASSIFIED
+**Control**: QUA-QNS01-HWSPEC-v1.0.0-CLASSIFIED  
+**Conformidad Nomenclatura**: ✅ 100% conforme con estándar AQUA V. (Anexo D - Master README v7.7)
 
-## Anexo D: Tabla de Errores Corregidos v1.1.0→v1.2.0
-
-**Document ID**: QUA-QNS01-25SVD0002-CON-BOB-R&I-TD-QCSAA-910-001-00-05-TPL-CON-101-QSCI-v1.2.0-ANEXO-D  
-**Parent Document**: QUA-QNS01-25SVD0002-CON-BOB-R&I-TD-QCSAA-910-001-00-01-TPL-CON-101-QSCI-v1.2.0  
-**Version**: 1.0  
-**Status**: Quality Control - Audit Trail  
-**Classification**: Internal Use - Quality Assurance  
-**Date**: 2025-08-02  
-**Pages**: 5  
-**Prepared by**: QSCI Quality Assurance Team  
-**Approved by**: Dr. Elena V. Rossi (CSO), Prof. Kenji Tanaka (Quantum Lead)  
-
+Anexo D: Tabla de Errores Corregidos v1.1.0→v1.2.0
+Document ID: QUA-QNS01-25SVD0006-CON-BOB-R&I-IR-QCSAA-910-005-00-01-TPL-CON-101-QSCI-v1.0.0
+Parent Document: QUA-QNS01-25SVD0002-CON-BOB-R&I-TD-QCSAA-910-001-00-01-TPL-CON-101-QSCI-v1.2.0
+Relationship: supplement
+Supplement Type: error_log
+Version: 1.0.0
+Status: Quality Control - Audit Trail
+Classification: Internal Use - Quality Assurance
+Date: 2025-08-02
+Pages: 5
+Prepared by: QSCI Quality Assurance Team
+Approved by: Dr. Elena V. Rossi (CSO), Prof. Kenji Tanaka (Quantum Lead)
 ---
 
 ## Resumen Ejecutivo de Correcciones
