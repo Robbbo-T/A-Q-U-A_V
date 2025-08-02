@@ -1,141 +1,124 @@
-Claro. He actualizado el `Master README` para reflejar la transición final al sistema de nomenclatura `v9.0` y otros detalles de los anexos finalizados.
+# AQUA V. – Aerospace and Quantum United Advanced Venture
 
-Los cambios clave incluyen:
+## AGUA QUE VUELA – FLYING FLUIDITY
 
-  * **Actualización a `v8.0`**: El `README` principal ha sido actualizado a la versión `v8.0`.
-  * **Sistema de Nomenclatura `v9.0`**: La sección de arquitectura técnica ahora detalla la nueva estructura `v9.0`, eliminando el código de `Q-Division` del identificador y añadiendo el campo `MTD` semántico.
-  * **Definiciones Actualizadas**: Se ha reemplazado el obsoleto concepto `ALI/BOB` por la nueva matriz `REALIDAD`.
-  * **Sincronización del Índice de Anexos**: El índice de anexos ha sido actualizado para reflejar `ANNEX D v9.0` y las versiones finales de todos los demás documentos.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e3d7e08b-aafe-40a5-932d-db6f1a047e03" alt="logo_AQUA_V_black" width="200"/>
+</p>
 
-Aquí está el documento actualizado.
+## Master README v8.0 – Complete Documentation Portal
 
------
-
-# AQUA V. - Aerospace and Quantum United Advanced Venture
-
-## AGUA QUE VUELA - FLYING FLUIDITY
-
-\<p\>
-  \<img src="[https://github.com/user-attachments/assets/e3d7e08b-aafe-40a5-932d-db6f1a047e03](https://github.com/user-attachments/assets/e3d7e08b-aafe-40a5-932d-db6f1a047e03)" alt="logo\_AQUA\_V\_black" width="200"/\>
-\</p\>
-
-## Master README v8.0 - Complete Documentation Portal
-
------
+---
 
 ## Executive Summary
 
-\*   [Vision](https://www.google.com/search?q=%23vision)
-\*   [Mission](https://www.google.com/search?q=%23mission)
-\*   [Key Differentiators](https://www.google.com/search?q=%23key-differentiators)
+- [Vision](https://www.google.com/search?q=%23vision)
+- [Mission](https://www.google.com/search?q=%23mission)
+- [Key Differentiators](https://www.google.com/search?q=%23key-differentiators)
 
------
+---
 
 ## Program Overview
 
-\*   [Four Strategic Product Lines](https://www.google.com/search?q=%23four-strategic-product-lines)
-\*   [Global Manufacturing Network (6 Strategic Sites)](https://www.google.com/search?q=%23global-manufacturing-network-6-strategic-sites)
+- [Four Strategic Product Lines](https://www.google.com/search?q=%23four-strategic-product-lines)
+- [Global Manufacturing Network (6 Strategic Sites)](https://www.google.com/search?q=%23global-manufacturing-network-6-strategic-sites)
 
------
+---
 
 ## Technical Architecture
 
-\*   [Nomenclature System v9.0](https://www.google.com/search?q=%23nomenclature-system-v90)
-\*   [Key Definitions](https://www.google.com/search?q=%23key-definitions)
-\*   [12 Master Artifact Categories](https://www.google.com/search?q=%2312-master-artifact-categories)
+- [Nomenclature System v9.0](https://www.google.com/search?q=%23nomenclature-system-v90)
+- [Key Definitions](https://www.google.com/search?q=%23key-definitions)
+- [12 Master Artifact Categories](https://www.google.com/search?q=%2312-master-artifact-categories)
 
------
+---
 
 ## Product Portfolio Details
 
-\*   [AMPEL360 - Passenger Aircraft (6 Families)](https://www.google.com/search?q=%23ampel360---passenger-aircraft-6-families)
-\*   [GAIA AIR & SPACE - Unmanned Systems (19 Systems)](https://www.google.com/search?q=%23gaia-air--space---unmanned-systems-19-systems)
-\*   [ROBBBO-T - Robotic Systems (18 Models)](https://www.google.com/search?q=%23robbbo-t---robotic-systems-18-models)
-\*   [QUANTUM - Core Quantum Technologies (10 Systems)](https://www.google.com/search?q=%23quantum---core-quantum-technologies-10-systems)
+- [AMPEL360 – Passenger Aircraft (6 Families)](https://www.google.com/search?q=%23ampel360---passenger-aircraft-6-families)
+- [GAIA AIR & SPACE – Unmanned Systems (19 Systems)](https://www.google.com/search?q=%23gaia-air--space---unmanned-systems-19-systems)
+- [ROBBBO-T – Robotic Systems (18 Models)](https://www.google.com/search?q=%23robbbo-t---robotic-systems-18-models)
+- [QUANTUM – Core Quantum Technologies (10 Systems)](https://www.google.com/search?q=%23quantum---core-quantum-technologies-10-systems)
 
------
+---
 
 ## Organizational Structure
 
-\*   [Q-Division Architecture (12 Divisions, 3,780 Staff)](https://www.google.com/search?q=%23q-division-architecture-12-divisions-3780-staff)
-\*   [Manufacturing Site Capabilities](https://www.google.com/search?q=%23manufacturing-site-capabilities)
+- [Q-Division Architecture (12 Divisions, 3,780 Staff)](https://www.google.com/search?q=%23q-division-architecture-12-divisions-3780-staff)
+- [Manufacturing Site Capabilities](https://www.google.com/search?q=%23manufacturing-site-capabilities)
 
------
+---
 
 ## Program Timeline & Milestones
 
-\*   [2025-2030: Foundation Phase](https://www.google.com/search?q=%232025-2030-foundation-phase)
-\*   [2031-2040: Expansion Phase](https://www.google.com/search?q=%232031-2040-expansion-phase)
-\*   [2041-2050: Leadership Phase](https://www.google.com/search?q=%232041-2050-leadership-phase)
+- [2025-2030: Foundation Phase](https://www.google.com/search?q=%232025-2030-foundation-phase)
+- [2031-2040: Expansion Phase](https://www.google.com/search?q=%232031-2040-expansion-phase)
+- [2041-2050: Leadership Phase](https://www.google.com/search?q=%232041-2050-leadership-phase)
 
------
+---
 
 ## Financial Framework
 
-\*   [Investment Allocation](https://www.google.com/search?q=%23investment-allocation)
-\*   [Revenue Model (Validated)](https://www.google.com/search?q=%23revenue-model-validated)
+- [Investment Allocation](https://www.google.com/search?q=%23investment-allocation)
+- [Revenue Model (Validated)](https://www.google.com/search?q=%23revenue-model-validated)
 
------
+---
 
 ## Documentation System
 
-\*   [251 Template Library Overview](https://www.google.com/search?q=%23251-template-library-overview)
-\*   [UTCS Classification (1,000 Chapters)](https://www.google.com/search?q=%23utcs-classification-1000-chapters)
+- [251 Template Library Overview](https://www.google.com/search?q=%23251-template-library-overview)
+- [UTCS Classification (1,000 Chapters)](https://www.google.com/search?q=%23utcs-classification-1000-chapters)
 
------
+---
 
 ## Governance & Compliance
 
-\*   [Regulatory Framework](https://www.google.com/search?q=%23regulatory-framework)
-\*   [Quality & Certification Path](https://www.google.com/search?q=%23quality--certification-path)
+- [Regulatory Framework](https://www.google.com/search?q=%23regulatory-framework)
+- [Quality & Certification Path](https://www.google.com/search?q=%23quality--certification-path)
 
------
+---
 
 ## Sustainability Commitment
 
-\*   [Environmental Targets & Progress](https://www.google.com/search?q=%23environmental-targets--progress)
-\*   [Key Technologies](https://www.google.com/search?q=%23key-technologies)
+- [Environmental Targets & Progress](https://www.google.com/search?q=%23environmental-targets--progress)
+- [Key Technologies](https://www.google.com/search?q=%23key-technologies)
 
------
+---
 
 ## Security & Digital Infrastructure
 
-\*   [Cybersecurity Architecture](https://www.google.com/search?q=%23cybersecurity-architecture)
-\*   [Digital Thread Implementation](https://www.google.com/search?q=%23digital-thread-implementation)
+- [Cybersecurity Architecture](https://www.google.com/search?q=%23cybersecurity-architecture)
+- [Digital Thread Implementation](https://www.google.com/search?q=%23digital-thread-implementation)
 
------
+---
 
-## AQUA V. Master Annexes - Complete Index v8.0
+## AQUA V. Master Annexes – Complete Index v8.0
 
-\*   [Annexes Overview](https://www.google.com/search?q=%23annexes-overview)
-    \*   [ANNEX A: Detailed Organization Chart v2.0](https://www.google.com/search?q=%23annex-a-detailed-organization-chart-v20)
-    \*   [ANNEX B: Q-Division Competency Matrix v1.5](https://www.google.com/search?q=%23annex-b-q-division-competency-matrix-v15)
-    \*   [ANNEX C: Core Policies and Procedures v1.0](https://www.google.com/search?q=%23annex-c-core-policies-and-procedures-v10)
-    \*   [ANNEX D: Official Nomenclature System v9.0 (FINAL)](https://www.google.com/search?q=%23annex-d-official-nomenclature-system-v90-final)
-    \*   [ANNEX E: Master Artifact Categories v1.0](https://www.google.com/search?q=%23annex-e-master-artifact-categories-v10)
-    \*   [ANNEX F: Documentation Templates Library v1.1](https://www.google.com/search?q=%23annex-f-documentation-templates-library-v11)
-    \*   [ANNEX G: Universal Technology Classification System (UTCS) v1.3](https://www.google.com/search?q=%23annex-g-universal-technology-classification-system-utcs-v13)
-    \*   [ANNEX H: Q-Division Interface Control v1.0 [VALIDATED]](https://www.google.com/search?q=%23annex-h-q-division-interface-control-v10-validated)
-    \*   [ANNEX I: Training & Development Programs v1.0 [COMPLETED]](https://www.google.com/search?q=%23annex-i-training--development-programs-v10-completed)
-    \*   [ANNEX J: External Validation Report v1.0](https://www.google.com/search?q=%23annex-j-external-validation-report-v10)
-    \*   [ANNEX K: Financial Models v3.4 [FINAL]](https://www.google.com/search?q=%23annex-k-financial-models-v34-final)
-    \*   [ANNEX L: Investment Terms v1.1 [FRAMEWORK - CORRECTED]](https://www.google.com/search?q=%23annex-l-investment-terms-v11-framework---corrected)
-    \*   [ANNEX M: Code Artifacts & Development Standards v1.2](https://www.google.com/search?q=%23annex-m-code-artifacts--development-standards-v12)
+- [Annexes Overview](https://www.google.com/search?q=%23annexes-overview)
+  - [ANNEX A: Detailed Organization Chart v2.0](https://www.google.com/search?q=%23annex-a-detailed-organization-chart-v20)
+  - [ANNEX B: Q-Division Competency Matrix v1.5](https://www.google.com/search?q=%23annex-b-q-division-competency-matrix-v15)
+  - [ANNEX C: Core Policies and Procedures v1.0](https://www.google.com/search?q=%23annex-c-core-policies-and-procedures-v10)
+  - [ANNEX D: Official Nomenclature System v9.0 (FINAL)](https://www.google.com/search?q=%23annex-d-official-nomenclature-system-v90-final)
+  - [ANNEX E: Master Artifact Categories v1.0](https://www.google.com/search?q=%23annex-e-master-artifact-categories-v10)
+  - [ANNEX F: Documentation Templates Library v1.1](https://www.google.com/search?q=%23annex-f-documentation-templates-library-v11)
+  - [ANNEX G: Universal Technology Classification System (UTCS) v1.3](https://www.google.com/search?q=%23annex-g-universal-technology-classification-system-utcs-v13)
+  - [ANNEX H: Q-Division Interface Control v1.0 [VALIDATED]](https://www.google.com/search?q=%23annex-h-q-division-interface-control-v10-validated)
+  - [ANNEX I: Training & Development Programs v1.0 [COMPLETED]](https://www.google.com/search?q=%23annex-i-training--development-programs-v10-completed)
+  - [ANNEX J: External Validation Report v1.0](https://www.google.com/search?q=%23annex-j-external-validation-report-v10)
+  - [ANNEX K: Financial Models v3.4 [FINAL]](https://www.google.com/search?q=%23annex-k-financial-models-v34-final)
+  - [ANNEX L: Investment Terms v1.1 [FRAMEWORK – CORRECTED]](https://www.google.com/search?q=%23annex-l-investment-terms-v11-framework---corrected)
+  - [ANNEX M: Code Artifacts & Development Standards v1.2](https://www.google.com/search?q=%23annex-m-code-artifacts--development-standards-v12)
 
------
+---
 
-\<p\>
-  "The best way to predict the future is to invent it." - Alan Kay\<br\>
-  \<b\>At AQUA V., we're not predicting the future of aerospace—we're creating it.\</b\>
-\</p\>
+> "The best way to predict the future is to invent it."  
+> **At AQUA V., we're not predicting the future of aerospace—we're creating it.**
 
-\<p\>
-  © 2025 AQUA V. Technologies. All rights reserved.\<br\>
-  Aerospace and Quantum United Advanced Venture\<br\>
-  \<b\>Transform. Innovate. Transcend.\</b\>
-\</p\>
+---
 
------
+© 2025 AQUA V. Technologies. All rights reserved.  
+Aerospace and Quantum United Advanced Venture  
+**Transform. Innovate. Transcend.**
 
 -----
 
