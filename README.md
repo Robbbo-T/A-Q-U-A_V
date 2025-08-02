@@ -429,409 +429,139 @@ Aerospace and Quantum United Advanced Venture
 
 ---
 
-# 📊 ANNEX A: Detailed Organization Chart v2.0
-## AQUA V. Complete Organizational Structure
+# ANNEX A: Detailed Organization Chart v2.0
+
+**Document Status:** ✅ Complete  
+**Version:** 2.0  
+**Last Updated:** 2025-08-02
 
 ---
 
-## 📑 Table of Contents
+## 1.0 Overview
 
-- [A.1 Executive Structure](#a1-executive-structure)
-- [A.2 Q-Divisions Detailed Structure](#a2-q-divisions-detailed-structure)
-- [A.3 AQUA V. Venture Legal Entities](#a3-aqua-v-venture-legal-entities)
-- [A.4 Advisory Board Composition](#a4-advisory-board-composition)
-- [A.5 Reporting Hierarchies](#a5-reporting-hierarchies)
+This document outlines the complete organizational structure of AQUA V., detailing the reporting lines from the executive leadership down to the Q-Division and Global Site management. The structure is designed to foster agility, integration, and clear accountability across the entire enterprise.
 
 ---
 
-## A.1 Executive Structure
+## 2.0 Executive Leadership & Corporate Functions
 
-### 🏢 C-Suite Organization
+The C-Suite, led by the Chief Executive Officer, oversees all strategic and operational functions of AQUA V.
 
 ```mermaid
 graph TD
-    BOD[Board of Directors]
-    CEO[Chief Executive Officer<br/>Amedeo Pelliccia]
-    
-    BOD --> CEO
-    
-    CEO --> COO[Chief Operating Officer]
-    CEO --> CTO[Chief Technology Officer]
-    CEO --> CFO[Chief Financial Officer]
-    CEO --> CQO[Chief Quantum Officer]
-    CEO --> CSO[Chief Sustainability Officer]
-    CEO --> CLO[Chief Legal Officer]
-    
-    COO --> DCOO1[Deputy COO<br/>Manufacturing]
-    COO --> DCOO2[Deputy COO<br/>Operations]
-    
-    CTO --> DCTO1[Deputy CTO<br/>Aerospace]
-    CTO --> DCTO2[Deputy CTO<br/>Digital Systems]
-    
-    CQO --> DCQO1[Deputy CQO<br/>Quantum Hardware]
-    CQO --> DCQO2[Deputy CQO<br/>Quantum Software]
-```
-
-### Executive Team Composition
-
-| Position | Name | Background | Location |
-|----------|------|------------|----------|
-| **CEO** | Amedeo Pelliccia | Founder, Aerospace & Quantum Visionary | Madrid |
-| **COO** | [To be appointed] | Operations Excellence, Ex-Airbus | Madrid |
-| **CTO** | [To be appointed] | Deep Tech, Ex-Boeing/SpaceX | Madrid |
-| **CFO** | [To be appointed] | Aerospace Finance, Ex-Goldman Sachs | Madrid |
-| **CQO** | [To be appointed] | Quantum Computing, Ex-IBM Research | Munich |
-| **CSO** | [To be appointed] | Sustainability, Ex-UN Climate | Madrid |
-| **CLO** | [To be appointed] | Aerospace Law, Ex-EASA | Madrid |
-
-### Extended Leadership Team (ELT)
-
-| Role | Reports To | Count | Key Responsibilities |
-|------|------------|-------|---------------------|
-| **Q-Division Directors** | CTO/COO | 12 | Technical leadership of divisions |
-| **Regional VPs** | COO | 6 | Site management and operations |
-| **Product Line VPs** | COO | 4 | AMPEL360, GAIA, ROBBBO-T, QUANTUM |
-| **Functional VPs** | C-Suite | 8 | HR, IT, Marketing, Sales, etc. |
-
----
-
-## A.2 Q-Divisions Detailed Structure
-
-### 🔬 Complete Q-Division Architecture
-
-```mermaid
-graph TB
-    subgraph "Technical Divisions"
-        QSTR[QSTR: Q-Structures<br/>450 staff]
-        QAIR[QAIR: Q-Air<br/>380 staff]
-        QMEC[QMEC: Q-Mechanics<br/>340 staff]
-        QPOW[QPOW: Q-PowerSense<br/>420 staff]
+    subgraph Executive Council
+        CEO[CEO & Chairman]
+        CTO[Chief Technology Officer]
+        COO[Chief Operating Officer]
+        CFO[Chief Financial Officer]
+        CSO[Chief Strategy Officer]
+        CPO[Chief People Officer]
+        CLO[Chief Legal Officer]
     end
-    
-    subgraph "Operational Divisions"
-        QIND[QIND: Q-Industry<br/>510 staff]
-        QGRO[QGRO: Q-Ground<br/>190 staff]
-        QSPA[QSPA: Q-Space<br/>280 staff]
-    end
-    
-    subgraph "Digital Divisions"
-        QDAT[QDAT: Q-DataGov<br/>260 staff]
-        QHPC[QHPC: Q-HPC<br/>310 staff]
-        QCOM[QCOM: Q-Comm<br/>240 staff]
-    end
-    
-    subgraph "Strategic Divisions"
-        QGRE[QGRE: Q-GreenTech<br/>220 staff]
-        QSCI[QSCI: Q-SciRes<br/>180 staff]
-    end
-```
 
-### Q-Division Detailed Breakdown
+    CEO --> CTO
+    CEO --> COO
+    CEO --> CFO
+    CEO --> CSO
+    CEO --> CPO
+    CEO --> CLO
 
-#### QSTR: Q-STRUCTURES (450 staff)
-```
-Director: [Chief Structures Officer]
-├── Composite Materials Team (120)
-│   ├── Naples Lab (80)
-│   └── Madrid Lab (40)
-├── Metallic Structures Team (100)
-├── Quantum Materials Team (80)
-├── Structural Testing Team (100)
-└── Certification Support Team (50)
-```
-
-#### QAIR: Q-AIR (380 staff)
-```
-Director: [Chief Aerodynamics Officer]
-├── CFD Team (100)
-├── Wind Tunnel Operations (120)
-│   └── Toulouse Facility
-├── Flight Physics Team (80)
-├── BWB Aerodynamics Team (50)
-└── eVTOL Aerodynamics Team (30)
-```
-
-#### QGRE: Q-GREENTECH (220 staff)
-```
-Director: [Chief Sustainability Officer]
-├── Circular Economy Team (60)
-├── Carbon Management Team (50)
-├── Sustainable Materials Team (40)
-├── Environmental Compliance Team (40)
-└── Green Manufacturing Team (30)
-```
-
-#### QMEC: Q-MECHANICS (340 staff)
-```
-Director: [Chief Mechanical Systems Officer]
-├── Flight Controls Team (100)
-├── Landing Systems Team (80)
-├── Actuation Systems Team (80)
-├── Hydraulics Team (40)
-└── Environmental Control Team (40)
-```
-
-#### QPOW: Q-POWERSENSE (420 staff)
-```
-Director: [Chief Propulsion Officer]
-├── Turbofan Development (150)
-│   └── Munich Center
-├── Electric Propulsion (100)
-├── Hydrogen Systems (70)
-├── Quantum Sensors (60)
-└── Power Management (40)
-```
-
-#### QSPA: Q-SPACE (280 staff)
-```
-Director: [Chief Space Officer]
-├── Satellite Systems (100)
-├── Launch Operations (50)
-├── Space Robotics (50)
-├── Deep Space Systems (40)
-└── Ground Stations (40)
-```
-
-#### QIND: Q-INDUSTRY (510 staff)
-```
-Director: [Chief Manufacturing Officer]
-├── Factory Automation (150)
-├── Robotics Integration (120)
-├── Quality Systems (100)
-├── Supply Chain (80)
-└── Production Planning (60)
-```
-
-#### QGRO: Q-GROUND (190 staff)
-```
-Director: [Chief Infrastructure Officer]
-├── Facilities Management (50)
-├── Ground Support Equipment (50)
-├── Vertiport Design (40)
-├── Maintenance Infrastructure (30)
-└── Logistics Support (20)
-```
-
-#### QDAT: Q-DATAGOV (260 staff)
-```
-Director: [Chief Data Officer]
-├── Data Architecture (80)
-├── Cybersecurity (80)
-├── Digital Thread (50)
-├── Compliance & Privacy (30)
-└── Analytics Team (20)
-```
-
-#### QHPC: Q-HPC (310 staff)
-```
-Director: [Chief Computing Officer]
-├── Quantum Computing (120)
-│   └── Silicon Valley Lab
-├── AI/ML Systems (80)
-├── Simulation Infrastructure (60)
-├── Cloud Architecture (30)
-└── Edge Computing (20)
-```
-
-#### QCOM: Q-COMM (240 staff)
-```
-Director: [Chief Communications Officer]
-├── Quantum Communications (80)
-├── Satellite Comms (60)
-├── Aircraft Networks (50)
-├── Ground Networks (30)
-└── Cybersecurity Comms (20)
-```
-
-#### QSCI: Q-SCIRES (180 staff)
-```
-Director: [Chief Science Officer]
-├── Quantum Research (60)
-├── Materials Research (40)
-├── Propulsion Research (40)
-├── University Partnerships (20)
-└── IP Management (20)
+    style CEO fill:#8A2BE2,stroke:#fff,stroke-width:2px,color:#fff
 ```
 
 ---
 
-## A.3 AQUA V. Venture Legal Entities
+## 3.0 Operations & Global Manufacturing Network
 
-### 🏛️ Corporate Structure
+The Chief Operating Officer (COO) is responsible for the entire manufacturing and supply chain network, ensuring seamless production and delivery across all six strategic sites.
 
 ```mermaid
 graph TD
-    HLD[AQUA V. Holdings S.A.<br/>Luxembourg]
-    
-    HLD --> SPA[AQUA V. España S.L.<br/>Madrid HQ]
-    HLD --> FRA[AQUA V. France SAS<br/>Toulouse]
-    HLD --> GER[AQUA V. Deutschland GmbH<br/>Munich]
-    HLD --> ITA[AQUA V. Italia S.r.l.<br/>Naples]
-    HLD --> SIN[AQUA V. Singapore Pte Ltd<br/>Singapore]
-    HLD --> USA[AQUA V. USA Inc.<br/>Delaware/California]
-    
-    SPA --> MFG[AQUA Manufacturing S.L.]
-    SPA --> R&D[AQUA R&D Center S.L.]
-    
-    USA --> QTC[Quantum Tech Corp<br/>Silicon Valley]
-```
+    subgraph Global Operations
+        COO[Chief Operating Officer]
 
-### Entity Details
+        subgraph Site Leadership
+            MA[Site Director - Madrid]
+            TO[Site Director - Toulouse]
+            MU[Site Director - Munich]
+            NA[Site Director - Naples]
+            SG[Site Director - Singapore]
+            SV[Site Director - Silicon Valley]
+        end
+    end
 
-| Entity | Jurisdiction | Purpose | Capital | Employees |
-|--------|--------------|---------|---------|-----------|
-| **AQUA V. Holdings** | Luxembourg | Holding company | €1B | 10 |
-| **AQUA V. España** | Spain | Operations HQ | €500M | 1,500 |
-| **AQUA V. France** | France | Aero & Certification | €200M | 600 |
-| **AQUA V. Deutschland** | Germany | Propulsion & Quantum | €300M | 800 |
-| **AQUA V. Italia** | Italy | Composites | €150M | 400 |
-| **AQUA V. Singapore** | Singapore | Asia Operations | €200M | 300 |
-| **AQUA V. USA** | Delaware | Quantum & Software | €250M | 180 |
+    COO --> MA
+    COO --> TO
+    COO --> MU
+    COO --> NA
+    COO --> SG
+    COO --> SV
 
-### Intellectual Property Structure
-
-```yaml
-ip_ownership:
-  patents: "AQUA V. Holdings S.A."
-  trademarks: "AQUA V. Holdings S.A."
-  trade_secrets: "Operating entities"
-  software: "AQUA V. USA Inc."
-  
-licensing:
-  internal: "Royalty-free between entities"
-  external: "Case-by-case basis"
-  university: "Joint ownership models"
+    style COO fill:#5F9EA0,stroke:#333,stroke-width:2px
 ```
 
 ---
 
-## A.4 Advisory Board Composition
+## 4.0 Technology & Q-Division Architecture
 
-### 🎓 Advisory Board Structure
-
-#### Executive Advisory Board (10 members)
-
-**TBD**
-
-#### Technical Advisory Committees
-
-```mermaid
-graph LR
-    TAB[Technical Advisory Board]
-    
-    TAB --> QAC[Quantum Advisory Committee<br/>5 experts]
-    TAB --> AAC[Aerospace Advisory Committee<br/>7 experts]
-    TAB --> SAC[Sustainability Advisory Committee<br/>4 experts]
-    TAB --> MAC[Manufacturing Advisory Committee<br/>6 experts]
-```
-
-### Advisory Engagement Model
-
-| Committee | Meeting Frequency | Focus Areas | Deliverables |
-|-----------|------------------|-------------|--------------|
-| **Executive Board** | Quarterly | Strategy, Risk | Annual report |
-| **Quantum Committee** | Monthly | Tech roadmap | Technical reviews |
-| **Aerospace Committee** | Bi-monthly | Design, Cert | Design reviews |
-| **Sustainability** | Quarterly | ESG, Impact | Sustainability report |
-| **Manufacturing** | Quarterly | Production | Efficiency metrics |
-
----
-
-## A.5 Reporting Hierarchies
-
-### 📊 Organizational Reporting Structure
-
-#### Direct Reporting Lines
+The Chief Technology Officer (CTO) directs the 12 Q-Divisions, which form the technical core of AQUA V. The divisions are grouped into three synergistic clusters: Aerospace & Physical Systems, Digital & Data Systems, and Core Technologies.
 
 ```mermaid
 graph TD
-    CEO[CEO]
-    
-    CEO --> CLT[C-Level Team<br/>6 direct reports]
-    CEO --> CPO[Chief of Staff]
-    CEO --> IA[Internal Audit]
-    
-    CLT --> QDD[Q-Division Directors<br/>12 directors]
-    CLT --> RVP[Regional VPs<br/>6 VPs]
-    CLT --> PVP[Product VPs<br/>4 VPs]
-    
-    QDD --> TL[Team Leaders<br/>~150 leaders]
-    TL --> STAFF[Technical Staff<br/>~3,000 engineers]
+    subgraph Technology & Innovation Directorate
+        CTO[Chief Technology Officer]
+
+        subgraph Aerospace_Physical_Systems_Cluster [Aerospace & Physical Systems Cluster]
+            direction LR
+            QSTR[QSTR - Structures]
+            QAIR[QAIR - Aerodynamics]
+            QMEC[QMEC - Mechanics]
+            QSPA[QSPA - Space]
+            QIND[QIND - Industry]
+            QGRO[QGRO - Ground]
+        end
+
+        subgraph Digital_Data_Systems_Cluster [Digital & Data Systems Cluster]
+            direction LR
+            QDAT[QDAT - DataGov]
+            QHPC[QHPC - Computing]
+            QCOM[QCOM - Communications]
+        end
+
+        subgraph Core_Technologies_Cluster [Core Technologies Cluster]
+            direction LR
+            QPOW[QPOW - PowerSense]
+            QGRE[QGRE - GreenTech]
+            QSCI[QSCI - Research]
+        end
+    end
+
+    CTO --> Aerospace_Physical_Systems_Cluster
+    CTO --> Digital_Data_Systems_Cluster
+    CTO --> Core_Technologies_Cluster
+
+    Aerospace_Physical_Systems_Cluster --> QSTR
+    Aerospace_Physical_Systems_Cluster --> QAIR
+    Aerospace_Physical_Systems_Cluster --> QMEC
+    Aerospace_Physical_Systems_Cluster --> QSPA
+    Aerospace_Physical_Systems_Cluster --> QIND
+    Aerospace_Physical_Systems_Cluster --> QGRO
+
+    Digital_Data_Systems_Cluster --> QDAT
+    Digital_Data_Systems_Cluster --> QHPC
+    Digital_Data_Systems_Cluster --> QCOM
+
+    Core_Technologies_Cluster --> QPOW
+    Core_Technologies_Cluster --> QGRE
+    Core_Technologies_Cluster --> QSCI
+
+    style CTO fill:#D2691E,stroke:#333,stroke-width:2px
 ```
 
-#### Matrix Organization
-
-| Primary Reporting | Secondary Reporting | Example |
-|-------------------|-------------------|---------|
-| Q-Division | Product Line | QSTR engineer on BWB project |
-| Regional | Functional | Madrid HR supporting all sites |
-| Technical | Program | Quantum expert on multiple programs |
-
-#### Decision Authority Matrix
-
-| Decision Type | Level 1 | Level 2 | Level 3 | Level 4 |
-|--------------|---------|---------|---------|---------|
-| **Strategic** | Board | CEO | C-Suite | - |
-| **Technical** | C-Suite | Q-Directors | Team Leads | Engineers |
-| **Financial** | Board (>€10M) | CEO (>€1M) | CFO (>€100K) | Directors |
-| **Operational** | C-Suite | Directors | Managers | Team Leads |
-| **HR** | CEO | CHRO | HR Directors | HR Managers |
-
-### Performance Management Structure
-
-```yaml
-review_cycles:
-  annual: "Strategic objectives, compensation"
-  quarterly: "OKRs, project milestones"
-  monthly: "Operational metrics, budget"
-  weekly: "Program status, risks"
-  
-kpi_ownership:
-  financial: "CFO → Finance Directors → Controllers"
-  technical: "CTO → Q-Directors → Team Leads"
-  operational: "COO → Regional VPs → Site Managers"
-  quality: "CQO → Quality Directors → QA Managers"
-```
-
-### Communication Channels
-
-| Channel | Frequency | Participants | Purpose |
-|---------|-----------|--------------|---------|
-| **Board Meeting** | Quarterly | Board, CEO | Governance |
-| **Executive Committee** | Weekly | C-Suite | Strategy |
-| **Q-Division Sync** | Weekly | CTO, Q-Directors | Technical |
-| **Operations Review** | Daily | COO, Site VPs | Operations |
-| **All Hands** | Monthly | All staff | Culture |
-
 ---
 
-## 📊 Organizational Metrics Summary
+_End of Annex A_
 
-| Metric | Value |
-|--------|-------|
-| **Total Headcount** | 3,780 |
-| **Q-Divisions** | 12 |
-| **Geographic Sites** | 6 |
-| **Legal Entities** | 7 |
-| **Direct Reports to CEO** | 8 |
-| **Advisory Board Members** | 32 |
-| **Average Span of Control** | 1:7 |
-| **Matrix Relationships** | ~40% of staff |
-
----
-
-**Document Status**: APPROVED  
-**Version**: 2.0  
-**Effective Date**: 2025-07-27  
-**Next Review**: 2025-10-01  
-**Owner**: Chief Human Resources Officer  
-**Classification**: AQUA V. INTERNAL - RESTRICTED
-
-**Document ID**: AQV-DOC-25MA0001-OPS-BOB-ORG-TD-ORG-001-00-01-TPL-ORG-001-QDAT-v2.0.0
-
----
-
-**[END OF ANNEX A - DETAILED ORGANIZATION CHART]**
 
 ---
 
