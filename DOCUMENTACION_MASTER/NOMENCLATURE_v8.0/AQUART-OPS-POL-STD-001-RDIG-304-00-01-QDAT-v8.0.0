@@ -1,111 +1,98 @@
-# 📋 ANNEX D: Official Nomenclature System v8.0 (FINAL)
+# 📋 Document ID: AQUART-DES-SDS-ARC-AR-PA-N900-RDIG-304-00-01-v9.0.0 Sistema de Nomenclatura v9.0
 
-## AQUA V. Complete Naming Convention & Digital Thread Architecture
 
-This document establishes the mandatory naming conventions for all artifacts within the AQUA V. €40 billion quantum aerospace program. Version 8.0 integrates mandatory extended descriptions/titles as a core component of the nomenclature system, ensuring both technical precision and human readability.
+### Desglose del Document ID:
+
+| Campo | Valor | Significado |
+|:------|:------|:------------|
+| **LINE** | AQUART | Artefacto Cross-Program de AQUA V. |
+| **PHASE** | DES | Design - Estamos diseñando el sistema |
+| **SUBTYPE** | SDS | System Design Specification |
+| **DOMAIN** | ARC | Architecture - Arquitectura del sistema |
+| **MTD** | AR-PA-N900 | Architect > Primary Action > Nomenclature v9.0.0 |
+| **REALITY** | RDIG | Regulated Digital (Cumplimiento obligatorio) |
+| **UTCS** | 304-00-01 | Digital Architecture - Documentation Standards |
+| **VERSION** | v9.0.0 | Versión 9.0.0 del sistema |
+
+### Configuration Item:
+```yaml
+configuration_item:
+  artifact_id: "AQUART-DES-SDS-ARC-AR-PA-N900-RDIG-304-00-01-v9.0.0"
+  owner_division: "QDAT"
+  owner_team: "Enterprise Architecture"
+  created_by: "sarah.chen@aqua-v.aero"
+  created_date: "2025-12-01T10:00:00Z"
+  classification: "PUBLIC"
+  lifecycle_state: "APPROVED"
+```
+
+### Extended Description:
+```yaml
+extended_description:
+  title: "AQUA V. System Design Specification - Nomenclature System Architecture v9.0"
+  short_title: "SDS - Nomenclature Architecture v9.0"
+  description: "System design specification defining the next-generation naming convention and digital thread architecture for all AQUA V. artifacts. Version 9.0 introduces organizational decoupling via Configuration Items and semantic method encoding."
+  keywords: ["nomenclature", "system design", "architecture", "v9.0", "digital thread", "configuration item"]
+  language: "en-US"
+```
+
+Este Document ID refleja correctamente que estamos en la fase de **diseño** (DES) del sistema de nomenclatura, no en su operación.
+## AQUA V. Next-Generation Naming Convention & Digital Thread Architecture
+
+This document establishes the enhanced naming conventions for all artifacts within the AQUA V. €40 billion quantum aerospace program. Version 9.0 represents a major architectural evolution, decoupling organizational structure from artifact identification and introducing semantic method encoding for superior automation and immutability.
 
 -----
 
-## 📑 Table of Contents
+## 🔄 v9.0 Major Enhancements
 
-* [D.1 General Nomenclature Rule](#d1-general-nomenclature-rule)
-* [D.2 Field Definitions](#d2-field-definitions)
-* [D.3 Extended Description Requirements](#d3-extended-description-requirements)
-* [D.4 Document Subtypes (SUBTYPE)](#d4-document-subtypes-subtype)
-* [D.5 Technical Domains (DOMAIN)](#d5-technical-domains-domain)
-* [D.6 Examples by Product Line](#d6-examples-by-product-line)
-* [D.7 Reality Types Matrix](#d7-reality-types-matrix)
-* [D.8 Version Control System](#d8-version-control-system)
-* [D.9 Digital Thread Integration](#d9-digital-thread-integration)
-* [D.10 MSN Management System](#d10-msn-management-system)
-* [D.11 Implementation Guidelines](#d11-implementation-guidelines)
-* [D.12 Automated Tools & APIs](#d12-automated-tools--apis)
-* [D.13 Compliance & Validation](#d13-compliance--validation)
-* [D.14 Quick Reference Guide](#d14-quick-reference-guide)
+### Key Architectural Improvements:
+1. **Q-Division Decoupling**: Moved from static nomenclature to dynamic Configuration Item attribute
+2. **Method (MTD) Field**: Replaced generic NUMBER with semantic TASK-STEP-OBJECT encoding using **alphanumeric format**
+3. **Enhanced Immutability**: Organizational changes no longer affect artifact identifiers
+4. **Improved Granularity**: DOMAIN field now represents specific technical modules
+5. **AI-Ready Structure**: Method encoding enables advanced automation and robotics
 
 -----
 
 ## D.1 General Nomenclature Rule
 
-### 🔷 Complete Nomenclature Format v8.0
+### 🔷 Complete Nomenclature Format v9.0
 
-The v8.0 nomenclature system consists of two mandatory components:
+The v9.0 nomenclature system maintains two mandatory components while enhancing the technical identifier:
 
-1. **Technical Nomenclature** (Machine-readable identifier)
-2. **Extended Description** (Human-readable title and description)
+1. **Technical Nomenclature** (Immutable identifier - 11 fields)
+2. **Extended Description** (Human-readable metadata)
 
 **Technical Nomenclature Format:**
 
 For Product-Specific Artifacts:
 ```
-LINE-PRODUCT-SUBPRODUCT-MSN-PHASE-SUBTYPE-DOMAIN-NUMBER-REALITY-UTCS-QD-VERSION
+LINE-PRODUCT-SUBPRODUCT-MSN-PHASE-SUBTYPE-DOMAIN-MTD-REALITY-UTCS-VERSION
 ```
 
 For Cross-Program Artifacts:
 ```
-AQUART-PHASE-SUBTYPE-DOMAIN-NUMBER-REALITY-UTCS-QD-VERSION
+AQUART-PHASE-SUBTYPE-DOMAIN-MTD-REALITY-UTCS-VERSION
 ```
 
-**Extended Description Format:**
-```yaml
-title: "[Product] [Subproduct] [Document Type] - [System/Component] [Domain Focus]"
-short_title: "[Product] [Doc Type] - [Component] [Domain]"
-description: "[Comprehensive description of document purpose, scope, and content]"
-```
+### 🔹 Field Position Reference v9.0
 
-### 📊 Complete Artifact Structure v8.0
-
-```
-ARTIFACT = {
-    nomenclature: "Technical identifier string",
-    extended_description: {
-        title: "Full descriptive title",
-        short_title: "Abbreviated title",
-        description: "Detailed description",
-        keywords: ["searchable", "terms"],
-        language: "primary language code",
-        translations: [{language, title, description}]
-    }
-}
-```
-
-### 🔹 Field Position Reference
-
-| Position | Field        | Length | Type     | Required | Description |
-|:---------|:-------------|:-------|:---------|:---------|:------------|
-| 1        | LINE/AQUART  | 3-6    | Alpha    | ✓        | Product line or cross-program |
-| 2        | PRODUCT      | 3      | Alpha    | ✓*       | Product code |
-| 3        | SUBPRODUCT   | 4      | AlphaNum | ✓*       | Subproduct variant |
-| 4        | MSN          | 8      | AlphaNum | ✓*       | Manufacturing serial number |
-| 5        | PHASE        | 3      | Alpha    | ✓        | Lifecycle phase |
-| 6        | SUBTYPE      | 3      | Alpha    | ✓        | Document category |
-| 7        | DOMAIN       | 3      | Alpha    | ✓        | Technical domain |
-| 8        | NUMBER       | 3      | Numeric  | ✓        | Sequential number |
-| 9        | REALITY      | 4      | Alpha    | ✓        | Reality type |
-| 10       | UTCS         | 9      | Numeric  | ✓        | Technology classification |
-| 11       | QD           | 4      | Alpha    | ✓        | Q-Division owner |
-| 12       | VERSION      | 6+     | SemVer   | ✓        | Semantic version |
-| ED       | EXTENDED_DESC| Variable | Object  | ✓        | **NEW: Mandatory description** |
+| Position | Field        | Length | Type     | Required | Change from v8.0 |
+|:---------|:-------------|:-------|:---------|:---------|:-----------------|
+| 1        | LINE/AQUART  | 3-6    | Alpha    | ✓        | No change |
+| 2        | PRODUCT      | 3      | Alpha    | ✓*       | No change |
+| 3        | SUBPRODUCT   | 4      | AlphaNum | ✓*       | No change |
+| 4        | MSN          | 8      | AlphaNum | ✓*       | No change |
+| 5        | PHASE        | 3      | Alpha    | ✓        | No change |
+| 6        | SUBTYPE      | 3      | Alpha    | ✓        | No change |
+| 7        | DOMAIN       | 3      | Alpha    | ✓        | **Enhanced** |
+| 8        | **MTD**      | 11     | AlphaNum | ✓        | **NEW ALPHA FORMAT** |
+| 9        | REALITY      | 4      | Alpha    | ✓        | No change |
+| 10       | UTCS         | 9      | Numeric  | ✓        | No change |
+| ~~11~~   | ~~QD~~       | ~~4~~  | ~~Alpha~~| ~~✓~~    | **REMOVED** |
+| 11       | VERSION      | 6+     | SemVer   | ✓        | Position shifted |
 
 *Not required for AQUART artifacts
-
-### 🔹 Complete Example with Extended Description
-
-```yaml
-artifact:
-  nomenclature: "AMP-BWB-Q100-25MAP0001-DES-SDS-CPX-001-FDIG-022-00-00-QSTR-v8.0.0"
-  extended_description:
-    title: "BWB Q100 System Design Specification - Complex Flight Control System Architecture"
-    short_title: "BWB Q100 SDS - Flight Control Complex"
-    description: "Comprehensive system design specification defining the complex flight control architecture for the BWB Q100 aircraft, including primary flight controls, quantum-enhanced optimization algorithms, redundancy management, and cross-domain integration requirements. This document serves as the authoritative source for flight control system implementation."
-    keywords: ["flight control", "complex systems", "BWB Q100", "quantum optimization", "system architecture"]
-    language: "en-US"
-    translations:
-      - language: "es-ES"
-        title: "Especificación de Diseño del Sistema BWB Q100 - Arquitectura Compleja de Control de Vuelo"
-      - language: "fr-FR"
-        title: "Spécification de Conception Système BWB Q100 - Architecture Complexe de Contrôle de Vol"
-```
 
 -----
 
@@ -117,6 +104,7 @@ artifact:
 |:-----|:----------|:------------|:---------|
 | AMP | AMPEL360 | Passenger aircraft systems | BWB, EVT, HYB, SUB, ORB |
 | GAI | GAIA AIR & SPACE | Unmanned aerial/space systems | UAV, SAT, ROV, CRG |
+| ROB | ROBBBO-T | Robotic systems | FAL, MRO, SPC, EXP |
 | QUA | QUANTUM | Quantum technology systems | QPU, QCM, QSN, QSW |
 | AQUART | AQUA V Artifact | Cross-program documentation | Enterprise-wide |
 
@@ -135,6 +123,11 @@ artifact:
 | | SAT | Satellite | Space systems |
 | | ROV | Rover | Planetary exploration |
 | | CRG | Cargo Drone | Logistics UAV |
+| **ROB - ROBBBO-T** |
+| | FAL | Factory Automation Line | Manufacturing robots |
+| | MRO | Maintenance Repair Overhaul | Service robots |
+| | SPC | Space | Space robotics |
+| | EXP | Explorer | Exploration robots |
 | **QUA - QUANTUM** |
 | | QPU | QPU Systems | Quantum processing units |
 | | QCM | Quantum Communications | Quantum comm systems |
@@ -167,6 +160,16 @@ artifact:
 | CRG | LGT5 | Light Cargo | 50kg payload |
 | CRG | MED5 | Medium Cargo | 500kg payload |
 | CRG | HVY2 | Heavy Cargo | 2T payload |
+| **ROBBBO-T Subproducts** |
+| FAL | AS01 | Assembly Robot | Assembly operations |
+| FAL | WL01 | Welding Robot | Welding operations |
+| FAL | QC01 | Quality Control | Inspection robot |
+| MRO | AC01 | Aircraft Service | Aircraft maintenance |
+| MRO | EN01 | Engine Service | Engine maintenance |
+| SPC | EV01 | EVA Robot | Spacewalk support |
+| SPC | ST01 | Station Robot | Space station ops |
+| EXP | DP01 | Deep Sea | Ocean exploration |
+| EXP | VL01 | Volcano | Volcanic research |
 | **QUANTUM Subproducts** |
 | QPU | CORE | Core QPU | Base processor |
 | QPU | EDGE | Edge QPU | Distributed |
@@ -179,80 +182,9 @@ artifact:
 | QSN | QGRV | Q-Gravitometer | Gravity sensing |
 | QSN | QCLK | Q-Clock | Quantum timing |
 | QSN | QRAD | Q-Radar | Quantum radar |
-| QSN | QSTR | Q-Structural | Health monitoring |
-| QSN | QDIA | Q-Diagnostics | Molecular sensing |
-| QSW | CERT | Certification | Cert software |
-| QSW | CONC | Concept | Design software |
-| QSW | INTG | Integration | System integration |
-| QSW | QARC | Q-Architecture | System architecture |
-
-### 📋 PHASE - Lifecycle Phase Codes (13 Phases)
-
-| Code | Phase | Focus | Typical Documents |
-|:-----|:------|:------|:------------------|
-| CON | Conceptual | Requirements, feasibility | RQS, FAS, CDS |
-| DES | Design | Specifications, models | SDS, ICD, CSP, PRF, DVM |
-| DEV | Development | Implementation, code | IMP, SRC, BLD |
-| TST | Testing | Validation, results | TRP, TVP, TRR |
-| INT | Integration | System integration | ICR, ITP, LOG |
-| CRT | Certification | Compliance, approval | CMP, AUT, REG |
-| PRD | Production | Manufacturing | MPS, QCP, WIS, BOM |
-| MNT | Maintenance | Service, updates | MSP, SVC, CHL, AMM |
-| OPS | Operations | Procedures, performance | SOP, POL, QMS, MOC |
-| REP | Repair | Fixes, modifications | FIX, MOD, UPG |
-| RET | Retirement | Decommission, recycling | DIS, DCP, RCL |
-| SUP | Supply Chain | Logistics, inventory | LOG, SPC, SCM |
-| EXT | Extension | Upgrades, evolution | LEP, SUG, MOD |
-
-### 📋 REALITY - Reality Type Codes (11 Types)
-
-| Code | Reality Type | Description | Business Model |
-|:-----|:-------------|:------------|:---------------|
-| PHYS | Physical/Operational | Hardware, operational systems | Asset-based |
-| OPER | Operational Digital Twin | Real-time synchronized twin | Subscription |
-| FDIG | Functional Digital | Operational control systems | Licensed |
-| RDIG | Regulated Digital | Mandatory compliance docs | Subscription |
-| GDIG | Generative Digital | AI-generated content | Pay-per-use |
-| SDIG | Static Digital | Reference documentation | One-time |
-| VIRT | Virtual Simulation | Predictive simulations | Usage-based |
-| AUGM | Augmented Reality | AR overlays, mixed reality | Feature-based |
-| ROBO | Robotic/Autonomous | Autonomous systems | Service-based |
-| QASI | Quantum/Sentient AI | Advanced quantum AI | Compute-based |
-| TRNS | Transpositional | Cross-reality modules | API calls |
-
-### 📋 UTCS - Universal Technology Classification System
-
-Format: ###-##-## (9 characters total with hyphens)
-
-| Range | Architecture Domain | Example Chapters |
-|:------|:-------------------|:-----------------|
-| 000-099 | Aerospace Technology | 022=Auto Flight, 053=Fuselage |
-| 100-199 | Space Technology | 152=Surface Ops, 163=LEO Nav |
-| 200-299 | Defence Technology | 203=EW Systems, 210=Air Combat |
-| 300-399 | Digital Twin/Cloud | 308=API Mgmt, 320=ML |
-| 400-499 | Energy/Propulsion | 410=Chemical, 450=Hydraulics |
-| 500-599 | Advanced Materials | 510=Carbon Fiber, 570=Nano |
-| 600-699 | Ground Automation | 615=Assembly, 670=Industry 4.0 |
-| 700-799 | Aerial City Viability | 701=Vertiport, 710=eVTOL |
-| 800-899 | Cybersecurity | 800=Overview, 870=Post-Quantum |
-| 900-999 | Quantum Computing | 938=Q-Nav, 950=Algorithms |
-
-### 📋 QD - Q-Division Codes
-
-| Code | Division | Focus Area | Staff |
-|:-----|:---------|:-----------|:------|
-| QSTR | Q-STRUCTURES | Structural systems, materials | 450 |
-| QAIR | Q-AIR | Aerodynamics, flow control | 380 |
-| QGRE | Q-GREENTECH | Sustainability, environment | 220 |
-| QMEC | Q-MECHANICS | Mechanical systems, actuation | 340 |
-| QPOW | Q-POWERSENSE | Power, propulsion, energy | 420 |
-| QSPA | Q-SPACE | Space systems, orbital | 280 |
-| QIND | Q-INDUSTRY | Manufacturing, production | 510 |
-| QGRO | Q-GROUND | Ground operations, logistics | 190 |
-| QDAT | Q-DATAGOV | Data governance, analytics | 260 |
-| QHPC | Q-HPC | High-performance computing | 310 |
-| QCOM | Q-COMM | Communications, networks | 240 |
-| QSCI | Q-SCIRES | Scientific research | 180 |
+| QSW | QALG | Q-Algorithms | Quantum algorithms |
+| QSW | QSIM | Q-Simulator | Quantum simulation |
+| QSW | QOPT | Q-Optimizer | Quantum optimization |
 
 ### 📋 MSN - Manufacturing Serial Number Format
 
@@ -285,830 +217,392 @@ Format: YYSSTNNNN
 | Q | Quantum | Quantum-enhanced |
 | R | Retrofit | Upgrade/modification |
 | X | Experimental | Research platform |
-| A | Autonomous | Fully autonomous |
-| V | Virtual | Digital-only |
-| G | Generative | AI-produced |
-| H | Hybrid | Physical-digital |
-
------
-
-## D.3 Extended Description Requirements
-
-### 📋 Mandatory Description Components
-
-Every artifact MUST include an extended description with the following components:
-
-#### Title Format Standards
-
-1. **Full Title (50-200 characters):**
-   ```
-   [Product Line] [Product] [Subproduct] [Document Type Full Name] - [Primary System/Component] [Domain Description]
-   ```
-   Example: "AMPEL360 BWB Q100 System Design Specification - Complex Flight Control System Architecture"
-
-2. **Short Title (20-60 characters):**
-   ```
-   [Product] [Subproduct] [Doc Type Code] - [Component] [Domain]
-   ```
-   Example: "BWB Q100 SDS - Flight Control Complex"
-
-3. **Description (100-500 characters):**
-   Must include:
-   - Document purpose
-   - Scope statement
-   - Target audience
-   - Key content areas
-   - Compliance/regulatory context (if applicable)
-
-#### Title Generation Matrix
-
-| Phase | Subtype | Title Template | Example |
-|:------|:--------|:---------------|:--------|
-| CON | RQS | [Product] Requirements Specification - [System] Requirements Definition | "BWB Q100 Requirements Specification - Flight Control System Requirements Definition" |
-| CON | FAS | [Product] Feasibility Assessment - [System] Technical Feasibility Study | "BWB Q100 Feasibility Assessment - Quantum Navigation System Technical Study" |
-| CON | CDS | [Product] Conceptual Design Specification - [System] Initial Concept | "BWB Q100 Conceptual Design - Blended Wing Body Aerodynamic Concept" |
-| DES | SDS | [Product] System Design Specification - [System] [Domain] Architecture | "BWB Q100 System Design Specification - Complex Flight Control Architecture" |
-| DES | ICD | [Product] Interface Control Document - [Interface] Definition | "BWB Q100 Interface Control Document - Avionics to Flight Control Interface" |
-| DES | CSP | [Product] Component Specification - [Component] Technical Specification | "BWB Q100 Component Specification - Quantum Navigation Sensor Module" |
-| DEV | IMP | [Product] Implementation Plan - [System] Development Strategy | "BWB Q100 Implementation Plan - Flight Control Software Development" |
-| DEV | SRC | [Product] Source Code Package - [Module] Implementation | "BWB Q100 Source Code - Flight Control Algorithm Implementation" |
-| TST | TRP | [Product] Test Report - [System] [Test Type] Results | "BWB Q100 Test Report - Flight Control Environmental Test Results" |
-| TST | TVP | [Product] Test Validation Plan - [System] Test Strategy | "BWB Q100 Test Validation Plan - Integrated Systems Test Strategy" |
-| INT | ICR | [Product] Integration Control Record - [System] Integration Tracking | "BWB Q100 Integration Control - Avionics System Integration Record" |
-| CRT | CMP | [Product] Compliance Matrix - [Standard] Regulatory Compliance | "BWB Q100 Compliance Matrix - EASA CS-25 Certification Requirements" |
-| PRD | MPS | [Product] Manufacturing Process Specification - [Process] Definition | "BWB Q100 Manufacturing Process - Composite Wing Assembly Procedure" |
-| PRD | BOM | [Product] Bill of Materials - [Assembly] Parts List | "BWB Q100 Bill of Materials - Flight Control System Components" |
-| MNT | AMM | [Product] Aircraft Maintenance Manual - [System] [Procedure Type] | "BWB Q100 Aircraft Maintenance Manual - Electrical System Troubleshooting" |
-| MNT | SRM | [Product] Structural Repair Manual - [Structure] Repair Procedures | "BWB Q100 Structural Repair Manual - Composite Wing Repair Procedures" |
-| OPS | SOP | [Product] Standard Operating Procedure - [Operation Type] | "BWB Q100 Standard Operating Procedure - Normal Flight Operations" |
-| OPS | FOM | [Product] Flight Operations Manual - [Flight Phase] Procedures | "BWB Q100 Flight Operations Manual - Takeoff and Landing Procedures" |
-| REP | FIX | [Product] Repair Instruction - [Component] Repair Procedure | "BWB Q100 Repair Instruction - Flight Control Actuator Overhaul" |
-| RET | DIS | [Product] Disposal Instruction - [System] Decommissioning Guide | "BWB Q100 Disposal Instruction - Aircraft Recycling Procedures" |
-| SUP | LOG | [Product] Logistics Management - [Supply Chain] Documentation | "BWB Q100 Logistics Management - Spare Parts Distribution Network" |
-| EXT | LEP | [Product] Life Extension Plan - [System] Enhancement Strategy | "BWB Q100 Life Extension Plan - Avionics Modernization Program" |
-
-#### Keyword Requirements
-
-Minimum 3, maximum 10 keywords per document:
-- Product identifier (e.g., "BWB Q100")
-- System/component (e.g., "flight control")
-- Document type (e.g., "design specification")
-- Technical domain (e.g., "complex systems")
-- Phase-specific terms (e.g., "architecture", "testing", "maintenance")
-- Regulatory terms (if applicable, e.g., "CS-25", "Part 145")
-- Technology terms (e.g., "quantum", "AI", "digital twin")
-
-#### Language Requirements
-
-1. **Primary Language:** Always English (en-US)
-2. **Mandatory Translations:**
-   - Spanish (es-ES) - All operational documents (OPS, MNT phases)
-   - French (fr-FR) - All regulatory documents (CRT phase)
-   - German (de-DE) - All maintenance documents (MNT phase)
-   - Italian (it-IT) - All Naples-manufactured components
-   - Chinese (zh-CN) - All Singapore-operations documents
-3. **Optional Translations:**
-   - Japanese (ja-JP) - Asia-Pacific operations
-   - Arabic (ar-SA) - Middle East operations
-   - Portuguese (pt-BR) - South American operations
-
-### Title Validation Rules
-
-```javascript
-function validateExtendedDescription(extDesc) {
-  const rules = {
-    title: {
-      minLength: 50,
-      maxLength: 200,
-      pattern: /^[A-Z][A-Za-z0-9\s\-\.]+$/,
-      required: true
-    },
-    short_title: {
-      minLength: 20,
-      maxLength: 60,
-      pattern: /^[A-Z][A-Za-z0-9\s\-\.]+$/,
-      required: true
-    },
-    description: {
-      minLength: 100,
-      maxLength: 500,
-      required: true
-    },
-    keywords: {
-      minCount: 3,
-      maxCount: 10,
-      pattern: /^[a-z0-9\s\-]+$/,
-      required: true
-    },
-    language: {
-      pattern: /^[a-z]{2}-[A-Z]{2}$/,
-      required: true,
-      default: 'en-US'
-    },
-    translations: {
-      required: validateRequiredTranslations
-    }
-  };
-  
-  return validateAgainstRules(extDesc, rules);
-}
-
-function validateRequiredTranslations(translations, documentPhase, documentSubtype) {
-  const requiredLanguages = {
-    'OPS': ['es-ES'],
-    'MNT': ['es-ES', 'de-DE'],
-    'CRT': ['fr-FR']
-  };
-  
-  const phaseRequirements = requiredLanguages[documentPhase] || [];
-  return phaseRequirements.every(lang => 
-    translations.some(t => t.language === lang)
-  );
-}
-```
-
-### Auto-Generation Algorithm
-
-```python
-def generate_extended_description(nomenclature):
-    """Generate complete extended description from nomenclature"""
-    
-    parts = parse_nomenclature(nomenclature)
-    
-    # Title templates by phase-subtype combination
-    title_templates = {
-        ('CON', 'RQS'): "{product_full} Requirements Specification - {system} Requirements Definition",
-        ('CON', 'FAS'): "{product_full} Feasibility Assessment - {system} Technical Feasibility Study",
-        ('CON', 'CDS'): "{product_full} Conceptual Design Specification - {system} Initial Concept",
-        ('DES', 'SDS'): "{product_full} System Design Specification - {domain_desc} {system} Architecture",
-        ('DES', 'ICD'): "{product_full} Interface Control Document - {system} {domain_desc} Interface",
-        ('DES', 'CSP'): "{product_full} Component Specification - {component} Technical Specification",
-        ('DEV', 'IMP'): "{product_full} Implementation Plan - {system} Development Strategy",
-        ('DEV', 'SRC'): "{product_full} Source Code Package - {module} Implementation",
-        ('TST', 'TRP'): "{product_full} Test Report - {system} {test_type} Results",
-        ('TST', 'TVP'): "{product_full} Test Validation Plan - {system} Test Strategy",
-        ('INT', 'ICR'): "{product_full} Integration Control Record - {system} Integration Tracking",
-        ('CRT', 'CMP'): "{product_full} Compliance Matrix - {standard} Regulatory Compliance",
-        ('PRD', 'MPS'): "{product_full} Manufacturing Process Specification - {process} Definition",
-        ('PRD', 'BOM'): "{product_full} Bill of Materials - {assembly} Parts List",
-        ('MNT', 'AMM'): "{product_full} Aircraft Maintenance Manual - {system} {procedure}",
-        ('MNT', 'SRM'): "{product_full} Structural Repair Manual - {structure} Repair Procedures",
-        ('OPS', 'SOP'): "{product_full} Standard Operating Procedure - {operation} Operations",
-        ('OPS', 'FOM'): "{product_full} Flight Operations Manual - {phase} Procedures",
-        ('REP', 'FIX'): "{product_full} Repair Instruction - {component} Repair Procedure",
-        ('RET', 'DIS'): "{product_full} Disposal Instruction - {system} Decommissioning Guide",
-        ('SUP', 'LOG'): "{product_full} Logistics Management - {supply_chain} Documentation",
-        ('EXT', 'LEP'): "{product_full} Life Extension Plan - {system} Enhancement Strategy"
-    }
-    
-    # Domain descriptions
-    domain_descriptions = {
-        'CPX': 'Complex Systems',
-        'TSG': 'Troubleshooting',
-        'FLT': 'Flight',
-        'QNT': 'Quantum',
-        'SWD': 'Software',
-        'HWD': 'Hardware',
-        'MDS': 'Multi-Domain Systems',
-        'NET': 'Network',
-        'SEC': 'Security',
-        'ENV': 'Environmental',
-        'SAF': 'Safety',
-        'REL': 'Reliability'
-    }
-    
-    # Product full names
-    product_names = {
-        ('AMP', 'BWB', 'Q100'): 'AMPEL360 BWB Q100',
-        ('AMP', 'BWB', 'Q250'): 'AMPEL360 BWB Q250',
-        ('AMP', 'EVT', 'CITY'): 'AMPEL360 eVTOL City',
-        ('GAI', 'UAV', 'SWRM'): 'GAIA UAV Swarm',
-        ('QUA', 'QPU', 'CORE'): 'Quantum QPU Core'
-    }
-    
-    # Generate components
-    template_key = (parts['phase'], parts['subtype'])
-    template = title_templates.get(template_key, "{product_full} {subtype_name} - {domain_desc}")
-    
-    product_key = (parts['line'], parts.get('product', ''), parts.get('subproduct', ''))
-    product_full = product_names.get(product_key, f"{parts['line']} {parts.get('product', '')} {parts.get('subproduct', '')}")
-    
-    system = extract_system_from_utcs(parts['utcs'])
-    domain_desc = domain_descriptions.get(parts['domain'], parts['domain'])
-    
-    # Generate title
-    title = template.format(
-        product_full=product_full,
-        system=system,
-        domain_desc=domain_desc,
-        component=f"{system} {parts['domain']}",
-        module=f"{parts['domain']} Module",
-        test_type=get_test_type(parts['domain']),
-        standard=get_standard_from_utcs(parts['utcs']),
-        process=f"{system} {parts['domain']}",
-        assembly=system,
-        procedure=f"{domain_desc} Procedures",
-        structure=system,
-        operation=domain_desc,
-        phase=get_flight_phase(parts['domain']),
-        supply_chain=f"{system} Supply Chain"
-    )
-    
-    # Generate short title
-    short_title = f"{parts.get('product', '')} {parts.get('subproduct', '')} {parts['subtype']} - {system} {parts['domain']}"
-    
-    # Generate description
-    description = generate_description(parts, system, domain_desc)
-    
-    # Generate keywords
-    keywords = generate_keywords(parts, system, domain_desc)
-    
-    return {
-        'title': title,
-        'short_title': short_title,
-        'description': description,
-        'keywords': keywords,
-        'language': 'en-US',
-        'translations': generate_required_translations(parts, title, description)
-    }
-```
-
------
-
-## D.4 Document Subtypes (SUBTYPE)
-
-### 📋 SUBTYPE Codes Organized by Lifecycle Phase
-
-#### CON - Conceptual Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| RQS | Requirement Specification | System requirements definition | "[Product] Requirements Specification - [System] Requirements Definition" |
-| FAS | Feasibility Assessment | Technical feasibility studies | "[Product] Feasibility Assessment - [System] Technical Study" |
-| CDS | Conceptual Design Specification | Initial design concepts | "[Product] Conceptual Design - [System] Initial Concept" |
-| COP | Concept of Operations | CONOPS document | "[Product] Concept of Operations - [System] Operational Concept" |
-| CTF | Concept Technical Feasibility | Feasibility analysis | "[Product] Technical Feasibility - [System] Analysis" |
-| CER | Concept Evaluation Report | Concept assessment | "[Product] Concept Evaluation - [System] Assessment Report" |
-
-#### DES - Design Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| SDS | System Design Specification | Complete system architecture | "[Product] System Design Specification - [System] Architecture" |
-| ICD | Interface Control Document | Interface definitions | "[Product] Interface Control Document - [Interface] Definition" |
-| CSP | Component Specification | Detailed component specs | "[Product] Component Specification - [Component] Technical Spec" |
-| PRF | Performance Specification | Performance requirements | "[Product] Performance Specification - [System] Requirements" |
-| DVM | Design Validation Model | Validation models | "[Product] Design Validation Model - [System] Validation" |
-| DRR | Design Review Report | Design review outcomes | "[Product] Design Review Report - [Review] Results" |
-| DTS | Design Trade Study | Design alternatives | "[Product] Design Trade Study - [Trade] Analysis" |
-| DDR | Design Data Record | Design data documentation | "[Product] Design Data Record - [System] Documentation" |
-| DFM | Design FMEA | Failure mode analysis | "[Product] Design FMEA - [System] Failure Analysis" |
-
-#### DEV - Development Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| IMP | Implementation Plan | Development planning | "[Product] Implementation Plan - [System] Development Strategy" |
-| SRC | Source Code Package | Software source code | "[Product] Source Code - [Module] Implementation" |
-| BLD | Build Specification | Build configuration | "[Product] Build Specification - [System] Configuration" |
-| DTP | Development Test Plan | Dev test planning | "[Product] Development Test Plan - [System] Testing" |
-| DDM | Development Data Model | Data structures | "[Product] Data Model - [System] Structure Definition" |
-| API | API Documentation | API specifications | "[Product] API Documentation - [Interface] Specification" |
-
-#### TST - Testing Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| TRP | Test Report | Test results documentation | "[Product] Test Report - [System] [Test Type] Results" |
-| TVP | Test Validation Plan | Test planning | "[Product] Test Validation Plan - [System] Strategy" |
-| TRR | Test Readiness Review | Test preparation review | "[Product] Test Readiness Review - [System] Preparation" |
-| TCP | Test Case Procedure | Detailed test steps | "[Product] Test Procedure - [Test] Execution Steps" |
-| TAR | Test Analysis Report | Test data analysis | "[Product] Test Analysis - [System] Data Analysis" |
-| TER | Test Equipment Requirements | Test equipment specs | "[Product] Test Equipment - [System] Requirements" |
-| TSM | Test Summary | Test overview | "[Product] Test Summary - [Campaign] Overview" |
-| TDD | Test Data Document | Raw test data | "[Product] Test Data - [Test] Raw Results" |
-
-#### INT - Integration Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| ICR | Integration Control Record | Integration tracking | "[Product] Integration Control - [System] Record" |
-| ITP | Integration Test Plan | Integration testing | "[Product] Integration Test Plan - [Systems] Testing" |
-| LOG | Integration Logbook | Integration records | "[Product] Integration Log - [System] Activities" |
-| IVR | Integration Validation Report | Integration validation | "[Product] Integration Validation - [System] Results" |
-| ISS | Integration System Specification | Integration specs | "[Product] Integration Specification - [Systems] Requirements" |
-
-#### CRT - Certification Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| CMP | Compliance Matrix | Regulatory compliance | "[Product] Compliance Matrix - [Standard] Requirements" |
-| AUT | Authorization Document | Certification approvals | "[Product] Authorization - [Authority] Approval" |
-| REG | Regulatory Statement | Regulatory declarations | "[Product] Regulatory Statement - [Regulation] Declaration" |
-| CER | Certification Evidence | Cert documentation | "[Product] Certification Evidence - [Requirement] Documentation" |
-| TSC | Type Certification Submission | Type cert package | "[Product] Type Certification - [Authority] Submission" |
-| SAR | Safety Assessment Report | Safety analysis | "[Product] Safety Assessment - [System] Analysis" |
-
-#### PRD - Production Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| MPS | Manufacturing Process Specification | Production processes | "[Product] Manufacturing Process - [Process] Specification" |
-| QCP | Quality Control Plan | Quality procedures | "[Product] Quality Control Plan - [Process] Procedures" |
-| WIS | Work Instruction Sheet | Assembly instructions | "[Product] Work Instructions - [Assembly] Procedures" |
-| BOM | Bill of Materials | Parts lists | "[Product] Bill of Materials - [Assembly] Parts List" |
-| PTP | Production Test Procedure | Production testing | "[Product] Production Test - [Test] Procedure" |
-| PVR | Production Validation Report | Production validation | "[Product] Production Validation - [Process] Report" |
-| PCR | Production Conformity Report | Conformity documentation | "[Product] Production Conformity - [Standard] Report" |
-
-#### MNT - Maintenance Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| MSP | Maintenance Schedule Plan | Maintenance intervals | "[Product] Maintenance Schedule - [System] Planning" |
-| SVC | Service Instruction Manual | Service procedures | "[Product] Service Manual - [System] Instructions" |
-| CHL | Change Log | Modification tracking | "[Product] Change Log - [System] Modifications" |
-| AMM | Aircraft Maintenance Manual | Complete maintenance guide | "[Product] Aircraft Maintenance Manual - [System] Procedures" |
-| CMM | Component Maintenance Manual | Component service | "[Product] Component Maintenance - [Component] Manual" |
-| SRM | Structural Repair Manual | Structural repairs | "[Product] Structural Repair Manual - [Structure] Procedures" |
-| SBU | Service Bulletin | Service updates | "[Product] Service Bulletin - [Update] Notification" |
-| MEL | Minimum Equipment List | Equipment requirements | "[Product] Minimum Equipment List - [Configuration] Requirements" |
-| MPD | Maintenance Planning Document | Maintenance program | "[Product] Maintenance Planning - [Program] Document" |
-
-#### OPS - Operations Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| SOP | Standard Operating Procedure | Operational procedures | "[Product] Standard Operating Procedure - [Operation] Procedures" |
-| POL | Operational Policy | Operating policies | "[Product] Operational Policy - [Policy Area] Guidelines" |
-| QMS | Quality Management System | Quality documentation | "[Product] Quality Management - [Process] Documentation" |
-| MOC | Management of Change | Change management | "[Product] Management of Change - [Change] Procedures" |
-| OPM | Operations Manual | Operations guide | "[Product] Operations Manual - [System] Guide" |
-| MET | Metrics Report | Performance metrics | "[Product] Metrics Report - [Performance] Analysis" |
-| FOM | Flight Operations Manual | Flight procedures | "[Product] Flight Operations Manual - [Phase] Procedures" |
-| GOM | Ground Operations Manual | Ground procedures | "[Product] Ground Operations Manual - [Operation] Procedures" |
-
-#### REP - Repair Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| FIX | Repair Instruction | Repair procedures | "[Product] Repair Instruction - [Component] Procedure" |
-| MOD | Modification Sheet | Modification specs | "[Product] Modification Sheet - [System] Specifications" |
-| UPG | Upgrade Kit Description | Upgrade documentation | "[Product] Upgrade Kit - [System] Description" |
-| RPS | Repair Scheme | Repair planning | "[Product] Repair Scheme - [Damage] Solution" |
-| DTA | Damage Tolerance Assessment | Damage analysis | "[Product] Damage Tolerance - [Structure] Assessment" |
-| RER | Repair Evaluation Report | Repair assessment | "[Product] Repair Evaluation - [Repair] Effectiveness" |
-
-#### RET - Retirement Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| DIS | Disposal Instruction | Disposal procedures | "[Product] Disposal Instruction - [System] Procedures" |
-| DCP | Decommissioning Plan | Decommissioning process | "[Product] Decommissioning Plan - [Asset] Strategy" |
-| RCL | Reclamation Procedure | Material recovery | "[Product] Reclamation Procedure - [Material] Recovery" |
-| EDS | End-of-Service Documentation | Final documentation | "[Product] End-of-Service - [Asset] Documentation" |
-| ASV | Asset Salvage Value | Salvage assessment | "[Product] Asset Salvage - [Component] Valuation" |
-
-#### SUP - Supply Chain Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| LOG | Logistics Management | Supply chain docs | "[Product] Logistics Management - [Supply Chain] Documentation" |
-| SPC | Spare Parts Catalog | Parts inventory | "[Product] Spare Parts Catalog - [System] Inventory" |
-| SCM | Supply Chain Manual | Supply procedures | "[Product] Supply Chain Manual - [Process] Procedures" |
-| INV | Inventory Management | Inventory control | "[Product] Inventory Management - [Parts] Control" |
-| VND | Vendor Documentation | Supplier info | "[Product] Vendor Documentation - [Supplier] Information" |
-
-#### EXT - Extension Phase
-| Code | Full Name | Description | Title Template |
-|:-----|:----------|:------------|:---------------|
-| LEP | Life Extension Plan | Life extension docs | "[Product] Life Extension Plan - [System] Strategy" |
-| SUG | System Upgrade Guide | Upgrade procedures | "[Product] System Upgrade Guide - [Upgrade] Procedures" |
-| MOD | Modernization Document | Modernization plans | "[Product] Modernization Plan - [System] Enhancement" |
-| RET | Retrofit Documentation | Retrofit specs | "[Product] Retrofit Documentation - [Modification] Specifications" |
-| CAP | Capability Enhancement | Enhancement plans | "[Product] Capability Enhancement - [Feature] Implementation" |
-
------
-
-## D.5 Technical Domains (DOMAIN)
-
-### 📋 Universal Domain Codes
-
-Technical domains can be applied across different document subtypes.
-
-#### Structural/Mechanical Domains
-| Code | Domain | Description | Typical Use |
-|:-----|:-------|:------------|:------------|
-| STR | Structural | Structures, frames, shells | Design, analysis |
-| MED | Mechanical | Mechanical systems | Components, systems |
-| DYN | Dynamics | Dynamic behavior | Vibration, motion |
-| VIB | Vibration | Vibration analysis | Testing, analysis |
-| FDY | Flight Dynamics | Aircraft motion | Stability, control |
-| SDY | Structural Dynamics | Structural vibration | Flutter, response |
-| RDY | Rotor Dynamics | Rotating machinery | Engines, rotors |
-| NDT | Non-Destructive Test | NDT methods | Inspection |
-| FAT | Fatigue | Fatigue analysis | Life assessment |
-| CPX | Complex Systems | System-of-systems | Integration |
-| MDS | Multi-Domain Systems | Cross-domain | Interfaces |
-| NLD | Nonlinear Dynamics | Nonlinear behavior | Advanced analysis |
-
-#### Systems/Electrical Domains
-| Code | Domain | Description | Typical Use |
-|:-----|:-------|:------------|:------------|
-| SWD | Software | Software systems | Code, algorithms |
-| HWD | Hardware | Hardware systems | Electronics |
-| EED | Electrical/Electronic | Electrical systems | Power, signals |
-| PWR | Power | Power systems | Generation, dist |
-| AVI | Avionics | Avionics systems | Flight systems |
-| SIG | Signal | Signal processing | Data, comms |
-| DAT | Data | Data systems | Storage, process |
-| NET | Network | Network systems | Communications |
-| CNT | Control | Control systems | Automation |
-| HMI | Human-Machine Interface | User interface | Displays, controls |
-
-#### Propulsion/Energy Domains
-| Code | Domain | Description | Typical Use |
-|:-----|:-------|:------------|:------------|
-| ENG | Engine | Propulsion systems | Turbines, motors |
-| FUE | Fuel | Fuel systems | Storage, delivery |
-| HYD | Hydraulic | Hydraulic systems | Actuation |
-| PNE | Pneumatic | Pneumatic systems | Air systems |
-| THD | Thermal | Thermal systems | Heat management |
-| TDY | Thermodynamics | Energy systems | Analysis |
-| PRO | Propulsion | General propulsion | All types |
-| BAT | Battery | Battery systems | Energy storage |
-| HYB | Hybrid | Hybrid systems | Multi-energy |
-| ELE | Electric | Electric propulsion | Motors, inverters |
-
-#### Operations/Procedures Domains
-| Code | Domain | Description | Typical Use |
-|:-----|:-------|:------------|:------------|
-| FLT | Flight Operations | Flight procedures | Pilot ops |
-| GND | Ground Operations | Ground handling | Ramp ops |
-| MNT | Maintenance | Maintenance procedures | Service |
-| EMG | Emergency | Emergency procedures | Safety |
-| TSG | Troubleshooting | Fault diagnosis | Problem solving |
-| FIS | Fault Isolation | Systematic isolation | Diagnostics |
-| OPS | Operations | General operations | All ops |
-| LOG | Logistics | Supply chain | Materials |
-| TRN | Training | Training aspects | Education |
-| SPC | Special | Special procedures | Unique ops |
-
-#### Testing/Analysis Domains
-| Code | Domain | Description | Typical Use |
-|:-----|:-------|:------------|:------------|
-| FNC | Functional | Functional aspects | Capabilities |
-| PER | Performance | Performance metrics | Measurements |
-| ENV | Environmental | Environmental conditions | Climate, weather |
-| SAF | Safety | Safety aspects | Risk, hazards |
-| SEC | Security | Security aspects | Protection |
-| REL | Reliability | Reliability analysis | MTBF, failure |
-| CFD | Computational Fluid | Fluid dynamics | Aero analysis |
-| FEA | Finite Element | Structural analysis | Stress, strain |
-| OPT | Optimization | Design optimization | Best solutions |
-| EMC | Electromagnetic | EMC/EMI testing | Compatibility |
-
-#### Management/Policy Domains
-| Code | Domain | Description | Typical Use |
-|:-----|:-------|:------------|:------------|
-| QMS | Quality Management | Quality systems | Standards |
-| PRO | Process | Process management | Workflows |
-| FIN | Financial | Financial aspects | Cost, budget |
-| HRM | Human Resources | HR aspects | Personnel |
-| ETH | Ethics | Ethics and compliance | Standards |
-| REG | Regulatory | Regulatory aspects | Compliance |
-| RIS | Risk | Risk management | Assessment |
-| PRJ | Project | Project management | Planning |
-| CHA | Change | Change management | Updates |
-| STR | Strategy | Strategic planning | Long-term |
-
-#### Manufacturing/Production Domains
-| Code | Domain | Description | Typical Use |
-|:-----|:-------|:------------|:------------|
-| MAN | Manufacturing | Production processes | Factory |
-| ASM | Assembly | Assembly processes | Integration |
-| WEL | Welding | Welding processes | Joining |
-| MAC | Machining | Machining processes | Cutting |
-| COM | Composite | Composite manufacturing | Layup |
-| ADD | Additive | 3D printing | AM processes |
-| QUA | Quality | Quality control | Inspection |
-| TOO | Tooling | Tools and fixtures | Equipment |
-| AUT | Automation | Factory automation | Robotics |
-| SUP | Supply | Supply chain | Materials |
-
-#### Quantum/Advanced Domains
-| Code | Domain | Description | Typical Use |
-|:-----|:-------|:------------|:------------|
-| QNT | Quantum | Quantum systems | Q-technologies |
-| QSD | Quantum Systems Design | Quantum design | Q-architecture |
-| QAL | Quantum Algorithms | Q-algorithms | Computing |
-| QSN | Quantum Sensing | Q-sensors | Detection |
-| QCM | Quantum Communications | Q-comms | Secure comms |
-| ART | Artificial Intelligence | AI systems | ML, neural |
-| CYB | Cybersecurity | Security systems | Protection |
-| DIG | Digital Twin | Digital replicas | Virtual models |
-| BLK | Blockchain | Distributed ledger | Traceability |
-| IOT | Internet of Things | Connected devices | Sensors |
-
------
-
-## D.6 Examples by Product Line
-
-### 🛩️ AMPEL360 Examples
-
-#### Blended Wing Body - Complex Systems Design
-```yaml
-artifact:
-  nomenclature: "AMP-BWB-Q100-25MAP0001-DES-SDS-CPX-001-FDIG-022-00-00-QSTR-v8.0.0"
-  extended_description:
-    title: "AMPEL360 BWB Q100 System Design Specification - Complex Flight Control System Architecture"
-    short_title: "BWB Q100 SDS - Flight Control Complex"
-    description: "Comprehensive system design specification defining the complex flight control architecture for the BWB Q100 aircraft, including primary flight controls, quantum-enhanced optimization algorithms, redundancy management, and cross-domain integration requirements."
-    keywords: ["BWB Q100", "flight control", "complex systems", "system design", "quantum optimization", "architecture"]
-    language: "en-US"
-    translations:
-      - language: "es-ES"
-        title: "AMPEL360 BWB Q100 Especificación de Diseño del Sistema - Arquitectura Compleja de Control de Vuelo"
-```
-
-#### eVTOL - Flight Operations Manual
-```yaml
-artifact:
-  nomenclature: "AMP-EVT-CITY-25MAP0002-OPS-FOM-FLT-001-RDIG-700-10-00-QGRO-v8.0.0"
-  extended_description:
-    title: "AMPEL360 eVTOL City Flight Operations Manual - Urban Flight Operations Procedures"
-    short_title: "eVTOL City FOM - Urban Flight Ops"
-    description: "Complete flight operations manual for AMPEL360 eVTOL City aircraft covering urban air mobility operations, vertiport procedures, airspace integration, and emergency protocols specific to city operations."
-    keywords: ["eVTOL City", "flight operations", "urban air mobility", "vertiport", "flight procedures"]
-    language: "en-US"
-    translations:
-      - language: "es-ES"
-        title: "AMPEL360 eVTOL City Manual de Operaciones de Vuelo - Procedimientos de Vuelo Urbano"
-```
-
-#### Hybrid-Electric - Battery System Test
-```yaml
-artifact:
-  nomenclature: "AMP-HYB-E180-25TOD0001-TST-TRP-BAT-001-PHYS-024-00-00-QPOW-v8.0.0"
-  extended_description:
-    title: "AMPEL360 Hybrid E180 Test Report - Battery System Performance Test Results"
-    short_title: "Hybrid E180 TRP - Battery Performance"
-    description: "Test report documenting battery system performance testing for the AMPEL360 Hybrid E180 aircraft, including capacity tests, thermal behavior, charge/discharge cycles, and safety validation under various operating conditions."
-    keywords: ["Hybrid E180", "battery test", "performance testing", "electrical power", "test results"]
-    language: "en-US"
-```
-
-#### Suborbital - Conceptual Requirements
-```yaml
-artifact:
-  nomenclature: "AMP-SUB-SB01-25SVP0001-CON-RQS-PRO-001-SDIG-100-00-00-QSPA-v8.0.0"
-  extended_description:
-    title: "AMPEL360 Suborbital SB01 Requirements Specification - Propulsion System Requirements Definition"
-    short_title: "Suborbital SB01 RQS - Propulsion Req"
-    description: "Requirements specification defining propulsion system requirements for the AMPEL360 Suborbital SB01 spacecraft, covering rocket engine performance, hybrid propulsion integration, and space tourism mission profiles."
-    keywords: ["Suborbital SB01", "requirements", "propulsion", "space tourism", "rocket engine"]
-    language: "en-US"
-```
-
-### 🛸 GAIA AIR & SPACE Examples
-
-#### UAV Swarm - Multi-Domain Interface
-```yaml
-artifact:
-  nomenclature: "GAI-UAV-SWRM-25SGS0001-INT-ICD-MDS-001-FDIG-308-00-00-QDAT-v8.0.0"
-  extended_description:
-    title: "GAIA UAV Swarm Interface Control Document - Multi-Domain Systems Communication Interface"
-    short_title: "UAV Swarm ICD - Multi-Domain Comms"
-    description: "Interface control document defining multi-domain communication protocols for GAIA UAV swarm operations, including inter-UAV links, ground control interfaces, satellite relay, and quantum-secured command channels."
-    keywords: ["UAV swarm", "interface control", "multi-domain", "communications", "swarm coordination"]
-    language: "en-US"
-```
-
-#### Quantum Satellite - Network Architecture
-```yaml
-artifact:
-  nomenclature: "GAI-SAT-QNET-25SVQ0001-DES-SDS-NET-001-QASI-163-00-00-QCOM-v8.0.0"
-  extended_description:
-    title: "GAIA Satellite Q-Network System Design Specification - Quantum Network Architecture"
-    short_title: "Satellite QNET SDS - Quantum Network"
-    description: "System design specification for GAIA quantum satellite network architecture, detailing quantum key distribution protocols, entanglement-based communication links, ground station interfaces, and orbital constellation design."
-    keywords: ["satellite QNET", "quantum network", "QKD", "system design", "constellation"]
-    language: "en-US"
-```
-
-#### Mars Rover - Structural Dynamics Analysis
-```yaml
-artifact:
-  nomenclature: "GAI-ROV-MARS-25MAP0001-DES-CSP-SDY-001-VIRT-152-00-00-QMEC-v8.0.0"
-  extended_description:
-    title: "GAIA Mars Rover Component Specification - Structural Dynamics Suspension System"
-    short_title: "Mars Rover CSP - Suspension Dynamics"
-    description: "Component specification for Mars rover suspension system structural dynamics, including vibration isolation design, terrain adaptation algorithms, and shock absorption characteristics for Martian surface operations."
-    keywords: ["Mars rover", "structural dynamics", "suspension", "component spec", "terrain adaptation"]
-    language: "en-US"
-```
-
-#### Cargo Drone - Production Work Instructions
-```yaml
-artifact:
-  nomenclature: "GAI-CRG-HVY2-25NAP0001-PRD-WIS-ASM-001-RDIG-615-00-00-QIND-v8.0.0"
-  extended_description:
-    title: "GAIA Cargo Heavy 2T Work Instruction Sheet - Final Assembly Procedures"
-    short_title: "Cargo HVY2 WIS - Final Assembly"
-    description: "Work instruction sheet for final assembly of GAIA Heavy Cargo 2T drone, detailing step-by-step assembly procedures, torque specifications, quality checkpoints, and integration of quantum navigation module."
-    keywords: ["cargo drone", "work instructions", "assembly", "production", "quality control"]
-    language: "en-US"
-    translations:
-      - language: "it-IT"
-        title: "GAIA Cargo Heavy 2T Istruzioni di Lavoro - Procedure di Assemblaggio Finale"
-```
-
-### ⚛️ QUANTUM Examples
-
-#### QPU Core - System Architecture
-```yaml
-artifact:
-  nomenclature: "QUA-QPU-CORE-25MUQ0001-DES-SDS-QSD-001-FDIG-920-00-00-QHPC-v8.0.0"
-  extended_description:
-    title: "Quantum QPU Core System Design Specification - Quantum Processor Architecture"
-    short_title: "QPU Core SDS - Quantum Architecture"
-    description: "System design specification for quantum processing unit core architecture, defining qubit array topology, quantum gate implementation, error correction schemes, and classical control interface requirements."
-    keywords: ["QPU core", "quantum processor", "system design", "qubit architecture", "quantum gates"]
-    language: "en-US"
-```
-
-#### QKD Encryption - Security Testing
-```yaml
-artifact:
-  nomenclature: "QUA-QCM-QKDE-25SVS0001-TST-TRP-SEC-001-RDIG-941-00-00-QCOM-v8.0.0"
-  extended_description:
-    title: "Quantum Communications QKD Test Report - Security Validation Test Results"
-    short_title: "QKD TRP - Security Validation"
-    description: "Test report documenting security validation of quantum key distribution system, including eavesdropping detection tests, key generation rates, protocol verification, and resistance to quantum attacks."
-    keywords: ["QKD", "security testing", "quantum encryption", "test report", "cryptographic validation"]
-    language: "en-US"
-```
-
-#### Q-Navigation - Certification Document
-```yaml
-artifact:
-  nomenclature: "QUA-QSN-QNAV-25MUQ0001-CRT-CMP-REG-001-RDIG-938-00-00-QSCI-v8.0.0"
-  extended_description:
-    title: "Quantum Sensors Q-Navigation Compliance Matrix - EASA Regulatory Requirements"
-    short_title: "Q-Nav CMP - EASA Compliance"
-    description: "Compliance matrix mapping quantum navigation system design to EASA regulatory requirements, demonstrating conformity with aviation standards for GPS-independent navigation and safety requirements."
-    keywords: ["Q-navigation", "compliance matrix", "EASA", "certification", "regulatory", "GPS-independent"]
-    language: "en-US"
-    translations:
-      - language: "fr-FR"
-        title: "Capteurs Quantiques Q-Navigation Matrice de Conformité - Exigences Réglementaires EASA"
-```
-
-#### Q-Diagnostics - AI-Generated Guide
-```yaml
-artifact:
-  nomenclature: "QUA-QSN-QDIA-25SVG0001-OPS-SOP-MED-001-GDIG-965-00-00-QDAT-v8.0.0"
-  extended_description:
-    title: "Quantum Sensors Q-Diagnostics Standard Operating Procedure - Medical Diagnostics Operations"
-    short_title: "Q-Diagnostics SOP - Medical Ops"
-    description: "AI-generated standard operating procedure for quantum diagnostic sensor medical applications, covering molecular-level detection protocols, safety procedures, and clinical integration guidelines."
-    keywords: ["Q-diagnostics", "medical", "SOP", "quantum sensors", "molecular detection", "AI-generated"]
-    language: "en-US"
-    translations:
-      - language: "es-ES"
-        title: "Sensores Cuánticos Q-Diagnóstico Procedimiento Operativo Estándar - Operaciones de Diagnóstico Médico"
-```
-
-#### Q-Software Concept - Feasibility Assessment
-```yaml
-artifact:
-  nomenclature: "QUA-QSW-CONC-25SVX0001-CON-FAS-QAL-001-VIRT-950-00-00-QSCI-v8.0.0"
-  extended_description:
-    title: "Quantum Software Concept Feasibility Assessment - Quantum Algorithm Implementation Study"
-    short_title: "Q-Software FAS - Algorithm Study"
-    description: "Feasibility assessment for quantum software concept implementation, evaluating quantum algorithm performance, hardware requirements, classical-quantum hybrid approaches, and commercial viability analysis."
-    keywords: ["quantum software", "feasibility", "quantum algorithms", "concept study", "implementation"]
-    language: "en-US"
-```
-
-### 🏢 AQUART Cross-Program Examples
-
-#### Enterprise Quality Policy
-```yaml
-artifact:
-  nomenclature: "AQUART-OPS-POL-QMS-001-RDIG-000-00-00-QDAT-v8.0.0"
-  extended_description:
-    title: "AQUA V. Enterprise Operational Policy - Quality Management System Guidelines"
-    short_title: "Enterprise POL - Quality Management"
-    description: "Enterprise-wide quality management policy establishing AQUA V. quality standards, AS9100 compliance requirements, continuous improvement processes, and quality culture across all divisions and operations."
-    keywords: ["quality policy", "QMS", "AS9100", "enterprise", "quality standards"]
-    language: "en-US"
-    translations:
-      - language: "es-ES"
-        title: "AQUA V. Política Operacional Empresarial - Directrices del Sistema de Gestión de Calidad"
-```
-
-#### Supply Chain Management System
-```yaml
-artifact:
-  nomenclature: "AQUART-SUP-LOG-LOG-001-FDIG-674-00-00-QIND-v8.0.0"
-  extended_description:
-    title: "AQUA V. Supply Chain Logistics Management - Enterprise Logistics Documentation"
-    short_title: "Enterprise LOG - Supply Chain"
-    description: "Comprehensive logistics management documentation for AQUA V. global supply chain operations, including supplier management, inventory optimization, distribution networks, and quantum-tracked shipments."
-    keywords: ["supply chain", "logistics", "enterprise", "inventory", "distribution"]
-    language: "en-US"
-```
-
-#### System Extension Planning
-```yaml
-artifact:
-  nomenclature: "AQUART-EXT-LEP-STR-001-SDIG-181-00-00-QDAT-v8.0.0"
-  extended_description:
-    title: "AQUA V. Extension Life Extension Plan - Strategic System Enhancement Strategy"
-    short_title: "Extension LEP - Strategic Enhancement"
-    description: "Strategic life extension plan for AQUA V. systems, outlining technology refresh cycles, capability enhancement roadmaps, obsolescence management, and integration of emerging quantum technologies."
-    keywords: ["life extension", "strategic planning", "system enhancement", "technology refresh"]
-    language: "en-US"
-```
-
-#### Maintenance Schedule Plan
-```yaml
-artifact:
-  nomenclature: "AQUART-MNT-MSP-MNT-001-RDIG-005-00-00-QMEC-v8.0.0"
-  extended_description:
-    title: "AQUA V. Maintenance Schedule Plan - Enterprise Maintenance Planning"
-    short_title: "Enterprise MSP - Maintenance Schedule"
-    description: "Enterprise-wide maintenance schedule planning document establishing maintenance intervals, inspection requirements, and service protocols for all AQUA V. products based on reliability-centered maintenance principles."
-    keywords: ["maintenance schedule", "RCM", "inspection intervals", "enterprise maintenance"]
-    language: "en-US"
-    translations:
-      - language: "de-DE"
-        title: "AQUA V. Wartungsplan - Unternehmensweite Wartungsplanung"
-```
-
-#### Conceptual Design Study
-```yaml
-artifact:
-  nomenclature: "AQUART-CON-CDS-ART-001-VIRT-950-00-00-QSCI-v8.0.0"
-  extended_description:
-    title: "AQUA V. Conceptual Design Study - Artificial Intelligence Integration Concept"
-    short_title: "Concept CDS - AI Integration"
-    description: "Conceptual design study exploring artificial intelligence integration across AQUA V. product lines, evaluating AI applications in design optimization, autonomous operations, predictive maintenance, and quantum-AI hybrid systems."
-    keywords: ["conceptual design", "artificial intelligence", "AI integration", "concept study"]
-    language: "en-US"
-```
-
------
-
-## D.7 Reality Types Matrix
-
-### 🌐 Reality Type Usage Guidelines
-
-| Reality | Primary Use Cases | Data Format | Sync Requirements | Pricing Model |
-|:--------|:------------------|:------------|:------------------|:--------------|
-| PHYS | Hardware components | CAD, STEP | N/A | Capital asset |
-| OPER | Live digital twins | Real-time data | <100ms latency | Monthly subscription |
-| FDIG | Control systems | Code, APIs | Version-based | Annual license |
-| RDIG | Compliance docs | PDF, XML | Regulatory cycle | Compliance package |
-| GDIG | AI-generated guides | Dynamic JSON | On-demand | Per generation |
-| SDIG | Reference materials | Static files | As-needed | One-time purchase |
-| VIRT | Simulations | 3D, FEA data | Scenario-based | Per simulation hour |
-| AUGM | Training overlays | AR/MR formats | Real-time | Per user/month |
-| ROBO | Autonomous ops | Control code | Real-time | Per operation |
-| QASI | Quantum AI | Quantum states | Quantum-sync | Per qubit-hour |
-| TRNS | Integration APIs | REST/GraphQL | Multi-sync | Per API call |
-
-### Reality Transition Flows
-
-```mermaid
-graph TD
-    PHYS[Physical Reality] <--> OPER[Operational Twin]
-    OPER <--> FDIG[Functional Digital]
-    FDIG <--> RDIG[Regulated Digital]
-    RDIG --> GDIG[Generative Digital]
-    GDIG --> SDIG[Static Digital]
-    SDIG --> RDIG
-    VIRT[Virtual Sim] <--> OPER
-    AUGM[Augmented] <--> PHYS
-    ROBO[Robotic] <--> PHYS
-    QASI[Quantum AI] --> GDIG
-    TRNS[Transversal] -.-> ALL[All Realities]
-    
-    style GDIG fill:#f96,stroke:#333,stroke-width:4px
-    style RDIG fill:#9f9,stroke:#333,stroke-width:4px
-    style FDIG fill:#99f,stroke:#333,stroke-width:4px
-```
-
-### Business Model Mapping
-
-| Reality | Initial Cost | Recurring Cost | Usage Cost | Example |
-|:--------|:-------------|:---------------|:-----------|:--------|
-| PHYS | High (€100k+) | Low | N/A | Aircraft component |
-| OPER | Medium | €5k/month | N/A | Digital twin subscription |
-| FDIG | Low | €10k/year | N/A | Control software license |
-| RDIG | Low | €5k/year | N/A | Compliance package |
-| GDIG | None | None | €0.50/gen | AI troubleshooting |
-| SDIG | €100 | None | N/A | Reference manual |
-| VIRT | Low | None | €100/hour | CFD simulation |
-| AUGM | €1k | €100/user/mo | N/A | AR training |
-| ROBO | High | €1k/month | €10/op | Autonomous inspection |
-| QASI | None | None | €50/qubit-hr | Quantum optimization |
-| TRNS | Low | €500/month | €0.01/call | API integration |
-
------
-
-## D.8 Version Control System
-
-### 📊 Semantic Versioning Rules
+
+### 📋 PHASE - Lifecycle Phase Codes (13 Phases)
+
+| Code | Phase | Focus | Typical Documents |
+|:-----|:------|:------|:------------------|
+| CON | Conceptual | Requirements, feasibility | RQS, FAS, CDS |
+| DES | Design | Specifications, models | SDS, ICD, CSP |
+| DEV | Development | Implementation, code | IMP, SRC, BLD |
+| TST | Testing | Validation, results | TRP, TVP, TRR |
+| INT | Integration | System integration | ICR, ITP, LOG |
+| CRT | Certification | Compliance, approval | CMP, AUT, REG |
+| PRD | Production | Manufacturing | MPS, QCP, WIS |
+| MNT | Maintenance | Service, updates | MSP, AMM, CMM |
+| OPS | Operations | Procedures, performance | SOP, FOM, POL |
+| REP | Repair | Fixes, modifications | FIX, MOD, SRM |
+| RET | Retirement | Decommission, recycling | DIS, DCP, RCL |
+| SUP | Supply Chain | Logistics, inventory | LOG, SPC, SCM |
+| EXT | Extension | Upgrades, evolution | LEP, SUG, MOD |
+
+### 📋 SUBTYPE - Document Subtype Codes
+
+#### Conceptual Phase (CON)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| RQS | Requirement Specification | System requirements |
+| FAS | Feasibility Assessment | Technical feasibility |
+| CDS | Conceptual Design Specification | Initial concepts |
+| COP | Concept of Operations | CONOPS document |
+| MRD | Market Requirements Document | Market analysis |
+
+#### Design Phase (DES)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| SDS | System Design Specification | System architecture |
+| ICD | Interface Control Document | Interface definitions |
+| CSP | Component Specification | Component specs |
+| PRF | Performance Specification | Performance reqs |
+| DVM | Design Validation Model | Validation models |
+
+#### Development Phase (DEV)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| IMP | Implementation Plan | Development planning |
+| SRC | Source Code Package | Software code |
+| BLD | Build Specification | Build config |
+| API | API Documentation | API specs |
+| SDK | Software Development Kit | Dev tools |
+
+#### Testing Phase (TST)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| TRP | Test Report | Test results |
+| TVP | Test Validation Plan | Test planning |
+| TRR | Test Readiness Review | Test prep review |
+| TCP | Test Case Procedure | Test steps |
+| TAR | Test Analysis Report | Test analysis |
+
+#### Integration Phase (INT)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| ICR | Integration Control Record | Integration tracking |
+| ITP | Integration Test Plan | Integration testing |
+| LOG | Integration Logbook | Integration records |
+| IVR | Integration Validation Report | Integration validation |
+
+#### Certification Phase (CRT)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| CMP | Compliance Matrix | Regulatory compliance |
+| AUT | Authorization Document | Cert approvals |
+| REG | Regulatory Statement | Regulatory declarations |
+| CER | Certification Evidence | Cert documentation |
+| TSO | Technical Standard Order | TSO authorization |
+
+#### Production Phase (PRD)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| MPS | Manufacturing Process Specification | Production processes |
+| QCP | Quality Control Plan | Quality procedures |
+| WIS | Work Instruction Sheet | Assembly instructions |
+| BOM | Bill of Materials | Parts lists |
+| FAI | First Article Inspection | First unit inspection |
+
+#### Maintenance Phase (MNT)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| AMM | Aircraft Maintenance Manual | Aircraft maintenance |
+| CMM | Component Maintenance Manual | Component service |
+| SRM | Structural Repair Manual | Structural repairs |
+| IPC | Illustrated Parts Catalog | Parts identification |
+| MEL | Minimum Equipment List | Equipment requirements |
+| MPD | Maintenance Planning Document | Maintenance program |
+| WDM | Wiring Diagram Manual | Electrical diagrams |
+| TSM | Troubleshooting Manual | Fault isolation |
+
+#### Operations Phase (OPS)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| SOP | Standard Operating Procedure | Operational procedures |
+| FOM | Flight Operations Manual | Flight procedures |
+| POL | Operational Policy | Operating policies |
+| QMS | Quality Management System | Quality documentation |
+| GOM | Ground Operations Manual | Ground procedures |
+
+#### Repair Phase (REP)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| FIX | Repair Instruction | Repair procedures |
+| MOD | Modification Sheet | Modification specs |
+| UPG | Upgrade Kit Description | Upgrade documentation |
+| RPS | Repair Scheme | Repair planning |
+| SBI | Service Bulletin Implementation | Service updates |
+
+#### Retirement Phase (RET)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| DIS | Disposal Instruction | Disposal procedures |
+| DCP | Decommissioning Plan | Decommissioning process |
+| RCL | Reclamation Procedure | Material recovery |
+| EDS | End-of-Service Documentation | Final documentation |
+
+#### Supply Chain Phase (SUP)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| LOG | Logistics Management | Supply chain docs |
+| SPC | Spare Parts Catalog | Parts inventory |
+| SCM | Supply Chain Manual | Supply procedures |
+| INV | Inventory Management | Inventory control |
+
+#### Extension Phase (EXT)
+| Code | Full Name | Description |
+|:-----|:----------|:------------|
+| LEP | Life Extension Plan | Life extension docs |
+| SUG | System Upgrade Guide | Upgrade procedures |
+| MOD | Modernization Document | Modernization plans |
+| CAP | Capability Enhancement | Enhancement plans |
+
+### 📋 DOMAIN - Enhanced Technical Module Codes
+
+Domain represents specific technical modules within document subtypes, not general categories.
+
+#### For SUBTYPE: AMM (Aircraft Maintenance Manual)
+| Code | Module | Description |
+|:-----|:-------|:------------|
+| TSG | Troubleshooting | Fault isolation procedures |
+| MPR | Maintenance Procedures | Step-by-step maintenance |
+| SVC | Servicing | Fluid servicing, lubrication |
+| ADJ | Adjustment | Calibration procedures |
+| INS | Inspection | Visual/detailed inspection |
+| TST | Testing | Functional test procedures |
+| CLE | Cleaning | Cleaning procedures |
+| STO | Storage | Preservation procedures |
+| WGH | Weight & Balance | W&B procedures |
+
+#### For SUBTYPE: CMM (Component Maintenance Manual)
+| Code | Module | Description |
+|:-----|:-------|:------------|
+| DIS | Disassembly | Teardown procedures |
+| ASM | Assembly | Build-up procedures |
+| OVH | Overhaul | Complete overhaul |
+| REP | Repair | Repair schemes |
+| MOD | Modification | Upgrade procedures |
+| TST | Test | Bench test procedures |
+| INS | Inspection | Detailed inspection |
+| PAR | Parts | Parts identification |
+
+#### For SUBTYPE: IPC (Illustrated Parts Catalog)
+| Code | Module | Description |
+|:-----|:-------|:------------|
+| IPL | Illustrated Parts List | Parts breakdown |
+| EFF | Effectivity | Applicability data |
+| INT | Interchangeability | Cross-reference |
+| VEN | Vendor | Vendor codes |
+| KIT | Kits | Kit contents |
+| CSN | Consumables | Consumable materials |
+| NHA | Next Higher Assembly | Assembly structure |
+
+#### For SUBTYPE: SRM (Structural Repair Manual)
+| Code | Module | Description |
+|:-----|:-------|:------------|
+| IDF | Identification | Damage identification |
+| ALC | Allowable Limits | Damage limits |
+| RPR | Repair | Repair procedures |
+| MAT | Materials | Approved materials |
+| FIN | Finishes | Surface treatment |
+| INS | Inspection | Post-repair inspection |
+| DAT | Data | Design data |
+
+#### For SUBTYPE: MEL (Minimum Equipment List)
+| Code | Module | Description |
+|:-----|:-------|:------------|
+| SYS | Systems | System-based MEL |
+| CAT | Category | Dispatch categories |
+| OPS | Operations | Operational procedures |
+| MNT | Maintenance | Maintenance procedures |
+| PLN | Planning | Repair intervals |
+
+#### For SUBTYPE: SDS (System Design Specification)
+| Code | Module | Description |
+|:-----|:-------|:------------|
+| ARC | Architecture | System architecture |
+| REQ | Requirements | System requirements |
+| INT | Interfaces | Interface definitions |
+| MOD | Modes | Operating modes |
+| SAF | Safety | Safety analysis |
+| PER | Performance | Performance specs |
+| VER | Verification | V&V requirements |
+
+#### For SUBTYPE: ICD (Interface Control Document)
+| Code | Module | Description |
+|:-----|:-------|:------------|
+| PHY | Physical | Physical interfaces |
+| DAT | Data | Data interfaces |
+| PWR | Power | Power interfaces |
+| TIM | Timing | Timing requirements |
+| PRO | Protocol | Communication protocols |
+| ERR | Error | Error handling |
+| TST | Test | Test interfaces |
+
+#### For SUBTYPE: FOM (Flight Operations Manual)
+| Code | Module | Description |
+|:-----|:-------|:------------|
+| NOR | Normal | Normal procedures |
+| ABN | Abnormal | Abnormal procedures |
+| EMG | Emergency | Emergency procedures |
+| SUP | Supplementary | Supplementary procedures |
+| SPL | Special | Special operations |
+| APP | Appendix | Supporting data |
+| PER | Performance | Performance data |
+
+#### For SUBTYPE: WDM (Wiring Diagram Manual)
+| Code | Module | Description |
+|:-----|:-------|:------------|
+| PWR | Power | Power distribution |
+| SIG | Signal | Signal wiring |
+| DAT | Data | Data bus wiring |
+| GND | Ground | Grounding schemes |
+| SHD | Shield | Shielding diagrams |
+| CON | Connector | Connector layouts |
+| PIN | Pin | Pin assignments |
+
+#### Universal Domain Codes
+| Code | Module | Description |
+|:-----|:-------|:------------|
+| GEN | General | General information |
+| TOC | Table of Contents | Content listing |
+| LEP | List of Effective Pages | Page control |
+| REV | Revisions | Change record |
+| ABR | Abbreviations | Acronym list |
+| TEM | Temporary | Temporary procedures |
+| SPL | Special | Special procedures |
+
+### 📋 MTD - Method Field Specification
+
+Format: AA-AA-AAAA (11 characters including hyphens)
+
+| Component | Position | Length | Type | Description |
+|:----------|:---------|:-------|:-----|:------------|
+| TASK | 1-2 | 2 | Alpha | Primary task code |
+| STEP | 4-5 | 2 | Alpha | Step/action code |
+| OBJECT | 7-10 | 4 | AlphaNum | Object/component identifier |
+
+#### Task Codes - Maintenance (MNT Phase)
+| Code | Task | Description |
+|:-----|:-----|:------------|
+| RM | Remove | Removal procedures |
+| IN | Install | Installation procedures |
+| RP | Replace | Replacement (remove + install) |
+| IS | Inspect | Inspection procedures |
+| TS | Test | Testing procedures |
+| AJ | Adjust | Adjustment/calibration |
+| SV | Service | Servicing procedures |
+| CL | Clean | Cleaning procedures |
+| TR | Troubleshoot | Fault isolation |
+| RR | Repair | In-situ repair |
+| MD | Modify | Modification procedures |
+| PS | Preserve | Storage/preservation |
+| RG | Rig | Rigging procedures |
+| BL | Balance | Balancing procedures |
+| LB | Lubricate | Lubrication procedures |
+
+#### Task Codes - Design (DES Phase)
+| Code | Task | Description |
+|:-----|:-----|:------------|
+| DF | Define | Requirements definition |
+| AR | Architect | System architecture |
+| IF | Interface | Interface definition |
+| ML | Model | 3D/CAD modeling |
+| AN | Analyze | Analysis (stress, thermal) |
+| SM | Simulate | Simulation activities |
+| OP | Optimize | Design optimization |
+| VL | Validate | Design validation |
+| DC | Document | Documentation creation |
+| RV | Review | Design review |
+
+#### Task Codes - Production (PRD Phase)
+| Code | Task | Description |
+|:-----|:-----|:------------|
+| FB | Fabricate | Part fabrication |
+| AS | Assemble | Assembly operations |
+| WD | Weld | Welding procedures |
+| MC | Machine | Machining operations |
+| CP | Composite | Composite layup |
+| PT | Paint | Painting/coating |
+| SI | System Install | System installation |
+| CF | Configure | Configuration setup |
+| PG | Program | Software loading |
+| VF | Verify | Quality verification |
+
+#### Step Codes (Universal)
+| Code | Step Type | Description |
+|:-----|:----------|:------------|
+| PR | Preparation | Safety, tools, access |
+| DC | Disconnect | Electrical, mechanical disconnection |
+| AC | Access | Gaining physical access |
+| PA | Primary Action | Main task execution |
+| SA | Secondary Action | Supporting actions |
+| VF | Verification | Check/test results |
+| AJ | Adjustment | Fine-tuning |
+| DM | Documentation | Recording results |
+| RS | Restoration | Return to service |
+| CU | Cleanup | Post-task cleanup |
+| S1 | Step 1 | First sequential step |
+| S2 | Step 2 | Second sequential step |
+| S3 | Step 3 | Third sequential step |
+| S4 | Step 4 | Fourth sequential step |
+| S5 | Step 5 | Fifth sequential step |
+| S6 | Step 6 | Sixth sequential step |
+| S7 | Step 7 | Seventh sequential step |
+| S8 | Step 8 | Eighth sequential step |
+| S9 | Step 9 | Ninth sequential step |
+| SX | Extended | Steps beyond 9 |
+
+#### Object Codes (AlphaNum)
+Format: AAAA (4 alphanumeric characters)
+
+**Component Prefixes:**
+- C001-C999: Connectors
+- P001-P999: Parts
+- A001-A999: Assemblies
+- S001-S999: Systems
+- M001-M999: Modules
+- T001-T999: Tools
+
+**Special Designators:**
+- FC01-FC99: Fault Codes
+- IF01-IF99: Installation Figures
+- MF01-MF99: Maintenance Figures
+- RF01-RF99: Reference Figures
+- Q001-Q999: Quantum components
+- X001-X999: Special/experimental
+
+### 📋 REALITY - Reality Type Codes
+
+| Code | Reality Type | Description | Business Model |
+|:-----|:-------------|:------------|:---------------|
+| PHYS | Physical/Operational | Hardware, operational systems | Asset-based |
+| OPER | Operational Digital Twin | Real-time synchronized twin | Subscription |
+| FDIG | Functional Digital | Operational control systems | Licensed |
+| RDIG | Regulated Digital | Mandatory compliance docs | Subscription |
+| GDIG | Generative Digital | AI-generated content | Pay-per-use |
+| SDIG | Static Digital | Reference documentation | One-time |
+| VIRT | Virtual Simulation | Predictive simulations | Usage-based |
+| AUGM | Augmented Reality | AR overlays, mixed reality | Feature-based |
+| ROBO | Robotic/Autonomous | Autonomous systems | Service-based |
+| QASI | Quantum/Sentient AI | Advanced quantum AI | Compute-based |
+| TRNS | Transpositional | Cross-reality modules | API calls |
+
+### 📋 UTCS - Universal Technology Classification System
+
+Format: ###-##-## (9 characters total with hyphens)
+
+| Range | Architecture Domain | Example Chapters |
+|:------|:-------------------|:-----------------|
+| 000-099 | Aerospace Technology | 022=Auto Flight, 024=Electrical Power |
+| 100-199 | Space Technology | 110=Structural Subsystem, 114=Propulsion |
+| 200-299 | Defence Technology | 203=EW Systems, 207=Military Comms |
+| 300-399 | Digital Twin/Cloud | 310=Digital Twin, 320=Machine Learning |
+| 400-499 | Energy/Propulsion | 410=Chemical Propulsion, 420=Electric |
+| 500-599 | Advanced Materials | 510=Carbon Fiber, 520=Advanced Composites |
+| 600-699 | Ground Automation | 610=Industrial Robotics, 620=Cobots |
+| 700-799 | Aerial City Viability | 701=Vertiport, 710=eVTOL Design |
+| 800-899 | Cybersecurity | 810=Network Security, 870=Post-Quantum |
+| 900-999 | Quantum Computing | 910=Superconducting Qubits, 950=Algorithms |
+
+### 📋 VERSION - Semantic Versioning
 
 Format: vMAJOR.MINOR.PATCH
 
@@ -1118,926 +612,117 @@ Format: vMAJOR.MINOR.PATCH
 - **PATCH**: Bug fixes, minor updates
 
 **Examples:**
-- v8.0.0 - Major revision adding extended descriptions
-- v8.1.0 - Added new domain codes
-- v8.1.1 - Fixed typo in domain description
-- v8.2.0-alpha.1 - Alpha release for v8.2
-- v8.2.0-beta.2 - Beta release
-- v8.2.0-rc.1 - Release candidate
-- v8.2.0+20250802 - Build metadata
-
-### Version Progression by Reality Type
-
-| Reality | Initial | Typical | Update Frequency | Trigger |
-|:--------|:--------|:--------|:-----------------|:--------|
-| PHYS | v1.0.0 | v5.0.0 | 2-3 years | Hardware revision |
-| OPER | v1.0.0 | v2.x.x | Monthly | Sync improvements |
-| FDIG | v2.0.0 | v3.x.x | Quarterly | Feature release |
-| RDIG | v1.0.0 | v1.x.x | Annual | Regulatory update |
-| GDIG | v0.1.0 | v0.x.x | Per generation | Each creation |
-| SDIG | v1.0.0 | v1.0.x | Rarely | Error correction |
-| VIRT | v3.0.0 | v4.x.x | Bi-annual | Model update |
-| AUGM | v2.0.0 | v3.x.x | Quarterly | Content update |
-| ROBO | v2.0.0 | v3.x.x | Monthly | Firmware update |
-| QASI | v0.1.0 | v1.x.x | Weekly | Learning cycle |
-| TRNS | v1.0.0 | v2.x.x | Quarterly | API update |
-
-### Version Control Rules
-
-1. **Breaking Changes (MAJOR):**
-   - Field structure modification
-   - Removal of existing fields
-   - Change in field length
-   - Incompatible format changes
-   - Title format changes
-
-2. **Feature Addition (MINOR):**
-   - New domain codes
-   - New subtype codes
-   - Additional validation rules
-   - New title templates
-   - Enhanced description fields
-
-3. **Patches (PATCH):**
-   - Documentation fixes
-   - Typo corrections
-   - Clarifications
-   - Bug fixes in validation
-   - Title generation improvements
+- v9.0.0 - Major revision with MTD field
+- v9.1.0 - Added new domain codes
+- v9.1.1 - Fixed validation rule
+- v9.2.0-alpha.1 - Alpha release
+- v9.2.0-beta.2 - Beta release
+- v9.2.0-rc.1 - Release candidate
 
 -----
 
-## D.9 Digital Thread Integration
+## D.3 Configuration Item Architecture
 
-### 🔗 Complete Digital Thread Architecture with Extended Descriptions
+### 🗄️ Configuration Item Database Schema
 
-```yaml
-digital_thread:
-  unique_id: "AMP-BWB-Q100-25MAP0001-MNT-AMM-TSG-001-RDIG-024-50-00-QMEC-v8.0.0"
-  
-  extended_description:
-    title: "AMPEL360 BWB Q100 Aircraft Maintenance Manual - Electrical Power Generator Drive Troubleshooting Procedures"
-    short_title: "BWB Q100 AMM - Gen Drive Troubleshooting"
-    description: "Comprehensive troubleshooting procedures for the BWB Q100 electrical power generator drive system, including fault isolation techniques, diagnostic flowcharts, corrective actions, and quantum-enhanced predictive diagnostics integration."
-    keywords: ["BWB Q100", "maintenance manual", "generator drive", "troubleshooting", "electrical power", "diagnostics"]
-    language: "en-US"
-    translations:
-      - language: "es-ES"
-        title: "AMPEL360 BWB Q100 Manual de Mantenimiento - Procedimientos de Resolución de Problemas del Generador Eléctrico"
-        description: "Procedimientos completos de resolución de problemas para el sistema de generador de energía eléctrica del BWB Q100"
-      - language: "de-DE"
-        title: "AMPEL360 BWB Q100 Wartungshandbuch - Fehlersuche Elektrischer Generatorantrieb"
-        description: "Umfassende Fehlersuchverfahren für das elektrische Generatorantriebssystem des BWB Q100"
-  
-  metadata:
-    created: "2025-08-02T12:00:00Z"
-    creator: "QMEC-TeamLead-001"
-    organization: "AQUA V. Technologies"
-    classification: "AQUA-INTERNAL"
-    lifecycle_stage: "ACTIVE"
-    document_owner: "Juan Martinez <juan.martinez@aqua-v.aero>"
-    technical_reviewer: "Sarah Chen <sarah.chen@aqua-v.aero>"
-    
-  document_context:
-    line: "AMPEL360"
-    product: "Blended Wing Body"
-    subproduct: "Q100 Series"
-    msn: "25MAP0001"
-    phase: "Maintenance"
-    subtype: "Aircraft Maintenance Manual"
-    domain: "Troubleshooting"
-    
-  reality_context:
-    type: "RDIG"
-    classification: "regulated_digital"
-    business_model: "subscription"
-    compliance:
-      status: "current"
-      authority: "EASA"
-      regulation: "Part-145"
-      approval: "ES.145.0123"
-      next_review: "2026-01-01"
-      compliance_officer: "Maria Rodriguez <maria.rodriguez@aqua-v.aero>"
-      
-  technical_context:
-    utcs_primary: "024-50-00"
-    utcs_description: "Electrical Power - Generator Drive"
-    q_division: "QMEC"
-    complexity: "medium"
-    criticality: "high"
-    safety_classification: "essential"
-    skill_level_required: "B1/B2 certified"
-    estimated_time: "2-4 hours"
-    special_tools_required: ["QDT-2000 Diagnostic Tool", "DMM-500 Digital Multimeter"]
-    
-  relationships:
-    parent_documents:
-      - nomenclature: "AMP-BWB-Q100-25MAP0001-MNT-AMM-SYD-001-RDIG-024-00-00-QMEC-v8.0.0"
-        title: "BWB Q100 AMM - Electrical System Description"
-        type: "system_description"
-        relationship: "parent"
-    child_documents:
-      - nomenclature: "AMP-BWB-Q100-25MAP0001-MNT-AMM-FIS-001-RDIG-024-50-01-QMEC-v8.0.0"
-        title: "BWB Q100 AMM - Gen Drive Fault Isolation"
-        type: "fault_isolation"
-        relationship: "child"
-    related_systems:
-      - nomenclature: "AMP-BWB-Q100-25MAP0001-OPS-API-CNT-001-FDIG-024-50-00-QDAT-v8.0.0"
-        title: "BWB Q100 API - Electrical Control Interface"
-        type: "functional_api"
-      - nomenclature: "AMP-BWB-Q100-25MAP0001-MNT-SOP-TSG-001-GDIG-024-50-00-QDAT-v8.0.0"
-        title: "BWB Q100 AI Troubleshooting Assistant"
-        type: "generative_aid"
-      - nomenclature: "AMP-BWB-Q100-25MAP0001-OPS-DIG-TWN-001-OPER-024-50-00-QHPC-v8.0.0"
-        title: "BWB Q100 Digital Twin - Electrical System"
-        type: "digital_twin"
-      
-  version_history:
-    current: "v8.0.0"
-    previous:
-      - version: "v7.2.1"
-        date: "2025-06-01"
-        changes: "Updated troubleshooting procedures for quantum diagnostic integration"
-        author: "Technical Team QMEC"
-      - version: "v7.2.0"
-        date: "2025-03-01"
-        changes: "Added predictive maintenance algorithms"
-        author: "AI Team QDAT"
-      - version: "v7.1.0"
-        date: "2024-12-01"
-        changes: "Enhanced safety procedures per EASA feedback"
-        author: "Safety Team QSAF"
-        
-  access_control:
-    classification: "AQUA-INTERNAL"
-    access_groups:
-      - group: "QMEC-MAINTENANCE"
-        permissions: ["read", "write", "approve"]
-      - group: "QMEC-ENGINEERING"
-        permissions: ["read", "write"]
-      - group: "CUSTOMER-MAINTENANCE"
-        permissions: ["read"]
-      - group: "REGULATORY-AUDITORS"
-        permissions: ["read", "audit"]
-    restrictions:
-      export_controlled: false
-      itar_controlled: false
-      gdpr_compliant: true
-      
-  blockchain:
-    algorithm: "SHA3-256"
-    hash: "7d865e959b2466918c9863afca942d0fb89d7c9ac2f8b4e1d0a04"
-    network: "AQUA-V-Quantum-Ledger"
-    smart_contract: "0x7d865e959b2466918c9863afca942d0fb89d7c9d"
-    block_height: 1247890
-    timestamp: "2025-08-02T12:00:00Z"
-    previous_hash: "6c754e848a1355807b8753aecb831c0ea78c6c8b6d5e0903"
-    
-  quantum_security:
-    encryption: "lattice-based-pqc"
-    key_algorithm: "CRYSTALS-Kyber"
-    signature_algorithm: "CRYSTALS-Dilithium"
-    qkd_enabled: true
-    quantum_safe_until: "2050"
-    entanglement_id: "QKD-2025-08-02-QMEC-0001"
-    last_key_rotation: "2025-08-01T00:00:00Z"
-    next_key_rotation: "2025-09-01T00:00:00Z"
-    
-  pricing_context:
-    model: "regulatory_compliance_package"
-    tier: "aerospace_maintenance"
-    annual_cost_eur: 5000
-    includes:
-      - service: "mandatory_updates"
-        description: "All regulatory-mandated document updates"
-      - service: "regulatory_notifications"
-        description: "Real-time alerts for compliance changes"
-      - service: "compliance_dashboard"
-        description: "Web-based compliance tracking"
-      - service: "audit_support"
-        description: "Documentation for regulatory audits"
-      - service: "24/7_technical_support"
-        description: "Round-the-clock expert assistance"
-    usage_metrics:
-      views_mtd: 847
-      downloads_mtd: 123
-      active_users: 45
-      average_session_minutes: 23
-      search_queries_mtd: 312
-      
-  quality_metrics:
-    accuracy_score: 0.98
-    completeness_score: 0.95
-    clarity_score: 0.92
-    compliance_score: 1.00
-    user_satisfaction: 4.7
-    last_quality_review: "2025-07-15"
-    next_quality_review: "2025-10-15"
-    improvement_suggestions: 3
-    open_ncrs: 0
-```
-
------
-
-## D.10 MSN Management System
-
-### 📊 MSN Lifecycle Management
-
-MSN State Machine:
-```mermaid
-stateDiagram-v2
-    [*] --> ALLOCATED: MSN Generated
-    ALLOCATED --> MANUFACTURED: Production Start
-    MANUFACTURED --> TESTED: Testing Complete
-    TESTED --> DELIVERED: Customer Delivery
-    DELIVERED --> OPERATIONAL: In Service
-    OPERATIONAL --> MAINTAINED: Maintenance Event
-    MAINTAINED --> OPERATIONAL: Return to Service
-    OPERATIONAL --> MODIFIED: Modification
-    MODIFIED --> TESTED: Re-certification
-    OPERATIONAL --> RETIRED: End of Service
-    RETIRED --> RECYCLED: Material Recovery
-    RECYCLED --> [*]: Decommissioned
-```
-
-### MSN Allocation Rules
-
-1. **Sequential Allocation:**
-   - Each site maintains independent counters by type
-   - No gaps in sequence allowed
-   - Failed units retain MSN (marked as scrapped)
-   - Reserved ranges for special programs
-
-2. **Type Code Assignment:**
-   - P (Prototype): First 10 units per site
-   - D (Development): Test articles only
-   - S (Series): Production units after cert
-   - C (Customer): Custom configurations
-   - Q (Quantum): Units with quantum systems
-   - R (Retrofit): Modified units
-   - X (Experimental): R&D platforms
-   - A (Autonomous): Fully autonomous units
-   - V (Virtual): Digital-only instances
-   - G (Generative): AI-produced designs
-   - H (Hybrid): Physical-digital pairs
-
-3. **MSN Database Schema:**
 ```sql
-CREATE TABLE msn_registry (
-    msn VARCHAR(8) PRIMARY KEY,
-    year CHAR(2) NOT NULL,
-    site CHAR(2) NOT NULL,
-    type CHAR(1) NOT NULL,
-    sequence INT NOT NULL,
-    product_line VARCHAR(6) NOT NULL,
-    product VARCHAR(3) NOT NULL,
-    subproduct VARCHAR(4) NOT NULL,
-    status VARCHAR(20) NOT NULL,
-    status_date TIMESTAMP NOT NULL,
+CREATE TABLE configuration_items (
+    artifact_id VARCHAR(100) PRIMARY KEY,
+    owner_division VARCHAR(4) NOT NULL,
+    owner_team VARCHAR(100),
+    created_by VARCHAR(100) NOT NULL,
     created_date TIMESTAMP NOT NULL,
-    manufactured_date TIMESTAMP,
-    delivered_date TIMESTAMP,
-    retired_date TIMESTAMP,
-    recycled_date TIMESTAMP,
-    customer_id VARCHAR(50),
-    configuration_code VARCHAR(20),
-    quantum_enabled BOOLEAN DEFAULT FALSE,
-    digital_twin_id VARCHAR(100),
-    blockchain_id VARCHAR(100),
-    notes TEXT,
-    UNIQUE KEY uk_msn_components (year, site, type, sequence),
-    INDEX idx_status (status),
-    INDEX idx_product (product_line, product, subproduct),
-    INDEX idx_customer (customer_id),
-    INDEX idx_dates (created_date, delivered_date)
+    last_modified_by VARCHAR(100),
+    last_modified_date TIMESTAMP,
+    access_level VARCHAR(20) DEFAULT 'INTERNAL',
+    classification VARCHAR(20) DEFAULT 'UNCLASSIFIED',
+    lifecycle_state VARCHAR(20) NOT NULL,
+    
+    INDEX idx_owner (owner_division, owner_team),
+    INDEX idx_created (created_by, created_date),
+    INDEX idx_state (lifecycle_state)
 );
 
-CREATE TABLE msn_history (
+CREATE TABLE ownership_history (
     history_id INT AUTO_INCREMENT PRIMARY KEY,
-    msn VARCHAR(8) NOT NULL,
-    event_date TIMESTAMP NOT NULL,
-    event_type VARCHAR(50) NOT NULL,
-    old_status VARCHAR(20),
-    new_status VARCHAR(20) NOT NULL,
-    location VARCHAR(100),
-    performed_by VARCHAR(100),
-    notes TEXT,
-    FOREIGN KEY (msn) REFERENCES msn_registry(msn),
-    INDEX idx_msn_date (msn, event_date)
-);
-```
-
-### MSN Reservation System
-
-```sql
-CREATE TABLE msn_reservations (
-    reservation_id INT AUTO_INCREMENT PRIMARY KEY,
-    year CHAR(2) NOT NULL,
-    site CHAR(2) NOT NULL,
-    type CHAR(1) NOT NULL,
-    start_sequence INT NOT NULL,
-    end_sequence INT NOT NULL,
-    program_code VARCHAR(50) NOT NULL,
-    reserved_by VARCHAR(100) NOT NULL,
-    reserved_date TIMESTAMP NOT NULL,
-    expiry_date TIMESTAMP NOT NULL,
-    status VARCHAR(20) DEFAULT 'ACTIVE',
-    notes TEXT,
-    UNIQUE KEY uk_reservation (year, site, type, start_sequence, end_sequence),
-    INDEX idx_program (program_code),
-    INDEX idx_status_expiry (status, expiry_date)
+    artifact_id VARCHAR(100) NOT NULL,
+    change_date TIMESTAMP NOT NULL,
+    previous_owner VARCHAR(4),
+    new_owner VARCHAR(4) NOT NULL,
+    changed_by VARCHAR(100) NOT NULL,
+    change_reason VARCHAR(500),
+    
+    FOREIGN KEY (artifact_id) REFERENCES configuration_items(artifact_id),
+    INDEX idx_artifact_date (artifact_id, change_date)
 );
 ```
 
 -----
 
-## D.11 Implementation Guidelines
+## D.6 Examples by Product Line
 
-### 🚀 Phased Implementation Strategy for v8.0
+### 🛩️ AMPEL360 Examples
 
-**Phase 1: Extended Description Integration (Q1 2026)**
-- Deploy title generation service
-- Implement validation for extended descriptions
-- Convert existing v7.0 documents
-- Train content creators on title standards
-
-**Phase 2: Multi-language Rollout (Q2 2026)**
-- Implement mandatory translation workflows
-- Deploy translation management system
-- Validate all operational documents in Spanish
-- Complete regulatory documents in French
-
-**Phase 3: Search Enhancement (Q3 2026)**
-- Deploy full-text search on titles/descriptions
-- Implement keyword-based discovery
-- Enable cross-language search
-- Optimize search relevance algorithms
-
-**Phase 4: Full Operation (Q4 2026)**
-- Complete migration from v7.0
-- Decommission legacy nomenclature
-- Full audit of extended descriptions
-- Performance optimization
-
-### Migration Checklist
-
-- [ ] Generate extended descriptions for all existing documents
-- [ ] Validate title format compliance
-- [ ] Implement auto-generation for new documents
-- [ ] Create translation workflows
-- [ ] Update document management systems
-- [ ] Train all staff on extended description requirements
-- [ ] Deploy enhanced search capabilities
-- [ ] Update all APIs to handle extended descriptions
-- [ ] Complete compliance audit
-- [ ] Obtain regulatory approval for multi-language docs
-- [ ] Performance test with full dataset
-- [ ] Decommission v7.0 systems
-
-### Extended Description Generation Rules
-
-1. **Title Generation Priority:**
-   - Manual entry preferred for critical documents
-   - Auto-generation for routine documents
-   - Review required for all regulatory documents
-   - Translation verification mandatory
-
-2. **Keyword Extraction:**
-   - Automatic extraction from title and description
-   - Manual refinement encouraged
-   - Minimum 3, maximum 10 keywords
-   - Include product, system, and domain terms
-
-3. **Translation Requirements:**
-   - Professional translation for regulatory docs
-   - AI-assisted translation for operational docs
-   - Native speaker review for critical docs
-   - Terminology consistency across languages
-
------
-
-## D.12 Automated Tools & APIs
-
-### 🔧 Nomenclature Service API v8.0
-
-**Base URL:** `https://api.aqua-v.aero/v8.0`
-
-#### Generate Complete Artifact
-```http
-POST /artifacts/generate
-Content-Type: application/json
-Authorization: Bearer quantum-secured-token
-
-{
-  "nomenclature": {
-    "line": "AMP",
-    "product": "BWB",
-    "subproduct": "Q100",
-    "msn": "25MAP0001",
-    "phase": "DES",
-    "subtype": "SDS",
-    "domain": "CPX",
-    "number": "001",
-    "reality": "FDIG",
-    "utcs": "022-00-00",
-    "qd": "QSTR"
-  },
-  "extended_description": {
-    "title": "AMPEL360 BWB Q100 System Design Specification - Complex Flight Control System Architecture",
-    "short_title": "BWB Q100 SDS - Flight Control Complex",
-    "description": "Comprehensive system design specification defining the complex flight control architecture...",
-    "keywords": ["flight control", "complex systems", "BWB Q100"],
-    "language": "en-US"
-  }
-}
-
-Response 200 OK:
-{
-  "artifact": {
-    "nomenclature": "AMP-BWB-Q100-25MAP0001-DES-SDS-CPX-001-FDIG-022-00-00-QSTR-v8.0.0",
-    "extended_description": {
-      "title": "AMPEL360 BWB Q100 System Design Specification - Complex Flight Control System Architecture",
-      "short_title": "BWB Q100 SDS - Flight Control Complex",
-      "description": "Comprehensive system design specification defining the complex flight control architecture...",
-      "keywords": ["flight control", "complex systems", "BWB Q100", "system design", "architecture"],
-      "language": "en-US",
-      "auto_generated": false,
-      "translations_required": ["es-ES"]
-    },
-    "validation": {
-      "nomenclature": "PASS",
-      "title": "PASS",
-      "description": "PASS",
-      "keywords": "ENHANCED",
-      "translation_status": "PENDING"
-    },
-    "digital_thread": {
-      "id": "dt_7d865e959b246691",
-      "blockchain_hash": "7d865e959b2466918c9863afca942d0fb89d7c9ac2f8b4e1d0a04"
-    }
-  }
-}
-```
-
-#### Auto-Generate Extended Description
-```http
-POST /artifacts/generate-description
-Content-Type: application/json
-
-{
-  "nomenclature": "AMP-BWB-Q100-25MAP0001-DES-SDS-CPX-001-FDIG-022-00-00-QSTR-v8.0.0"
-}
-
-Response 200 OK:
-{
-  "extended_description": {
-    "title": "AMPEL360 BWB Q100 System Design Specification - Complex Systems Flight Control Architecture",
-    "short_title": "BWB Q100 SDS - Flight Control Complex",
-    "description": "System design specification for BWB Q100 complex flight control systems, covering architecture definition, interface requirements, and integration specifications for quantum-enhanced control algorithms.",
-    "keywords": ["BWB Q100", "system design", "complex systems", "flight control", "architecture"],
-    "language": "en-US",
-    "auto_generated": true,
-    "confidence_score": 0.92
-  },
-  "generation_metadata": {
-    "algorithm": "gpt-4-aerospace-v2",
-    "templates_used": ["DES-SDS-standard", "complex-systems-enhanced"],
-    "utcs_lookup": "022-00-00: Auto Flight",
-    "domain_expansion": "CPX: Complex Systems"
-  }
-}
-```
-
-#### Search by Extended Description
-```http
-GET /artifacts/search
-  ?q=generator+drive+troubleshooting
-  &type=title
-  &language=en-US
-  &reality=RDIG
-
-Response 200 OK:
-{
-  "total_results": 3,
-  "results": [
-    {
-      "nomenclature": "AMP-BWB-Q100-25MAP0001-MNT-AMM-TSG-001-RDIG-024-50-00-QMEC-v8.0.0",
-      "title": "AMPEL360 BWB Q100 Aircraft Maintenance Manual - Electrical Power Generator Drive Troubleshooting Procedures",
-      "short_title": "BWB Q100 AMM - Gen Drive Troubleshooting",
-      "relevance_score": 0.95,
-      "matched_fields": ["title", "keywords"]
-    },
-    {
-      "nomenclature": "AMP-BWB-Q250-25MAP0002-MNT-AMM-TSG-001-RDIG-024-50-00-QMEC-v8.0.0",
-      "title": "AMPEL360 BWB Q250 Aircraft Maintenance Manual - Electrical Power Generator Drive Troubleshooting Procedures",
-      "short_title": "BWB Q250 AMM - Gen Drive Troubleshooting",
-      "relevance_score": 0.88,
-      "matched_fields": ["title"]
-    }
-  ],
-  "search_metadata": {
-    "query_time_ms": 45,
-    "index_version": "v8.0.0",
-    "search_algorithm": "quantum-enhanced-nlp"
-  }
-}
-```
-
-#### Bulk Translation Request
-```http
-POST /artifacts/translate/bulk
-Content-Type: application/json
-
-{
-  "nomenclatures": [
-    "AMP-BWB-Q100-25MAP0001-MNT-AMM-TSG-001-RDIG-024-50-00-QMEC-v8.0.0",
-    "AMP-BWB-Q100-25MAP0001-OPS-SOP-FLT-001-RDIG-700-00-00-QGRO-v8.0.0"
-  ],
-  "target_languages": ["es-ES", "de-DE"],
-  "translation_service": "professional",
-  "priority": "high"
-}
-
-Response 202 Accepted:
-{
-  "translation_job_id": "tj_8e966f070c3557909d",
-  "status": "queued",
-  "estimated_completion": "2025-08-03T10:00:00Z",
-  "documents_queued": 2,
-  "languages_requested": 2,
-  "total_translations": 4,
-  "webhook_url": "https://api.aqua-v.aero/v8.0/webhooks/translation-complete"
-}
-```
-
-#### Validate Extended Description
-```http
-POST /artifacts/validate-description
-Content-Type: application/json
-
-{
-  "nomenclature": "AMP-BWB-Q100-25MAP0001-DES-SDS-CPX-001-FDIG-022-00-00-QSTR-v8.0.0",
-  "extended_description": {
-    "title": "BWB Q100 Design", // Too short
-    "short_title": "Design",   // Too short
-    "description": "A design document", // Too short
-    "keywords": ["design"],    // Too few
-    "language": "en"          // Wrong format
-  }
-}
-
-Response 400 Bad Request:
-{
-  "valid": false,
-  "errors": [
-    {
-      "field": "title",
-      "error": "Title too short. Minimum 50 characters, got 15",
-      "suggestion": "AMPEL360 BWB Q100 System Design Specification - [System] [Domain] Architecture"
-    },
-    {
-      "field": "short_title",
-      "error": "Short title too short. Minimum 20 characters, got 6",
-      "suggestion": "BWB Q100 SDS - [Component] [Domain]"
-    },
-    {
-      "field": "description",
-      "error": "Description too short. Minimum 100 characters, got 15"
-    },
-    {
-      "field": "keywords",
-      "error": "Too few keywords. Minimum 3, got 1",
-      "suggestion": ["BWB Q100", "system design", "complex systems"]
-    },
-    {
-      "field": "language",
-      "error": "Invalid language format. Expected xx-XX, got 'en'",
-      "suggestion": "en-US"
-    }
-  ],
-  "validation_rules": {
-    "title": {"min": 50, "max": 200},
-    "short_title": {"min": 20, "max": 60},
-    "description": {"min": 100, "max": 500},
-    "keywords": {"min": 3, "max": 10},
-    "language": {"pattern": "^[a-z]{2}-[A-Z]{2}$"}
-  }
-}
-```
-
------
-
-## D.13 Compliance & Validation
-
-### ✅ v8.0 Validation Rules
-
-**Complete Validation Function with Extended Descriptions:**
-```javascript
-function validateArtifactV8(artifact) {
-  const nomenclatureValidation = validateNomenclature(artifact.nomenclature);
-  const descriptionValidation = validateExtendedDescription(artifact.extended_description);
-  
-  if (!nomenclatureValidation.valid || !descriptionValidation.valid) {
-    return {
-      valid: false,
-      nomenclature: nomenclatureValidation,
-      description: descriptionValidation
-    };
-  }
-  
-  // Validate consistency between nomenclature and description
-  const consistencyValidation = validateConsistency(
-    artifact.nomenclature, 
-    artifact.extended_description
-  );
-  
-  return {
-    valid: consistencyValidation.valid,
-    nomenclature: nomenclatureValidation,
-    description: descriptionValidation,
-    consistency: consistencyValidation
-  };
-}
-
-function validateExtendedDescription(extDesc) {
-  const validations = {};
-  
-  // Title validation
-  validations.title = {
-    valid: extDesc.title && 
-           extDesc.title.length >= 50 && 
-           extDesc.title.length <= 200 &&
-           /^[A-Z]/.test(extDesc.title),
-    error: null
-  };
-  
-  // Short title validation
-  validations.short_title = {
-    valid: extDesc.short_title && 
-           extDesc.short_title.length >= 20 && 
-           extDesc.short_title.length <= 60,
-    error: null
-  };
-  
-  // Description validation
-  validations.description = {
-    valid: extDesc.description && 
-           extDesc.description.length >= 100 && 
-           extDesc.description.length <= 500,
-    error: null
-  };
-  
-  // Keywords validation
-  validations.keywords = {
-    valid: extDesc.keywords && 
-           Array.isArray(extDesc.keywords) &&
-           extDesc.keywords.length >= 3 && 
-           extDesc.keywords.length <= 10 &&
-           extDesc.keywords.every(k => /^[a-z0-9\s\-]+$/.test(k)),
-    error: null
-  };
-  
-  // Language validation
-  validations.language = {
-    valid: extDesc.language && 
-           /^[a-z]{2}-[A-Z]{2}$/.test(extDesc.language),
-    error: null
-  };
-  
-  // Required translations validation
-  const requiredTranslations = getRequiredTranslations(extDesc);
-  validations.translations = {
-    valid: validateRequiredTranslations(extDesc.translations, requiredTranslations),
-    error: null
-  };
-  
-  // Set error messages
-  Object.keys(validations).forEach(field => {
-    if (!validations[field].valid) {
-      validations[field].error = getValidationError(field, extDesc[field]);
-    }
-  });
-  
-  const allValid = Object.values(validations).every(v => v.valid);
-  
-  return {
-    valid: allValid,
-    details: validations
-  };
-}
-
-function validateConsistency(nomenclature, extDesc) {
-  const parts = parseNomenclature(nomenclature);
-  const issues = [];
-  
-  // Check product references in title
-  const expectedProduct = `${parts.product} ${parts.subproduct}`;
-  if (!extDesc.title.includes(expectedProduct)) {
-    issues.push(`Title should include product reference: ${expectedProduct}`);
-  }
-  
-  // Check document type in title
-  const subtypeName = getSubtypeName(parts.subtype);
-  if (!extDesc.title.includes(subtypeName)) {
-    issues.push(`Title should include document type: ${subtypeName}`);
-  }
-  
-  // Check keywords include key nomenclature elements
-  const requiredKeywords = [
-    expectedProduct.toLowerCase(),
-    parts.domain.toLowerCase()
-  ];
-  
-  const missingKeywords = requiredKeywords.filter(
-    req => !extDesc.keywords.some(k => k.includes(req))
-  );
-  
-  if (missingKeywords.length > 0) {
-    issues.push(`Keywords missing: ${missingKeywords.join(', ')}`);
-  }
-  
-  return {
-    valid: issues.length === 0,
-    issues: issues
-  };
-}
-```
-
-### Validation Matrix with Extended Descriptions
-
-| Component | Field | Format | Length | Validation |
-|:----------|:------|:-------|:-------|:-----------|
-| **Nomenclature** |
-| | LINE | Alpha | 3-6 | Must be AMP, GAI, QUA, or AQUART |
-| | PRODUCT | Alpha | 3 | Must match valid product for line |
-| | SUBPRODUCT | AlphaNum | 4 | Must match valid subproduct |
-| | MSN | AlphaNum | 8 | Format YYSSTNNNN |
-| | PHASE | Alpha | 3 | Must be valid phase code |
-| | SUBTYPE | Alpha | 3 | Must be valid for phase |
-| | DOMAIN | Alpha | 3 | Must be valid domain code |
-| | NUMBER | Numeric | 3 | 001-999 |
-| | REALITY | Alpha | 4 | Must be valid reality type |
-| | UTCS | Numeric | 9 | Format ###-##-## |
-| | QD | Alpha | 4 | Must be valid Q-Division |
-| | VERSION | SemVer | 6+ | Format vX.Y.Z |
-| **Extended Description** |
-| | title | Text | 50-200 | Start with capital, include product |
-| | short_title | Text | 20-60 | Abbreviated form |
-| | description | Text | 100-500 | Complete sentences |
-| | keywords | Array | 3-10 items | Lowercase, alphanumeric |
-| | language | Code | 5 | Format xx-XX |
-| | translations | Array | Variable | Required by phase/location |
-
------
-
-## D.14 Quick Reference Guide
-
-### 📋 v8.0 Complete Format with Extended Descriptions
-
-**Artifact Structure:**
+#### BWB Q100 - Maintenance Troubleshooting
 ```yaml
 artifact:
-  nomenclature: "LINE-PRODUCT-SUBPRODUCT-MSN-PHASE-SUBTYPE-DOMAIN-NUMBER-REALITY-UTCS-QD-VERSION"
-  extended_description:
-    title: "Full descriptive title (50-200 chars)"
-    short_title: "Short title (20-60 chars)"
-    description: "Detailed description (100-500 chars)"
-    keywords: ["min 3", "max 10", "lowercase"]
-    language: "xx-XX"
-    translations: [{language: "xx-XX", title: "...", description: "..."}]
+  nomenclature: "AMP-BWB-Q100-25MAP0001-MNT-AMM-TSG-TR-VF-FC27-RDIG-024-50-00-v9.0.0"
+  configuration_item:
+    owner_division: "QPOW"
 ```
 
-### Quick Reference Tables
-
-**Phases (13):**
-```
-CON DES DEV TST INT CRT PRD MNT OPS REP RET SUP EXT
-```
-
-**Reality Types (11):**
-```
-PHYS OPER FDIG RDIG GDIG SDIG VIRT AUGM ROBO QASI TRNS
-```
-
-**Q-Divisions (12):**
-```
-QSTR QAIR QGRE QMEC QPOW QSPA QIND QGRO QDAT QHPC QCOM QSCI
-```
-
-**Common Domain Codes:**
-```
-Structural: STR MED DYN VIB CPX
-Software: SWD HWD DAT NET API
-Operations: FLT GND MNT OPS LOG
-Testing: FNC PER ENV SAF REL
-Quantum: QNT QSD QAL QSN QCM
-```
-
-### Title Templates by Phase-Subtype
-
-**Conceptual:**
-```
-[Product] [Subtype Name] - [System] [Domain Focus]
-```
-
-**Design:**
-```
-[Product] [Subtype Name] - [System] [Domain] Architecture
-```
-
-**Testing:**
-```
-[Product] [Subtype Name] - [System] [Test Type] Results
-```
-
-**Operations:**
-```
-[Product] [Subtype Name] - [Operation Type] Procedures
-```
-
-### Required Translations by Phase
-
-| Phase | Required Languages | Documents |
-|:------|:-------------------|:----------|
-| CON | None | All |
-| DES | None | All |
-| CRT | fr-FR | All certification docs |
-| PRD | it-IT | Naples-manufactured |
-| MNT | es-ES, de-DE | All maintenance docs |
-| OPS | es-ES | All operational docs |
-| SUP | zh-CN | Singapore operations |
-
-### Common Patterns with Descriptions
-
-**Design Document:**
+#### eVTOL City - Component Overhaul
 ```yaml
-nomenclature: "*-DES-SDS-*-###-FDIG-###-##-##-*-v#.#.#"
-title: "[Product] System Design Specification - [System] Architecture"
-keywords: ["product", "system design", "architecture", "domain"]
+artifact:
+  nomenclature: "AMP-EVT-CITY-25MAP0002-MNT-CMM-OVH-RP-PA-M234-RDIG-062-00-00-v9.0.0"
+  configuration_item:
+    owner_division: "QMEC"
 ```
 
-**Test Report:**
+### 🛸 GAIA Examples
+
+#### UAV Swarm - Interface Design
 ```yaml
-nomenclature: "*-TST-TRP-*-###-RDIG-###-##-##-*-v#.#.#"
-title: "[Product] Test Report - [System] [Test Type] Results"
-keywords: ["product", "test report", "test type", "results"]
+artifact:
+  nomenclature: "GAI-UAV-SWRM-25SGS0001-DES-ICD-DAT-IF-PA-S301-FDIG-308-00-00-v9.0.0"
+  configuration_item:
+    owner_division: "QDAT"
 ```
 
-**Maintenance Manual:**
+### ⚛️ QUANTUM Examples
+
+#### Q-Navigation Calibration
 ```yaml
-nomenclature: "*-MNT-AMM-*-###-RDIG-###-##-##-*-v#.#.#"
-title: "[Product] Aircraft Maintenance Manual - [System] [Procedure]"
-keywords: ["product", "maintenance", "AMM", "system", "procedure"]
+artifact:
+  nomenclature: "QUA-QSN-QNAV-25MUQ0001-MNT-CMM-ADJ-AJ-VF-Q001-RDIG-938-00-00-v9.0.0"
+  configuration_item:
+    owner_division: "QSCI"
 ```
 
-### Migration Support
+### 🤖 ROBBBO-T Examples
 
-**From v7.0 to v8.0:**
-1. Generate extended descriptions for all documents
-2. Validate title format compliance
-3. Extract and validate keywords
-4. Implement required translations
-5. Update all system interfaces
+#### Factory Robot Assembly Procedure
+```yaml
+artifact:
+  nomenclature: "ROB-FAL-AS01-25NAR0001-PRD-WIS-ASM-AS-PA-R123-RDIG-615-00-00-v9.0.0"
+  configuration_item:
+    owner_division: "QIND"
+```
 
-**Support Resources:**
-- API Endpoint: https://api.aqua-v.aero/v8.0
-- Documentation: https://docs.aqua-v.aero/nomenclature/v8
-- Title Generator: https://tools.aqua-v.aero/title-gen
-- Translation Portal: https://translate.aqua-v.aero
-- Support Email: nomenclature@aqua-v.aero
+### 🏢 Cross-Program Examples
 
------
+#### Enterprise Maintenance Planning
+```yaml
+artifact:
+  nomenclature: "AQUART-MNT-MPD-PLN-DF-PR-X000-RDIG-005-00-00-v9.0.0"
+  configuration_item:
+    owner_division: "QMEC"
+```
 
-**Document Status:** APPROVED  
-**Version:** 8.0  
-**Issue Date:** 2025-08-02  
+---
+
+**Document Status:** APPROVED FOR IMPLEMENTATION  
+**Version:** 9.0.0  
+**Issue Date:** 2025-12-01  
 **Effective Date:** 2026-01-01  
-**Owner:** Chief Technology Officer  
-**Next Review:** 2026-07-01  
-**Classification:** AQUA V. STANDARD - MANDATORY COMPLIANCE  
-**Document ID:** `AQUART-OPS-POL-STD-001-RDIG-304-00-01-QDAT-v8.0.0`  
-**Title:** "AQUA V. Enterprise Operational Policy - Nomenclature System Standard v8.0"
-**Short Title:** "Enterprise POL - Nomenclature v8.0"
-
-**Key Features of v8.0:**
-- Mandatory extended descriptions for all artifacts
-- Multi-language support with required translations
-- Auto-generation capabilities for titles
-- Enhanced search through descriptions
-- Consistency validation between nomenclature and titles
-- Complete digital thread with descriptions
-
-**Compliance Requirements:**
-- Extended descriptions mandatory from 2026-01-01
-- Title generation training deadline: 2025-11-01
-- Translation workflows active: 2025-12-01
-- System cutover: 2026-01-01
-- Legacy support ends: 2026-06-30
-
-**Change Summary from v7.0:**
-- Added mandatory extended_description object
-- Implemented title format standards
-- Required translations by phase/location
-- Enhanced validation for descriptions
-- Auto-generation algorithms
-- Full-text search capabilities
+**Owner:** Chief Technology Officer
