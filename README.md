@@ -852,2918 +852,453 @@ _End of Annex B_
 
 ---
 
-# 📋 ANNEX C: Core Policies and Procedures v1.0
-## AQUA V. Governance Framework
+
+# ANNEX C: Core Policies and Procedures v1.0
+
+**Document Status:** ✅ Complete  
+**Version:** 1.0  
+**Last Updated:** 2025-08-02
 
 ---
 
-## 📑 Table of Contents
+## 1.0 Purpose and Scope
 
-- [C.1 Ethics and Conduct Framework](#c1-ethics-and-conduct-framework)
-- [C.2 Quality Policy](#c2-quality-policy)
-- [C.3 Environmental Policy](#c3-environmental-policy)
-- [C.4 Human Resources Policy](#c4-human-resources-policy)
-- [C.5 Information Governance Policy](#c5-information-governance-policy)
-- [C.6 Intellectual Property Policy](#c6-intellectual-property-policy)
-- [C.7 Risk Management Policy](#c7-risk-management-policy)
-- [C.8 Sustainability Policy](#c8-sustainability-policy)
+This document establishes the high-level framework for all corporate policies and procedures within AQUA V. It ensures that all operations are conducted in a manner that is safe, secure, compliant, and aligned with our strategic objectives.  
+The policies outlined herein are mandatory and apply to all employees, contractors, and partners across all global sites and Q-Divisions.
+
+> This annex serves as the top-level document in our policy hierarchy.  
+> Detailed procedures, work instructions, and guidelines are derived from these core principles and are managed by the respective functional departments.
 
 ---
 
-## C.1 Ethics and Conduct Framework
+## 2.0 Core Policy Areas
 
-### 🎯 Purpose & Scope
+### 2.1 Technical Governance & Engineering
 
-**Purpose**: Establish ethical standards that guide all AQUA V. activities, ensuring integrity in our pursuit of quantum aerospace innovation.
+- **Policy:**  
+  All technical work shall be governed by the principles of Model-Based Systems Engineering (MBSE) and managed through the central Digital Thread.
 
-**Scope**: Applies to all employees, contractors, partners, and representatives of AQUA V. worldwide.
-
-### Core Ethical Principles
-
-```mermaid
-graph TD
-    ETHICS[AQUA V. Ethics]
-    
-    ETHICS --> INT[Integrity<br/>Honest in all dealings]
-    ETHICS --> INN[Innovation<br/>Ethical advancement]
-    ETHICS --> RES[Respect<br/>For people & planet]
-    ETHICS --> ACC[Accountability<br/>Own our actions]
-    ETHICS --> TRA[Transparency<br/>Open communication]
-```
-
-### Code of Conduct
-
-#### 1. Business Integrity
-```yaml
-requirements:
-  - Zero tolerance for corruption
-  - No conflicts of interest
-  - Fair competition practices
-  - Accurate financial reporting
-  - Responsible marketing
-  
-prohibited:
-  - Bribery in any form
-  - Facilitation payments
-  - Insider trading
-  - Anti-competitive behavior
-```
-
-#### 2. Workplace Conduct
-- **Respect & Inclusion**: Zero tolerance for discrimination
-- **Safety First**: Report all hazards immediately
-- **Collaboration**: Share knowledge openly within security constraints
-- **Professional Growth**: Support colleague development
-
-#### 3. Technology Ethics
-```yaml
-quantum_ethics:
-  - Responsible quantum computing use
-  - No weaponization of technology
-  - Privacy-preserving designs
-  - Transparent AI decision-making
-  
-data_ethics:
-  - Minimal data collection
-  - Purpose limitation
-  - Consent-based processing
-  - Right to erasure
-```
-
-### Reporting & Enforcement
-
-| Channel | Purpose | Anonymity | Response Time |
-|---------|---------|-----------|---------------|
-| **Ethics Hotline** | Report violations | Yes | 24 hours |
-| **Direct Manager** | Guidance | No | Immediate |
-| **HR Department** | Support | Optional | 48 hours |
-| **Legal Team** | Legal concerns | No | 24 hours |
-
-### Disciplinary Matrix
-
-| Violation Level | Examples | Consequences |
-|----------------|----------|--------------|
-| **Minor** | Late reporting, minor policy breach | Coaching, training |
-| **Moderate** | Repeated violations, negligence | Written warning, PIP |
-| **Serious** | Discrimination, safety violation | Suspension, demotion |
-| **Severe** | Fraud, corruption, major breach | Termination, legal action |
+- **Procedures:**  
+  - Adherence to the Official Nomenclature System v9.0 (see [ANNEX D](#)) is mandatory for all configuration items.  
+  - All engineering changes must follow a formal, documented, and approved change control process within the PLM system.  
+  - Technical reviews and gates are mandatory at predefined milestones in the product lifecycle.
 
 ---
 
-## C.2 Quality Policy
+### 2.2 Quality Management System (QMS)
 
-### 🏆 Quality Commitment
+- **Policy:**  
+  AQUA V. shall maintain a single, integrated Quality Management System that complies with and exceeds the requirements of AS/EN 9100, ISO 9001, and all applicable regulatory standards.
 
-**Vision**: "Excellence in every quantum leap"
+- **Procedures:**  
+  - Regular internal and external audits will be conducted to ensure compliance.  
+  - A non-conformance management system shall be used to track, analyze, and resolve all quality issues.  
+  - Supplier quality will be managed through a rigorous selection, monitoring, and performance review process.
 
-**Mission**: Achieve and maintain the highest quality standards in aerospace through systematic improvement and innovation.
+---
 
-### AS9100 Alignment
+### 2.3 Security & Data Governance
 
-```mermaid
-graph LR
-    AS[AS9100D] --> QMS[AQUA V. QMS]
-    
-    QMS --> PP[Process Performance]
-    QMS --> RM[Risk Management]
-    QMS --> CI[Continuous Improvement]
-    QMS --> CS[Customer Satisfaction]
+- **Policy:**  
+  All digital and physical assets of AQUA V. shall be protected by a multi-layered, zero-trust security architecture. Data is classified as a critical asset and must be managed and protected throughout its lifecycle.
+
+- **Procedures:**  
+  - Data classification (Confidential, Restricted, Public) is mandatory for all created documents.  
+  - Access to systems and data is governed by the principle of least privilege.  
+  - All security incidents must be reported immediately to the Cybersecurity Operations Center (CSOC) under the governance of QDAT-DataGov.
+
+---
+
+### 2.4 Safety Management System (SMS)
+
+- **Policy:**  
+  Safety is the highest priority at AQUA V. We are committed to a proactive, predictive Safety Management System (SMS) that conforms to ICAO Annex 19 and all applicable national aviation authority regulations.
+
+- **Procedures:**  
+  - A confidential, non-punitive hazard reporting system is available to all employees.  
+  - Formal Safety Risk Management (SRM) will be applied to all new designs, operational changes, and identified hazards.  
+  - Regular safety training is mandatory for all personnel.
+
+---
+
+### 2.5 Ethics & Business Conduct
+
+- **Policy:**  
+  AQUA V. will conduct all business with the highest level of integrity, ethics, and respect for the law. We have zero tolerance for bribery, corruption, and unethical behavior.
+
+- **Procedures:**  
+  - All employees must complete annual ethics and compliance training.  
+  - A conflict of interest disclosure process is mandatory for all relevant personnel.  
+  - A confidential whistleblower hotline is available for reporting suspected violations.
+
+---
+
+### 2.6 Sustainability & Environmental Compliance
+
+- **Policy:**  
+  We are committed to leading the aerospace industry in sustainability by minimizing our environmental impact and achieving the ambitious targets outlined in the Master README.
+
+- **Procedures:**  
+  - All projects must undergo a Life Cycle Assessment (LCA) as governed by QGRE-GreenTech.  
+  - All manufacturing sites must maintain environmental management systems compliant with ISO 14001.  
+  - Progress against sustainability targets will be tracked and reported annually.
+
+---
+
+## 3.0 Implementation and Compliance
+
+- **Responsibility:**  
+  The head of each Q-Division and Global Site is responsible for implementing and ensuring compliance with these core policies within their area of responsibility.
+
+- **Monitoring:**  
+  The Corporate Governance office, in conjunction with Internal Audit, is responsible for monitoring compliance and the effectiveness of all policies.
+
+- **Enforcement:**  
+  Non-compliance with these policies may result in disciplinary action, up to and including termination of employment or contract.
+
+---
+
+_End of Annex C_
+
+---
+
+
+# ANNEX D: Official Nomenclature System v9.0 (FINAL)
+
+**Document Status:** ✅ Complete & Validated  
+**Version:** 9.0  
+**Last Updated:** 2025-08-02
+
+---
+
+## 1.0 Introduction & Philosophy
+
+The AQUA V. Nomenclature System v9.0 is the foundational pillar of our Digital Thread. It is not merely an identification code; it is a machine-readable, semantically rich, and immutable system designed to provide absolute clarity, traceability, and configuration control for every artifact—physical or digital—across the enterprise.
+
+**Core Principles:**
+- **Immutability:** Once an identifier is assigned, it is permanent and can never be reused.
+- **Semantic Clarity:** Each field in the identifier has a precise, unambiguous meaning.
+- **Machine Readability:** The structured, delimited format is optimized for automated parsing, indexing, and data management.
+- **Decoupled Governance:** The technical identifier is decoupled from organizational structures, ensuring stability even as teams evolve.
+
+> This system is a formal Configuration Item (CI) and its governance is managed by the QDAT-DataGov division.
+
+---
+
+## 2.0 Core Structure
+
+The system utilizes two primary formats depending on the scope of the artifact.
+
+### 2.1 Product-Specific Format (11 Fields)
+
+Used for any artifact directly related to a specific product or subproduct.
+
+```
+LINE-PRODUCT-SUBPRODUCT-MSN-PHASE-SUBTYPE-DOMAIN-MTD-REALIDAD-UTCS-VERSION
 ```
 
-### Quality Objectives
+### 2.2 Cross-Program Format (8 Fields)
 
-| Objective | Target | Metric | Owner |
-|-----------|--------|--------|-------|
-| **First Pass Yield** | >95% | % passed inspection | Q-Division Directors |
-| **On-Time Delivery** | >98% | Schedule adherence | COO |
-| **Customer Satisfaction** | >4.5/5 | Survey scores | Customer Success |
-| **Defect Reduction** | -20% YoY | PPM | Quality Directors |
-| **Supplier Quality** | >99% | Incoming quality | Supply Chain |
+Used for general corporate artifacts not tied to a single product (e.g., corporate policies, facility plans, cross-program research).
 
-### Quality Management System Structure
-
-#### 1. Document Control
-```yaml
-document_hierarchy:
-  level_1: "Policies (This document)"
-  level_2: "Procedures (Division specific)"
-  level_3: "Work Instructions (Task specific)"
-  level_4: "Records & Forms"
-  
-control_requirements:
-  - Version control mandatory
-  - Review cycle: Annual
-  - Approval matrix defined
-  - Change control process
 ```
-
-#### 2. Process Approach
-- **Process Mapping**: All critical processes documented
-- **Process Owners**: Assigned and accountable
-- **KPIs**: Defined for each process
-- **Improvement**: Continuous monitoring and optimization
-
-#### 3. Quality Tools & Methods
-| Tool | Application | Training Required |
-|------|-------------|------------------|
-| **FMEA** | Risk analysis | Green Belt |
-| **SPC** | Process control | Yellow Belt |
-| **8D** | Problem solving | All engineers |
-| **Six Sigma** | Improvement projects | Black Belt |
-| **Quantum QC** | Quantum-enhanced inspection | Specialized |
-
-### Audit Program
-
-```yaml
-internal_audits:
-  frequency: "Quarterly"
-  scope: "All processes"
-  auditors: "Certified internal"
-  
-external_audits:
-  as9100: "Annual"
-  customer: "As required"
-  regulatory: "Per authorities"
-  
-audit_process:
-  1. Planning
-  2. Execution
-  3. Reporting
-  4. Corrective action
-  5. Verification
-  6. Closure
+AQUART-PHASE-SUBTYPE-DOMAIN-MTD-REALIDAD-UTCS-VERSION
 ```
 
 ---
 
-## C.3 Environmental Policy
+## 3.0 Detailed Field Definitions
 
-### 🌍 Environmental Commitment
+The following table provides the definitive guide to each field's content, format, and governance.
 
-**Vision**: "Leading aerospace to a sustainable future through quantum innovation"
+| Pos | Field Name    | Format    | Description & Governance                                                                                                                                           |
+|-----|--------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | LINE         | 3A        | Product Line. Identifies one of the four strategic product lines. For cross-program artifacts, always AQUART.<br>Vocabulary: AMP, GAI, ROB, QUA, AQUART<br>Governor: CSO |
+| 2   | PRODUCT      | 3A-4AN    | Product Family. A specific family within the product line.<br>Vocabulary: e.g., BWB, CITY, UAV, SAT, FAL<br>Governor: Product Management                         |
+| 3   | SUBPRODUCT   | 3A-6AN    | Subproduct Model. A specific model or variant.<br>Vocabulary: e.g., Q100, Q250, HALE, LUNAR<br>Governor: Product Management                                      |
+| 4   | MSN          | 8AN       | Manufacturer Serial Number. Unique identifier for a specific physical or major digital instance. Format: [SITE CODE][TYPE][SEQ] e.g., MA P 00001<br>Governor: QIND|
+| 5   | PHASE        | 3A        | Lifecycle Phase. The program phase in which the artifact was created or is primarily relevant.<br>Vocabulary: DEF, DEV, SRL, OPS, MNT, EOL<br>Governor: Program Office|
+| 6   | SUBTYPE      | 3A        | Document/Artifact Subtype. Granular classification of the artifact's nature.<br>Vocabulary: REQ, MDL, DGM, REP, AMM, PLN<br>Governor: QDAT                        |
+| 7   | DOMAIN       | 3A        | Technical Domain. The primary technical area of concern.<br>Vocabulary: STR, AER, POW, AVN, SOF, TSG<br>Governor: CTO Office                                    |
+| 8   | MTD          | 2A-4AN    | Method/Task/Object. A specific method, task, component, or object identifier.<br>Examples: TR, FMEA, BRK01<br>Governor: Relevant Q-Division                      |
+| 9   | REALIDAD     | 4A        | Reality Type. The artifact's state in the physical-digital spectrum.<br>Vocabulary: RDIG, FDIG, RPHY, FPHY<br>Governor: QDAT                                     |
+| 10  | UTCS         | 9AN       | Universal Technology Classification System. 9-digit code from ANNEX G.<br>Format: [DOMAIN]-[CLASS]-[SUBCLASS] e.g., 024-50-00<br>Governor: QDAT                 |
+| 11  | VERSION      | 5AN       | Version. The version of the artifact itself.<br>Format: vX.X.X e.g., v1.0.0<br>Governor: Artifact Owner                     |
 
-**ISO 14001:2015 Certified**: Full compliance with international environmental standards
-
-### Environmental Aspects & Impacts
-
-| Aspect | Impact | Control Measure | Target |
-|--------|--------|-----------------|--------|
-| **Carbon Emissions** | Climate change | Renewable energy, efficiency | Net zero by 2040 |
-| **Waste Generation** | Landfill | Circular economy practices | 95% diversion by 2030 |
-| **Water Usage** | Resource depletion | Recycling, efficiency | -50% by 2030 |
-| **Hazardous Materials** | Pollution | Substitution, controls | -90% by 2035 |
-| **Noise** | Community impact | Design, barriers | <65dB at boundary |
-
-### Environmental Management System
-
-```mermaid
-graph TD
-    POL[Environmental Policy] --> OBJ[Objectives & Targets]
-    OBJ --> PROG[Programs]
-    PROG --> IMP[Implementation]
-    IMP --> MON[Monitoring]
-    MON --> REV[Management Review]
-    REV --> POL
-```
-
-### Key Environmental Programs
-
-#### 1. Carbon Neutrality Roadmap
-```yaml
-2025-2030:
-  - 100% renewable electricity
-  - 50% reduction in travel emissions
-  - Carbon offset programs
-  
-2031-2035:
-  - Zero emission ground vehicles
-  - Sustainable aviation fuel trials
-  - Supply chain engagement
-  
-2036-2040:
-  - Net zero operations
-  - Carbon negative products
-  - Ecosystem restoration
-```
-
-#### 2. Circular Economy Implementation
-- **Design**: 100% recyclable products by 2035
-- **Materials**: Bio-based composites priority
-- **Manufacturing**: Zero waste to landfill
-- **End-of-Life**: Take-back programs
-
-### Environmental Performance Indicators
-
-| KPI | Baseline (2025) | Target (2030) | Target (2040) |
-|-----|-----------------|---------------|---------------|
-| **GHG Emissions** | 100,000 tCO2e | 50,000 tCO2e | 0 (net) |
-| **Renewable Energy** | 60% | 100% | 100% |
-| **Water Intensity** | 100 m³/unit | 50 m³/unit | 25 m³/unit |
-| **Waste Diversion** | 75% | 95% | 99% |
-| **Biodiversity Score** | 100 | 150 | 200 |
+> *(A=Alphabetic, N=Numeric, AN=Alphanumeric)*
 
 ---
 
-## C.4 Human Resources Policy
+## 4.0 Practical Examples
 
-### 👥 People Philosophy
-
-**Vision**: "Empowering quantum talents to reach new heights"
-
-**Principles**:
-- Merit-based advancement
-- Diversity & inclusion
-- Continuous learning
-- Work-life integration
-- Fair compensation
-
-### HR Framework
-
-```mermaid
-graph TD
-    TAL[Talent Acquisition] --> DEV[Development]
-    DEV --> PER[Performance]
-    PER --> REC[Recognition]
-    REC --> RET[Retention]
-    RET --> SUC[Succession]
+**Physical Component (Real Physical):**  
+*Description:* The first production landing gear assembly for the BWB-Q100 aircraft, manufactured in Madrid.  
+*Identifier:*  
+```
+AMP-BWB-Q100-MAP00001-SRL-CMP-MEC-LG01-RPHY-032-10-00-v1.0.0
 ```
 
-### Key HR Policies
-
-#### 1. Recruitment & Selection
-```yaml
-process:
-  1. Job analysis & posting
-  2. AI-assisted screening
-  3. Technical assessment
-  4. Cultural fit interview
-  5. Reference checks
-  6. Offer & negotiation
-  
-diversity_targets:
-  gender: "50/50 by 2030"
-  international: "40% by 2030"
-  disciplines: "Cross-functional teams"
+**Software Module (Real Digital):**  
+*Description:* The certified flight control software module for the AMPEL360 City eVTOL.  
+*Identifier:*  
+```
+AMP-CITY-C6-SVS00012-OPS-SOF-AVN-FCS-RDIG-300-20-15-v3.4.1
 ```
 
-#### 2. Compensation & Benefits
-| Component | Policy | Benchmark |
-|-----------|--------|-----------|
-| **Base Salary** | Market P75 | Annual review |
-| **Bonus** | Up to 30% | Performance-based |
-| **Equity** | All employees | 4-year vesting |
-| **Benefits** | Comprehensive | Top 10% industry |
-| **Quantum Learning** | €5,000/year | Education budget |
-
-#### 3. Performance Management
-```yaml
-cycle:
-  quarterly: "OKR check-ins"
-  semi_annual: "360 feedback"
-  annual: "Comprehensive review"
-  
-ratings:
-  exceptional: "Top 10%"
-  exceeds: "Next 20%"
-  meets: "Middle 60%"
-  developing: "Bottom 10%"
-  
-consequences:
-  exceptional: "Fast track promotion"
-  developing: "Performance improvement plan"
+**Test Report (Full Digital):**  
+*Description:* A wind tunnel test report for a developmental UAV configuration.  
+*Identifier:*  
+```
+GAI-UAV-HALE-TOD00034-DEV-REP-AER-WTR-FDIG-011-40-00-v1.2.0
 ```
 
-#### 4. Learning & Development
-- **Onboarding**: 6-week immersive program
-- **Technical Training**: 80 hours/year minimum
-- **Leadership Development**: Cohort programs
-- **Quantum Certification**: Company-sponsored
-- **University Partnerships**: PhD sponsorship
-
-### Employee Relations
-
-| Topic | Policy | Support |
-|-------|--------|---------|
-| **Flexibility** | Hybrid work standard | 3 days office/week |
-| **Leave** | Generous PTO + sabbaticals | 25 days + quantum time |
-| **Wellness** | Comprehensive programs | Physical, mental, financial |
-| **Grievance** | Fair process | Independent review |
-
----
-
-## C.5 Information Governance Policy
-
-### 🔐 Information Management Framework
-
-**Purpose**: Protect and leverage information assets while enabling innovation
-
-**Scope**: All data, documents, and intellectual property
-
-### Information Classification
-
-| Level | Description | Examples | Controls |
-|-------|-------------|----------|----------|
-| **PUBLIC** | No harm if disclosed | Marketing materials | Standard |
-| **INTERNAL** | Limited to employees | Procedures, plans | Access control |
-| **CONFIDENTIAL** | Competitive harm | Designs, financials | Encryption, NDA |
-| **SECRET** | Significant harm | Quantum algorithms | Advanced encryption |
-| **QUANTUM-SECRET** | Catastrophic harm | Q-breakthrough tech | Quantum encryption |
-
-### Data Governance Structure
-
-```mermaid
-graph TD
-    DGB[Data Governance Board]
-    
-    DGB --> CDO[Chief Data Officer]
-    CDO --> DST[Data Stewards]
-    CDO --> DAR[Data Architects]
-    CDO --> DAN[Data Analysts]
-    
-    DGB --> CISO[Chief Information Security Officer]
-    CISO --> SOC[Security Operations]
-    CISO --> IAM[Identity Management]
+**Corporate Policy (Cross-Program):**  
+*Description:* The core corporate policy on cybersecurity.  
+*Identifier:*  
 ```
-
-### Key Policies
-
-#### 1. Data Lifecycle Management
-```yaml
-creation:
-  - Classification required
-  - Metadata mandatory
-  - Quality standards
-  
-storage:
-  - Encrypted at rest
-  - Geo-redundancy
-  - Quantum-safe future
-  
-usage:
-  - Need-to-know basis
-  - Audit trail
-  - Purpose limitation
-  
-archival:
-  - Retention schedules
-  - Legal holds
-  - Compressed storage
-  
-disposal:
-  - Secure deletion
-  - Certificate of destruction
-  - Compliance verification
-```
-
-#### 2. Privacy & Protection
-- **GDPR Compliance**: Full implementation
-- **Privacy by Design**: Built into all systems
-- **Data Minimization**: Collect only necessary
-- **Subject Rights**: Automated request handling
-
-#### 3. Cybersecurity Controls
-
-| Layer | Control | Implementation |
-|-------|---------|----------------|
-| **Perimeter** | Quantum firewall | 2025 Q4 |
-| **Network** | Zero trust architecture | Deployed |
-| **Endpoint** | AI-based EDR | Deployed |
-| **Application** | Secure coding | Mandatory |
-| **Data** | Quantum encryption | 2026 Q2 |
-| **Physical** | Biometric + quantum | 2025 Q3 |
-
----
-
-## C.6 Intellectual Property Policy
-
-### 💡 IP Strategy
-
-**Vision**: "Protecting innovation while fostering collaboration"
-
-**Objectives**:
-1. Secure competitive advantage
-2. Enable monetization
-3. Facilitate partnerships
-4. Defend against infringement
-
-### IP Governance
-
-```mermaid
-graph LR
-    IPC[IP Committee] --> PAT[Patents]
-    IPC --> TM[Trademarks]
-    IPC --> TS[Trade Secrets]
-    IPC --> CR[Copyrights]
-    IPC --> LIC[Licensing]
-```
-
-### IP Management Framework
-
-#### 1. Invention Disclosure Process
-```yaml
-process:
-  1. Employee submits disclosure
-  2. IP committee review (5 days)
-  3. Prior art search
-  4. Patentability assessment
-  5. Filing decision
-  6. Prosecution support
-  
-inventor_rewards:
-  disclosure: "€500"
-  filing: "€2,000"
-  grant: "€5,000"
-  commercialization: "1% royalty"
-```
-
-#### 2. Patent Strategy
-| Technology Area | Strategy | Target |
-|----------------|----------|--------|
-| **Quantum Systems** | Aggressive filing | 200 patents/year |
-| **BWB Design** | Selective | 50 patents/year |
-| **Manufacturing** | Trade secret priority | 20 patents/year |
-| **Software** | Open source + patents | Hybrid approach |
-
-#### 3. Trade Secret Protection
-```yaml
-identification:
-  - Quantum algorithms
-  - Manufacturing processes
-  - Customer lists
-  - Business strategies
-  
-protection:
-  - Access controls
-  - NDAs mandatory
-  - Need-to-know basis
-  - Quantum encryption
-  - Regular audits
-```
-
-#### 4. Open Innovation
-- **University Collaboration**: Joint ownership models
-- **Open Source**: Strategic contributions
-- **Standards Bodies**: Active participation
-- **Patent Pools**: Quantum aerospace consortium
-
-### IP Metrics
-
-| KPI | Target | Current |
-|-----|--------|---------|
-| **Patents Filed** | 300/year | On track |
-| **Grant Rate** | >80% | 85% |
-| **Licensing Revenue** | €50M by 2030 | €5M |
-| **IP Valuation** | €5B by 2030 | €500M |
-
----
-
-## C.7 Risk Management Policy
-
-### ⚠️ Risk Framework
-
-**Approach**: Integrated risk management across all operations
-
-**Risk Appetite**: Moderate for innovation, low for safety/compliance
-
-### Risk Governance Structure
-
-```mermaid
-graph TD
-    BOARD[Board Risk Committee]
-    
-    BOARD --> CRO[Chief Risk Officer]
-    CRO --> ERM[Enterprise Risk]
-    CRO --> OPS[Operational Risk]
-    CRO --> FIN[Financial Risk]
-    CRO --> TECH[Technology Risk]
-    CRO --> REP[Reputational Risk]
-```
-
-### Risk Categories & Management
-
-#### 1. Strategic Risks
-| Risk | Impact | Likelihood | Mitigation |
-|------|--------|------------|------------|
-| **Quantum tech failure** | Catastrophic | Low | Multiple approaches, fallbacks |
-| **Market adoption** | High | Medium | Conservative projections |
-| **Competition** | High | High | IP protection, speed |
-| **Regulation** | High | Medium | Early engagement |
-
-#### 2. Operational Risks
-```yaml
-categories:
-  safety:
-    - Design failures
-    - Manufacturing defects
-    - Operational incidents
-    
-  supply_chain:
-    - Single source dependencies
-    - Quality issues
-    - Disruptions
-    
-  talent:
-    - Key person risk
-    - Skills shortage
-    - Retention
-    
-mitigation:
-  - Redundancy in all critical systems
-  - Supplier diversification
-  - Succession planning
-  - Competitive compensation
-```
-
-#### 3. Financial Risks
-| Type | Exposure | Hedging Strategy |
-|------|----------|------------------|
-| **FX Risk** | €500M | Natural + derivatives |
-| **Interest Rate** | €2B debt | Fixed/floating mix |
-| **Credit Risk** | €100M | Insurance + monitoring |
-| **Liquidity** | €1B needs | Credit facilities |
-
-#### 4. Technology Risks
-- **Cybersecurity**: Quantum-safe architecture
-- **IP Theft**: Advanced protection measures
-- **Obsolescence**: Continuous innovation
-- **Integration**: Phased approach
-
-### Risk Assessment Matrix
-
-```
-Impact →
-↑ 5 | Medium | High   | High   | Critical | Critical |
-L 4 | Low    | Medium | High   | High     | Critical |
-i 3 | Low    | Medium | Medium | High     | High     |
-k 2 | Low    | Low    | Medium | Medium   | High     |
-e 1 | Low    | Low    | Low    | Medium   | Medium   |
-l   |--------|--------|--------|----------|----------|
-i     1       2       3       4         5
-h                    Impact →
-o
-o
-d
-```
-
-### Risk Monitoring & Reporting
-
-| Level | Frequency | Audience | Format |
-|-------|-----------|----------|--------|
-| **Board** | Quarterly | Board committee | Dashboard |
-| **Executive** | Monthly | C-Suite | Detailed report |
-| **Operational** | Weekly | Directors | Risk register |
-| **Project** | Daily | Teams | RAID log |
-
----
-
-## C.8 Sustainability Policy
-
-### 🌱 Sustainability Commitment
-
-**Vision**: "Quantum leaps toward a regenerative future"
-
-**UN SDG Alignment**: Contributing to 12 of 17 Sustainable Development Goals
-
-### Sustainability Framework
-
-```mermaid
-graph TD
-    SUS[Sustainability]
-    
-    SUS --> ENV[Environmental<br/>Net positive impact]
-    SUS --> SOC[Social<br/>Inclusive growth]
-    SUS --> GOV[Governance<br/>Ethical leadership]
-    
-    ENV --> ESGR[ESG Reporting]
-    SOC --> ESGR
-    GOV --> ESGR
-```
-
-### Strategic Sustainability Goals
-
-#### 1. Environmental Goals
-| Goal | 2030 Target | 2040 Target | 2050 Target |
-|------|-------------|-------------|-------------|
-| **Carbon Footprint** | -50% | Net Zero | Carbon Negative |
-| **Circular Materials** | 60% | 80% | 100% |
-| **Biodiversity** | No net loss | Net positive | Regenerative |
-| **Water** | -50% usage | Water positive | Closed loop |
-| **Renewable Energy** | 100% | 100% + storage | Energy provider |
-
-#### 2. Social Goals
-```yaml
-diversity_equity_inclusion:
-  gender_balance: "50/50 all levels by 2030"
-  pay_equity: "0% gap by 2026"
-  accessibility: "100% facilities by 2027"
-  
-community_impact:
-  local_hiring: "80% within 50km"
-  education: "10,000 students/year"
-  supplier_diversity: "30% diverse suppliers"
-  
-employee_wellbeing:
-  satisfaction: ">90% engagement"
-  safety: "Zero harm culture"
-  development: "100 hours training/year"
-```
-
-#### 3. Governance Goals
-- **Board Diversity**: 40% women, 30% international
-- **ESG Linked Comp**: 30% of executive compensation
-- **Transparency**: Annual integrated reporting
-- **Stakeholder Engagement**: Quarterly dialogues
-
-### Sustainability Programs
-
-#### 1. Quantum for Good
-```yaml
-initiative: "Apply quantum tech for sustainability"
-projects:
-  - Quantum-optimized flight paths (-20% fuel)
-  - Quantum materials discovery (bio-based)
-  - Quantum grid optimization
-  - Quantum carbon capture
-budget: "€50M over 5 years"
-```
-
-#### 2. Circular Aerospace
-- **Design**: Modular, repairable, upgradeable
-- **Materials**: Bio-based, recyclable, traced
-- **Manufacturing**: Zero waste, additive
-- **End-of-Life**: Take-back, refurbish, recycle
-
-### Sustainability Metrics & Reporting
-
-| Framework | Status | Frequency | Assurance |
-|-----------|--------|-----------|-----------|
-| **GRI Standards** | Implemented | Annual | External |
-| **TCFD** | Implemented | Annual | External |
-| **SASB** | In progress | Annual | Internal |
-| **CDP** | A-List target | Annual | External |
-| **Science-Based Targets** | Validated | Progress quarterly | Third party |
-
-### Stakeholder Engagement
-
-```mermaid
-graph LR
-    STAKE[Stakeholders] --> EMP[Employees]
-    STAKE --> CUST[Customers]
-    STAKE --> INV[Investors]
-    STAKE --> COM[Communities]
-    STAKE --> REG[Regulators]
-    STAKE --> NGO[NGOs]
-    
-    EMP --> MAT[Materiality Assessment]
-    CUST --> MAT
-    INV --> MAT
-    COM --> MAT
-    REG --> MAT
-    NGO --> MAT
+AQUART-OPS-POL-CORP-CYB-RDIG-800-00-00-v2.5.0
 ```
 
 ---
 
-## 📊 Policy Implementation Dashboard
+## 5.0 Governance and Change Control
 
-### Compliance Status Overview
+The v9.0 Nomenclature System is a locked-down, formal CI.
 
-| Policy | Implementation | Compliance Rate | Last Audit | Next Review |
-|--------|---------------|-----------------|------------|-------------|
-| **Ethics & Conduct** | 100% | 98% | 2025-06 | 2026-01 |
-| **Quality (AS9100)** | 100% | 96% | 2025-05 | 2025-11 |
-| **Environmental** | 95% | 94% | 2025-04 | 2025-10 |
-| **Human Resources** | 100% | 97% | 2025-06 | 2026-06 |
-| **Information Gov** | 90% | 92% | 2025-03 | 2025-09 |
-| **IP Management** | 100% | 95% | 2025-05 | 2025-11 |
-| **Risk Management** | 95% | 93% | 2025-06 | 2025-12 |
-| **Sustainability** | 90% | 91% | 2025-04 | 2025-10 |
+- **Change Authority:**  
+  Any proposed changes to the system's structure or controlled vocabularies must be submitted to the Nomenclature Control Board (NCB), chaired by the head of QDAT-DataGov.
 
-### Training Completion Rates
+- **Change Process:**  
+  Proposed changes require a formal impact analysis and must be approved by a majority of the NCB, with final sign-off from the CTO.
 
-```mermaid
-graph LR
-    subgraph "Policy Training Status"
-        ETH[Ethics: 99%]
-        QUA[Quality: 95%]
-        ENV[Environmental: 92%]
-        HR[HR Policies: 98%]
-        INFO[InfoSec: 94%]
-        IP[IP Awareness: 88%]
-        RISK[Risk Mgmt: 90%]
-        SUS[Sustainability: 93%]
-    end
-```
-
-### Key Performance Indicators
-
-| Dimension | Target | Actual | Trend |
-|-----------|--------|--------|-------|
-| **Ethics Violations** | <5/year | 3 | ↓ |
-| **Quality Defects** | <100 PPM | 87 PPM | ↓ |
-| **Carbon Intensity** | -10% YoY | -12% | ✓ |
-| **Employee Satisfaction** | >85% | 89% | ↑ |
-| **Data Breaches** | 0 | 0 | → |
-| **Patents Filed** | 300/year | 312 | ↑ |
-| **Risk Events** | <10 major | 7 | ↓ |
-| **ESG Score** | >80 | 83 | ↑ |
+- **New Codes:**  
+  Requests for new codes within the existing controlled vocabularies (e.g., a new SUBTYPE) must be submitted to the designated Governor (e.g., QDAT) for approval and inclusion in the master data repository.
 
 ---
 
-## 📋 Policy Governance
-
-### Review & Update Process
-
-```yaml
-annual_review:
-  - Policy effectiveness assessment
-  - Regulatory change integration
-  - Stakeholder feedback incorporation
-  - Benchmark against best practices
-  
-approval_matrix:
-  minor_updates: "Policy Owner + Legal"
-  major_updates: "Executive Committee"
-  new_policies: "Board approval"
-  
-communication:
-  - All-hands announcement
-  - Training updates
-  - Intranet publication
-  - Multilingual versions
-```
-
-### Policy Contacts
-
-| Policy Area | Owner | Contact |
-|-------------|-------|---------|
-| **Ethics & Conduct** | Chief Ethics Officer | ethics@aqua-v.aero |
-| **Quality** | Chief Quality Officer | quality@aqua-v.aero |
-| **Environmental** | Chief Sustainability Officer | environment@aqua-v.aero |
-| **Human Resources** | Chief People Officer | hr@aqua-v.aero |
-| **Information** | Chief Information Officer | datagovernance@aqua-v.aero |
-| **IP** | Chief Legal Officer | ip@aqua-v.aero |
-| **Risk** | Chief Risk Officer | risk@aqua-v.aero |
-| **Sustainability** | Chief Sustainability Officer | sustainability@aqua-v.aero |
+_End of Annex D_
 
 ---
 
-**Document Status**: APPROVED  
-**Version**: 1.0  
-**Effective Date**: 2025-01-01  
-**Next Review**: 2026-01-01  
-**Owner**: Chief Legal Officer  
-**Classification**: AQUA V. INTERNAL - PUBLIC SUMMARY AVAILABLE
+# ANNEX E: Master Artifact Categories v1.0
 
-**Document ID**: AQV-DOC-25MA0001-OPS-BOB-ORG-TD-ORG-001-00-01-TPL-ORG-003-QDAT-v1.0.0
+**Document Status:** ✅ Complete  
+**Version:** 1.0  
+**Last Updated:** 2025-08-02
 
 ---
 
-**[END OF ANNEX C - CORE POLICIES AND PROCEDURES]**
+## 1.0 Introduction
+
+This annex defines the **12 Master Artifact Categories** that provide a high-level organizational structure for all documentation and data within AQUA V. These categories serve as a primary filter for navigating the Digital Thread and group related policies, templates, and procedures.
+
+While the Nomenclature System v9.0 (see [ANNEX D](#)) provides granular, definitive classification for each artifact through its SUBTYPE and DOMAIN fields, these Master Categories offer a strategic, human-centric view of our information landscape.
 
 ---
 
-# 📋 ANNEX D: Official Nomenclature System v3.1
-## AQUA V. Complete Naming Convention & Digital Thread Architecture
+## 2.0 The 12 Master Categories
+
+Below is a summary table, followed by detailed descriptions.
+
+| Code | Category                       | Purpose (Summary)                      | Primary Governance           |
+|------|-------------------------------|----------------------------------------|-----------------------------|
+| TEC  | Technical Artifacts           | Engineering & technical product data   | CTO Office, All Eng. Q-Div. |
+| ORG  | Organizational Artifacts      | Company structure, governance, ops     | C-Suite, Chief People Officer|
+| FIN  | Financial Artifacts           | Financial data, models, investments    | Chief Financial Officer      |
+| FUN  | Functional Artifacts          | System behavior & user perspective     | Program Mgmt, Sys Eng. Q-Div.|
+| R&I  | Research & Innovation         | Research, tech maturation, innovation  | QSCI-Research, QHPC-Computing|
+| REG  | Regulatory & Certification    | Certification & regulatory docs        | Head of Airworthiness, CLO   |
+| IND  | Industrial Artifacts          | Manufacturing, assembly, industrial    | QIND-Industry, COO           |
+| CES  | Circular & Sustainability     | Environmental impact & sustainability  | QGRE-GreenTech              |
+| MRO  | Maintenance & MRO             | Maintenance, repair, overhaul docs     | Cust. Support, QMEC-Mechanics|
+| MBE  | Marketing, Brand & Engagement | Branding, marketing, communications    | Chief Strategy Officer       |
+| S&L  | Stakeholder & Legal           | Legal contracts, stakeholder docs      | Chief Legal Officer          |
+| CDG  | Cybersecurity & Data Gov.     | Security & data governance             | QDAT-DataGov                 |
 
 ---
 
-## 📑 Table of Contents
+### TEC – Technical Artifacts
+**Purpose:**  
+Encompasses all engineering and technical data that defines the form, fit, and function of products. This is the core of product definition.
 
-- [D.1 General Nomenclature Rule](#d1-general-nomenclature-rule)
-- [D.2 Field Definitions](#d2-field-definitions)
-- [D.3 Examples by Product Line](#d3-examples-by-product-line)
-- [D.4 Technical Document Types](#d4-technical-document-types)
-- [D.5 Version Control System](#d5-version-control-system)
-- [D.6 Digital Thread Integration](#d6-digital-thread-integration)
-- [D.7 MSN Management System](#d7-msn-management-system)
-- [D.8 Implementation Guidelines](#d8-implementation-guidelines)
-- [D.9 Automated Tools & APIs](#d9-automated-tools--apis)
-- [D.10 Compliance & Validation](#d10-compliance--validation)
-- [D.11 Quick Reference Guide](#d11-quick-reference-guide)
+**Typical Artifacts:**
+- 3D Models (CAD), 2D Drawings
+- System Requirements Documents
+- Finite Element Models & Analysis Reports
+- Interface Control Documents (ICDs)
+- Technical Specifications
 
----
-
-## D.1 General Nomenclature Rule
-
-### 🔷 Complete Nomenclature Format v3.1
-
-```
-[LÍNEA]-[PRODUCTO]-[MSN]-[FASE]-[ALI/BOB]-[ARTIFACT]-[TYPE]-[UTCS]-[CÓDIGO]-[TEMPLATE]-[QD]-[VERSIÓN]
-```
-
-### 📊 Field Position Reference
-
-| Position | Field | Length | Type | Required | New in v3.1 |
-|----------|-------|--------|------|----------|-------------|
-| 1 | LÍNEA | 3 | Alpha | ✓ | |
-| 2 | PRODUCTO | 5 | AlphaNum | ✓ | |
-| 3 | MSN | 8 | AlphaNum | ✓ | |
-| 4 | FASE | 3 | Alpha | ✓ | |
-| 5 | ALI/BOB | 3 | Alpha | ✓ | |
-| 6 | ARTIFACT | 3 | Alpha | ✓ | ✅ NEW |
-| 7 | TYPE | 2 | Alpha | ✓ | ✅ EXPANDED |
-| 8 | UTCS | 3-6 | Alpha | ✓ | |
-| 9 | CÓDIGO | 9 | NumDash | ✓ | |
-| 10 | TEMPLATE | 12 | AlphaNumDash | ✓ | |
-| 11 | QD | 4 | Alpha | ✓ | |
-| 12 | VERSIÓN | 6+ | SemVer | ✓ | |
-
-### 🔹 Nomenclature Decomposition Example
-
-```
-AMP-BWB01-25MAP0001-DES-BOB-TEC-TD-ATA-053-00-01-TPL-DES-012-QSTR-v3.1.0
- │    │        │       │   │   │   │  │      │         │        │      │
- │    │        │       │   │   │   │  │      │         │        │      └─ Version (Semantic)
- │    │        │       │   │   │   │  │      │         │        └─────── Q-Division Owner
- │    │        │       │   │   │   │  │      │         └──────────────── Template ID
- │    │        │       │   │   │   │  │      └────────────────────────── UTCS Code
- │    │        │       │   │   │   │  └───────────────────────────────── UTCS Category
- │    │        │       │   │   │   └──────────────────────────────────── Document Type
- │    │        │       │   │   └──────────────────────────────────────── Artifact Category
- │    │        │       │   └──────────────────────────────────────────── Digital Entity
- │    │        │       └──────────────────────────────────────────────── Lifecycle Phase
- │    │        └──────────────────────────────────────────────────────── Manufacturer Serial Number
- │    └───────────────────────────────────────────────────────────────── Product Code
- └────────────────────────────────────────────────────────────────────── Product Line
-```
+**Primary Governance:** CTO Office, All Engineering Q-Divisions
 
 ---
 
-## D.2 Field Definitions
+### ORG – Organizational Artifacts
+**Purpose:**  
+Defines company structure, governance, and operational processes.
 
-### 📋 Complete Field Specifications
+**Typical Artifacts:**
+- Organization Charts ([ANNEX A](#))
+- Core Policies & Procedures ([ANNEX C](#))
+- Q-Division Competency Matrices ([ANNEX B](#))
+- Role Descriptions
+- Business Process Models
 
-#### **LÍNEA - Product Line Codes (4 Lines)**
-
-| Code | Full Name | Products | Annual Capacity |
-|------|-----------|----------|-----------------|
-| **AMP** | AMPEL360 | Passenger aircraft | 100 aircraft |
-| **GAI** | GAIA AIR & SPACE | Unmanned systems | 500 units |
-| **ROB** | ROBBBO-T | Robotic systems | 300 units |
-| **QUA** | QUANTUM | Quantum technologies | 200 systems |
-
-#### **PRODUCTO - Product Codes**
-
-```yaml
-AMPEL360_Aircraft:
-  BWB01: "Blended Wing Body 120-180 pax"
-  BWB02: "Blended Wing Body 220-300 pax"
-  EVTOL: "Urban eVTOL 2-6 pax"
-  HYB01: "Hybrid-Electric 180-220 pax"
-  SUB01: "Suborbital 6-8 pax"
-  ORB01: "Orbital 4-6 pax"
-
-GAIA_Systems:
-  UAV01-05: "UAV variants"
-  SAT01-05: "Satellite constellations"
-  ROV01-05: "Planetary rovers"
-  CRG01-04: "Cargo drones"
-
-ROBBBO_Robots:
-  FAL01-05: "Factory automation"
-  MRO01-05: "Maintenance robots"
-  SPC01-04: "Space operations"
-  EXP01-04: "Extreme environment"
-
-QUANTUM_Systems:
-  QNS01: "Quantum Navigation System"
-  QDS01: "Quantum Diagnostic System"
-  QSM01: "Quantum Structural Monitor"
-  QPU01: "Quantum Processing Unit"
-  QKD01: "Quantum Key Distribution"
-  QRS01: "Quantum Radar System"
-  QGR01: "Quantum Gravitometer"
-  QMG01: "Quantum Magnetometer"
-  QCN01: "Quantum Clock Network"
-  QAI01: "Quantum AI Processor"
-```
-
-#### **MSN - Manufacturer Serial Number**
-
-```
-Format: YYSSTNNNN
-
-Components:
-├── YY: Year (25=2025, 26=2026, etc.)
-├── SS: Site Code (see matrix below)
-├── T: Type Code
-│   ├── P: Prototype
-│   ├── D: Development/Test
-│   ├── S: Series Production
-│   ├── C: Customer Specific
-│   ├── Q: Quantum-Enhanced
-│   ├── R: Retrofit/Upgrade
-│   └── X: Experimental
-└── NNNN: Sequential (0001-9999)
-```
-
-#### **Manufacturing Sites (6 Strategic Locations)**
-
-| Code | Location | Country | Specialization | Example MSN |
-|------|----------|---------|----------------|-------------|
-| **MA** | Madrid | Spain | HQ & Final Assembly | 25MAP0001 |
-| **TO** | Toulouse | France | Aero & Certification | 25TOD0001 |
-| **MU** | Munich | Germany | Propulsion & Quantum | 25MUS0001 |
-| **NA** | Naples | Italy | Composites & Materials | 25NAP0001 |
-| **SG** | Singapore | Asia | Asia Hub & Production | 25SGS0001 |
-| **SV** | Silicon Valley | USA | Software & Quantum | 25SVQ0001 |
-
-#### **FASE - Lifecycle Phase Codes**
-
-| Code | Phase | Duration | Documents Generated |
-|------|-------|----------|-------------------|
-| **CON** | Conceptual | 6-12 months | 50-100 |
-| **DES** | Design | 12-24 months | 500-1,000 |
-| **DEV** | Development | 18-36 months | 1,000-2,000 |
-| **TST** | Testing | 12-24 months | 2,000-5,000 |
-| **INT** | Integration | 6-12 months | 500-1,000 |
-| **CRT** | Certification | 12-18 months | 1,000-2,000 |
-| **PRD** | Production | Ongoing | 5,000-10,000 |
-| **MNT** | Maintenance | Aircraft life | Continuous |
-| **OPS** | Operations | Aircraft life | Continuous |
-| **REP** | Repair | As needed | Variable |
-| **RET** | Retirement | 6-12 months | 100-500 |
-
-#### **ALI/BOB - Digital Entity Types**
-
-| Code | System | Description | Examples |
-|------|--------|-------------|----------|
-| **ALI** | ALICE | **Physical System** | Hardware, components, real modules |
-| **BOB** | BOB | **Digital/Virtual System** | Digital twins, simulations, software |
-
-#### **ARTIFACT - Master Artifact Categories (NEW in v3.1)**
-
-| Code | Category | Description | Document Count |
-|------|----------|-------------|----------------|
-| **TEC** | Technical | Engineering specs, designs | 50,000+ |
-| **ORG** | Organizational | HR, governance, training | 10,000+ |
-| **FIN** | Financial | Budgets, reports, models | 5,000+ |
-| **FUN** | Functional | Procedures, operations | 15,000+ |
-| **R&I** | Research & Innovation | Studies, papers, patents | 20,000+ |
-| **REG** | Regulatory | Certification, compliance | 25,000+ |
-| **IND** | Industrial | Manufacturing, production | 30,000+ |
-| **CES** | Circular & Sustainability | Environmental, ESG | 8,000+ |
-| **MRO** | Maintenance & Repair | Service, overhaul | 40,000+ |
-| **MBE** | Marketing & Brand | Communications, PR | 3,000+ |
-| **S&L** | Stakeholder & Legal | Contracts, agreements | 5,000+ |
-| **CDG** | Cyber & Data Gov | Security, data mgmt | 15,000+ |
-
-#### **TYPE - Document/Module Types (EXPANDED in v3.1)**
-
-| Code | Type | Description | Format |
-|------|------|-------------|--------|
-| **TD** | Technical Document | Written documentation | PDF/XML/JSON |
-| **DT** | Digital Twin | Virtual models | 3D/Binary/RT |
-| **SM** | Software Module | Code, algorithms | Source/Binary |
-| **HM** | Hardware Module | Physical specs | CAD/STEP |
-| **IR** | Internal Report | Internal studies | PDF/DOCX |
-| **PM** | Publication Module | External papers | PDF/LaTeX |
-
-#### **UTCS Categories**
-
-| Code | Architecture | Range | Focus |
-|------|--------------|-------|-------|
-| **ATA** | Aerospace Technology | 000-099 | Aircraft systems |
-| **STA** | Space Technology | 100-199 | Space ops |
-| **DTTA** | Defence Technology | 200-299 | Defense |
-| **DTCEC** | Digital Twin/Cloud | 300-399 | Digital |
-| **EPTA** | Energy & Propulsion | 400-499 | Power |
-| **AMTA** | Advanced Materials | 500-599 | Materials |
-| **OGATA** | Ground Automation | 600-699 | Ground ops |
-| **ACV** | Aerial City Viability | 700-799 | Urban air |
-| **CYB** | Cybersecurity | 800-899 | Security |
-| **QCSAA** | Quantum Computing | 900-999 | Quantum |
-
-#### **Q-Division Codes**
-
-| Code | Division | Focus | Staff |
-|------|----------|-------|-------|
-| **QSTR** | Q-Structures | Airframe & materials | 450 |
-| **QAIR** | Q-Air | Aerodynamics | 380 |
-| **QGRE** | Q-GreenTech | Sustainability | 220 |
-| **QMEC** | Q-Mechanics | Systems | 340 |
-| **QPOW** | Q-PowerSense | Propulsion | 420 |
-| **QSPA** | Q-Space | Space ops | 280 |
-| **QIND** | Q-Industry | Manufacturing | 510 |
-| **QGRO** | Q-Ground | Infrastructure | 190 |
-| **QDAT** | Q-DataGov | Data & security | 260 |
-| **QHPC** | Q-HPC | Computing | 310 |
-| **QCOM** | Q-Comm | Communications | 240 |
-| **QSCI** | Q-SciRes | Research | 180 |
+**Primary Governance:** C-Suite, Chief People Officer (CPO)
 
 ---
 
-## D.3 Examples by Product Line
+### FIN – Financial Artifacts
+**Purpose:**  
+Manages all financial data, budgeting, forecasting, investments, and revenue modeling.
 
-### 🛩️ AMPEL360 Examples
+**Typical Artifacts:**
+- Financial Models & Forecasts ([ANNEX K](#))
+- Investment Term Sheets ([ANNEX L](#))
+- Budgets & Cost Reports
+- Business Cases
+- Shareholder Communications
 
-```
-PHYSICAL AIRCRAFT COMPONENT:
-AMP-BWB01-25MAP0001-PRD-ALI-TEC-HM-ATA-053-00-01-TPL-PRD-003-QSTR-v3.1.0
-└─ Physical wing structure hardware module in production
-
-DIGITAL DESIGN DOCUMENT:
-AMP-BWB01-25MAP0001-DES-BOB-TEC-TD-ATA-053-00-01-TPL-DES-012-QSTR-v3.1.0
-└─ Digital design documentation for wing structure
-
-CERTIFICATION REPORT:
-AMP-BWB01-25TOD0001-CRT-BOB-REG-TD-ATA-000-00-03-TPL-CRT-001-QAIR-v1.0.0
-└─ Certification compliance document from Toulouse
-
-INTERNAL ANALYSIS:
-AMP-BWB01-25MAP0001-CON-BOB-R&I-IR-DTCEC-380-00-01-TPL-CON-014-QSCI-v2.0.0
-└─ Internal market analysis report
-```
-
-### 🛸 GAIA AIR & SPACE Examples
-
-```
-UAV QUANTUM NAVIGATION:
-GAI-UAV01-25SGS0001-TST-ALI-TEC-SM-QCSAA-920-15-03-TPL-TST-009-QCOM-v1.2.0
-└─ Physical quantum navigation software module
-
-SATELLITE PUBLICATION:
-GAI-SAT01-25SVP0001-RES-BOB-R&I-PM-STA-160-00-01-TPL-QSCI-002-QSCI-v1.0.0
-└─ Published research paper on satellite constellation
-
-ROVER MAINTENANCE MANUAL:
-GAI-ROV03-25MAP0001-MNT-BOB-MRO-TD-STA-141-00-01-TPL-MNT-008-QSPA-v2.0.0
-└─ Digital maintenance manual for Mars rover
-```
-
-### 🤖 ROBBBO-T Examples
-
-```
-FACTORY ROBOT HARDWARE:
-ROB-FAL01-25MIS0001-PRD-ALI-IND-HM-OGATA-600-10-01-TPL-PRD-003-QIND-v2.0.0
-└─ Physical factory robot assembly
-
-AI VISION SOFTWARE:
-ROB-FAL01-25SVD0001-DEV-BOB-TEC-SM-DTCEC-320-50-01-TPL-DEV-009-QHPC-v1.8.0
-└─ Digital AI vision system software
-```
-
-### ⚛️ QUANTUM Examples
-
-```
-QPU HARDWARE MODULE:
-QUA-QPU01-25MUQ0001-PRD-ALI-TEC-HM-QCSAA-900-00-01-TPL-PRD-016-QHPC-v1.0.0
-└─ Physical quantum processing unit
-
-QUANTUM ALGORITHM:
-QUA-QNS01-25SVD0001-DEV-BOB-TEC-SM-QCSAA-920-10-01-TPL-DEV-016-QHPC-v2.3.0
-└─ Digital quantum navigation algorithm
-```
+**Primary Governance:** Chief Financial Officer (CFO)
 
 ---
 
-## D.4 Technical Document Types
+### FUN – Functional Artifacts
+**Purpose:**  
+Describes intended system behavior and performance from a user or operational perspective.
 
-### 📄 Document Type Usage Matrix
+**Typical Artifacts:**
+- Use Case Documents
+- Operational Scenarios
+- Functional Hazard Assessments (FHA)
+- Concept of Operations (CONOPS)
+- System Functional Descriptions
 
-| Type | Physical (ALI) | Digital (BOB) | Artifact Categories |
-|------|---------------|---------------|-------------------|
-| **TD** | ❌ | ✅ | All categories |
-| **DT** | ❌ | ✅ | TEC, FUN, IND, MRO |
-| **SM** | ✅ | ✅ | TEC, FUN, CDG |
-| **HM** | ✅ | ❌ | TEC, IND, MRO |
-| **IR** | ❌ | ✅ | All categories |
-| **PM** | ❌ | ✅ | R&I, CES, MBE |
-
-### Document Type Specifications
-
-```yaml
-TD_Technical_Document:
-  purpose: "Traditional documentation"
-  formats: ["PDF", "XML", "JSON", "HTML"]
-  examples:
-    - Design specifications
-    - Test reports
-    - Manuals
-    - Procedures
-
-DT_Digital_Twin:
-  purpose: "Virtual representations"
-  formats: ["3D", "Binary", "Real-time"]
-  examples:
-    - Aircraft digital twin
-    - System simulations
-    - Virtual prototypes
-
-SM_Software_Module:
-  purpose: "Executable code"
-  formats: ["Source", "Binary", "Container"]
-  examples:
-    - Flight control software
-    - AI algorithms
-    - Quantum programs
-
-HM_Hardware_Module:
-  purpose: "Physical components"
-  formats: ["CAD", "STEP", "Technical drawings"]
-  examples:
-    - Structural parts
-    - Electronic boards
-    - Mechanical systems
-
-IR_Internal_Report:
-  purpose: "Internal analysis"
-  formats: ["PDF", "DOCX", "HTML"]
-  examples:
-    - Business reviews
-    - Risk assessments
-    - Market studies
-
-PM_Publication_Module:
-  purpose: "External publications"
-  formats: ["PDF", "LaTeX", "EPUB"]
-  examples:
-    - Research papers
-    - Conference proceedings
-    - Whitepapers
-```
+**Primary Governance:** Program Management, Systems Engineering Q-Divisions
 
 ---
 
-## D.5 Version Control System
+### R&I – Research & Innovation
+**Purpose:**  
+Captures technology maturation, research, and disruptive innovation prior to formal product development.
 
-### 📊 Semantic Versioning Rules
+**Typical Artifacts:**
+- Research Proposals & White Papers
+- Technology Readiness Level (TRL) Assessments
+- Patent Applications
+- University Partnership Agreements
+- Lab Test Results & Reports
 
-```
-Format: vMAJOR.MINOR.PATCH[-PRERELEASE][+BUILD]
-
-Where:
-- MAJOR: Breaking changes, new variants
-- MINOR: New features, backwards compatible
-- PATCH: Bug fixes, minor updates
-- PRERELEASE: alpha, beta, rc1, rc2
-- BUILD: Build metadata
-```
-
-### Version Lifecycle
-
-```mermaid
-graph LR
-    v0[v0.1.0-alpha] --> v1[v0.5.0-beta]
-    v1 --> v2[v1.0.0-rc1]
-    v2 --> v3[v1.0.0]
-    v3 --> v4[v1.1.0]
-    v4 --> v5[v2.0.0]
-    
-    style v3 fill:#9f9,stroke:#333,stroke-width:2px
-```
-
-### Version Rules by Phase
-
-| Phase | Version Pattern | Example | Stability |
-|-------|----------------|---------|-----------|
-| CON | v0.0.x - v0.9.x | v0.1.0-alpha | Experimental |
-| DES | v1.0.0-alpha - v1.9.x | v1.5.0-beta | Unstable |
-| DEV | v2.0.0-beta - v2.9.x | v2.3.1-beta.2 | Testing |
-| TST | v3.0.0-rc - v3.9.x | v3.0.0-rc.1 | Stabilizing |
-| CRT | v4.0.0 - v4.9.x | v4.1.0 | Certified |
-| PRD | v5.0.0+ | v5.2.3 | Production |
+**Primary Governance:** QSCI-Research, QHPC-Computing
 
 ---
 
-## D.6 Digital Thread Integration
+### REG – Regulatory & Certification
+**Purpose:**  
+Manages all documentation required for achieving and maintaining certification from authorities.
 
-### 🔗 Digital Thread Architecture
+**Typical Artifacts:**
+- Certification Plans
+- Compliance Checklists
+- Means of Compliance Documents
+- Test Witnessing Reports
+- Communications with Authorities (EASA, FAA)
 
-```yaml
-digital_thread:
-  unique_id: "Full nomenclature string"
-  blockchain:
-    algorithm: "SHA-256"
-    network: "Permissioned consortium"
-    nodes: ["Madrid", "Toulouse", "Munich", "Naples", "Singapore", "SiliconValley"]
-  
-  quantum_security:
-    signature: "QKD-YYYY-MM-DD-SS-NNNN"
-    encryption: "Post-quantum lattice-based"
-    key_rotation: "Daily"
-  
-  metadata:
-    created: "ISO 8601 timestamp"
-    author: "employee@aqua-v.aero"
-    location: "Site code"
-    classification: ["PUBLIC", "INTERNAL", "CONFIDENTIAL", "SECRET", "QUANTUM-SECRET"]
-    
-  relationships:
-    parents: ["Array of parent IDs"]
-    children: ["Array of child IDs"]
-    interfaces: ["Related documents"]
-    standards: ["Applicable regulations"]
-```
-
-### Digital Thread Example
-
-```json
-{
-  "document_id": "AMP-BWB01-25MAP0001-DES-BOB-TEC-TD-ATA-053-00-01-TPL-DES-012-QSTR-v3.1.0",
-  "blockchain": {
-    "hash": "7d865e959b2466918c9863afca942d0fb89d7c9ac0c99bafc3749504ded97730",
-    "previous_hash": "6c754f8a8b2e5d1c9f3a7e0b4d2c8f1a5e9d3b7c6a4f8e2d1c9b3a7e0f4d2c8f",
-    "timestamp": "2025-07-27T10:30:00.000Z",
-    "node": "madrid-blockchain-01"
-  },
-  "quantum_signature": {
-    "signature": "QKD-2025-07-27-MA-0001",
-    "algorithm": "Lattice-CRYSTALS-Dilithium",
-    "valid_until": "2025-07-28T10:30:00.000Z"
-  },
-  "physical_digital_link": {
-    "physical_twin": "AMP-BWB01-25MAP0001-PRD-ALI-TEC-HM-ATA-053-00-01",
-    "sync_status": "real-time",
-    "last_sync": "2025-07-27T10:29:45.000Z"
-  }
-}
-```
+**Primary Governance:** Head of Airworthiness, CLO (Legal)
 
 ---
 
-## D.7 MSN Management System
+### IND – Industrial Artifacts
+**Purpose:**  
+Defines and controls manufacturing, assembly, and industrialization processes.
 
-### 📊 MSN Lifecycle States
+**Typical Artifacts:**
+- Manufacturing & Assembly Plans
+- Work Instructions & SOPs
+- Factory Layouts & Process Simulations
+- Supply Chain & Logistics Plans
+- Quality Control & Inspection Reports
 
-```mermaid
-stateDiagram-v2
-    [*] --> ALLOCATED: MSN Reserved
-    ALLOCATED --> PRODUCTION: Manufacturing Start
-    PRODUCTION --> TESTING: Build Complete
-    TESTING --> CERTIFIED: Tests Passed
-    CERTIFIED --> DELIVERED: Customer Accept
-    DELIVERED --> OPERATIONAL: In Service
-    OPERATIONAL --> MAINTENANCE: Scheduled/Unscheduled
-    MAINTENANCE --> OPERATIONAL: Service Complete
-    OPERATIONAL --> STORAGE: Long-term Storage
-    STORAGE --> OPERATIONAL: Return to Service
-    STORAGE --> RETIRED: End of Service
-    OPERATIONAL --> RETIRED: Direct Retirement
-    RETIRED --> RECYCLED: Materials Recovery
-    RECYCLED --> [*]: End State
-```
-
-### MSN Allocation Strategy
-
-```yaml
-allocation_rules:
-  prototype_range:
-    P0001-P0099: "99 prototypes max per type/year"
-    
-  development_range:
-    D0001-D0999: "999 development articles"
-    
-  series_production:
-    S0001-S9999: "9,999 units per site/year"
-    
-  special_allocations:
-    Q0001-Q0099: "Quantum-enhanced specials"
-    C0001-C0999: "Customer specific"
-    X0001-X0099: "Experimental"
-    R0001-R0999: "Retrofits"
-    
-  site_blocks:
-    madrid: "MA series allocated in blocks of 100"
-    munich: "MU focus on propulsion MSNs"
-    naples: "NA composite structure tracking"
-```
-
-### MSN Database Schema
-
-```sql
-CREATE TABLE msn_master (
-    msn VARCHAR(8) PRIMARY KEY,
-    year CHAR(2) NOT NULL,
-    site_code CHAR(2) NOT NULL,
-    type_code CHAR(1) NOT NULL,
-    sequential_number INT NOT NULL,
-    product_line VARCHAR(3) NOT NULL,
-    product_code VARCHAR(5) NOT NULL,
-    current_status VARCHAR(20) NOT NULL,
-    blockchain_genesis VARCHAR(64) UNIQUE,
-    
-    CONSTRAINT chk_site CHECK (site_code IN ('MA','TO','MU','NA','SG','SV')),
-    CONSTRAINT chk_type CHECK (type_code IN ('P','D','S','C','Q','R','X')),
-    
-    INDEX idx_status (current_status),
-    INDEX idx_product (product_line, product_code),
-    INDEX idx_site_year (site_code, year)
-);
-```
+**Primary Governance:** QIND-Industry, Chief Operating Officer (COO)
 
 ---
 
-## D.8 Implementation Guidelines
+### CES – Circular & Sustainability
+**Purpose:**  
+Tracks and manages environmental impact, sustainability goals, and circular economy initiatives.
 
-### 🚀 Phased Implementation
+**Typical Artifacts:**
+- Life Cycle Assessment (LCA) Reports
+- Emissions Monitoring Data
+- Material Recyclability Analyses
+- Sustainability & ESG Reports
+- Environmental Compliance Audits
 
-#### Phase 1: Foundation (Q3 2025)
-```yaml
-objectives:
-  - Deploy nomenclature database
-  - Train key personnel (500 users)
-  - Implement validation APIs
-  - Create first 1,000 documents
-  
-deliverables:
-  - Nomenclature service v1.0
-  - Training materials
-  - API documentation
-  - Initial document corpus
-```
-
-#### Phase 2: Integration (Q4 2025)
-```yaml
-objectives:
-  - PLM system integration
-  - Blockchain deployment
-  - Quantum security layer
-  - Full site rollout
-  
-deliverables:
-  - Integrated PLM-nomenclature
-  - Blockchain verification
-  - QKD implementation
-  - 6 sites operational
-```
-
-#### Phase 3: Optimization (Q1 2026)
-```yaml
-objectives:
-  - AI-powered suggestions
-  - Performance optimization
-  - Advanced analytics
-  - Global deployment
-  
-deliverables:
-  - ML nomenclature assistant
-  - Sub-second validation
-  - Analytics dashboard
-  - 100% adoption
-```
-
-### 🔧 Best Practices
-
-```yaml
-naming_conventions:
-  consistency:
-    - Always uppercase for codes
-    - No spaces, only dashes
-    - Exact field lengths
-    - UTF-8 encoding only
-    
-  validation:
-    - Real-time syntax check
-    - Semantic validation
-    - Duplicate prevention
-    - Cross-reference verification
-    
-  security:
-    - Quantum-resistant by default
-    - Role-based generation
-    - Audit all changes
-    - Annual security review
-```
+**Primary Governance:** QGRE-GreenTech
 
 ---
 
-## D.9 Automated Tools & APIs
+### MRO – Maintenance & MRO
+**Purpose:**  
+Develops and manages documentation for maintenance, repair, and overhaul of products.
 
-### 🔧 Nomenclature Service API v3.1
+**Typical Artifacts:**
+- Aircraft Maintenance Manual (AMM)
+- Illustrated Parts Catalog (IPC)
+- Troubleshooting Manuals (TSM)
+- Service Bulletins (SB)
+- MRO Training Materials
 
-#### REST API Endpoints
-
-```yaml
-base_url: "https://api.aqua-v.aero/nomenclature/v3"
-
-endpoints:
-  generate:
-    POST /generate
-    description: "Generate new nomenclature"
-    
-  validate:
-    POST /validate
-    description: "Validate nomenclature string"
-    
-  decode:
-    GET /decode/{nomenclature}
-    description: "Decode into components"
-    
-  search:
-    GET /search
-    description: "Search by components"
-    
-  msn:
-    POST /msn/allocate
-    GET /msn/{msn}/status
-    PUT /msn/{msn}/transition
-    
-  artifact:
-    GET /artifact/categories
-    GET /artifact/{category}/templates
-    
-  digital_thread:
-    GET /thread/{nomenclature}
-    POST /thread/link
-```
-
-#### API Examples
-
-```bash
-# Generate nomenclature with artifact category
-curl -X POST https://api.aqua-v.aero/nomenclature/v3/generate \
-  -H "Authorization: Bearer $TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "product_line": "AMP",
-    "product": "BWB01",
-    "msn": "25MAP0001",
-    "phase": "DES",
-    "entity": "BOB",
-    "artifact_category": "TEC",
-    "document_type": "TD",
-    "utcs_category": "ATA",
-    "utcs_code": "053-00-01",
-    "template": "TPL-DES-012",
-    "q_division": "QSTR",
-    "version": "3.1.0"
-  }'
-
-# Response
-{
-  "nomenclature": "AMP-BWB01-25MAP0001-DES-BOB-TEC-TD-ATA-053-00-01-TPL-DES-012-QSTR-v3.1.0",
-  "valid": true,
-  "blockchain_hash": "7d865e959b2466918c9863afca942d0fb89d7c9ac0c99bafc3749504ded97730",
-  "quantum_signature": "QKD-2025-07-27-MA-0001",
-  "created": "2025-07-27T12:00:00.000Z"
-}
-```
-
-### Automated Tools
-
-```yaml
-nomenclature_generator:
-  web_app: "https://tools.aqua-v.aero/nomenclature"
-  features:
-    - Guided form with validation
-    - Template auto-selection
-    - MSN allocation
-    - Version management
-    
-batch_processor:
-  cli: "aqua-nom"
-  capabilities:
-    - CSV import/export
-    - Bulk generation
-    - Migration tools
-    - Validation reports
-    
-integrations:
-  plm_systems:
-    - Siemens Teamcenter
-    - Dassault 3DEXPERIENCE
-    - PTC Windchill
-  
-  cad_tools:
-    - CATIA V6
-    - NX
-    - SolidWorks
-    
-  erp_systems:
-    - SAP S/4HANA
-    - Oracle Cloud
-```
+**Primary Governance:** Customer Support & Services, QMEC-Mechanics
 
 ---
 
-## D.10 Compliance & Validation
+### MBE – Marketing, Brand & Engagement
+**Purpose:**  
+Manages external communications, branding, marketing, and stakeholder engagement.
 
-### ✅ Validation Rules Engine
+**Typical Artifacts:**
+- Brand Guidelines
+- Marketing Campaign Materials
+- Press Releases
+- Product Brochures & Datasheets
+- Public Website Content
 
-```yaml
-syntax_validation:
-  field_lengths:
-    LÍNEA: exactly 3
-    PRODUCTO: exactly 5
-    MSN: exactly 8
-    All fields: no spaces
-    
-  character_sets:
-    - Uppercase only (except version)
-    - Alphanumeric + dash
-    - Version starts with 'v'
-    
-semantic_validation:
-  cross_field_rules:
-    - If ARTIFACT=REG, FASE typically CRT
-    - If ARTIFACT=MRO, FASE in [MNT,OPS,REP]
-    - If TYPE=HM, ENTITY must be ALI
-    - If TYPE=DT, ENTITY must be BOB
-    
-  msn_rules:
-    - Year must be current or future
-    - Site must be active
-    - Sequential must be allocated
-    - Type must match product
-    
-business_validation:
-  authorization:
-    - User must belong to Q-Division
-    - Template must be approved
-    - Version must increment properly
-    - MSN must be reserved
-```
-
-### Validation Response Codes
-
-| Code | Status | Description | Action |
-|------|--------|-------------|--------|
-| 200 | Valid | All checks passed | Proceed |
-| 400 | Syntax Error | Format violation | Fix format |
-| 401 | Unauthorized | No permission | Check access |
-| 409 | Duplicate | Already exists | Use existing |
-| 422 | Semantic Error | Logic violation | Review rules |
+**Primary Governance:** Chief Strategy Officer (CSO)
 
 ---
 
-## D.11 Quick Reference Guide
+### S&L – Stakeholder & Legal
+**Purpose:**  
+Manages legal contracts, agreements, and communications with stakeholders.
 
-### 📋 Nomenclature At-a-Glance
+**Typical Artifacts:**
+- Supplier & Partner Contracts
+- Non-Disclosure Agreements (NDAs)
+- Customer Purchase Agreements
+- Intellectual Property Agreements
+- Legal Briefs & Memoranda
 
-```
-[LINE]-[PROD]-[MSN8CHAR]-[PHS]-[A/B]-[ART]-[TY]-[UTCS]-[CODE9DIG]-[TEMPL12CHR]-[QDIV]-[vX.Y.Z]
- AMP - BWB01- 25MAP0001- DES - BOB - TEC - TD - ATA  - 053-00-01 - TPL-DES-012- QSTR -v3.1.0
-```
-
-### Quick Lookup Tables
-
-#### Product Lines
-```
-AMP = AMPEL360 (Passenger)
-GAI = GAIA (Unmanned)
-ROB = ROBBBO-T (Robotics)
-QUA = QUANTUM (Q-Systems)
-```
-
-#### Manufacturing Sites
-```
-MA = Madrid    TO = Toulouse
-MU = Munich    NA = Naples
-SG = Singapore SV = Silicon Valley
-```
-
-#### Common Phases
-```
-DES = Design   PRD = Production
-TST = Testing  OPS = Operations
-MNT = Maintenance
-```
-
-#### Physical vs Digital
-```
-ALI = Physical System
-BOB = Digital System
-```
-
-### Validation Checklist
-
-- [ ] All fields present (12 total)
-- [ ] Correct field lengths
-- [ ] Valid codes used
-- [ ] MSN allocated
-- [ ] Template exists
-- [ ] Version increments properly
-- [ ] Q-Division authorized
-- [ ] Artifact category matches content
-
-### Common Patterns
-
-```yaml
-design_document:
-  pattern: "*-DES-BOB-TEC-TD-*"
-  
-production_hardware:
-  pattern: "*-PRD-ALI-TEC-HM-*"
-  
-test_software:
-  pattern: "*-TST-*-TEC-SM-*"
-  
-maintenance_manual:
-  pattern: "*-MNT-BOB-MRO-TD-*"
-  
-certification_doc:
-  pattern: "*-CRT-BOB-REG-TD-*"
-```
+**Primary Governance:** Chief Legal Officer (CLO)
 
 ---
 
-## 📊 Implementation Metrics
+### CDG – Cybersecurity & Data Governance
+**Purpose:**  
+Defines and manages policies, architecture, and procedures for protecting digital assets and governing data.
 
-### Current Status (As of 2025-07-27)
+**Typical Artifacts:**
+- Cybersecurity Policies & Architecture Documents
+- Data Governance Framework
+- Security Audit Reports
+- Incident Response Plans
+- Nomenclature System Definitions ([ANNEX D](#))
 
-| Metric | Target | Actual | Status |
-|--------|--------|--------|--------|
-| **Documents Created** | 1,000 | 0 | 🔄 Starting |
-| **Sites Deployed** | 6 | 0 | 🔄 Q3 2025 |
-| **Users Trained** | 500 | 0 | 🔄 Planned |
-| **API Uptime** | 99.9% | N/A | 🔄 Pre-launch |
-| **Validation Speed** | <100ms | N/A | 🔄 Testing |
-
----
-
-**Document Status**: APPROVED  
-**Version**: 3.1  
-**Effective Date**: 2025-08-01  
-**Next Review**: 2026-01-01  
-**Owner**: Chief Technology Officer  
-**Classification**: AQUA V. STANDARD - MANDATORY COMPLIANCE
-
-**Document ID**: AQV-DOC-25MA0001-OPS-BOB-ORG-TD-ORG-001-00-04-TPL-ORG-001-QDAT-v3.1.0
+**Primary Governance:** QDAT-DataGov
 
 ---
 
-**[END OF ANNEX D - OFFICIAL NOMENCLATURE SYSTEM]**
+_End of Annex E_
 
----
-
-# 📋 ANNEX E: Master Artifact Categories v1.0
-## AQUA V. Comprehensive Artifact Taxonomy System
-
----
-
-## 📑 Table of Contents
-
-- [E.1 Introduction & Framework](#e1-introduction--framework)
-- [E.2 Technical Artifacts (TEC)](#e2-technical-artifacts-tec)
-- [E.3 Organizational Artifacts (ORG)](#e3-organizational-artifacts-org)
-- [E.4 Financial Artifacts (FIN)](#e4-financial-artifacts-fin)
-- [E.5 Functional Artifacts (FUN)](#e5-functional-artifacts-fun)
-- [E.6 Research & Innovation Artifacts (R&I)](#e6-research--innovation-artifacts-ri)
-- [E.7 Regulatory & Certification Artifacts (REG)](#e7-regulatory--certification-artifacts-reg)
-- [E.8 Industrial Artifacts (IND)](#e8-industrial-artifacts-ind)
-- [E.9 Circular Economy & Sustainability Artifacts (CES)](#e9-circular-economy--sustainability-artifacts-ces)
-- [E.10 Maintenance & MRO Artifacts (MRO)](#e10-maintenance--mro-artifacts-mro)
-- [E.11 Marketing, Brand & Engagement Artifacts (MBE)](#e11-marketing-brand--engagement-artifacts-mbe)
-- [E.12 Stakeholder & Legal Artifacts (S&L)](#e12-stakeholder--legal-artifacts-sl)
-- [E.13 Cybersecurity & Data Governance Artifacts (CDG)](#e13-cybersecurity--data-governance-artifacts-cdg)
-- [E.14 Cross-Category Integration](#e14-cross-category-integration)
-- [E.15 Knowledge Management Framework](#e15-knowledge-management-framework)
-- [E.16 Implementation Guidelines](#e16-implementation-guidelines)
-
----
-
-## E.1 Introduction & Framework
-
-### 🎯 Purpose
-
-The AQUA V. Master Artifact Categories System provides a comprehensive framework for organizing, managing, and leveraging all documentation, data, and deliverables across the €40B program. This taxonomy ensures every artifact has a designated home, enhancing governance, traceability, and operational efficiency.
-
-### 📊 Category Overview
-
-```mermaid
-pie title Artifact Distribution by Category (225,000+ Documents)
-    "Technical (TEC)" : 50000
-    "Maintenance & MRO" : 40000
-    "Industrial" : 30000
-    "Regulatory" : 25000
-    "Research & Innovation" : 20000
-    "Functional" : 15000
-    "Cybersecurity & Data" : 15000
-    "Organizational" : 10000
-    "Circular & Sustainability" : 8000
-    "Financial" : 5000
-    "Stakeholder & Legal" : 5000
-    "Marketing & Brand" : 3000
-```
-
-### 🔑 Core Principles
-
-```yaml
-principles:
-  comprehensiveness: "Every artifact type has a clear category"
-  scalability: "System grows with program expansion"
-  traceability: "Full lifecycle tracking via nomenclature"
-  integration: "Seamless cross-category relationships"
-  security: "Quantum-safe protection throughout"
-  sustainability: "Circular economy principles embedded"
-  
-benefits:
-  - Reduced search time by 80%
-  - Improved compliance tracking
-  - Enhanced knowledge retention
-  - Accelerated decision-making
-  - Optimized resource allocation
-```
-
----
-
-## E.2 Technical Artifacts (TEC)
-
-### 📐 Category Overview
-
-**Code**: TEC  
-**Description**: Core engineering and technical documentation  
-**Document Count**: 50,000+  
-**Priority**: Critical
-
-### Subcategories
-
-```yaml
-TEC-001: Engineering Specifications
-  description: "Design specs, requirements, architectures"
-  count: 15,000
-  templates:
-    - TPL-DES-001 to TPL-DES-050
-  examples:
-    - System requirements documents
-    - Component specifications
-    - Interface control documents
-    - Architecture definitions
-
-TEC-002: Test & Validation
-  description: "Test procedures, results, validation reports"
-  count: 12,000
-  templates:
-    - TPL-TST-001 to TPL-TST-030
-  examples:
-    - Test plans
-    - Test procedures
-    - Test results
-    - Validation certificates
-
-TEC-003: Digital Twins & Simulations
-  description: "Virtual models, simulations, digital representations"
-  count: 8,000
-  templates:
-    - TPL-DIG-001 to TPL-DIG-020
-  examples:
-    - 3D CAD models
-    - CFD simulations
-    - Real-time digital twins
-    - FEA analyses
-
-TEC-004: Intellectual Property
-  description: "Patents, trade secrets, technical disclosures"
-  count: 5,000
-  templates:
-    - TPL-IP-001 to TPL-IP-010
-  examples:
-    - Patent applications
-    - Invention disclosures
-    - Trade secret documentation
-    - Prior art analyses
-
-TEC-005: Quantum Systems
-  description: "Quantum-specific technical documentation"
-  count: 10,000
-  templates:
-    - TPL-QUA-001 to TPL-QUA-025
-  examples:
-    - QPU specifications
-    - Quantum algorithms
-    - Decoherence studies
-    - QKD protocols
-```
-
-### UTCS Mapping
-
-| Subcategory | Primary UTCS | Secondary UTCS |
-|-------------|--------------|----------------|
-| TEC-001 | ATA (000-099) | QCSAA (900-999) |
-| TEC-002 | ATA (000-099) | STA (100-199) |
-| TEC-003 | DTCEC (300-399) | ATA (000-099) |
-| TEC-004 | All applicable | - |
-| TEC-005 | QCSAA (900-999) | All applicable |
-
-### Document Types Distribution
-
-```mermaid
-graph LR
-    TEC[TEC Category] --> TD[Technical Documents 60%]
-    TEC --> DT[Digital Twins 20%]
-    TEC --> SM[Software Modules 15%]
-    TEC --> HM[Hardware Modules 5%]
-```
-
----
-
-## E.3 Organizational Artifacts (ORG)
-
-### 👥 Category Overview
-
-**Code**: ORG  
-**Description**: Governance, HR, and organizational structure  
-**Document Count**: 10,000+  
-**Priority**: Critical
-
-### Subcategories
-
-```yaml
-ORG-001: Governance & Compliance
-  description: "Policies, procedures, compliance documentation"
-  count: 2,500
-  templates:
-    - TPL-ORG-001 to TPL-ORG-015
-  examples:
-    - Corporate policies
-    - Board minutes
-    - Compliance matrices
-    - Ethics guidelines
-
-ORG-002: Human Resources
-  description: "Personnel records, talent management"
-  count: 3,000
-  templates:
-    - TPL-HR-001 to TPL-HR-020
-  examples:
-    - Employee records
-    - Performance reviews
-    - Recruitment documents
-    - Compensation plans
-
-ORG-003: Training & Certification
-  description: "Training programs, certifications, competencies"
-  count: 2,500
-  templates:
-    - TPL-TRN-001 to TPL-TRN-015
-  examples:
-    - Training materials
-    - Certification records
-    - Competency matrices
-    - Learning pathways
-
-ORG-004: Risk Management
-  description: "Risk assessments, mitigation plans"
-  count: 1,000
-  templates:
-    - TPL-RSK-001 to TPL-RSK-010
-  examples:
-    - Risk registers
-    - Mitigation strategies
-    - Insurance documentation
-    - Incident reports
-
-ORG-005: Quality Management
-  description: "QMS documentation, audits, improvements"
-  count: 1,000
-  templates:
-    - TPL-QMS-001 to TPL-QMS-012
-  examples:
-    - Quality manuals
-    - Audit reports
-    - CAPA records
-    - Process improvements
-```
-
-### Integration Points
-
-- Links to **FUN** for operational procedures
-- Feeds **REG** for compliance evidence
-- Informs **MBE** for culture communication
-- Drives **CDG** for data governance
-
----
-
-## E.4 Financial Artifacts (FIN)
-
-### 💰 Category Overview
-
-**Code**: FIN  
-**Description**: Financial planning, tracking, and reporting  
-**Document Count**: 5,000+  
-**Priority**: High
-
-### Subcategories
-
-```yaml
-FIN-001: Budgets & Forecasts
-  description: "Financial planning documents"
-  count: 1,500
-  templates:
-    - TPL-FIN-001 to TPL-FIN-008
-  examples:
-    - Annual budgets
-    - Department budgets
-    - Project budgets
-    - Rolling forecasts
-
-FIN-002: Investment Documentation
-  description: "Funding, investments, capital structure"
-  count: 800
-  templates:
-    - TPL-INV-001 to TPL-INV-006
-  examples:
-    - Investment memoranda
-    - Term sheets
-    - Shareholder agreements
-    - Cap tables
-
-FIN-003: Financial Models
-  description: "Analytical models and projections"
-  count: 700
-  templates:
-    - TPL-MOD-001 to TPL-MOD-005
-  examples:
-    - DCF models
-    - Sensitivity analyses
-    - Monte Carlo simulations
-    - Scenario planning
-
-FIN-004: Accounting & Audit
-  description: "Financial statements, audit reports"
-  count: 1,500
-  templates:
-    - TPL-ACC-001 to TPL-ACC-010
-  examples:
-    - Financial statements
-    - Audit reports
-    - Tax returns
-    - Management accounts
-
-FIN-005: Cost Management
-  description: "Cost tracking and optimization"
-  count: 500
-  templates:
-    - TPL-CST-001 to TPL-CST-005
-  examples:
-    - Cost breakdowns
-    - Cost-benefit analyses
-    - Procurement records
-    - Supplier contracts
-```
-
-### Financial Metrics Integration
-
-```mermaid
-graph TD
-    FIN[Financial Artifacts] --> DASH[Executive Dashboard]
-    FIN --> ERP[ERP Systems]
-    FIN --> REP[Regulatory Reporting]
-    FIN --> INV[Investor Relations]
-```
-
----
-
-## E.5 Functional Artifacts (FUN)
-
-### ⚙️ Category Overview
-
-**Code**: FUN  
-**Description**: Operational procedures and process documentation  
-**Document Count**: 15,000+  
-**Priority**: High
-
-### Subcategories
-
-```yaml
-FUN-001: Process Documentation
-  description: "SOPs, work instructions, process maps"
-  count: 5,000
-  templates:
-    - TPL-PRO-001 to TPL-PRO-025
-  examples:
-    - Standard operating procedures
-    - Work instructions
-    - Process flow diagrams
-    - RACI matrices
-
-FUN-002: Operational Manuals
-  description: "Operations guides and handbooks"
-  count: 3,000
-  templates:
-    - TPL-OPS-001 to TPL-OPS-015
-  examples:
-    - Flight operations manual
-    - Ground handling procedures
-    - Emergency response plans
-    - Facility operations guides
-
-FUN-003: IT/OT Integration
-  description: "System integration documentation"
-  count: 4,000
-  templates:
-    - TPL-SYS-001 to TPL-SYS-020
-  examples:
-    - System architectures
-    - Integration specifications
-    - API documentation
-    - Network diagrams
-
-FUN-004: Performance Metrics
-  description: "KPIs, dashboards, performance tracking"
-  count: 2,000
-  templates:
-    - TPL-KPI-001 to TPL-KPI-010
-  examples:
-    - KPI definitions
-    - Dashboard specifications
-    - Performance reports
-    - SLA documentation
-
-FUN-005: Automation & Tooling
-  description: "Automation scripts, tool documentation"
-  count: 1,000
-  templates:
-    - TPL-AUT-001 to TPL-AUT-008
-  examples:
-    - Automation workflows
-    - Tool configurations
-    - Script libraries
-    - Integration guides
-```
-
----
-
-## E.6 Research & Innovation Artifacts (R&I)
-
-### 🔬 Category Overview
-
-**Code**: R&I  
-**Description**: R&D outputs and innovation documentation  
-**Document Count**: 20,000+  
-**Priority**: Critical
-
-### Subcategories
-
-```yaml
-R&I-001: Research Projects
-  description: "Research proposals, data, findings"
-  count: 6,000
-  templates:
-    - TPL-RES-001 to TPL-RES-020
-  examples:
-    - Research proposals
-    - Experimental protocols
-    - Lab notebooks
-    - Research reports
-
-R&I-002: Publications
-  description: "Papers, articles, conference proceedings"
-  count: 3,000
-  templates:
-    - TPL-PUB-001 to TPL-PUB-010
-  examples:
-    - Journal papers
-    - Conference papers
-    - Technical articles
-    - Poster presentations
-
-R&I-003: Innovation Pipeline
-  description: "Ideas, concepts, proof of concepts"
-  count: 5,000
-  templates:
-    - TPL-INN-001 to TPL-INN-012
-  examples:
-    - Idea submissions
-    - Concept designs
-    - Feasibility studies
-    - POC results
-
-R&I-004: Strategic & Competitive Intelligence
-  description: "Market research, competitive analysis"
-  count: 3,000
-  templates:
-    - TPL-INT-001 to TPL-INT-008
-  examples:
-    - Market studies
-    - Competitor analyses
-    - Technology assessments
-    - Trend reports
-
-R&I-005: Quantum Research
-  description: "Quantum-specific research documentation"
-  count: 3,000
-  templates:
-    - TPL-QRE-001 to TPL-QRE-015
-  examples:
-    - Quantum algorithms research
-    - Decoherence studies
-    - QML experiments
-    - Quantum hardware R&D
-```
-
-### Innovation Metrics
-
-| Metric | Target | Current |
-|--------|--------|---------|
-| Patents filed/year | 300 | On track |
-| Publications/year | 100 | 110 |
-| POCs converted | 40% | 45% |
-| External collaborations | 50 | 62 |
-
----
-
-## E.7 Regulatory & Certification Artifacts (REG)
-
-### 📜 Category Overview
-
-**Code**: REG  
-**Description**: Compliance and certification documentation  
-**Document Count**: 25,000+  
-**Priority**: Critical
-
-### Subcategories
-
-```yaml
-REG-001: Type Certification
-  description: "Aircraft type certification documentation"
-  count: 10,000
-  templates:
-    - TPL-CRT-001 to TPL-CRT-030
-  examples:
-    - Type design data
-    - Compliance matrices
-    - Test evidence
-    - Certification plans
-
-REG-002: Production Certification
-  description: "Manufacturing approval documentation"
-  count: 5,000
-  templates:
-    - TPL-PRD-001 to TPL-PRD-015
-  examples:
-    - Production organization exposition
-    - Quality system documentation
-    - Manufacturing data
-    - Supplier approvals
-
-REG-003: Operational Approvals
-  description: "Operations and maintenance approvals"
-  count: 4,000
-  templates:
-    - TPL-OPA-001 to TPL-OPA-012
-  examples:
-    - AOC documentation
-    - Operations specifications
-    - MEL/CDL
-    - Training approvals
-
-REG-004: International Compliance
-  description: "Multi-jurisdiction compliance"
-  count: 4,000
-  templates:
-    - TPL-ICP-001 to TPL-ICP-010
-  examples:
-    - EASA compliance
-    - FAA compliance
-    - ICAO standards
-    - National requirements
-
-REG-005: Environmental & Safety
-  description: "Environmental and safety compliance"
-  count: 2,000
-  templates:
-    - TPL-ENV-001 to TPL-ENV-008
-  examples:
-    - Environmental assessments
-    - Safety cases
-    - Noise compliance
-    - Emissions data
-```
-
-### Regulatory Tracking Matrix
-
-```mermaid
-gantt
-    title Certification Timeline
-    dateFormat  YYYY-MM
-    section eVTOL
-    EASA SC-VTOL    :2025-07, 36m
-    FAA Certification :2026-01, 36m
-    section BWB
-    Preliminary Design :2025-07, 24m
-    Type Certification :2027-07, 60m
-```
-
----
-
-## E.8 Industrial Artifacts (IND)
-
-### 🏭 Category Overview
-
-**Code**: IND  
-**Description**: Manufacturing and production documentation  
-**Document Count**: 30,000+  
-**Priority**: High
-
-### Subcategories
-
-```yaml
-IND-001: Factory Design
-  description: "Manufacturing facility documentation"
-  count: 5,000
-  templates:
-    - TPL-FAC-001 to TPL-FAC-015
-  examples:
-    - Factory layouts
-    - Production line designs
-    - Automation specifications
-    - Tooling designs
-
-IND-002: Production Planning
-  description: "Manufacturing planning and control"
-  count: 8,000
-  templates:
-    - TPL-PLP-001 to TPL-PLP-020
-  examples:
-    - Production schedules
-    - Capacity plans
-    - Resource allocation
-    - Supply chain maps
-
-IND-003: Robotics & Automation
-  description: "Automated systems documentation"
-  count: 7,000
-  templates:
-    - TPL-ROB-001 to TPL-ROB-018
-  examples:
-    - Robot programs
-    - PLC code
-    - SCADA configurations
-    - AGV/AMR specs
-
-IND-004: Quality Control
-  description: "Manufacturing quality documentation"
-  count: 6,000
-  templates:
-    - TPL-QCI-001 to TPL-QCI-015
-  examples:
-    - Inspection plans
-    - Quality procedures
-    - Statistical control charts
-    - First article reports
-
-IND-005: Supply Chain
-  description: "Supplier and logistics documentation"
-  count: 4,000
-  templates:
-    - TPL-SUP-001 to TPL-SUP-012
-  examples:
-    - Supplier agreements
-    - Logistics plans
-    - Inventory management
-    - Procurement specs
-```
-
-### Manufacturing KPIs
-
-| KPI | Target | Status |
-|-----|--------|--------|
-| OEE | >85% | Planning |
-| First Pass Yield | >95% | Design phase |
-| Cycle Time | -20% YoY | Baseline TBD |
-| Automation Rate | 80% | In design |
-
----
-
-## E.9 Circular Economy & Sustainability Artifacts (CES)
-
-### 🌱 Category Overview
-
-**Code**: CES  
-**Description**: Environmental and sustainability documentation  
-**Document Count**: 8,000+  
-**Priority**: High
-
-### Subcategories
-
-```yaml
-CES-001: Design for Environment
-  description: "Sustainable design documentation"
-  count: 2,500
-  templates:
-    - TPL-DFE-001 to TPL-DFE-010
-  examples:
-    - DfD specifications
-    - Material selection guides
-    - Lifecycle assessments
-    - Eco-design reports
-
-CES-002: Carbon Management
-  description: "Carbon footprint and reduction"
-  count: 2,000
-  templates:
-    - TPL-CAR-001 to TPL-CAR-008
-  examples:
-    - Carbon footprint analyses
-    - Offset strategies
-    - Net-zero roadmaps
-    - Emissions reports
-
-CES-003: Waste & Recycling
-  description: "Waste management and circularity"
-  count: 1,500
-  templates:
-    - TPL-WAS-001 to TPL-WAS-006
-  examples:
-    - Waste stream analyses
-    - Recycling protocols
-    - Material recovery plans
-    - Circular economy strategies
-
-CES-004: Sustainability Reporting
-  description: "ESG and sustainability reports"
-  count: 1,000
-  templates:
-    - TPL-ESG-001 to TPL-ESG-005
-  examples:
-    - Annual ESG reports
-    - GRI reports
-    - TCFD disclosures
-    - Impact assessments
-
-CES-005: Green Innovation
-  description: "Sustainable technology development"
-  count: 1,000
-  templates:
-    - TPL-GIN-001 to TPL-GIN-006
-  examples:
-    - Green tech proposals
-    - Bio-materials research
-    - Energy efficiency studies
-    - Renewable integration plans
-```
-
----
-
-## E.10 Maintenance & MRO Artifacts (MRO)
-
-### 🔧 Category Overview
-
-**Code**: MRO  
-**Description**: Maintenance planning and execution documentation  
-**Document Count**: 40,000+  
-**Priority**: Critical
-
-### Subcategories
-
-```yaml
-MRO-001: Maintenance Planning
-  description: "Maintenance program development"
-  count: 10,000
-  templates:
-    - TPL-MPL-001 to TPL-MPL-025
-  examples:
-    - MSG-3 analyses
-    - Maintenance programs
-    - Task cards
-    - Planning documents
-
-MRO-002: Predictive Maintenance
-  description: "Condition monitoring and prediction"
-  count: 8,000
-  templates:
-    - TPL-PDM-001 to TPL-PDM-015
-  examples:
-    - PdM algorithms
-    - HUMS specifications
-    - Trend analyses
-    - Failure predictions
-
-MRO-003: Repair Documentation
-  description: "Repair procedures and specifications"
-  count: 12,000
-  templates:
-    - TPL-REP-001 to TPL-REP-020
-  examples:
-    - SRM procedures
-    - Repair schemes
-    - NDT procedures
-    - Damage assessments
-
-MRO-004: Parts & Logistics
-  description: "Spares and supply chain"
-  count: 7,000
-  templates:
-    - TPL-PAR-001 to TPL-PAR-012
-  examples:
-    - IPC catalogs
-    - Spare parts lists
-    - Inventory plans
-    - Distribution networks
-
-MRO-005: Service Bulletins
-  description: "Service instructions and updates"
-  count: 3,000
-  templates:
-    - TPL-SB-001 to TPL-SB-010
-  examples:
-    - Service bulletins
-    - Service letters
-    - Alert service bulletins
-    - Modification instructions
-```
-
----
-
-## E.11 Marketing, Brand & Engagement Artifacts (MBE)
-
-### 📢 Category Overview
-
-**Code**: MBE  
-**Description**: Marketing and stakeholder engagement materials  
-**Document Count**: 3,000+  
-**Priority**: Medium
-
-### Subcategories
-
-```yaml
-MBE-001: Brand Assets
-  description: "Brand identity and guidelines"
-  count: 500
-  templates:
-    - TPL-BRA-001 to TPL-BRA-005
-  examples:
-    - Brand guidelines
-    - Logo files
-    - Visual identity systems
-    - Brand architecture
-
-MBE-002: Marketing Materials
-  description: "Promotional and marketing content"
-  count: 1,000
-  templates:
-    - TPL-MKT-001 to TPL-MKT-008
-  examples:
-    - Brochures
-    - Presentations
-    - Web content
-    - Advertisements
-
-MBE-003: Stakeholder Engagement
-  description: "Communication and engagement plans"
-  count: 800
-  templates:
-    - TPL-STK-001 to TPL-STK-006
-  examples:
-    - Communication strategies
-    - Stakeholder maps
-    - Engagement plans
-    - Event materials
-
-MBE-004: Media & PR
-  description: "Media relations and public affairs"
-  count: 700
-  templates:
-    - TPL-MED-001 to TPL-MED-005
-  examples:
-    - Press releases
-    - Media kits
-    - Spokesperson briefs
-    - Crisis communications
-```
-
----
-
-## E.12 Stakeholder & Legal Artifacts (S&L)
-
-### ⚖️ Category Overview
-
-**Code**: S&L  
-**Description**: Contracts and legal documentation  
-**Document Count**: 5,000+  
-**Priority**: High
-
-### Subcategories
-
-```yaml
-S&L-001: Commercial Contracts
-  description: "Customer and commercial agreements"
-  count: 2,000
-  templates:
-    - TPL-COM-001 to TPL-COM-010
-  examples:
-    - Purchase agreements
-    - Sales contracts
-    - Service agreements
-    - Warranty documents
-
-S&L-002: Partnership Agreements
-  description: "Strategic partnerships and alliances"
-  count: 1,000
-  templates:
-    - TPL-PAR-001 to TPL-PAR-006
-  examples:
-    - JV agreements
-    - Technology licenses
-    - Collaboration MOUs
-    - Distribution agreements
-
-S&L-003: Legal Compliance
-  description: "Legal and regulatory compliance"
-  count: 1,500
-  templates:
-    - TPL-LEG-001 to TPL-LEG-008
-  examples:
-    - Legal opinions
-    - Compliance certificates
-    - Regulatory filings
-    - Litigation documents
-
-S&L-004: Intellectual Property
-  description: "IP agreements and licenses"
-  count: 500
-  templates:
-    - TPL-IPL-001 to TPL-IPL-004
-  examples:
-    - Patent licenses
-    - Technology transfers
-    - NDAs
-    - IP assignments
-```
-
----
-
-## E.13 Cybersecurity & Data Governance Artifacts (CDG)
-
-### 🔐 Category Overview
-
-**Code**: CDG  
-**Description**: Security and data management documentation  
-**Document Count**: 15,000+  
-**Priority**: Critical
-
-### Subcategories
-
-```yaml
-CDG-001: Security Architecture
-  description: "Security design and implementation"
-  count: 4,000
-  templates:
-    - TPL-SEC-001 to TPL-SEC-015
-  examples:
-    - Security architectures
-    - Zero-trust designs
-    - Network diagrams
-    - Access control specs
-
-CDG-002: Quantum Security
-  description: "Quantum-safe security measures"
-  count: 3,000
-  templates:
-    - TPL-QSE-001 to TPL-QSE-010
-  examples:
-    - QKD protocols
-    - Post-quantum algorithms
-    - Quantum-safe migrations
-    - Q-security assessments
-
-CDG-003: Data Governance
-  description: "Data management and privacy"
-  count: 3,500
-  templates:
-    - TPL-DAT-001 to TPL-DAT-012
-  examples:
-    - Data classifications
-    - Retention policies
-    - Privacy assessments
-    - GDPR compliance
-
-CDG-004: Incident Response
-  description: "Security incident management"
-  count: 2,500
-  templates:
-    - TPL-INC-001 to TPL-INC-008
-  examples:
-    - IR plans
-    - Incident reports
-    - Forensics analyses
-    - Recovery procedures
-
-CDG-005: Digital Thread Security
-  description: "Blockchain and audit trails"
-  count: 2,000
-  templates:
-    - TPL-DTS-001 to TPL-DTS-006
-  examples:
-    - Blockchain specs
-    - Audit trail designs
-    - Chain of custody
-    - Digital signatures
-```
-
----
-
-## E.14 Cross-Category Integration
-
-### 🔄 Integration Matrix
-
-```mermaid
-graph TD
-    TEC[Technical] --> REG[Regulatory]
-    TEC --> MRO[Maintenance]
-    TEC --> IND[Industrial]
-    
-    ORG[Organizational] --> FUN[Functional]
-    ORG --> CDG[Cybersecurity]
-    
-    FIN[Financial] --> S&L[Legal]
-    FIN --> MBE[Marketing]
-    
-    R&I[Research] --> TEC
-    R&I --> CES[Sustainability]
-    
-    IND --> MRO
-    IND --> CES
-    
-    REG --> S&L
-    REG --> CDG
-```
-
-### Integration Patterns
-
-| From Category | To Category | Integration Type | Frequency |
-|--------------|-------------|------------------|-----------|
-| TEC → REG | Technical to Regulatory | Compliance evidence | Continuous |
-| IND → MRO | Industrial to Maintenance | Manufacturing data | Daily |
-| R&I → TEC | Research to Technical | Technology transfer | Monthly |
-| ORG → FUN | Organizational to Functional | Process implementation | Weekly |
-| FIN → S&L | Financial to Legal | Contract support | As needed |
-| CES → All | Sustainability to All | ESG integration | Quarterly |
-
-### Artifact Flow Examples
-
-```yaml
-design_to_production_flow:
-  1. R&I-003: "Innovation concept"
-  2. TEC-001: "Engineering specification"
-  3. REG-001: "Certification planning"
-  4. IND-001: "Manufacturing design"
-  5. IND-002: "Production planning"
-  6. MRO-001: "Maintenance planning"
-  
-compliance_flow:
-  1. REG-001: "Regulatory requirement"
-  2. TEC-001: "Technical solution"
-  3. TEC-002: "Test evidence"
-  4. ORG-005: "Quality records"
-  5. REG-001: "Compliance demonstration"
-```
-
----
-
-## E.15 Knowledge Management Framework
-
-### 🧠 KM Architecture
-
-```mermaid
-graph TD
-    KC[Knowledge Capture] --> KO[Knowledge Organization]
-    KO --> KS[Knowledge Sharing]
-    KS --> KL[Knowledge Leverage]
-    KL --> KI[Knowledge Innovation]
-    KI --> KC
-```
-
-### KM Principles
-
-```yaml
-knowledge_management:
-  description: "Overarching system for artifact value extraction"
-  
-  principles:
-    capture:
-      - Automated metadata extraction
-      - AI-powered categorization
-      - Real-time indexing
-      - Version tracking
-      
-    organize:
-      - Semantic relationships
-      - Cross-references
-      - Taxonomies
-      - Ontologies
-      
-    share:
-      - Role-based access
-      - Subscription models
-      - Push notifications
-      - Collaborative spaces
-      
-    leverage:
-      - Advanced search
-      - Predictive analytics
-      - Decision support
-      - Lessons learned
-      
-    innovate:
-      - Pattern recognition
-      - Gap analysis
-      - Opportunity identification
-      - Innovation metrics
-```
-
-### KM Tools & Technologies
-
-| Tool | Purpose | Integration |
-|------|---------|-------------|
-| **Elasticsearch** | Full-text search | All categories |
-| **Neo4j** | Relationship mapping | Cross-category |
-| **TensorFlow** | ML categorization | Auto-classification |
-| **Blockchain** | Immutable records | CDG, REG |
-| **Quantum Search** | Advanced queries | 2026 deployment |
-
-### Knowledge Metrics
-
-```yaml
-metrics:
-  capture_rate: "95% of new artifacts auto-captured"
-  categorization_accuracy: "98% correct category assignment"
-  search_effectiveness: "85% first-result success"
-  reuse_rate: "40% knowledge items reused"
-  innovation_index: "2.5 new ideas per 100 searches"
-```
-
----
-
-## E.16 Implementation Guidelines
-
-### 🚀 Phased Rollout
-
-#### Phase 1: Foundation (Q3 2025)
-```yaml
-objectives:
-  - Deploy category structure
-  - Assign category owners
-  - Create initial templates
-  - Train champions (100 users)
-  
-deliverables:
-  - Category management system
-  - 251 approved templates
-  - Training materials
-  - Quick reference guides
-  
-success_criteria:
-  - 100% categories defined
-  - 80% templates created
-  - 95% champion satisfaction
-```
-
-#### Phase 2: Integration (Q4 2025)
-```yaml
-objectives:
-  - Connect to nomenclature system
-  - Implement cross-references
-  - Deploy search capabilities
-  - Scale to 1,000 users
-  
-deliverables:
-  - Integrated nomenclature
-  - Search platform
-  - Analytics dashboard
-  - User feedback system
-  
-success_criteria:
-  - <2s search response
-  - 90% user adoption
-  - 95% accuracy
-```
-
-#### Phase 3: Optimization (Q1 2026)
-```yaml
-objectives:
-  - AI-powered features
-  - Predictive analytics
-  - Full deployment (3,780 users)
-  - Continuous improvement
-  
-deliverables:
-  - ML categorization
-  - Recommendation engine
-  - Innovation tracker
-  - ROI dashboard
-  
-success_criteria:
-  - 98% auto-categorization
-  - 30% efficiency gain
-  - €5M cost savings
-```
-
-### 🛠️ Category Management
-
-#### Roles & Responsibilities
-
-| Role | Count | Responsibilities |
-|------|-------|------------------|
-| **Category Owner** | 12 | Strategy, governance, quality |
-| **Category Admin** | 24 | Operations, support, training |
-| **Template Manager** | 12 | Template creation, maintenance |
-| **Quality Reviewer** | 36 | Compliance, accuracy, completeness |
-
-#### Governance Model
-
-```yaml
-category_governance:
-  review_cycle: "Quarterly"
-  
-  metrics_tracked:
-    - Document volume
-    - Quality scores
-    - User satisfaction
-    - Compliance rates
-    - Reuse metrics
-    
-  decision_rights:
-    category_changes: "Category Owner + CTO"
-    template_approval: "Template Manager + QA"
-    access_control: "Category Admin + Security"
-```
-
-### 📊 Success Metrics
-
-| Metric | Baseline | 6 Month Target | 12 Month Target |
-|--------|----------|----------------|-----------------|
-| **Search Time Reduction** | 30 min | 10 min | 5 min |
-| **Document Findability** | 60% | 85% | 95% |
-| **Compliance Tracking** | Manual | Semi-auto | Fully automated |
-| **Knowledge Reuse** | 10% | 30% | 50% |
-| **User Satisfaction** | N/A | 80% | 90% |
-
----
-
-## 📋 Quick Reference Card
-
-### Category Codes
-```
-TEC = Technical              REG = Regulatory
-ORG = Organizational         IND = Industrial  
-FIN = Financial              CES = Sustainability
-FUN = Functional             MRO = Maintenance
-R&I = Research & Innovation  MBE = Marketing
-S&L = Stakeholder & Legal    CDG = Cybersecurity
-```
-
-### Document Distribution
-```
-Critical Priority: TEC, REG, MRO, R&I, CDG (140,000 docs)
-High Priority: ORG, IND, FIN, FUN, CES, S&L (73,000 docs)
-Medium Priority: MBE (3,000 docs)
-```
-
-### Integration Priorities
-```
-Must Have: TEC↔REG, IND↔MRO, R&I↔TEC
-Should Have: ORG↔FUN, FIN↔S&L, CES↔ALL
-Nice to Have: MBE↔ALL, Enhanced analytics
-```
-
----
-
-**Document Status**: APPROVED  
-**Version**: 1.0  
-**Effective Date**: 2025-08-01  
-**Next Review**: 2026-02-01  
-**Owner**: Chief Information Officer  
-**Classification**: AQUA V. STANDARD - MANDATORY COMPLIANCE
-
-**Document ID**: AQV-DOC-25MA0001-OPS-BOB-ORG-TD-ORG-001-00-05-TPL-ORG-001-QDAT-v1.0.0
-
----
-
-**[END OF ANNEX E - MASTER ARTIFACT CATEGORIES]**
 
 # 📋 ANNEX F: Documentation Templates Library v1.0
 ## AQUA V. Complete Template Repository System
