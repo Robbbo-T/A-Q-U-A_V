@@ -562,545 +562,293 @@ graph TD
 
 _End of Annex A_
 
+---
+
+# ANNEX B: Q-Division Competency Matrix v1.5
+
+**Document Status:** ✅ Complete  
+**Version:** 1.5  
+**Last Updated:** 2025-08-02
 
 ---
 
-# 📊 ANNEX B: Q-Division Competency Matrix v1.5
-## Complete Skills Framework for 3,780 Staff Positions
+## 1.0 Introduction
+
+This document provides a detailed matrix of the core competencies, responsibilities, and key interfaces for each of the 12 Q-Divisions within the AQUA V. Technology & Innovation Directorate. The matrix serves as a foundational tool for strategic resource allocation, project team formation, and talent development.
 
 ---
 
-## 📑 Table of Contents
+## 2.0 Competency Matrix
 
-- [B.1 Competency Framework Overview](#b1-competency-framework-overview)
-- [B.2 QSTR: Q-STRUCTURES Competencies](#b2-qstr-q-structures-competencies)
-- [B.3 QAIR: Q-AIR Competencies](#b3-qair-q-air-competencies)
-- [B.4 QGRE: Q-GREENTECH Competencies](#b4-qgre-q-greentech-competencies)
-- [B.5 QMEC: Q-MECHANICS Competencies](#b5-qmec-q-mechanics-competencies)
-- [B.6 QPOW: Q-POWERSENSE Competencies](#b6-qpow-q-powersense-competencies)
-- [B.7 QSPA: Q-SPACE Competencies](#b7-qspa-q-space-competencies)
-- [B.8 QIND: Q-INDUSTRY Competencies](#b8-qind-q-industry-competencies)
-- [B.9 QGRO: Q-GROUND Competencies](#b9-qgro-q-ground-competencies)
-- [B.10 QDAT: Q-DATAGOV Competencies](#b10-qdat-q-datagov-competencies)
-- [B.11 QHPC: Q-HPC Competencies](#b11-qhpc-q-hpc-competencies)
-- [B.12 QCOM: Q-COMM Competencies](#b12-qcom-q-comm-competencies)
-- [B.13 QSCI: Q-SCIRES Competencies](#b13-qsci-q-scires-competencies)
+Below are the profiles for each Q-Division:
 
 ---
 
-## B.1 Competency Framework Overview
+### QSTR – Structures
 
-### 🎯 AQUA V. Competency Model
+- **Mission:**  
+  Design, analyze, and validate all primary and secondary structures for AQUA V. aerospace and terrestrial platforms, leveraging advanced materials and quantum-optimized topologies.
 
-```mermaid
-graph TD
-    CC[Core Competencies<br/>All Staff]
-    TC[Technical Competencies<br/>Role Specific]
-    LC[Leadership Competencies<br/>Management]
-    QC[Quantum Competencies<br/>Specialized]
-    
-    CC --> TC
-    CC --> LC
-    TC --> QC
-    LC --> QC
-```
+- **Core Competencies:**
+  - Quantum-Enhanced Structural Optimization
+  - Advanced Composite Materials (Design & Manufacturing)
+  - Fatigue & Damage Tolerance Analysis
+  - Aeroelasticity & Structural Dynamics
+  - Multi-material Joining Technologies
 
-### Universal Core Competencies (All 3,780 Staff)
+- **Key Responsibilities:**
+  - Structural integrity and certification of all products
+  - Development of novel material systems
+  - Weight optimization and management
 
-| Competency | Level 1 (Entry) | Level 2 (Professional) | Level 3 (Senior) | Level 4 (Expert) | Level 5 (Master) |
-|------------|-----------------|----------------------|------------------|------------------|------------------|
-| **Innovation Mindset** | Awareness | Application | Integration | Leadership | Transformation |
-| **Systems Thinking** | Basic | Intermediate | Advanced | Expert | Architect |
-| **Collaboration** | Team member | Team contributor | Team leader | Cross-functional | Global |
-| **Digital Literacy** | User | Power user | Developer | Architect | Innovator |
-| **Sustainability Awareness** | Basic | Applied | Integrated | Champion | Strategist |
-
-### Career Framework
-
-```yaml
-career_levels:
-  IC1: "Entry Engineer" # 0-2 years
-  IC2: "Engineer" # 2-5 years
-  IC3: "Senior Engineer" # 5-8 years
-  IC4: "Staff Engineer" # 8-12 years
-  IC5: "Principal Engineer" # 12+ years
-  IC6: "Distinguished Engineer" # 15+ years
-  
-management_track:
-  M1: "Team Lead" # 3-5 direct reports
-  M2: "Manager" # 5-15 direct reports
-  M3: "Senior Manager" # 15-30 direct reports
-  M4: "Director" # 30-50 direct reports
-  M5: "Senior Director" # 50+ direct reports
-  M6: "VP/Q-Division Director" # 100+ direct reports
-```
-
-### Performance Evaluation Matrix
-
-| Dimension | Weight | Measurement | Frequency |
-|-----------|--------|-------------|-----------|
-| **Technical Excellence** | 40% | Project outcomes, peer review | Quarterly |
-| **Innovation Impact** | 20% | Patents, improvements | Annual |
-| **Collaboration** | 20% | 360 feedback | Semi-annual |
-| **Leadership** | 10% | Team metrics | Quarterly |
-| **Learning & Development** | 10% | Certifications, training | Annual |
+- **Primary Interfaces:** QAIR, QMEC, QIND, NA (Naples Site)  
+- **Headcount:** 450
 
 ---
 
-## B.2 QSTR: Q-STRUCTURES Competencies (450 Staff)
+### QAIR – Aerodynamics
 
-### 🏗️ Division Overview
-**Mission**: Advanced structural design and materials innovation  
-**Staff Distribution**: 120 Composites | 100 Metallics | 80 Quantum Materials | 100 Testing | 50 Certification
+- **Mission:**  
+  Define aerodynamic performance, stability, and control characteristics of all flight vehicles using advanced CFD and wind tunnel testing.
 
-### Core Technical Competencies
+- **Core Competencies:**
+  - Computational Fluid Dynamics (CFD) & High-Fidelity Simulation
+  - Laminar Flow Control
+  - Hypersonic & Transonic Aerodynamics
+  - Flight Mechanics & Control Law Prototyping
+  - Wind Tunnel & Flight Test Correlation
 
-| Competency Area | IC1-2 | IC3-4 | IC5-6 | Required Certifications |
-|----------------|-------|-------|-------|------------------------|
-| **Composite Design** | CATIA V5/V6 | Advanced FEA | Optimization algorithms | Composite Design Cert |
-| **Structural Analysis** | Linear static | Non-linear dynamics | Multi-physics | PE/CE optional |
-| **Materials Science** | Basic properties | Failure mechanics | Novel materials | Materials Engineering |
-| **Manufacturing DfM** | Basic processes | Advanced processes | New process development | Six Sigma |
-| **Testing & Validation** | Test execution | Test design | New methodologies | Test Engineer Cert |
+- **Key Responsibilities:**
+  - Aerodynamic design and performance validation
+  - Ensuring flight stability and control
+  - Noise prediction and reduction
 
-### Specialized Competency Tracks
-
-#### Track 1: Quantum Materials Specialist (80 positions)
-```yaml
-requirements:
-  education: "PhD Materials Science/Physics preferred"
-  experience: "3+ years quantum materials"
-  
-core_skills:
-  - Quantum mechanics applications
-  - Nano-material characterization
-  - Graphene/CNT integration
-  - Quantum sensor embedding
-  
-tools:
-  - Quantum simulation software
-  - Electron microscopy
-  - X-ray crystallography
-  - Materials modeling (VASP, Gaussian)
-```
-
-#### Track 2: BWB Structures Expert (50 positions)
-```yaml
-requirements:
-  education: "MS Aerospace/Mechanical"
-  experience: "5+ years non-conventional aircraft"
-  
-core_skills:
-  - Non-cylindrical pressure vessels
-  - Complex load paths
-  - Integrated structure design
-  - Multi-disciplinary optimization
-```
-
-### Training Pathway
-
-```mermaid
-graph LR
-    START[New Hire] --> BOOT[6-Week Bootcamp]
-    BOOT --> CERT[Certification Track]
-    CERT --> PROJ[Project Assignment]
-    PROJ --> ADV[Advanced Training]
-    ADV --> LEAD[Leadership Path]
-    ADV --> TECH[Technical Expert Path]
-```
-
-### Performance Metrics
-
-| KPI | Target | Measurement |
-|-----|--------|-------------|
-| **Weight Reduction** | 15% vs baseline | Kg saved per project |
-| **Certification Success** | 95% first pass | Pass rate |
-| **Innovation Index** | 2 patents/year/team | Patent applications |
-| **Project Delivery** | 98% on time | Schedule adherence |
+- **Primary Interfaces:** QSTR, QPOW, QSPA, TO (Toulouse Site)  
+- **Headcount:** 380
 
 ---
 
-## B.3 QAIR: Q-AIR Competencies (380 Staff)
+### QGRE – GreenTech
 
-### 🌬️ Division Overview
-**Mission**: Revolutionary aerodynamics and flight physics  
-**Staff Distribution**: 100 CFD | 120 Wind Tunnel | 80 Flight Physics | 50 BWB | 30 eVTOL
+- **Mission:**  
+  Lead the development and integration of sustainable technologies, focusing on zero-emission propulsion, circular economy principles, and life cycle assessment.
 
-### Core Technical Competencies
+- **Core Competencies:**
+  - Sustainable Aviation Fuels (SAF) & Hydrogen Propulsion
+  - Battery Technology & Electric Powertrains
+  - Life Cycle Assessment (LCA) & Circular Design
+  - Noise & Emissions Certification
+  - Environmental Impact Modeling
 
-| Competency Area | IC1-2 | IC3-4 | IC5-6 | Required Certifications |
-|----------------|-------|-------|-------|------------------------|
-| **CFD Analysis** | ANSYS Fluent | OpenFOAM, custom codes | Solver development | CFD Professional |
-| **Wind Tunnel Testing** | Basic operations | Test design | New techniques | Wind Tunnel Operator |
-| **Flight Dynamics** | 6-DOF basics | Non-linear dynamics | Quantum effects | Flight Test Engineer |
-| **Data Analysis** | Python, MATLAB | ML applications | AI integration | Data Science Cert |
+- **Key Responsibilities:**
+  - Achieving corporate sustainability targets
+  - Developing and certifying green technologies
+  - Ensuring compliance with global environmental regulations
 
-### Specialized Competency Tracks
-
-#### Track 1: Quantum Flow Specialist (40 positions)
-```yaml
-requirements:
-  education: "PhD Fluid Dynamics/Physics"
-  experience: "Quantum mechanics background"
-  
-core_skills:
-  - Quantum turbulence modeling
-  - Superfluid dynamics
-  - Quantum vortex analysis
-  - Novel flow control
-  
-tools:
-  - Quantum flow simulators
-  - Q-enhanced CFD codes
-  - Quantum sensors integration
-```
-
-#### Track 2: BWB Aerodynamicist (50 positions)
-```yaml
-requirements:
-  education: "MS Aerospace Engineering"
-  experience: "5+ years unconventional configurations"
-  
-core_skills:
-  - Blended wing body optimization
-  - Laminar flow control
-  - Vortex management
-  - Integrated propulsion effects
-```
-
-### Training Pathway
-
-| Phase | Duration | Content | Output |
-|-------|----------|---------|--------|
-| **Foundation** | 3 months | CFD basics, tools | Certified user |
-| **Specialization** | 6 months | Advanced methods | Domain expert |
-| **Innovation** | Ongoing | Research projects | Publications |
-| **Leadership** | 12 months | Team management | Team lead |
+- **Primary Interfaces:** QPOW, QIND, QSTR, MU (Munich Site)  
+- **Headcount:** 220
 
 ---
 
-## B.4 QGRE: Q-GREENTECH Competencies (220 Staff)
+### QMEC – Mechanics
 
-### 🌱 Division Overview
-**Mission**: Zero-impact aviation technologies  
-**Staff Distribution**: 60 Circular Economy | 50 Carbon | 40 Materials | 40 Compliance | 30 Manufacturing
+- **Mission:**  
+  Engineer, integrate, and qualify all mechanical systems, including landing gear, flight controls, hydraulics, and environmental control.
 
-### Core Technical Competencies
+- **Core Competencies:**
+  - Systems Engineering & Integration
+  - Actuation Systems (Electro-mechanical & Hydraulic)
+  - Landing Gear Systems Design
+  - Environmental Control Systems (ECS)
+  - Mechanical System Certification (e.g., DO-160)
 
-| Competency Area | IC1-2 | IC3-4 | IC5-6 | Required Certifications |
-|----------------|-------|-------|-------|------------------------|
-| **LCA Analysis** | Basic tools | Advanced modeling | System optimization | ISO 14040 |
-| **Carbon Management** | Footprint calc | Reduction strategies | Carbon negative design | Carbon Professional |
-| **Circular Design** | DfD principles | Material flows | New paradigms | Circular Economy Cert |
-| **Environmental Law** | Regulations | Compliance strategy | Policy influence | Environmental Law |
+- **Key Responsibilities:**
+  - Reliability and safety of all mechanical systems
+  - Integration with airframe and avionics
+  - MRO procedures for mechanical components
 
-### Specialized Competency Tracks
-
-#### Track 1: Quantum Sustainability Expert (30 positions)
-```yaml
-requirements:
-  education: "MS Environmental Engineering + Quantum"
-  
-core_skills:
-  - Quantum-enhanced recycling
-  - Molecular-level material recovery
-  - Quantum sensors for emissions
-  - Energy optimization algorithms
-```
-
-### Performance Metrics
-
-| KPI | Target | Measurement |
-|-----|--------|-------------|
-| **Carbon Reduction** | 20% YoY | CO2 tons saved |
-| **Material Circularity** | 95% by 2030 | % recyclable |
-| **Compliance Rate** | 100% | Audit results |
+- **Primary Interfaces:** QSTR, QPOW, QIND, MA (Madrid Site)  
+- **Headcount:** 340
 
 ---
 
-## B.5 QMEC: Q-MECHANICS Competencies (340 Staff)
+### QPOW – PowerSense
 
-### ⚙️ Division Overview
-**Mission**: Advanced mechanical systems and controls  
-**Staff Distribution**: 100 Flight Controls | 80 Landing | 80 Actuation | 40 Hydraulics | 40 ECS
+- **Mission:**  
+  Develop and integrate all power generation, distribution, and propulsion systems, from advanced turbofans to hybrid-electric and quantum-managed power grids.
 
-### Core Technical Competencies
+- **Core Competencies:**
+  - Propulsion System Integration
+  - Hybrid-Electric & Turbo-electric Architectures
+  - Advanced Engine Control (FADEC)
+  - Thermal Management Systems
+  - Quantum-Optimized Power Management
 
-| Competency Area | IC1-2 | IC3-4 | IC5-6 | Required Certifications |
-|----------------|-------|-------|-------|------------------------|
-| **Control Systems** | Classical control | Modern control | Quantum control | Control Systems PE |
-| **Mechanical Design** | CAD/CAE | Optimization | Novel mechanisms | Mechanical PE |
-| **System Integration** | Basic interfaces | Complex integration | Architecture design | Systems Engineering |
-| **Safety Analysis** | FMEA basics | FTA/FMECA | Novel methods | Safety Engineer |
+- **Key Responsibilities:**
+  - Engine and power system performance and certification
+  - Fuel efficiency and thermal management
+  - Propulsion system integration with airframe
 
-### Specialized Competency Tracks
-
-#### Track 1: Quantum Actuator Specialist (40 positions)
-```yaml
-requirements:
-  education: "MS Mechanical/Quantum Engineering"
-  
-core_skills:
-  - Quantum actuator design
-  - Superconducting systems
-  - Quantum sensors integration
-  - Ultra-precise control
-```
+- **Primary Interfaces:** QAIR, QGRE, QMEC, MU (Munich Site)  
+- **Headcount:** 420
 
 ---
 
-## B.6 QPOW: Q-POWERSENSE Competencies (420 Staff)
+### QSPA – Space
 
-### ⚡ Division Overview
-**Mission**: Revolutionary propulsion and sensing systems  
-**Staff Distribution**: 150 Turbofan | 100 Electric | 70 Hydrogen | 60 Quantum Sensors | 40 Power
+- **Mission:**  
+  Design and develop all space-based platforms, including satellites, rovers, and orbital/suborbital vehicles, focusing on autonomy and deep-space operations.
 
-### Core Technical Competencies
+- **Core Competencies:**
+  - Orbital Mechanics & Astrodynamics
+  - Spacecraft Systems Engineering (GNC, Power, Comms)
+  - Rover & Robotic Arm Design
+  - In-Situ Resource Utilization (ISRU)
+  - Quantum Navigation for Deep Space
 
-| Competency Area | IC1-2 | IC3-4 | IC5-6 | Required Certifications |
-|----------------|-------|-------|-------|------------------------|
-| **Propulsion Design** | Component level | System level | Novel concepts | Propulsion Engineer |
-| **Thermodynamics** | Classical | Advanced cycles | Quantum effects | Thermal Systems |
-| **Electric Systems** | Basic motors | Power electronics | Superconducting | Electrical PE |
-| **Quantum Sensing** | Basic principles | Sensor design | System integration | Quantum Tech Cert |
+- **Key Responsibilities:**
+  - Development of GAIA-SAT, GAIA-ROVER, AMPEL360 Plus/PlusPlus
+  - Mission design and operations for space assets
+  - Survivability in harsh space environments
 
-### Specialized Competency Tracks
-
-#### Track 1: Quantum Propulsion Engineer (60 positions)
-```yaml
-requirements:
-  education: "PhD Propulsion/Quantum Physics"
-  
-core_skills:
-  - Quantum thrust optimization
-  - Superconducting motors
-  - Quantum fuel injection
-  - Zero-point energy research
-```
-
-#### Track 2: Hydrogen Systems Expert (70 positions)
-```yaml
-requirements:
-  education: "MS Chemical/Mechanical Engineering"
-  
-core_skills:
-  - Cryogenic systems
-  - Fuel cell integration
-  - Safety systems
-  - Storage optimization
-```
-
-### Performance Metrics
-
-| KPI | Target | Measurement |
-|-----|--------|-------------|
-| **Efficiency Gain** | 5% annual | SFC improvement |
-| **Emissions Reduction** | 90% by 2030 | NOx, CO2 levels |
-| **Reliability** | 99.99% | MTBF |
+- **Primary Interfaces:** QCOM, QSTR, QHPC, SV (Silicon Valley Site)  
+- **Headcount:** 280
 
 ---
 
-## B.7 QSPA: Q-SPACE Competencies (280 Staff)
+### QIND – Industry
 
-### 🚀 Division Overview
-**Mission**: Space systems and operations  
-**Staff Distribution**: 100 Satellites | 50 Launch | 50 Robotics | 40 Deep Space | 40 Ground
+- **Mission:**  
+  Define, implement, and optimize all industrial processes, from factory automation to digital manufacturing and quality assurance.
 
-### Core Technical Competencies
+- **Core Competencies:**
+  - Manufacturing Process Engineering (Composites, Additive, Assembly)
+  - Industrial Automation & Robotics (ROBBBO-T integration)
+  - Digital Thread & Model-Based Systems Engineering (MBSE)
+  - Quality Management Systems (AS/EN 9100)
+  - Supply Chain Integration & Logistics
 
-| Competency Area | IC1-2 | IC3-4 | IC5-6 | Required Certifications |
-|----------------|-------|-------|-------|------------------------|
-| **Orbital Mechanics** | Basic orbits | Mission design | Quantum navigation | Astrodynamics Cert |
-| **Spacecraft Design** | Subsystems | Integration | Novel architectures | Space Systems Eng |
-| **Space Robotics** | Teleoperation | Autonomy | AI integration | Robotics Cert |
-| **Communications** | RF basics | Quantum comms | Interplanetary | Comms Engineer |
+- **Key Responsibilities:**
+  - Production readiness and rate capability
+  - Manufacturing cost and quality control
+  - Digital Thread implementation across all sites
 
----
-
-## B.8 QIND: Q-INDUSTRY Competencies (510 Staff)
-
-### 🏭 Division Overview
-**Mission**: Smart manufacturing and Industry 4.0  
-**Staff Distribution**: 150 Automation | 120 Robotics | 100 Quality | 80 Supply Chain | 60 Planning
-
-### Core Technical Competencies
-
-| Competency Area | IC1-2 | IC3-4 | IC5-6 | Required Certifications |
-|----------------|-------|-------|-------|------------------------|
-| **Automation** | PLC programming | System integration | AI factories | Automation Engineer |
-| **Robotics** | Basic programming | Advanced control | Swarm robotics | Robotics Specialist |
-| **Quality Systems** | ISO basics | Advanced SPC | Quantum QC | Six Sigma Black Belt |
-| **Supply Chain** | ERP systems | Optimization | Quantum logistics | APICS |
+- **Primary Interfaces:** All Q-Divisions, All Manufacturing Sites  
+- **Headcount:** 510
 
 ---
 
-## B.9 QGRO: Q-GROUND Competencies (190 Staff)
+### QGRO – Ground
 
-### 🏗️ Division Overview
-**Mission**: Infrastructure and ground operations  
-**Staff Distribution**: 50 Facilities | 50 GSE | 40 Vertiports | 30 Maintenance | 20 Logistics
+- **Mission:**  
+  Develop and manage all ground-based systems, including test benches, ground support equipment (GSE), and mission control infrastructure.
 
-### Core Technical Competencies
+- **Core Competencies:**
+  - Ground Support Equipment (GSE) Design
+  - System Integration Labs (SIL) & "Iron Bird" Test Rigs
+  - Mission Control Software & Operations
+  - Test & Measurement Instrumentation
+  - Airport Operations Integration
 
-| Competency Area | IC1-2 | IC3-4 | IC5-6 | Required Certifications |
-|----------------|-------|-------|-------|------------------------|
-| **Infrastructure** | Basic design | Complex systems | Smart infrastructure | Civil PE |
-| **GSE Design** | Equipment basics | System design | Autonomous GSE | Mechanical Eng |
-| **Vertiport Ops** | Basic operations | Traffic management | Quantum optimization | UAM Operator |
+- **Key Responsibilities:**
+  - Infrastructure for all system testing and validation
+  - Safe and efficient ground operations
+  - Customer-facing ground systems development
 
----
-
-## B.10 QDAT: Q-DATAGOV Competencies (260 Staff)
-
-### 💾 Division Overview
-**Mission**: Data governance and cybersecurity  
-**Staff Distribution**: 80 Architecture | 80 Cybersecurity | 50 Digital Thread | 30 Compliance | 20 Analytics
-
-### Core Technical Competencies
-
-| Competency Area | IC1-2 | IC3-4 | IC5-6 | Required Certifications |
-|----------------|-------|-------|-------|------------------------|
-| **Data Architecture** | Database basics | Distributed systems | Quantum databases | Data Architect |
-| **Cybersecurity** | Security basics | Advanced threats | Quantum crypto | CISSP |
-| **Blockchain** | Basic concepts | Implementation | Novel applications | Blockchain Cert |
-| **AI/ML Ops** | Model deployment | MLOps | Quantum ML | ML Engineer |
-
-### Specialized Competency Tracks
-
-#### Track 1: Quantum Security Specialist (40 positions)
-```yaml
-requirements:
-  education: "MS Computer Science + Quantum"
-  
-core_skills:
-  - Post-quantum cryptography
-  - QKD implementation
-  - Quantum-safe protocols
-  - Threat modeling
-```
+- **Primary Interfaces:** QIND, QAIR, QSPA, MA (Madrid Site)  
+- **Headcount:** 190
 
 ---
 
-## B.11 QHPC: Q-HPC Competencies (310 Staff)
+### QDAT – DataGov
 
-### 🖥️ Division Overview
-**Mission**: Quantum and high-performance computing  
-**Staff Distribution**: 120 Quantum Computing | 80 AI/ML | 60 Simulation | 30 Cloud | 20 Edge
+- **Mission:**  
+  Establish and enforce governance, security, and architecture for all data and digital artifacts, ensuring Digital Thread integrity and accessibility.
 
-### Core Technical Competencies
+- **Core Competencies:**
+  - Data Architecture & Governance
+  - Cybersecurity (ISO 27001, NIST) & Quantum-Resistant Cryptography
+  - Product Lifecycle Management (PLM) System Administration
+  - Nomenclature & Configuration Management
+  - Blockchain & Immutable Ledgers
 
-| Competency Area | IC1-2 | IC3-4 | IC5-6 | Required Certifications |
-|----------------|-------|-------|-------|------------------------|
-| **Quantum Computing** | Qiskit basics | Algorithm design | Hardware design | Quantum Developer |
-| **HPC Systems** | Parallel basics | Optimization | Exascale | HPC Specialist |
-| **AI/ML** | TensorFlow | Novel architectures | Quantum ML | AI Engineer |
-| **Cloud Architecture** | AWS/Azure | Multi-cloud | Edge-cloud | Cloud Architect |
+- **Key Responsibilities:**
+  - Defining/enforcing v9.0 Nomenclature System
+  - Protecting corporate/product data
+  - Data integrity and traceability
 
-### Performance Metrics
-
-| KPI | Target | Measurement |
-|-----|--------|-------------|
-| **Compute Efficiency** | 90% utilization | Resource usage |
-| **Algorithm Speed** | 10x improvement | Benchmark tests |
-| **Innovation** | 5 papers/year | Publications |
+- **Primary Interfaces:** All Q-Divisions, CLO (Legal), SV (Silicon Valley)  
+- **Headcount:** 260
 
 ---
 
-## B.12 QCOM: Q-COMM Competencies (240 Staff)
+### QHPC – Computing
 
-### 📡 Division Overview
-**Mission**: Quantum and classical communications  
-**Staff Distribution**: 80 Quantum | 60 Satellite | 50 Aircraft | 30 Ground | 20 Security
+- **Mission:**  
+  Develop and manage all computing infrastructure, from HPC clusters to proprietary quantum processing units (QPUs).
 
-### Core Technical Competencies
+- **Core Competencies:**
+  - Quantum Computing (Algorithm & Hardware)
+  - High-Performance Computing (CFD & FEA)
+  - Avionics & Real-Time OS (RTOS)
+  - AI/ML Model Development & Deployment
+  - Software Engineering (DO-178C)
 
-| Competency Area | IC1-2 | IC3-4 | IC5-6 | Required Certifications |
-|----------------|-------|-------|-------|------------------------|
-| **Quantum Comms** | QKD basics | Network design | Novel protocols | Quantum Network |
-| **RF Systems** | Antenna basics | System design | Novel concepts | RF Engineer |
-| **Network Security** | Basic crypto | Advanced threats | Quantum threats | Security+ |
+- **Key Responsibilities:**
+  - Providing computational resources
+  - Developing core QPU, QNS, and QAI technologies
+  - Certifying safety-critical software
 
----
-
-## B.13 QSCI: Q-SCIRES Competencies (180 Staff)
-
-### 🔬 Division Overview
-**Mission**: Scientific research and innovation  
-**Staff Distribution**: 60 Quantum | 40 Materials | 40 Propulsion | 20 University | 20 IP
-
-### Core Technical Competencies
-
-| Competency Area | IC1-2 | IC3-4 | IC5-6 | Required Certifications |
-|----------------|-------|-------|-------|------------------------|
-| **Research Methods** | Basic research | Advanced methods | Novel paradigms | PhD preferred |
-| **Quantum Theory** | Fundamentals | Applications | New theories | Quantum Physics |
-| **IP Management** | Patent basics | Portfolio mgmt | Licensing | Patent Agent |
-| **Tech Transfer** | Basic process | Complex deals | Strategic partnerships | Tech Transfer |
-
-### Performance Metrics
-
-| KPI | Target | Measurement |
-|-----|--------|-------------|
-| **Publications** | 10/year/researcher | Peer-reviewed |
-| **Patents** | 5/year/team | Applications filed |
-| **Grants** | €10M/year | Funding secured |
+- **Primary Interfaces:** QDAT, QSCI, QSPA, SV (Silicon Valley Site)  
+- **Headcount:** 310
 
 ---
 
-## 📊 Aggregate Competency Analytics
+### QCOM – Communications
 
-### Staff Distribution by Level
+- **Mission:**  
+  Design all communication, navigation, and surveillance systems, including quantum key distribution (QKD) networks.
 
-```mermaid
-pie title Staff Distribution by Career Level
-    "IC1-2 (Junior)" : 1134
-    "IC3-4 (Mid-level)" : 1512
-    "IC5-6 (Senior)" : 756
-    "M1-3 (Management)" : 302
-    "M4-6 (Leadership)" : 76
-```
+- **Core Competencies:**
+  - Quantum Key Distribution (QKD) & Secure Communications
+  - RF Engineering & Antenna Design
+  - Network Architecture (Air-to-Ground & Space-to-Ground)
+  - Navigation Systems (GPS, Galileo, QNS)
+  - Sensor Fusion & Integrated Surveillance
 
-### Training Investment Summary
+- **Key Responsibilities:**
+  - Developing QKD and QNS quantum systems
+  - Secure/reliable connectivity for all platforms
+  - Certification of communication/navigation equipment
 
-| Division | Annual Training Budget | Hours/Person/Year | Certification Rate |
-|----------|----------------------|-------------------|-------------------|
-| QSTR | €2.25M | 80 | 95% |
-| QAIR | €1.9M | 60 | 92% |
-| QGRE | €1.1M | 100 | 98% |
-| QMEC | €1.7M | 70 | 94% |
-| QPOW | €2.1M | 90 | 96% |
-| QSPA | €1.4M | 80 | 93% |
-| QIND | €2.55M | 60 | 97% |
-| QGRO | €0.95M | 50 | 90% |
-| QDAT | €1.3M | 100 | 99% |
-| QHPC | €1.55M | 120 | 95% |
-| QCOM | €1.2M | 80 | 94% |
-| QSCI | €0.9M | 150 | 100% |
-| **TOTAL** | **€18.9M** | **Avg: 83** | **95.3%** |
-
-### Quantum Competency Penetration
-
-| Level | % Staff with Quantum Skills | Target 2030 |
-|-------|---------------------------|-------------|
-| Basic Awareness | 100% | 100% |
-| Operational | 60% | 80% |
-| Advanced | 25% | 40% |
-| Expert | 10% | 20% |
+- **Primary Interfaces:** QSPA, QHPC, QDAT, MU (Munich Site)  
+- **Headcount:** 240
 
 ---
 
-**Document Status**: APPROVED  
-**Version**: 1.5  
-**Effective Date**: 2025-07-27  
-**Next Review**: 2026-01-01  
-**Owner**: Chief Human Resources Officer  
-**Classification**: AQUA V. INTERNAL - RESTRICTED
+### QSCI – Research
 
-**Document ID**: AQV-DOC-25MA0001-OPS-BOB-ORG-TD-ORG-002-00-01-TPL-ORG-002-QDAT-v1.5.0
+- **Mission:**  
+  Explore fundamental scientific principles and disruptive technologies beyond the current roadmap, focusing on low-TRL concepts.
+
+- **Core Competencies:**
+  - Fundamental Quantum Physics Research
+  - Advanced Materials Science
+  - Artificial General Intelligence (AGI) Concepts
+  - Technology Readiness Level (TRL) 1–3 Maturation
+  - University & Research Institute Partnerships
+
+- **Key Responsibilities:**
+  - Driving long-term, disruptive innovation
+  - Managing the IP pipeline for future technologies
+  - Identifying/validating next-gen scientific breakthroughs
+
+- **Primary Interfaces:** QHPC, QGRE, QSTR, All Sites (as needed)  
+- **Headcount:** 180
 
 ---
 
-**[END OF ANNEX B - Q-DIVISION COMPETENCY MATRIX]**
+_End of Annex B_
 
 ---
 
