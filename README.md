@@ -1,12 +1,12 @@
 <p align="center">
-  <h1>AQUA V. – Aerospace and Quantum United Advanced Venture</h1>
-  <h3>An Aspirational, well invented, reality</h3>
-</p>
-
-<p align="center">
   <img width="160" height="160" alt="logo_AQUA_V_black" src="https://github.com/user-attachments/assets/2d6ec959-700a-4253-a84d-23e6fb884e47" />
   <img width="160" height="160" alt="logo_AQUA_V-white" src="https://github.com/user-attachments/assets/412c4666-bbf3-4f62-9e9c-cc23cffee964" />
   <img width="160" height="160" alt="logo_AQUA_V_blu" src="https://github.com/user-attachments/assets/3861ef84-0c01-476d-a4cf-7d4f107d5b60" />
+</p>
+
+<p align="center">
+  <strong style="font-size:2em">AQUA V. – Aerospace and Quantum United Advanced Venture</strong><br>
+  <span style="font-size:1.3em">An Aspirational, well invented, reality</span>
 </p>
 
 <p align="center"><i>Transform. Innovate. Transcend.</i></p>
