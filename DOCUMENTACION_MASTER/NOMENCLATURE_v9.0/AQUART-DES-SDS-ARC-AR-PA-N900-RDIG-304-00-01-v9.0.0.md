@@ -1,140 +1,135 @@
-# 📋 Document ID: AQUART-DES-SDS-ARC-AR-PA-N900-RDIG-304-00-01-v9.0.0 Sistema de Nomenclatura v9.0
 
+# 📋 ANNEX D: Official Nomenclature System v10.0 (FINAL)
 
-### Desglose del Document ID:
+## AQUA V. Complete Naming Convention & Digital Thread Architecture
 
-| Campo | Valor | Significado |
-|:------|:------|:------------|
-| **LINE** | AQUART | Artefacto Cross-Program de AQUA V. |
-| **PHASE** | DES | Design - Estamos diseñando el sistema |
-| **SUBTYPE** | SDS | System Design Specification |
-| **DOMAIN** | ARC | Architecture - Arquitectura del sistema |
-| **MTD** | AR-PA-N900 | Architect > Primary Action > Nomenclature v9.0.0 |
-| **REALITY** | RDIG | Regulated Digital (Cumplimiento obligatorio) |
-| **UTCS** | 304-00-01 | Digital Architecture - Documentation Standards |
-| **VERSION** | v9.0.0 | Versión 9.0.0 del sistema |
-
-### Configuration Item:
-```yaml
-configuration_item:
-  artifact_id: "AQUART-DES-SDS-ARC-AR-PA-N900-RDIG-304-00-01-v9.0.0"
-  owner_division: "QDAT"
-  owner_team: "Enterprise Architecture"
-  created_by: "sarah.chen@aqua-v.aero"
-  created_date: "2025-12-01T10:00:00Z"
-  classification: "PUBLIC"
-  lifecycle_state: "APPROVED"
-```
-
-### Extended Description:
-```yaml
-extended_description:
-  title: "AQUA V. System Design Specification - Nomenclature System Architecture v9.0"
-  short_title: "SDS - Nomenclature Architecture v9.0"
-  description: "System design specification defining the next-generation naming convention and digital thread architecture for all AQUA V. artifacts. Version 9.0 introduces organizational decoupling via Configuration Items and semantic method encoding."
-  keywords: ["nomenclature", "system design", "architecture", "v9.0", "digital thread", "configuration item"]
-  language: "en-US"
-```
-
-Este Document ID refleja correctamente que estamos en la fase de **diseño** (DES) del sistema de nomenclatura, no en su operación.
-## AQUA V. Next-Generation Naming Convention & Digital Thread Architecture
-
-This document establishes the enhanced naming conventions for all artifacts within the AQUA V. €40 billion quantum aerospace program. Version 9.0 represents a major architectural evolution, decoupling organizational structure from artifact identification and introducing semantic method encoding for superior automation and immutability.
+This document establishes the mandatory naming conventions for all artifacts within the AQUA V. €40 billion quantum aerospace program. Version 10.0 represents the definitive standard, integrating semantic method encoding and a codified acronym system for superior automation and immutability.
 
 -----
 
-## 🔄 v9.0 Major Enhancements
+## 📑 Table of Contents
 
-### Key Architectural Improvements:
-1. **Q-Division Decoupling**: Moved from static nomenclature to dynamic Configuration Item attribute
-2. **Method (MTD) Field**: Replaced generic NUMBER with semantic TASK-STEP-OBJECT encoding using **alphanumeric format**
-3. **Enhanced Immutability**: Organizational changes no longer affect artifact identifiers
-4. **Improved Granularity**: DOMAIN field now represents specific technical modules
-5. **AI-Ready Structure**: Method encoding enables advanced automation and robotics
+  * [D.1 General Nomenclature Rule](https://www.google.com/search?q=%23d1-general-nomenclature-rule)
+  * [D.2 Field Definitions](https://www.google.com/search?q=%23d2-field-definitions)
+  * [D.3 Acronyms Codification](https://www.google.com/search?q=%23d3-acronyms-codification)
+  * [D.4 Document Subtypes (DOC)](https://www.google.com/search?q=%23d4-document-subtypes-doc)
+  * [D.5 Application Domains (APP)](https://www.google.com/search?q=%23d5-application-domains-app)
+  * [D.6 Examples by Product Line](https://www.google.com/search?q=%23d6-examples-by-product-line)
+  * [D.7 Reality Types Matrix](https://www.google.com/search?q=%23d7-reality-types-matrix)
+  * [D.8 Version Control System](https://www.google.com/search?q=%23d8-version-control-system)
+  * [D.9 Digital Thread Integration](https://www.google.com/search?q=%23d9-digital-thread-integration)
+  * [D.10 MSN Management System](https://www.google.com/search?q=%23d10-msn-management-system)
+  * [D.11 Implementation Guidelines](https://www.google.com/search?q=%23d11-implementation-guidelines)
+  * [D.12 Automated Tools & APIs](https://www.google.com/search?q=%23d12-automated-tools--apis)
+  * [D.13 Compliance & Validation](https://www.google.com/search?q=%23d13-compliance--validation)
+  * [D.14 Quick Reference Guide](https://www.google.com/search?q=%23d14-quick-reference-guide)
 
 -----
 
 ## D.1 General Nomenclature Rule
 
-### 🔷 Complete Nomenclature Format v9.0
+### 🔷 Complete Nomenclature Format v10.0
 
-The v9.0 nomenclature system maintains two mandatory components while enhancing the technical identifier:
+The v10.0 nomenclature system consists of two mandatory components while enhancing the technical identifier:
 
-1. **Technical Nomenclature** (Immutable identifier - 11 fields)
-2. **Extended Description** (Human-readable metadata)
+1.  **Technical Nomenclature** (Immutable identifier - 11 fields)
+2.  **Extended Description** (Human-readable metadata)
 
 **Technical Nomenclature Format:**
 
 For Product-Specific Artifacts:
+
 ```
-LINE-PRODUCT-SUBPRODUCT-MSN-PHASE-SUBTYPE-DOMAIN-MTD-REALITY-UTCS-VERSION
+LINE-PRODUCT-SUBPRODUCT-MSN-PHASE-DOC-APP-MTD-REALIDAD-UTCS-VERSION
 ```
 
 For Cross-Program Artifacts:
+
 ```
-AQUART-PHASE-SUBTYPE-DOMAIN-MTD-REALITY-UTCS-VERSION
+AQUART-PHASE-DOC-APP-MTD-REALIDAD-UTCS-VERSION
 ```
 
-### 🔹 Field Position Reference v9.0
+### 📊 Complete Artifact Structure v10.0
 
-| Position | Field        | Length | Type     | Required | Change from v8.0 |
-|:---------|:-------------|:-------|:---------|:---------|:-----------------|
-| 1        | LINE/AQUART  | 3-6    | Alpha    | ✓        | No change |
-| 2        | PRODUCT      | 3      | Alpha    | ✓*       | No change |
-| 3        | SUBPRODUCT   | 4      | AlphaNum | ✓*       | No change |
-| 4        | MSN          | 8      | AlphaNum | ✓*       | No change |
-| 5        | PHASE        | 3      | Alpha    | ✓        | No change |
-| 6        | SUBTYPE      | 3      | Alpha    | ✓        | No change |
-| 7        | DOMAIN       | 3      | Alpha    | ✓        | **Enhanced** |
-| 8        | **MTD**      | 11     | AlphaNum | ✓        | **NEW ALPHA FORMAT** |
-| 9        | REALITY      | 4      | Alpha    | ✓        | No change |
-| 10       | UTCS         | 9      | Numeric  | ✓        | No change |
-| ~~11~~   | ~~QD~~       | ~~4~~  | ~~Alpha~~| ~~✓~~    | **REMOVED** |
-| 11       | VERSION      | 6+     | SemVer   | ✓        | Position shifted |
+```json
+{
+  "nomenclature": "Technical identifier string",
+  "extended_description": {
+    "title": "Full descriptive title",
+    "short_title": "Abbreviated title",
+    "description": "Detailed description",
+    "keywords": ["searchable", "terms"],
+    "language": "primary language code",
+    "translations": [{
+      "language": "es-ES",
+      "title": "...",
+      "description": "..."
+    }]
+  },
+  "configuration_item_link": {
+    "ci_id": "8a4b5c1d-1234-5678-90ab-cdef12345678",
+    "version": "v10.0.0",
+    "last_modified_date": "2025-12-01T10:00:00Z"
+  }
+}
+```
 
-*Not required for AQUART artifacts
+### 🔹 Field Position Reference v10.0
+
+| Position | Field | Length | Type | Required | Change from v9.0 |
+|:---:|:---:|:---:|:---:|:---:|:---|
+| 1 | LINE/AQUART | 3-6 | Alpha | ✓ | No change |
+| 2 | PRODUCT | 3 | Alpha | ✓\* | No change |
+| 3 | SUBPRODUCT | 4 | AlphaNum | ✓\* | No change |
+| 4 | MSN | 8 | AlphaNum | ✓\* | No change |
+| 5 | PHASE | 3 | Alpha | ✓ | No change |
+| 6 | **DOC** | 3 | Alpha | ✓ | **RENAMED FROM SUBTYPE** |
+| 7 | **APP** | 3 | Alpha | ✓ | **RENAMED FROM DOMAIN** |
+| 8 | MTD | 10 | AlphaNum | ✓ | No change |
+| 9 | REALIDAD | 4 | Alpha | ✓ | No change |
+| 10 | UTCS | 9 | Numeric | ✓ | No change |
+| 11 | VERSION | 6+ | SemVer | ✓ | No change |
+| ED | EXTENDED\_DESC | Variable | Object | ✓ | No change |
+
+\*Not required for AQUART artifacts
 
 -----
 
 ## D.2 Field Definitions
 
-### 📋 LINE - Product Line Codes
+### 📋 `LINE` - Product Line Codes (4 Lines + AQUART)
 
-| Code | Full Name | Description | Products |
-|:-----|:----------|:------------|:---------|
-| AMP | AMPEL360 | Passenger aircraft systems | BWB, EVT, HYB, SUB, ORB |
-| GAI | GAIA AIR & SPACE | Unmanned aerial/space systems | UAV, SAT, ROV, CRG |
-| ROB | ROBBBO-T | Robotic systems | FAL, MRO, SPC, EXP |
-| QUA | QUANTUM | Quantum technology systems | QPU, QCM, QSN, QSW |
-| AQUART | AQUA V Artifact | Cross-program documentation | Enterprise-wide |
+| Code | Full Name | Products | Scope |
+|:-----|:----------|:---------|:------|
+| AMP | AMPEL360 | BWB, EVT, HYB, SUB, ORB | Product-specific |
+| GAI | GAIA AIR & SPACE | UAV, SAT, ROV, CRG | Product-specific |
+| ROB | ROBBBO-T | FAL, MRO, SPC, EXP | Product-specific |
+| QUA | QUANTUM | QPU, QCM, QSN, QSW | Product-specific |
+| AQUART | AQUA V Artifact | Enterprise-wide | Cross-program |
 
-### 📋 PRODUCT - Product Codes
+### 📋 `PRODUCT` - Product Codes
 
 | Line | Code | Product Type | Description |
 |:-----|:-----|:-------------|:------------|
-| **AMP - AMPEL360** |
-| | BWB | Blended Wing Body | Next-gen passenger aircraft |
+| **AMP - AMPEL360** | BWB | Blended Wing Body | Next-gen passenger aircraft |
 | | EVT | eVTOL | Urban air mobility |
 | | HYB | Hybrid-Electric | Sustainable propulsion |
 | | SUB | Suborbital | Space tourism |
 | | ORB | Orbital | Space access |
-| **GAI - GAIA AIR & SPACE** |
-| | UAV | Unmanned Aerial Vehicle | Autonomous aircraft |
+| **GAI - GAIA AIR & SPACE** | UAV | Unmanned Aerial Vehicle | Autonomous aircraft |
 | | SAT | Satellite | Space systems |
 | | ROV | Rover | Planetary exploration |
 | | CRG | Cargo Drone | Logistics UAV |
-| **ROB - ROBBBO-T** |
-| | FAL | Factory Automation Line | Manufacturing robots |
+| **ROB - ROBBBO-T** | FAL | Factory Automation Line | Manufacturing robots |
 | | MRO | Maintenance Repair Overhaul | Service robots |
 | | SPC | Space | Space robotics |
 | | EXP | Explorer | Exploration robots |
-| **QUA - QUANTUM** |
-| | QPU | QPU Systems | Quantum processing units |
+| **QUA - QUANTUM** | QPU | QPU Systems | Quantum processing units |
 | | QCM | Quantum Communications | Quantum comm systems |
 | | QSN | Quantum Sensors | Quantum sensing tech |
 | | QSW | Quantum Software | Quantum software systems |
 
-### 📋 SUBPRODUCT - Subproduct Codes
+### 📋 `SUBPRODUCT` - Subproduct Codes
 
 | Product | Code | Subproduct | Description |
 |:--------|:-----|:-----------|:------------|
@@ -186,123 +181,75 @@ AQUART-PHASE-SUBTYPE-DOMAIN-MTD-REALITY-UTCS-VERSION
 | QSW | QSIM | Q-Simulator | Quantum simulation |
 | QSW | QOPT | Q-Optimizer | Quantum optimization |
 
-### 📋 MSN - Manufacturing Serial Number Format
+### 📋 `PHASE` - Lifecycle Phase Codes (13 Phases)
 
-Format: YYSSTNNNN
+| Code | Phase | Focus |
+|:---:|:---:|:---|
+| CON | Conceptual | Requirements, feasibility |
+| DES | Design | Specifications, models |
+| DEV | Development | Implementation, code |
+| TST | Testing | Validation, results |
+| INT | Integration | System integration |
+| CRT | Certification | Compliance, approval |
+| PRD | Production | Manufacturing |
+| MNT | Maintenance | Service, updates |
+| OPS | Operations | Procedures, performance |
+| REP | Repair | Fixes, modifications |
+| RET | Retirement | Decommission, recycling |
+| SUP | Supply Chain | Logistics, inventory |
+| EXT | Extension | Upgrades, evolution |
 
-| Component | Length | Description | Example |
-|:----------|:-------|:------------|:--------|
-| YY | 2 | Year (25=2025) | 25 |
-| SS | 2 | Site code | MA |
-| T | 1 | Type code | P |
-| NNNN | 4 | Sequential | 0001 |
+### 📋 `DOC` - Document Subtype Codes (Renamed from SUBTYPE)
 
-**Site Codes:**
-| Code | Location | Specialization |
-|:-----|:---------|:---------------|
-| MA | Madrid | Global HQ, Final Assembly |
-| TO | Toulouse | Aerodynamics, Testing |
-| MU | Munich | Propulsion, Quantum |
-| NA | Naples | Composites, Materials |
-| SG | Singapore | Asia Hub, UAV/Robotics |
-| SV | Silicon Valley | Software, Quantum Computing |
-
-**Type Codes:**
-| Code | Type | Description |
-|:-----|:-----|:------------|
-| P | Prototype | Development prototype |
-| D | Development | Test article |
-| S | Series | Production unit |
-| C | Customer | Customer-specific |
-| Q | Quantum | Quantum-enhanced |
-| R | Retrofit | Upgrade/modification |
-| X | Experimental | Research platform |
-
-### 📋 PHASE - Lifecycle Phase Codes (13 Phases)
-
-| Code | Phase | Focus | Typical Documents |
-|:-----|:------|:------|:------------------|
-| CON | Conceptual | Requirements, feasibility | RQS, FAS, CDS |
-| DES | Design | Specifications, models | SDS, ICD, CSP |
-| DEV | Development | Implementation, code | IMP, SRC, BLD |
-| TST | Testing | Validation, results | TRP, TVP, TRR |
-| INT | Integration | System integration | ICR, ITP, LOG |
-| CRT | Certification | Compliance, approval | CMP, AUT, REG |
-| PRD | Production | Manufacturing | MPS, QCP, WIS |
-| MNT | Maintenance | Service, updates | MSP, AMM, CMM |
-| OPS | Operations | Procedures, performance | SOP, FOM, POL |
-| REP | Repair | Fixes, modifications | FIX, MOD, SRM |
-| RET | Retirement | Decommission, recycling | DIS, DCP, RCL |
-| SUP | Supply Chain | Logistics, inventory | LOG, SPC, SCM |
-| EXT | Extension | Upgrades, evolution | LEP, SUG, MOD |
-
-### 📋 SUBTYPE - Document Subtype Codes
-
-#### Conceptual Phase (CON)
 | Code | Full Name | Description |
-|:-----|:----------|:------------|
-| RQS | Requirement Specification | System requirements |
-| FAS | Feasibility Assessment | Technical feasibility |
-| CDS | Conceptual Design Specification | Initial concepts |
+|:---:|:----------|:------------|
+| **CON - Conceptual Phase** |
+| RQS | Requirement Specification | System requirements definition |
+| FAS | Feasibility Assessment | Technical feasibility studies |
+| CDS | Conceptual Design Specification | Initial design concepts |
 | COP | Concept of Operations | CONOPS document |
 | MRD | Market Requirements Document | Market analysis |
-
-#### Design Phase (DES)
-| Code | Full Name | Description |
-|:-----|:----------|:------------|
-| SDS | System Design Specification | System architecture |
+| **DES - Design Phase** |
+| SDS | System Design Specification | Complete system architecture |
 | ICD | Interface Control Document | Interface definitions |
-| CSP | Component Specification | Component specs |
-| PRF | Performance Specification | Performance reqs |
+| CSP | Component Specification | Detailed component specs |
+| PRF | Performance Specification | Performance requirements |
 | DVM | Design Validation Model | Validation models |
-
-#### Development Phase (DEV)
-| Code | Full Name | Description |
-|:-----|:----------|:------------|
+| **DEV - Development Phase** |
 | IMP | Implementation Plan | Development planning |
-| SRC | Source Code Package | Software code |
-| BLD | Build Specification | Build config |
-| API | API Documentation | API specs |
+| SRC | Source Code Package | Software source code |
+| BLD | Build Specification | Build configuration |
+| API | API Documentation | API specifications |
 | SDK | Software Development Kit | Dev tools |
-
-#### Testing Phase (TST)
-| Code | Full Name | Description |
-|:-----|:----------|:------------|
-| TRP | Test Report | Test results |
+| **TST - Testing Phase** |
+| TRP | Test Report | Test results documentation |
 | TVP | Test Validation Plan | Test planning |
 | TRR | Test Readiness Review | Test prep review |
-| TCP | Test Case Procedure | Test steps |
-| TAR | Test Analysis Report | Test analysis |
-
-#### Integration Phase (INT)
-| Code | Full Name | Description |
-|:-----|:----------|:------------|
+| TCP | Test Case Procedure | Detailed test steps |
+| TAR | Test Analysis Report | Test data analysis |
+| **INT - Integration Phase** |
 | ICR | Integration Control Record | Integration tracking |
 | ITP | Integration Test Plan | Integration testing |
 | LOG | Integration Logbook | Integration records |
 | IVR | Integration Validation Report | Integration validation |
-
-#### Certification Phase (CRT)
-| Code | Full Name | Description |
-|:-----|:----------|:------------|
+| ISS | Integration System Specification | Integration specs |
+| **CRT - Certification Phase** |
 | CMP | Compliance Matrix | Regulatory compliance |
 | AUT | Authorization Document | Cert approvals |
 | REG | Regulatory Statement | Regulatory declarations |
 | CER | Certification Evidence | Cert documentation |
 | TSO | Technical Standard Order | TSO authorization |
-
-#### Production Phase (PRD)
-| Code | Full Name | Description |
-|:-----|:----------|:------------|
+| SAR | Safety Assessment Report | Safety analysis |
+| **PRD - Production Phase** |
 | MPS | Manufacturing Process Specification | Production processes |
 | QCP | Quality Control Plan | Quality procedures |
 | WIS | Work Instruction Sheet | Assembly instructions |
 | BOM | Bill of Materials | Parts lists |
 | FAI | First Article Inspection | First unit inspection |
-
-#### Maintenance Phase (MNT)
-| Code | Full Name | Description |
-|:-----|:----------|:------------|
+| PTP | Production Test Procedure | Production testing |
+| PVR | Production Validation Report | Production validation |
+| PCR | Production Conformity Report | Conformity documentation |
+| **MNT - Maintenance Phase** |
 | AMM | Aircraft Maintenance Manual | Aircraft maintenance |
 | CMM | Component Maintenance Manual | Component service |
 | SRM | Structural Repair Manual | Structural repairs |
@@ -311,56 +258,45 @@ Format: YYSSTNNNN
 | MPD | Maintenance Planning Document | Maintenance program |
 | WDM | Wiring Diagram Manual | Electrical diagrams |
 | TSM | Troubleshooting Manual | Fault isolation |
-
-#### Operations Phase (OPS)
-| Code | Full Name | Description |
-|:-----|:----------|:------------|
+| **OPS - Operations Phase** |
 | SOP | Standard Operating Procedure | Operational procedures |
-| FOM | Flight Operations Manual | Flight procedures |
 | POL | Operational Policy | Operating policies |
 | QMS | Quality Management System | Quality documentation |
+| MOC | Management of Change | Change management |
+| OPM | Operations Manual | Operations guide |
+| MET | Metrics Report | Performance metrics |
+| FOM | Flight Operations Manual | Flight procedures |
 | GOM | Ground Operations Manual | Ground procedures |
-
-#### Repair Phase (REP)
-| Code | Full Name | Description |
-|:-----|:----------|:------------|
+| **REP - Repair Phase** |
 | FIX | Repair Instruction | Repair procedures |
 | MOD | Modification Sheet | Modification specs |
 | UPG | Upgrade Kit Description | Upgrade documentation |
 | RPS | Repair Scheme | Repair planning |
-| SBI | Service Bulletin Implementation | Service updates |
-
-#### Retirement Phase (RET)
-| Code | Full Name | Description |
-|:-----|:----------|:------------|
+| DTA | Damage Tolerance Assessment | Damage analysis |
+| RER | Repair Evaluation Report | Repair assessment |
+| **RET - Retirement Phase** |
 | DIS | Disposal Instruction | Disposal procedures |
 | DCP | Decommissioning Plan | Decommissioning process |
 | RCL | Reclamation Procedure | Material recovery |
 | EDS | End-of-Service Documentation | Final documentation |
-
-#### Supply Chain Phase (SUP)
-| Code | Full Name | Description |
-|:-----|:----------|:------------|
+| **SUP - Supply Chain Phase** |
 | LOG | Logistics Management | Supply chain docs |
 | SPC | Spare Parts Catalog | Parts inventory |
 | SCM | Supply Chain Manual | Supply procedures |
 | INV | Inventory Management | Inventory control |
-
-#### Extension Phase (EXT)
-| Code | Full Name | Description |
-|:-----|:----------|:------------|
+| **EXT - Extension Phase** |
 | LEP | Life Extension Plan | Life extension docs |
 | SUG | System Upgrade Guide | Upgrade procedures |
 | MOD | Modernization Document | Modernization plans |
 | CAP | Capability Enhancement | Enhancement plans |
 
-### 📋 DOMAIN - Enhanced Technical Module Codes
+### 📋 `APP` - Application Domains (Renamed from DOMAIN)
 
-Domain represents specific technical modules within document subtypes, not general categories.
+Application represents specific technical modules within document subtypes, not general categories.
 
-#### For SUBTYPE: AMM (Aircraft Maintenance Manual)
 | Code | Module | Description |
-|:-----|:-------|:------------|
+|:---:|:-------|:------------|
+| **For DOC: AMM** |
 | TSG | Troubleshooting | Fault isolation procedures |
 | MPR | Maintenance Procedures | Step-by-step maintenance |
 | SVC | Servicing | Fluid servicing, lubrication |
@@ -369,11 +305,8 @@ Domain represents specific technical modules within document subtypes, not gener
 | TST | Testing | Functional test procedures |
 | CLE | Cleaning | Cleaning procedures |
 | STO | Storage | Preservation procedures |
-| WGH | Weight & Balance | W&B procedures |
-
-#### For SUBTYPE: CMM (Component Maintenance Manual)
-| Code | Module | Description |
-|:-----|:-------|:------------|
+| WGH | Weight & Balance | W\&B procedures |
+| **For DOC: CMM** |
 | DIS | Disassembly | Teardown procedures |
 | ASM | Assembly | Build-up procedures |
 | OVH | Overhaul | Complete overhaul |
@@ -382,10 +315,7 @@ Domain represents specific technical modules within document subtypes, not gener
 | TST | Test | Bench test procedures |
 | INS | Inspection | Detailed inspection |
 | PAR | Parts | Parts identification |
-
-#### For SUBTYPE: IPC (Illustrated Parts Catalog)
-| Code | Module | Description |
-|:-----|:-------|:------------|
+| **For DOC: IPC** |
 | IPL | Illustrated Parts List | Parts breakdown |
 | EFF | Effectivity | Applicability data |
 | INT | Interchangeability | Cross-reference |
@@ -393,10 +323,7 @@ Domain represents specific technical modules within document subtypes, not gener
 | KIT | Kits | Kit contents |
 | CSN | Consumables | Consumable materials |
 | NHA | Next Higher Assembly | Assembly structure |
-
-#### For SUBTYPE: SRM (Structural Repair Manual)
-| Code | Module | Description |
-|:-----|:-------|:------------|
+| **For DOC: SRM** |
 | IDF | Identification | Damage identification |
 | ALC | Allowable Limits | Damage limits |
 | RPR | Repair | Repair procedures |
@@ -404,30 +331,21 @@ Domain represents specific technical modules within document subtypes, not gener
 | FIN | Finishes | Surface treatment |
 | INS | Inspection | Post-repair inspection |
 | DAT | Data | Design data |
-
-#### For SUBTYPE: MEL (Minimum Equipment List)
-| Code | Module | Description |
-|:-----|:-------|:------------|
+| **For DOC: MEL** |
 | SYS | Systems | System-based MEL |
 | CAT | Category | Dispatch categories |
 | OPS | Operations | Operational procedures |
 | MNT | Maintenance | Maintenance procedures |
 | PLN | Planning | Repair intervals |
-
-#### For SUBTYPE: SDS (System Design Specification)
-| Code | Module | Description |
-|:-----|:-------|:------------|
+| **For DOC: SDS** |
 | ARC | Architecture | System architecture |
 | REQ | Requirements | System requirements |
 | INT | Interfaces | Interface definitions |
 | MOD | Modes | Operating modes |
 | SAF | Safety | Safety analysis |
 | PER | Performance | Performance specs |
-| VER | Verification | V&V requirements |
-
-#### For SUBTYPE: ICD (Interface Control Document)
-| Code | Module | Description |
-|:-----|:-------|:------------|
+| VER | Verification | V\&V requirements |
+| **For DOC: ICD** |
 | PHY | Physical | Physical interfaces |
 | DAT | Data | Data interfaces |
 | PWR | Power | Power interfaces |
@@ -435,10 +353,7 @@ Domain represents specific technical modules within document subtypes, not gener
 | PRO | Protocol | Communication protocols |
 | ERR | Error | Error handling |
 | TST | Test | Test interfaces |
-
-#### For SUBTYPE: FOM (Flight Operations Manual)
-| Code | Module | Description |
-|:-----|:-------|:------------|
+| **For DOC: FOM** |
 | NOR | Normal | Normal procedures |
 | ABN | Abnormal | Abnormal procedures |
 | EMG | Emergency | Emergency procedures |
@@ -446,10 +361,7 @@ Domain represents specific technical modules within document subtypes, not gener
 | SPL | Special | Special operations |
 | APP | Appendix | Supporting data |
 | PER | Performance | Performance data |
-
-#### For SUBTYPE: WDM (Wiring Diagram Manual)
-| Code | Module | Description |
-|:-----|:-------|:------------|
+| **For DOC: WDM** |
 | PWR | Power | Power distribution |
 | SIG | Signal | Signal wiring |
 | DAT | Data | Data bus wiring |
@@ -457,10 +369,7 @@ Domain represents specific technical modules within document subtypes, not gener
 | SHD | Shield | Shielding diagrams |
 | CON | Connector | Connector layouts |
 | PIN | Pin | Pin assignments |
-
-#### Universal Domain Codes
-| Code | Module | Description |
-|:-----|:-------|:------------|
+| **Universal Application Codes** |
 | GEN | General | General information |
 | TOC | Table of Contents | Content listing |
 | LEP | List of Effective Pages | Page control |
@@ -474,14 +383,15 @@ Domain represents specific technical modules within document subtypes, not gener
 Format: AA-AA-AAAA (11 characters including hyphens)
 
 | Component | Position | Length | Type | Description |
-|:----------|:---------|:-------|:-----|:------------|
+|:----------|:---:|:---:|:---:|:------------|
 | TASK | 1-2 | 2 | Alpha | Primary task code |
 | STEP | 4-5 | 2 | Alpha | Step/action code |
 | OBJECT | 7-10 | 4 | AlphaNum | Object/component identifier |
 
 #### Task Codes - Maintenance (MNT Phase)
+
 | Code | Task | Description |
-|:-----|:-----|:------------|
+|:---:|:---:|:------------|
 | RM | Remove | Removal procedures |
 | IN | Install | Installation procedures |
 | RP | Replace | Replacement (remove + install) |
@@ -499,8 +409,9 @@ Format: AA-AA-AAAA (11 characters including hyphens)
 | LB | Lubricate | Lubrication procedures |
 
 #### Task Codes - Design (DES Phase)
+
 | Code | Task | Description |
-|:-----|:-----|:------------|
+|:---:|:---:|:------------|
 | DF | Define | Requirements definition |
 | AR | Architect | System architecture |
 | IF | Interface | Interface definition |
@@ -513,8 +424,9 @@ Format: AA-AA-AAAA (11 characters including hyphens)
 | RV | Review | Design review |
 
 #### Task Codes - Production (PRD Phase)
+
 | Code | Task | Description |
-|:-----|:-----|:------------|
+|:---:|:---:|:------------|
 | FB | Fabricate | Part fabrication |
 | AS | Assemble | Assembly operations |
 | WD | Weld | Welding procedures |
@@ -527,8 +439,9 @@ Format: AA-AA-AAAA (11 characters including hyphens)
 | VF | Verify | Quality verification |
 
 #### Step Codes (Universal)
+
 | Code | Step Type | Description |
-|:-----|:----------|:------------|
+|:---:|:----------|:------------|
 | PR | Preparation | Safety, tools, access |
 | DC | Disconnect | Electrical, mechanical disconnection |
 | AC | Access | Gaining physical access |
@@ -551,73 +464,26 @@ Format: AA-AA-AAAA (11 characters including hyphens)
 | SX | Extended | Steps beyond 9 |
 
 #### Object Codes (AlphaNum)
+
 Format: AAAA (4 alphanumeric characters)
 
-**Component Prefixes:**
-- C001-C999: Connectors
-- P001-P999: Parts
-- A001-A999: Assemblies
-- S001-S999: Systems
-- M001-M999: Modules
-- T001-T999: Tools
+| Component Prefixes | Codes | Description |
+|:---:|:---|:---|
+| `C` | C001-C999 | Connectors |
+| `P` | P001-P999 | Parts |
+| `A` | A001-A999 | Assemblies |
+| `S` | S001-S999 | Systems |
+| `M` | M001-M999 | Modules |
+| `T` | T001-T999 | Tools |
 
-**Special Designators:**
-- FC01-FC99: Fault Codes
-- IF01-IF99: Installation Figures
-- MF01-MF99: Maintenance Figures
-- RF01-RF99: Reference Figures
-- Q001-Q999: Quantum components
-- X001-X999: Special/experimental
-
-### 📋 REALITY - Reality Type Codes
-
-| Code | Reality Type | Description | Business Model |
-|:-----|:-------------|:------------|:---------------|
-| PHYS | Physical/Operational | Hardware, operational systems | Asset-based |
-| OPER | Operational Digital Twin | Real-time synchronized twin | Subscription |
-| FDIG | Functional Digital | Operational control systems | Licensed |
-| RDIG | Regulated Digital | Mandatory compliance docs | Subscription |
-| GDIG | Generative Digital | AI-generated content | Pay-per-use |
-| SDIG | Static Digital | Reference documentation | One-time |
-| VIRT | Virtual Simulation | Predictive simulations | Usage-based |
-| AUGM | Augmented Reality | AR overlays, mixed reality | Feature-based |
-| ROBO | Robotic/Autonomous | Autonomous systems | Service-based |
-| QASI | Quantum/Sentient AI | Advanced quantum AI | Compute-based |
-| TRNS | Transpositional | Cross-reality modules | API calls |
-
-### 📋 UTCS - Universal Technology Classification System
-
-Format: ###-##-## (9 characters total with hyphens)
-
-| Range | Architecture Domain | Example Chapters |
-|:------|:-------------------|:-----------------|
-| 000-099 | Aerospace Technology | 022=Auto Flight, 024=Electrical Power |
-| 100-199 | Space Technology | 110=Structural Subsystem, 114=Propulsion |
-| 200-299 | Defence Technology | 203=EW Systems, 207=Military Comms |
-| 300-399 | Digital Twin/Cloud | 310=Digital Twin, 320=Machine Learning |
-| 400-499 | Energy/Propulsion | 410=Chemical Propulsion, 420=Electric |
-| 500-599 | Advanced Materials | 510=Carbon Fiber, 520=Advanced Composites |
-| 600-699 | Ground Automation | 610=Industrial Robotics, 620=Cobots |
-| 700-799 | Aerial City Viability | 701=Vertiport, 710=eVTOL Design |
-| 800-899 | Cybersecurity | 810=Network Security, 870=Post-Quantum |
-| 900-999 | Quantum Computing | 910=Superconducting Qubits, 950=Algorithms |
-
-### 📋 VERSION - Semantic Versioning
-
-Format: vMAJOR.MINOR.PATCH
-
-**Version Components:**
-- **MAJOR**: Breaking changes, incompatible updates
-- **MINOR**: New features, backwards compatible
-- **PATCH**: Bug fixes, minor updates
-
-**Examples:**
-- v9.0.0 - Major revision with MTD field
-- v9.1.0 - Added new domain codes
-- v9.1.1 - Fixed validation rule
-- v9.2.0-alpha.1 - Alpha release
-- v9.2.0-beta.2 - Beta release
-- v9.2.0-rc.1 - Release candidate
+| Special Designators | Codes | Description |
+|:---:|:---|:---|
+| `FC` | FC01-FC99 | Fault Codes |
+| `IF` | IF01-IF99 | Installation Figures |
+| `MF` | MF01-MF99 | Maintenance Figures |
+| `RF` | RF01-RF99 | Reference Figures |
+| `Q` | Q001-Q999 | Quantum components |
+| `X` | X001-X999 | Special/experimental |
 
 -----
 
@@ -627,33 +493,33 @@ Format: vMAJOR.MINOR.PATCH
 
 ```sql
 CREATE TABLE configuration_items (
-    artifact_id VARCHAR(100) PRIMARY KEY,
-    owner_division VARCHAR(4) NOT NULL,
-    owner_team VARCHAR(100),
-    created_by VARCHAR(100) NOT NULL,
-    created_date TIMESTAMP NOT NULL,
-    last_modified_by VARCHAR(100),
-    last_modified_date TIMESTAMP,
-    access_level VARCHAR(20) DEFAULT 'INTERNAL',
-    classification VARCHAR(20) DEFAULT 'UNCLASSIFIED',
-    lifecycle_state VARCHAR(20) NOT NULL,
-    
-    INDEX idx_owner (owner_division, owner_team),
-    INDEX idx_created (created_by, created_date),
-    INDEX idx_state (lifecycle_state)
+    artifact_id VARCHAR(100) PRIMARY KEY,
+    owner_division VARCHAR(4) NOT NULL,
+    owner_team VARCHAR(100),
+    created_by VARCHAR(100) NOT NULL,
+    created_date TIMESTAMP NOT NULL,
+    last_modified_by VARCHAR(100),
+    last_modified_date TIMESTAMP,
+    access_level VARCHAR(20) DEFAULT 'INTERNAL',
+    classification VARCHAR(20) DEFAULT 'UNCLASSIFIED',
+    lifecycle_state VARCHAR(20) NOT NULL,
+    
+    INDEX idx_owner (owner_division, owner_team),
+    INDEX idx_created (created_by, created_date),
+    INDEX idx_state (lifecycle_state)
 );
 
 CREATE TABLE ownership_history (
-    history_id INT AUTO_INCREMENT PRIMARY KEY,
-    artifact_id VARCHAR(100) NOT NULL,
-    change_date TIMESTAMP NOT NULL,
-    previous_owner VARCHAR(4),
-    new_owner VARCHAR(4) NOT NULL,
-    changed_by VARCHAR(100) NOT NULL,
-    change_reason VARCHAR(500),
-    
-    FOREIGN KEY (artifact_id) REFERENCES configuration_items(artifact_id),
-    INDEX idx_artifact_date (artifact_id, change_date)
+    history_id INT AUTO_INCREMENT PRIMARY KEY,
+    artifact_id VARCHAR(100) NOT NULL,
+    change_date TIMESTAMP NOT NULL,
+    previous_owner VARCHAR(4),
+    new_owner VARCHAR(4) NOT NULL,
+    changed_by VARCHAR(100) NOT NULL,
+    change_reason VARCHAR(500),
+    
+    FOREIGN KEY (artifact_id) REFERENCES configuration_items(artifact_id),
+    INDEX idx_artifact_date (artifact_id, change_date)
 );
 ```
 
@@ -664,65 +530,83 @@ CREATE TABLE ownership_history (
 ### 🛩️ AMPEL360 Examples
 
 #### BWB Q100 - Maintenance Troubleshooting
+
 ```yaml
 artifact:
-  nomenclature: "AMP-BWB-Q100-25MAP0001-MNT-AMM-TSG-TR-VF-FC27-RDIG-024-50-00-v9.0.0"
-  configuration_item:
-    owner_division: "QPOW"
+  nomenclature: "AMP-BWB-Q100-25MAP0001-MNT-AMM-TSG-TR-VF-FC27-RDIG-024-50-00-v9.0.0"
+  configuration_item:
+    owner_division: "QPOW"
 ```
 
 #### eVTOL City - Component Overhaul
+
 ```yaml
 artifact:
-  nomenclature: "AMP-EVT-CITY-25MAP0002-MNT-CMM-OVH-RP-PA-M234-RDIG-062-00-00-v9.0.0"
-  configuration_item:
-    owner_division: "QMEC"
+  nomenclature: "AMP-EVT-CITY-25MAP0002-MNT-CMM-OVH-RP-PA-M234-RDIG-062-00-00-v9.0.0"
+  configuration_item:
+    owner_division: "QMEC"
 ```
 
 ### 🛸 GAIA Examples
 
 #### UAV Swarm - Interface Design
+
 ```yaml
 artifact:
-  nomenclature: "GAI-UAV-SWRM-25SGS0001-DES-ICD-DAT-IF-PA-S301-FDIG-308-00-00-v9.0.0"
-  configuration_item:
-    owner_division: "QDAT"
+  nomenclature: "GAI-UAV-SWRM-25SGS0001-DES-ICD-DAT-IF-PA-S301-FDIG-308-00-00-v9.0.0"
+  configuration_item:
+    owner_division: "QDAT"
 ```
 
 ### ⚛️ QUANTUM Examples
 
 #### Q-Navigation Calibration
+
 ```yaml
 artifact:
-  nomenclature: "QUA-QSN-QNAV-25MUQ0001-MNT-CMM-ADJ-AJ-VF-Q001-RDIG-938-00-00-v9.0.0"
-  configuration_item:
-    owner_division: "QSCI"
+  nomenclature: "QUA-QSN-QNAV-25MUQ0001-MNT-CMM-ADJ-AJ-VF-Q001-RDIG-938-00-00-v9.0.0"
+  configuration_item:
+    owner_division: "QSCI"
 ```
 
 ### 🤖 ROBBBO-T Examples
 
 #### Factory Robot Assembly Procedure
+
 ```yaml
 artifact:
-  nomenclature: "ROB-FAL-AS01-25NAR0001-PRD-WIS-ASM-AS-PA-R123-RDIG-615-00-00-v9.0.0"
-  configuration_item:
-    owner_division: "QIND"
+  nomenclature: "ROB-FAL-AS01-25NAR0001-PRD-WIS-ASM-AS-PA-R123-RDIG-615-00-00-v9.0.0"
+  configuration_item:
+    owner_division: "QIND"
 ```
 
 ### 🏢 Cross-Program Examples
 
 #### Enterprise Maintenance Planning
+
 ```yaml
 artifact:
-  nomenclature: "AQUART-MNT-MPD-PLN-DF-PR-X000-RDIG-005-00-00-v9.0.0"
-  configuration_item:
-    owner_division: "QMEC"
+  nomenclature: "AQUART-MNT-MPD-PLN-DF-PR-X000-RDIG-005-00-00-v9.0.0"
+  configuration_item:
+    owner_division: "QMEC"
 ```
 
----
+-----
 
-**Document Status:** APPROVED FOR IMPLEMENTATION  
-**Version:** 9.0.0  
-**Issue Date:** 2025-12-01  
-**Effective Date:** 2026-01-01  
+**Document ID:** `AQUART-OPS-POL-STD-001-RDIG-304-00-01-QDAT-v10.0.0`
+**Title:** "AQUA V. Enterprise Operational Policy - Nomenclature System Standard v10.0"
+**Short Title:** "Enterprise POL - Nomenclature v10.0"
 **Owner:** Chief Technology Officer
+**Status:** APPROVED
+**Version:** 10.0.0
+**Issue Date:** 2025-12-15
+**Effective Date:** 2026-01-01
+**Classification:** AQUA V. STANDARD - MANDATORY COMPLIANCE
+
+**Key Features of v10.0:**
+
+  - **Finalized Nomenclature Format**: Replaced SUBTYPE and DOMAIN with DOC and APP for improved clarity.
+  - **Method (MTD) Field**: A new semantic field for task-step-object encoding.
+  - **Codified Acronyms**: All key codes are now formalized.
+  - **Q-Division Decoupling**: Ownership is an attribute of the Configuration Item.
+  - **AI/Automation Ready**: The structure is optimized for machine parsing.
