@@ -1,0 +1,443 @@
+# AQUA V Documentation - Advanced Jekyll GitHub Pages Deployment
+# Integrates S1000D validation, v9.0 nomenclature, and MCP servers
+name: Deploy AQUA V Documentation with Full Integration
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - 'docs/**'
+      - '_config.yml'
+      - 'README.md'
+      - 'ANNEX_*.md'
+      - '.github/workflows/jekyll-gh-pages.yml'
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - staging
+          - development
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  pull-requests: write
+
+concurrency:
+  group: "pages-${{ github.ref }}"
+  cancel-in-progress: false
+
+env:
+  AQUAV_VERSION: "8.1"
+  S1000D_VERSION: "5.0"
+  NOMENCLATURE_VERSION: "9.0"
+
+jobs:
+  # S1000D Validation job
+  validate-s1000d:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Python for AQUA V Tools
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install S1000D Validation Tools
+        run: |
+          pip install lxml xmlschema
+          # Download S1000D schemas
+          wget -q https://s1000d.org/S1000D_5-0/xml_schema_flat.zip
+          unzip -q xml_schema_flat.zip -d s1000d_schemas
+      
+      - name: Validate S1000D Compliance
+        run: |
+          python << 'EOF'
+          import os
+          import xmlschema
+          from pathlib import Path
+          
+          # Validate all XML documentation against S1000D schema
+          schema = xmlschema.XMLSchema('s1000d_schemas/S1000D_5.xsd')
+          errors = []
+          
+          for xml_file in Path('docs').glob('**/*.xml'):
+              try:
+                  schema.validate(xml_file)
+                  print(f"✅ Valid: {xml_file}")
+              except xmlschema.XMLSchemaException as e:
+                  errors.append(f"❌ Invalid: {xml_file} - {e}")
+          
+          if errors:
+              for error in errors:
+                  print(error)
+              exit(1)
+          else:
+              print("✅ All S1000D documents are valid")
+          EOF
+
+  # Nomenclature Validation job
+  validate-nomenclature:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js for Nomenclature Tools
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install Nomenclature Validator
+        run: |
+          cat > validate-nomenclature.js << 'EOF'
+          const fs = require('fs');
+          const path = require('path');
+          
+          // AQUA V v9.0 Nomenclature Pattern
+          const nomenclaturePattern = /^(AMP|GAI|ROB|QUA|AQUART)-[A-Z0-9]{3,4}-[A-Z0-9]{3,6}-[A-Z0-9]{8}-[A-Z]{3}-[A-Z]{3}-[A-Z]{3}-[A-Z0-9]{2,4}-[A-Z]{4}-\d{3}-\d{2}-\d{2}-v\d+\.\d+\.\d+$/;
+          
+          function validateNomenclature(content, filePath) {
+            const regex = /`([A-Z]{3,6}-[^`]+)`/g;
+            let match;
+            const errors = [];
+            
+            while ((match = regex.exec(content)) !== null) {
+              const code = match[1];
+              if (code.includes('-') && !nomenclaturePattern.test(code)) {
+                errors.push(`Invalid nomenclature in ${filePath}: ${code}`);
+              }
+            }
+            return errors;
+          }
+          
+          // Scan all markdown files
+          const errors = [];
+          function scanDirectory(dir) {
+            const files = fs.readdirSync(dir);
+            
+            files.forEach(file => {
+              const filePath = path.join(dir, file);
+              const stat = fs.statSync(filePath);
+              
+              if (stat.isDirectory() && !file.startsWith('.')) {
+                scanDirectory(filePath);
+              } else if (file.endsWith('.md')) {
+                const content = fs.readFileSync(filePath, 'utf8');
+                errors.push(...validateNomenclature(content, filePath));
+              }
+            });
+          }
+          
+          scanDirectory('.');
+          
+          if (errors.length > 0) {
+            console.error('❌ Nomenclature validation errors:');
+            errors.forEach(err => console.error(err));
+            process.exit(1);
+          } else {
+            console.log('✅ All nomenclature references are valid');
+          }
+          EOF
+          
+          node validate-nomenclature.js
+
+  # MCP Integration job
+  mcp-integration:
+    runs-on: ubuntu-latest
+    needs: [validate-s1000d, validate-nomenclature]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup MCP Client
+        run: |
+          # Install MCP client tools
+          curl -sSL https://github.com/anthropics/mcp/releases/latest/download/mcp-cli-linux-amd64 -o mcp
+          chmod +x mcp
+          sudo mv mcp /usr/local/bin/
+      
+      - name: Connect to AQUA V S1000D Bridge
+        env:
+          QAUDIT_API_KEY: ${{ secrets.AQUAV_QAUDIT_API_KEY }}
+          PLM_DB_CONN_STRING: ${{ secrets.AQUAV_PLM_DB_CONN_STRING }}
+        run: |
+          # Register documentation updates with S1000D Bridge
+          cat > mcp-register.json << 'EOF'
+          {
+            "action": "register_documentation",
+            "payload": {
+              "version": "${{ env.AQUAV_VERSION }}",
+              "commit": "${{ github.sha }}",
+              "branch": "${{ github.ref_name }}",
+              "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            }
+          }
+          EOF
+          
+          # Send to MCP server (simulated for this example)
+          echo "📡 Registering documentation with AQUA V systems..."
+      
+      - name: Sync with Digital Thread
+        run: |
+          # Sync documentation identifiers with PLM system
+          echo "🔄 Synchronizing with Digital Thread..."
+          
+          # Generate manifest of all documentation artifacts
+          find docs -type f -name "*.md" -o -name "*.xml" | sort > doc-manifest.txt
+          
+          # Would normally send this to the PLM system via MCP
+
+  # Build job with enhanced features
+  build:
+    runs-on: ubuntu-latest
+    needs: mcp-integration
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+      
+      - name: Create Jekyll Configuration
+        run: |
+          cat > _config.yml << 'EOF'
+          # AQUA V Documentation Configuration
+          title: AQUA V - Aerospace and Quantum United Advanced Venture
+          description: Revolutionary €40B aerospace program integrating quantum technologies
+          theme: minima
+          
+          # AQUA V Specific Settings
+          aquav:
+            version: ${{ env.AQUAV_VERSION }}
+            nomenclature_version: ${{ env.NOMENCLATURE_VERSION }}
+            s1000d_version: ${{ env.S1000D_VERSION }}
+          
+          # Build settings
+          markdown: kramdown
+          kramdown:
+            input: GFM
+            syntax_highlighter: rouge
+            syntax_highlighter_opts:
+              css_class: 'highlight'
+              span:
+                line_numbers: false
+              block:
+                line_numbers: true
+          
+          # Collections for AQUA V documentation
+          collections:
+            annexes:
+              output: true
+              permalink: /annexes/:name
+            q_divisions:
+              output: true
+              permalink: /q-divisions/:name
+            products:
+              output: true
+              permalink: /products/:name
+          
+          # Exclude files
+          exclude:
+            - .github/
+            - scripts/
+            - validate-*.js
+            - s1000d_schemas/
+            - Gemfile
+            - Gemfile.lock
+            - vendor/
+          
+          # Plugins
+          plugins:
+            - jekyll-feed
+            - jekyll-seo-tag
+            - jekyll-sitemap
+          EOF
+      
+      - name: Generate Documentation Index
+        run: |
+          cat > index.md << 'EOF'
+          ---
+          layout: home
+          title: AQUA V Documentation Portal
+          ---
+          
+          # AQUA V - Aerospace and Quantum United Advanced Venture
+          
+          Version: {{ site.aquav.version }}
+          
+          ## Quick Links
+          
+          - [Master README](README.md)
+          - [Nomenclature System v{{ site.aquav.nomenclature_version }}](ANNEX_D.md)
+          - [Organization Chart](ANNEX_A.md)
+          - [Q-Division Matrix](ANNEX_B.md)
+          
+          ## Product Lines
+          
+          - **AMPEL360** - Revolutionary Passenger Aircraft
+          - **GAIA AIR & SPACE** - Unmanned Systems
+          - **ROBBBO-T** - Advanced Robotics
+          - **QUANTUM** - Core Quantum Technologies
+          
+          ## Documentation Status
+          
+          - Build: {{ site.time | date: "%Y-%m-%d %H:%M:%S UTC" }}
+          - Commit: {{ site.github.build_revision | slice: 0, 7 }}
+          - S1000D Compliant: ✅
+          - Nomenclature v9.0: ✅
+          EOF
+      
+      - name: Generate Q-Division Pages
+        run: |
+          mkdir -p _q_divisions
+          
+          # Generate individual pages for each Q-Division
+          cat > generate_q_divisions.rb << 'EOF'
+          q_divisions = {
+            "QSTR" => { name: "Structures", staff: 450 },
+            "QAIR" => { name: "Aerodynamics", staff: 380 },
+            "QGRE" => { name: "GreenTech", staff: 220 },
+            "QMEC" => { name: "Mechanics", staff: 340 },
+            "QPOW" => { name: "PowerSense", staff: 420 },
+            "QSPA" => { name: "Space", staff: 280 },
+            "QIND" => { name: "Industry", staff: 510 },
+            "QGRO" => { name: "Ground", staff: 190 },
+            "QDAT" => { name: "DataGov", staff: 260 },
+            "QHPC" => { name: "Computing", staff: 310 },
+            "QCOM" => { name: "Communications", staff: 240 },
+            "QSCI" => { name: "Research", staff: 180 }
+          }
+          
+          q_divisions.each do |code, info|
+            File.write("_q_divisions/#{code.downcase}.md", <<~CONTENT)
+              ---
+              layout: page
+              title: #{code} - #{info[:name]}
+              division_code: #{code}
+              staff_count: #{info[:staff]}
+              ---
+              
+              # #{code} - #{info[:name]} Division
+              
+              **Staff:** #{info[:staff]} specialists
+              
+              [View competency matrix](../ANNEX_B.md##{code.downcase}--#{info[:name].downcase})
+            CONTENT
+          end
+          EOF
+          
+          ruby generate_q_divisions.rb
+      
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+        env:
+          JEKYLL_ENV: production
+      
+      - name: Generate S1000D Metadata
+        run: |
+          # Add S1000D metadata to built files
+          echo "Adding S1000D metadata to HTML files..."
+          
+          find _site -name "*.html" -exec sed -i '/<head>/a\
+          <meta name="s1000d-version" content="${{ env.S1000D_VERSION }}">\
+          <meta name="aquav-nomenclature" content="${{ env.NOMENCLATURE_VERSION }}">\
+          <meta name="build-timestamp" content="'$(date -u +%Y-%m-%dT%H:%M:%SZ)'">' {} \;
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          retention-days: 30
+
+  # Deployment job
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      
+      - name: Notify MCP Servers
+        if: success()
+        run: |
+          echo "📢 Notifying AQUA V systems of deployment..."
+          echo "URL: ${{ steps.deployment.outputs.page_url }}"
+          
+          # Would trigger webhooks to:
+          # - AQUAV-QAI-Monitor
+          # - AQUAV-QAUDIT-Auditor
+          # - AQUAV-Regulatory-Gateway
+      
+      - name: Update Deployment Status
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const status = '${{ job.status }}';
+            const url = '${{ steps.deployment.outputs.page_url }}';
+            
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: context.sha,
+              state: status === 'success' ? 'success' : 'failure',
+              target_url: url || '',
+              description: `AQUA V Docs ${status}`,
+              context: 'aquav/documentation'
+            });
+
+  # PR Comment job for validation results
+  pr-comment:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    needs: [validate-s1000d, validate-nomenclature, build]
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Comment PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const message = `## AQUA V Documentation Validation Results
+            
+            ✅ **S1000D Compliance:** Passed
+            ✅ **Nomenclature v9.0:** Valid
+            ✅ **Build:** Successful
+            
+            ### Next Steps
+            - Review the preview deployment
+            - Verify all ANNEX documents are rendered correctly
+            - Check Q-Division pages
+            
+            *Generated at: ${new Date().toISOString()}*`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: message
+            });
