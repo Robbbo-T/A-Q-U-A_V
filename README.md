@@ -1,161 +1,258 @@
-# AQUA V. – Aerospace and Quantum United Advanced Venture
-## Flying Fluidity - Agua que Vuela
 <p align="center">
-  <img width="160" height="160" alt="logo_AQUA_V_black" src="https://github.com/user-attachments/assets/2d6ec959-700a-4253-a84d-23e6fb884e47" />
-  <img width="160" height="160" alt="logo_AQUA_V-white" src="https://github.com/user-attachments/assets/412c4666-bbf3-4f62-9e9c-cc23cffee964" />
-  <img width="160" height="160" alt="logo_AQUA_V_blu" src="https://github.com/user-attachments/assets/3861ef84-0c01-476d-a4cf-7d4f107d5b60" />
+  <img src="https://github.com/user-attachments/assets/2d6ec959-700a-4253-a84d-23e6fb884e47" alt="AQUA V. Logo" width="120"/>
+  <img src="https://github.com/user-attachments/assets/412c4666-bbf3-4f62-9e9c-cc23cffee964" alt="AQUA V. Logo White" width="120"/>
+  <img src="https://github.com/user-attachments/assets/3861ef84-0c01-476d-a4cf-7d4f107d5b60" alt="AQUA V. Logo Blue" width="120"/>
 </p>
 
 <p align="center">
-  <span style="font-size:1.5em;">An Aspirational, well invented, reality</span>
+  <span style="font-size:1.5em;">AQUA V. – Aerospace & Quantum United Advanced Venture</span><br/>
+  <i>Flying Fluidity • Agua que Vuela</i><br/>
+  <strong>Transform. Innovate. Transcend.</strong>
 </p>
 
-<p align="center"><i>Transform. Innovate. Transcend.</i></p>
+---
+
+## 📑 Table of Contents
+
+1. [Getting Started](#getting-started)
+2. [Executive Summary](#executive-summary)
+3. [Vision & Mission](#vision--mission)
+4. [Key Differentiators](#key-differentiators)
+5. [Program at a Glance](#program-at-a-glance)
+6. [Quick Links & Search](#quick-links--search)
+7. [Product Portfolio](#product-portfolio)
+8. [Global Manufacturing Network](#global-manufacturing-network)
+9. [Program Timeline & Milestones](#program-timeline--milestones)
+10. [Technical Architecture](#technical-architecture)
+11. [Change Log](#change-log)
+12. [FAQ](#faq)
+13. [Glossary](#glossary)
+14. [Annex Index](#annex-index)
+15. [Feedback & Contribute](#feedback--contribute)
 
 ---
 
-### **Welcome to the central documentation portal for **AQUA V.**, a €40 billion initiative redefining aerospace through quantum computing, sustainable aviation, robotics, and advanced platforms.**
+## 1. Getting Started
+
+```bash
+# Clone the repo
+git clone https://github.com/aqua-v/central-docs.git
+cd central-docs
+
+# Render locally (with Mermaid support)
+npm install && npm run docs:serve
+
+# Generate & validate a sample nomenclature
+aqua-cli nomenclature generate \
+  --line AMPEL3 --prod BWB --sub Q100 \
+  --msn 25MA0001 --phase PRD --crit SC --doc COC --app QUA \
+  --mtd IN-VF-P001-0001 --real OPERT --utcs 02460000000 \
+  --reg MUL --env PRD --version v1.0.0 \
+| aqua-cli nomenclature validate
+````
 
 ---
 
-## 📖 Table of Contents
+## 2. Executive Summary
 
-- [Executive Summary](#executive-summary)
-- [Vision & Mission](#vision--mission)
-- [Key Differentiators](#key-differentiators)
-- [Program at a Glance](#program-at-a-glance)
-- [Program Timeline & Milestones](#program-timeline--milestones)
-- [Technical Architecture & Core Concepts](#technical-architecture--core-concepts)
-- [Product Portfolio Overview](#product-portfolio-overview)
-- [Global Manufacturing Network](#global-manufacturing-network)
-- [Annex Index: The Full Story](#annex-index-the-full-story)
-- [Feedback & Contribution](#feedback--contribution)
+A €40 B program fusing quantum computing, sustainable propulsion, robotics and cloud-native systems to deliver €144 B/year by 2045 via four strategic product lines.
 
 ---
 
-## Executive Summary
+## 3. Vision & Mission
 
-AQUA V. is a multidisciplinary aerospace program leveraging quantum technologies for a sustainable, secure, and revolutionary future of flight. A €40B investment targets €144B in annual revenue by 2045, powered by four strategic product lines and unified global operations.
-
----
-
-## Vision & Mission
-
-**Vision:** Establish global leadership in quantum-enhanced aerospace.
-
-**Mission:** Revolutionize aerospace by 2050 through quantum computing, sustainable propulsion, and autonomous systems.
+* **Vision:** Global leadership in quantum-enhanced aerospace.
+* **Mission:** By 2050, redefine flight through AI/quantum, sustainability, and autonomy.
 
 ---
 
-## Key Differentiators
+## 4. Key Differentiators
 
-- **Integrated Quantum Ecosystem**
-- **REALIDAD Field:** Real-time physical-digital synchronization.
-- **Well Invented Reality (WIR) Framework:** Strategic and ethical AI/quantum algorithms.
-- **Business Simulation Framework:** Optimized decision-making.
-- **Immutable Nomenclature v10.0:** End-to-end traceability.
+* 🧬 **Integrated Quantum Ecosystem**
+* 🌐 **Reality Awareness:** Real-time physical ↔ digital sync
+* 🤖 **WIR Framework:** Ethical AI/quantum “Well Invented Reality”
+* 📊 **Business Simulation:** Data-driven decision loops
+* 🔐 **Immutable Nomenclature v12.0:** End-to-end traceability
 
 ---
 
-## Program at a Glance
+## 5. Program at a Glance
 
 ```mermaid
 graph TD
-    AQUA_V(AQUA V. Aerospace & Quantum)
-    AQUA_V --> AMPEL360(AMPEL360 - Passenger Aircraft <br/> €90B Target / 62.5% Inv.)
-    AQUA_V --> GAIA(GAIA AIR & SPACE <br/> €25B Target / 25.0% Inv.)
-    AQUA_V --> ROBBBO-T(ROBBBO-T - Robotics <br/> €18B Target / 12.5% Inv.)
-    AQUA_V --> QUANTUM(QUANTUM - Core Tech <br/> €11B Target / Integrated Inv.)
-```
-> *To view diagrams, use a Markdown viewer with Mermaid support.*
-
-| Product Line        | Investment Share | Focus Area | 2045 Revenue Target  |
-|---------------------|-----------------|------------|----------------------|
-| AMPEL360 (Passenger) | 62.5%           | 6 aircraft families | €90 B/year |
-| GAIA AIR & SPACE     | 25.0%           | 19 unmanned systems | €25 B/year |
-| ROBBBO-T            | 12.5%           | 18 robotic models | €18 B/year |
-| QUANTUM             | Integrated      | 10 quantum-tech systems | €11 B/year (enabler) |
-
----
-
-## Program Timeline & Milestones
-
-```mermaid
-timeline
-    title AQUA V. Program Phases & Milestones
-    section Foundation Phase (2025-2030)
-        2025 : Company Formation & Funding
-        2028 : First GAIA UAV Deliveries
-        2030 : eVTOL Certification & Launch
-    section Expansion Phase (2031-2040)
-        2035 : Target IPO
-        2038 : Hybrid Aircraft Certified
-        2040 : BWB-Q100 Enters Service
-    section Leadership Phase (2041-2050)
-        2045 : Achieve €144B Revenue Target
-        2050 : Global Top-3 Aerospace Leader
+  AQUA_V[AQUA V.] 
+  AQUA_V --> AMPEL360[🛩️ AMPEL360]
+  AQUA_V --> GAIAAIR[🌌 GAIA AIR & SPACE]
+  AQUA_V --> ROBBBO[🤖 ROBBBO-T]
+  AQUA_V --> QUANTUM[⚛️ QUANTUM]
 ```
 
----
-
-## Technical Architecture & Core Concepts
-
-```mermaid
-graph TD
-    subgraph Core Concepts
-        Nomenclature(A. Nomenclature System v10.0)
-        UTCS(B. Universal Technology Classification System)
-        WIR(C. Well Invented Reality Framework)
-    end
-    Nomenclature & UTCS --> WIR
-```
+| Line     | Focus                       | 2045 Revenue Target | CapEx Share |
+| -------- | --------------------------- | ------------------- | ----------- |
+| AMPEL360 | Passenger Aircraft (6 fam.) | € 90 B/year         | 62.5 %      |
+| GAIA AIR | UAVs/Sats (19 systems)      | € 25 B/year         | 25.0 %      |
+| ROBBBO-T | Robotics (18 models)        | € 18 B/year         | 12.5 %      |
+| QUANTUM  | Core Quantum Tech (10 sys.) | Enabler             | Integrated  |
 
 ---
 
-## Product Portfolio Overview
+## 6. Quick Links & Search
 
-- **AMPEL360:** Six aircraft families, quantum-enhanced.
-- **GAIA AIR & SPACE:** 19 unmanned platforms.
-- **ROBBBO-T:** 18 robotic models.
-- **QUANTUM:** 10 core quantum-tech systems.
+🔍 **Search the docs:**  [DocSearch](https://docsearch.algolia.com)
+
+📂 **Jump to Annexes:**
+
+* [Annex D: Nomenclature System v12.0](annexes/AnnexD_NomenclatureSystem_v12.md)
+* [Annex G: UTCS Classification](annexes/AnnexG_UTCS_ClassificationSystem.md)
 
 ---
 
-## Global Manufacturing Network
+## 7. Product Portfolio
+
+### AMPEL360 (Passenger Aircraft)
+
+* **BWB:** Blended Wing Body
+
+  * Q100 (120–180 pax)
+  * Q250 (220–300 pax)
+* **EVT:** eVTOL
+
+  * CITY (2–6 pax)
+  * METR (8–12 pax)
+* **HYB:** Hybrid-Electric
+
+  * E180 (180 pax)
+  * E220 (220 pax)
+* **SUB:** Suborbital
+
+  * SB01 (Tourism, 6–8 pax)
+  * SB02 (Research, 4–6 pax)
+* **ORB:** Orbital
+
+  * OR01 (Crew, 4–6 pax)
+  * OR02 (Cargo, 2 T payload)
+
+### GAIA AIR & SPACE (Unmanned)
+
+* **UAV:**
+
+  * TACT, CARG, HALE, SWRM
+* **SAT:**
+
+  * QNET, EOBS, COMM, NAVS
+* **ROV:**
+
+  * LUNA, MARS, ASTE
+* **CRG:**
+
+  * LGT5, MED5, HVY2, UHV5
+
+### ROBBBO-T (Robotics)
+
+* **FAL:** AS01, WL01, QC01, PT01
+* **MRO:** AC01, EN01, CM01, IN01
+* **SPC:** EV01, ST01, CN01, MN01
+* **EXP:** DP01, VL01, AR01, CV01
+
+### QUANTUM (Core Tech)
+
+* **QPU:** DESK, RACK, DATA, MOBL
+* **QKD:** FIBR, SATL, PORT, EMBD
+* **QSN:** QMAG, QGRV, QCLK, QRAD
+* **QSW:** QPS, QML, QKS, QCN
+
+---
+
+## 8. Global Manufacturing Network
 
 ```mermaid
 mindmap
-    root((Global Manufacturing Network))
-        Madrid (MA)
-            HQ & Final Assembly
-            100 Aircraft/Year
-        Toulouse (TO)
-            Aerodynamics & Certification
-            500 Test Campaigns/Year
-        Munich (MU)
-            Propulsion & Quantum Hardware
-            400 Engines/Year
-        Naples (NA)
-            Composites & Advanced Materials
-            1,000 Structures/Year
-        Singapore (SG)
-            Asia Hub / UAVs & Robotics
-            500 Units/Year
-        Silicon Valley (SV)
-            Software & Quantum Computing
-            200 Modules/Year
+  root((Global Mfg. Network))
+    Madrid🛠️
+    Toulouse🔬
+    Munich⚙️
+    Naples🏭
+    Singapore🌏
+    SV 💻
 ```
 
-| Site           | Specialization                         | Capacity           |
-|----------------|---------------------------------------|--------------------|
-| Madrid (HQ)    | Headquarters & final assembly         | 100 aircraft       |
-| Toulouse       | Aerodynamics, testing, certification  | 500 test campaigns |
-| Munich         | Propulsion & quantum hardware         | 400 engines        |
-| Naples         | Composites & advanced materials       | 1,000 structures   |
-| Singapore      | UAVs & robotics                       | 500 units          |
-| Silicon Valley | Software & quantum computing          | 200 modules        |
+| Site           | Role                          | Capacity             |
+| -------------- | ----------------------------- | -------------------- |
+| Madrid (MA)    | HQ & Final Assembly           | 100 aircraft/year    |
+| Toulouse (TO)  | Aerodynamics & Certification  | 500 test campaigns/y |
+| Munich (MU)    | Propulsion & Quantum Hardware | 400 engines/year     |
+| Naples (NA)    | Composites & Materials        | 1000 structures/year |
+| Singapore (SG) | UAVs & Robotics               | 500 units/year       |
+| Silicon Valley | Software & Quantum Computing  | 200 modules/year     |
 
 ---
+
+## 9. Program Timeline & Milestones
+
+```mermaid
+timeline
+title AQUA V. Roadmap
+2025 : Founded & Seed Funding
+2028 : First GAIA Deliveries
+2030 : eVTOL Certified
+2035 : Public IPO
+2040 : BWB-Q100 In Service
+2045 : €144 B Revenue
+2050 : Top‑3 Leader
+```
+
+---
+
+## 10. Technical Architecture
+
+```mermaid
+graph LR
+  subgraph Core Systems
+    NOMS[🔤 Nomenclature v12.0]
+    UTCS[📚 UTCS]
+    WIR[🤝 WIR Framework]
+  end
+  NOMS & UTCS --> WIR
+```
+
+---
+
+## 11. Change Log
+
+| Version | Date       | Highlights                           |
+| ------- | ---------- | ------------------------------------ |
+| v12.0   | 2025‑08‑05 | Full digital‑physical schema rollout |
+| v11.0   | 2024‑11‑15 | Semantic UTCS; hybrid units          |
+| v10.0   | 2023‑07‑01 | First unified aerospace/quantum spec |
+
+---
+
+## 12. FAQ
+
+<details>
+<summary>Which PHASE for prototypes?</summary>Use **DEV** for early-stage builds.</details>
+
+<details>
+<summary>How select REALIDAD?</summary>
+- **PHYSL**: Physical
+- **VRTUL**: Digital twin
+- **AUGMT**: AR overlays
+</details>
+
+---
+
+## 13. Glossary
+
+| Term   | Definition                                 |
+| ------ | ------------------------------------------ |
+| UTCS   | Universal Technology Classification System |
+| WIR    | Well Invented Reality framework            |
+| QAUDIT | Blockchain-backed audit registry           |
+| OPERT  | Operative Reality (live in-service)        |
+
+---
+
+## 14. Annex Index
 
 ## Annex Index: The Full Story
 
