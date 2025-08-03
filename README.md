@@ -103,7 +103,7 @@ graph TD
 🔍 **Search documentation:** [DocSearch](https://docsearch.algolia.com)
 
 📂 **Key Documents:**
-* [Product ID System v12.0](annexes/AnnexD_NomenclatureSystem_v12.md)
+* [Product ID System v12.3](annexes/AnnexD_NomenclatureSystem_v12.3.md)
 * [Technology Classification System](annexes/AnnexG_UTCS_ClassificationSystem.md)
 
 ---
