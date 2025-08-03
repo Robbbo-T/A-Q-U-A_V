@@ -1,0 +1,180 @@
+{
+  "metadata": {
+    "version": "7.6.0",
+    "deployment_id": "AMP-EVTOL-25SVD0001-PRD-BOB-TEC-TD-DTCEC-349-00-01-DPL-20250728-QPILOT-v1.0.0",
+    "msn": "25SVD0001",
+    "export_timestamp": "2025-08-03T04:52:34.047217",
+    "metrics_count": 5
+  },
+  "metrics": [
+    {
+      "timestamp": "2025-08-03T04:52:29.035396",
+      "nlp_accuracy": 95.70302087870606,
+      "response_latency": 67.92503259235296,
+      "command_success_rate": 97.95329649860373,
+      "user_satisfaction": 96.7801365500714,
+      "memory_usage": 385.17095184921544,
+      "cpu_usage": 15.960731409900664,
+      "error_rate": 0.7289533564958709,
+      "quantum_commands_processed": 45,
+      "multilingual_accuracy": {
+        "en-US": 96.15840368605566,
+        "es-ES": 96.03274862843021,
+        "fr-FR": 94.92730301252075,
+        "de-DE": 95.48211105716582,
+        "it-IT": 96.88199285057355,
+        "pt-BR": 93.55891347518903,
+        "zh-CN": 94.47073149670972,
+        "ja-JP": 93.95258966526087,
+        "ar-SA": 90.36249850596218
+      }
+    },
+    {
+      "timestamp": "2025-08-03T04:52:30.044718",
+      "nlp_accuracy": 95.7799705385578,
+      "response_latency": 93.97984528270081,
+      "command_success_rate": 97.9646164041119,
+      "user_satisfaction": 93.10122801158671,
+      "memory_usage": 390.7392933906839,
+      "cpu_usage": 15.71980483294533,
+      "error_rate": 0.4579238576081762,
+      "quantum_commands_processed": 21,
+      "multilingual_accuracy": {
+        "en-US": 99.0,
+        "es-ES": 96.33815371957093,
+        "fr-FR": 95.14568570130177,
+        "de-DE": 95.58017098300078,
+        "it-IT": 97.43958235734532,
+        "pt-BR": 95.88758663671992,
+        "zh-CN": 91.71687371950689,
+        "ja-JP": 92.57685076399204,
+        "ar-SA": 92.18362612272038
+      }
+    },
+    {
+      "timestamp": "2025-08-03T04:52:31.045100",
+      "nlp_accuracy": 95.28150943249152,
+      "response_latency": 63.8982496038072,
+      "command_success_rate": 97.83420778488978,
+      "user_satisfaction": 93.06327759739592,
+      "memory_usage": 359.2524297843803,
+      "cpu_usage": 12.635277615111745,
+      "error_rate": 1.2568337077491065,
+      "quantum_commands_processed": 38,
+      "multilingual_accuracy": {
+        "en-US": 97.80126524324798,
+        "es-ES": 97.7328049202235,
+        "fr-FR": 96.5268133080333,
+        "de-DE": 94.72155040685728,
+        "it-IT": 94.84432882921695,
+        "pt-BR": 92.17491398595224,
+        "zh-CN": 91.20990297953985,
+        "ja-JP": 93.71971868658775,
+        "ar-SA": 91.91685985342278
+      }
+    },
+    {
+      "timestamp": "2025-08-03T04:52:32.045477",
+      "nlp_accuracy": 95.46252872400916,
+      "response_latency": 83.11590250563006,
+      "command_success_rate": 97.45038753575191,
+      "user_satisfaction": 90.99878601160493,
+      "memory_usage": 386.19895913269096,
+      "cpu_usage": 11.504063365795194,
+      "error_rate": 1.2525880094893964,
+      "quantum_commands_processed": 13,
+      "multilingual_accuracy": {
+        "en-US": 99.0,
+        "es-ES": 95.7449157819947,
+        "fr-FR": 96.38454229426407,
+        "de-DE": 94.22045556745259,
+        "it-IT": 94.97605685863677,
+        "pt-BR": 94.62887493224446,
+        "zh-CN": 93.23029859664933,
+        "ja-JP": 93.29751556483482,
+        "ar-SA": 91.67351760170664
+      }
+    },
+    {
+      "timestamp": "2025-08-03T04:52:33.045932",
+      "nlp_accuracy": 95.57254957852169,
+      "response_latency": 72.67070310362902,
+      "command_success_rate": 97.23158667109506,
+      "user_satisfaction": 91.68913428402423,
+      "memory_usage": 364.1527476304555,
+      "cpu_usage": 11.485135164021534,
+      "error_rate": 1.5797635963253922,
+      "quantum_commands_processed": 15,
+      "multilingual_accuracy": {
+        "en-US": 97.088209318298,
+        "es-ES": 95.26985946511348,
+        "fr-FR": 96.01155143106214,
+        "de-DE": 94.6600142026418,
+        "it-IT": 95.11483212380055,
+        "pt-BR": 93.82449025805818,
+        "zh-CN": 94.44893130972663,
+        "ja-JP": 92.59437227980936,
+        "ar-SA": 90.63701697028628
+      }
+    }
+  ],
+  "analysis": {
+    "timestamp": "2025-08-03T04:52:34.047277",
+    "version": "7.6.0",
+    "msn": "25SVD0001",
+    "current_performance": {
+      "timestamp": "2025-08-03T04:52:33.045932",
+      "nlp_accuracy": 95.57254957852169,
+      "response_latency": 72.67070310362902,
+      "command_success_rate": 97.23158667109506,
+      "user_satisfaction": 91.68913428402423,
+      "memory_usage": 364.1527476304555,
+      "cpu_usage": 11.485135164021534,
+      "error_rate": 1.5797635963253922,
+      "quantum_commands_processed": 15,
+      "multilingual_accuracy": {
+        "en-US": 97.088209318298,
+        "es-ES": 95.26985946511348,
+        "fr-FR": 96.01155143106214,
+        "de-DE": 94.6600142026418,
+        "it-IT": 95.11483212380055,
+        "pt-BR": 93.82449025805818,
+        "zh-CN": 94.44893130972663,
+        "ja-JP": 92.59437227980936,
+        "ar-SA": 90.63701697028628
+      }
+    },
+    "trend_analysis": {},
+    "threshold_violations": [
+      "Command success rate below threshold: 97.2% < 98.0%"
+    ],
+    "component_health": {
+      "nlp_engine": {
+        "component_id": "DTCEC-342-01-01",
+        "status": "healthy",
+        "accuracy": "95.6%",
+        "target": "95.0%"
+      },
+      "audio_response": {
+        "component_id": "DTCEC-344-50-01",
+        "status": "healthy",
+        "latency": "72.7ms",
+        "target": "100ms"
+      },
+      "command_parser": {
+        "component_id": "DTCEC-343-50-01",
+        "status": "degraded",
+        "success_rate": "97.2%",
+        "target": "98.0%"
+      },
+      "integration_engine": {
+        "component_id": "DTCEC-345-50-01",
+        "status": "healthy",
+        "error_rate": "1.6%",
+        "target": "2.0%"
+      }
+    },
+    "recommendations": [],
+    "alerts": []
+  }
+}

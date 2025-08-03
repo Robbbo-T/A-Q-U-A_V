@@ -1,0 +1,25 @@
+{
+  "version": "7.6.0",
+  "deploymentID": "AMP-EVTOL-25SVD0001-PRD-BOB-TEC-TD-DTCEC-346-00-01-DPL-20250728-QPILOT-v1.0.0",
+  "components": {
+    "nlpEngine": "DTCEC-342-01-01",
+    "audioResponse": "DTCEC-344-50-01",
+    "commandParser": "DTCEC-343-50-01",
+    "integrationEngine": "DTCEC-345-50-01"
+  },
+  "timestamp": "2025-08-03T04:51:55Z",
+  "author": "robbbo-t@aqua-v.aero",
+  "msn": "25SVD0001",
+  "linesOfCode": 6668,
+  "status": "READY_FOR_DEPLOYMENT",
+  "targetEnvironments": [
+    "Madrid Training Simulator",
+    "Toulouse Training Simulator"
+  ],
+  "requirements": {
+    "unrealEngine": "5.0+",
+    "minimumLatency": "100ms",
+    "accuracyTarget": "95%",
+    "languages": ["en-US", "es-ES", "fr-FR", "de-DE", "it-IT", "pt-BR", "zh-CN", "ja-JP", "ar-SA"]
+  }
+}
