@@ -1,4 +1,4 @@
-# AQUA V. Sistema de Nomenclatura v12.3
+# AQUA V. Sistema de Nomenclatura v12.3 (CORREGIDO)
 ## Guía Completa de Campos y Fórmula
 **Documento ID:** `AQUART-OPS-SC-POL-STD-DC-PA-NOMF-RDIG0-30400010002-MUL-v12.3.0`  
 **Estado:** ✅ APROBADO  
@@ -488,23 +488,24 @@ AA-AA-AAAA-NNNN
 | S9 | Step 9 | Noveno paso secuencial |
 | SX | Extended | Pasos más allá del 9 |
 ### 9.4 Códigos de Objeto (Componentes)
-| Prefijo | Rango | Descripción |
-|:--------|:------|:------------|
-| C | C001-C999 | Conectores |
-| P | P001-P999 | Partes |
-| F | F001-F999 | Sujetadores |
-| W | W001-W999 | Cableado/Cable |
-| H | H001-H999 | Mangueras |
-| V | V001-V999 | Válvulas |
-| S | S001-S999 | Sensores |
-| M | M001-M999 | Motores |
-| A | A001-A999 | Actuadores |
-| B | B001-B999 | Soportes |
-| L | L001-L999 | Luces |
-| D | D001-D999 | Pantallas |
-| R | R001-R999 | Relés |
-| T | T001-T999 | Tubos |
-| Q | Q001-Q999 | Componentes cuánticos |
+| Prefijo | Rango | Descripción | Ejemplos |
+|:--------|:------|:------------|:----------|
+| C | C001-C999 | Conectores | C001, C002, etc. |
+| P | P001-P999 | Partes | P001, P002, etc. |
+| F | F001-F999 | Sujetadores | F001, F002, etc. |
+| W | W001-W999 | Cableado/Cable | W001, W002, etc. |
+| H | H001-H999 | Mangueras | H001, H002, etc. |
+| V | V001-V999 | Válvulas | V001, V002, etc. |
+| S | S001-S999 | Sensores | S001, S002, etc. |
+| M | M001-M999 | Motores | M001, M002, etc. |
+| A | A001-A999 | Actuadores | A001, A002, etc. |
+| B | B001-B999 | Soportes | B001, B002, etc. |
+| L | L001-L999 | Luces | L001, L002, etc. |
+| D | D001-D999 | Pantallas | D001, D002, etc. |
+| R | R001-R999 | Relés | R001, R002, etc. |
+| T | T001-T999 | Tubos | T001, T002, etc. |
+| Q | Q001-Q999 | Componentes cuánticos | Q001, Q002, etc. |
+| E | E001-E999 | **Equipos electrónicos** | E001, E002, etc. |
 ---
 ## 10. CAMPO 9: REALIDAD - Contexto de Efectividad (5 caracteres)
 ### 10.1 Contextos Individuales
@@ -641,9 +642,9 @@ QSERVS-QPS-CORE-0001-OPS-BC-API-API-SV-PA-QAPI-0001-VRTUL-90010000000-MUL-v4.0.0
 - **90010000000**: UTCS Cuántico-Procesamiento
 - **MUL**: Multi-región
 - **v4.0.0**: Versión 4.0.0
-### 14.3 Ejemplo de Documentación con Realidad Aumentada
+### 14.3 Ejemplo de Documentación con Realidad Aumentada (CORREGIDO)
 ```
-AMPEL3-BWB-Q100-0001-MNT-SE-AMM-TSG-TR-VF-E001-0001-AUGMT-07150000000-MUL-v2.0.0
+AMPEL3-BWB-Q100-0001-MNT-SE-AMM-TSG-TR-VF-E001-0001-MULTI-07150000000-MUL-v2.0.0
 ```
 **Desglose:**
 - **AMPEL3**: Línea AMPEL360
@@ -653,11 +654,13 @@ AMPEL3-BWB-Q100-0001-MNT-SE-AMM-TSG-TR-VF-E001-0001-AUGMT-07150000000-MUL-v2.0.0
 - **SE**: Esencial de Seguridad
 - **AMM**: Manual de Mantenimiento
 - **TSG**: Troubleshooting
-- **TR-VF-E001-0001**: Troubleshoot-Verificación-Motor001-0001
+- **TR-VF-E001-0001**: Troubleshoot-Verificación-Equipo Electrónico 001-Secuencia0001
 - **AUGMT**: Contexto Aumentado (manual con AR para técnicos)
 - **07150000000**: UTCS Aeroespacial-Motores
 - **MUL**: Multi-autoridad
 - **v2.0.0**: Versión 2.0.0
+
+**Nota:** El código E001 ahora está definido como "Equipo Electrónico" en la tabla de códigos de objeto (sección 9.4).
 ### 14.4 Ejemplo de Sistema Sentiente
 ```
 QSERVS-QPS-EDGE-0002-OPS-CC-SYS-AUT-AI-DE-QSEN-0001-SENTN-90030000000-PND-v1.0.0
@@ -707,7 +710,13 @@ INFRAT-PRUE-PRUE-0001-MNT-SI-MPS-CAL-AJ-VF-T002-0001-STAND-60010000000-N/A-v1.5.
 - Si LINE es de infraestructura → VARNUM debe usar formato de infraestructura
 - Si LINE es de producto → VARNUM debe usar formato de producto
 - Si REALIDAD = PHYSL → No requiere validación de entorno digital
-### 15.3 Matriz de Contextos por Fase
+### 15.3 Validaciones de MTD
+- **Formato**: Debe cumplir con AA-AA-AAAA-NNNN (14 caracteres)
+- **Tarea**: El primer AA debe ser un código de tarea válido
+- **Paso**: El segundo AA debe ser un código de paso válido
+- **Objeto**: Los AAAA deben usar un prefijo válido (C, P, F, W, H, V, S, M, A, B, L, D, R, T, Q, E)
+- **Secuencia**: Los NNNN deben ser numéricos (0001-9999)
+### 15.4 Matriz de Contextos por Fase
 | Fase | Contextos Típicos | Justificación |
 |:-----|:------------------|:--------------|
 | STR | VRTUL, SIMUL | Estrategia es conceptual |
@@ -772,4 +781,3 @@ INFRAT-PRUE-PRUE-0001-MNT-SI-MPS-CAL-AJ-VF-T002-0001-STAND-60010000000-N/A-v1.5.
 **FIN DEL DOCUMENTO**
 © 2025 AQUA V. Aerospace. Documento Controlado.  
 **Distribución:** A - Interno Ilimitado | B - Socios Autorizados | C - Autoridades Regulatorias
-
