@@ -93,7 +93,7 @@ graph TD
     subgraph Core Concepts
         Nomenclature(A. Nomenclature System v10.0)
         UTCS(B. Universal Technology Classification System)
-        WIR(C. Well Invented Reality (WIR) Framework)
+        WIR(C. Well Invented Reality Framework)
     end
     Nomenclature & UTCS --> WIR
 ```
