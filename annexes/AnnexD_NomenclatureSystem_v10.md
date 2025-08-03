@@ -1,34 +1,33 @@
-# AQUA V. Sistema de Nomenclatura v12.0
+# AQUA V. Sistema de Nomenclatura v12.3
 ## Guía Completa de Campos y Fórmula
-**Documento ID:** `AQUART-OPS-SC-POL-STD-DC-PA-NOMF-RDIG0-30400010002-MUL-PRD-EFGH5678-v12.0.0`  
+**Documento ID:** `AQUART-OPS-SC-POL-STD-DC-PA-NOMF-RDIG0-30400010002-MUL-v12.3.0`  
 **Estado:** ✅ APROBADO  
 **Fecha Efectiva:** 2025-08-05  
 **Clasificación:** ESTÁNDAR AQUA V. - CUMPLIMIENTO OBLIGATORIO
 ---
 ## 1. FÓRMULA COMPLETA DE NOMENCLATURA
-### 1.1 Estructura General (12 campos, 79 caracteres + versión)
+### 1.1 Estructura General (12 campos, 59 caracteres + versión)
 ```
-Campo:  1      2    3     4         5    6   7    8    9               10     11           12        13
-       LLLLLL-PPP-SSSS-MMMMMMMM-HHH-CC-DDD-AAA-TTTTTTTTTTTTTT-RRRRR-UUUUUUUUUUU-RRR-vXX.XX.XX
-       |      |    |     |         |    |   |    |    |               |     |           |        |
-       LINE   PROD SUB   MSN      PHASE CRIT DOC APP  METHOD         REAL  UTCS        REG     VERSION
+Campo:  1      2    3         4    5   6    7    8               9     10          11        12
+       LLLLLL-PPP-XXXXXXXX-HHH-CC-DDD-AAA-TTTTTTTTTTTTTT-RRRRR-UUUUUUUUUU-RRR-vXX.XX.XX
+       |      |    |         |    |   |    |    |               |     |          |        |
+       LINE   PROD VARNUM    PHASE CRIT DOC APP  METHOD         REAL  UTCS       REG     VERSION
 ```
 ### 1.2 Longitud de Cada Campo
 | Posición | Campo | Longitud | Tipo | Descripción |
 |:---------|:------|:---------|:-----|:------------|
 | 1 | LINE | 6 caracteres | Alfabético | Línea de producto o infraestructura |
 | 2 | PROD | 3 caracteres | Alfabético | Producto o tipo de infraestructura |
-| 3 | SUBPROD | 4 caracteres | Alfanumérico | Subproducto o subtipo |
-| 4 | MSN | 8 caracteres | Alfanumérico | Número de serie o ID de activo |
-| 5 | PHASE | 3 caracteres | Alfabético | Fase del ciclo de vida |
-| 6 | CRIT | 2 caracteres | Alfabético | Criticidad de seguridad/ciber |
-| 7 | DOC | 3 caracteres | Alfabético | Tipo de documento |
-| 8 | APP | 3 caracteres | Alfabético | Dominio de aplicación |
-| 9 | MTD | 14 caracteres | Alfanumérico | Método/Procedimiento (AA-AA-AAAA-NNNN) |
-| 10 | REALIDAD | 5 caracteres | Alfabético | Contexto de efectividad |
-| 11 | UTCS | 11 caracteres | Numérico | Clasificación tecnológica universal |
-| 12 | REG | 3 caracteres | Alfabético | Estado regulatorio |
-| 13 | VERSION | Variable | Semántico | Número de versión |
+| 3 | VARNUM | 9 caracteres | Alfanumérico | Variante y número de unidad (VVVV-NNNN) |
+| 4 | PHASE | 3 caracteres | Alfabético | Fase del ciclo de vida |
+| 5 | CRIT | 2 caracteres | Alfabético | Criticidad de seguridad/ciber |
+| 6 | DOC | 3 caracteres | Alfabético | Tipo de documento |
+| 7 | APP | 3 caracteres | Alfabético | Dominio de aplicación |
+| 8 | MTD | 14 caracteres | Alfanumérico | Método/Procedimiento (AA-AA-AAAA-NNNN) |
+| 9 | REALIDAD | 5 caracteres | Alfabético | Contexto de efectividad |
+| 10 | UTCS | 11 caracteres | Numérico | Clasificación tecnológica universal |
+| 11 | REG | 3 caracteres | Alfabético | Estado regulatorio |
+| 12 | VERSION | Variable | Semántico | Número de versión |
 ---
 ## 2. CAMPO 1: LINE - Línea de Producto/Infraestructura (6 caracteres)
 ### 2.1 Activos de Portafolio (Generan Ingresos)
@@ -93,91 +92,122 @@ Campo:  1      2    3     4         5    6   7    8    9               10     11
 | QSN | Sensores Cuánticos | Detección cuántica |
 | QSW | Software Cuántico | Aplicaciones |
 ---
-## 4. CAMPO 3: SUBPROD - Subproducto/Modelo (4 caracteres)
-### 4.1 Subproductos AMPEL360
-| Producto | Código | Subproducto | Descripción | Capacidad |
-|:---------|:-------|:------------|:------------|:----------|
-| BWB | Q100 | Serie Q100 | BWB Regional | 120-180 pasajeros |
-| BWB | Q250 | Serie Q250 | BWB Largo alcance | 220-300 pasajeros |
-| EVT | CITY | City Hopper | Movilidad urbana | 2-6 pasajeros |
-| EVT | METR | Metro | Conexiones regionales | 8-12 pasajeros |
-| HYB | E180 | Electric-180 | Medio alcance | 180 pasajeros |
-| HYB | E220 | Electric-220 | Largo alcance | 220 pasajeros |
-| SUB | SB01 | Suborbital-1 | Vehículo turístico | 6-8 pasajeros |
-| SUB | SB02 | Suborbital-2 | Vehículo de investigación | 4-6 pasajeros |
-| ORB | OR01 | Orbital-1 | Vehículo tripulado | 4-6 pasajeros |
-| ORB | OR02 | Orbital-2 | Vehículo de carga | 2T carga útil |
-### 4.2 Subproductos GAIA
-| Producto | Código | Subproducto | Descripción | Aplicación |
-|:---------|:-------|:------------|:------------|:-----------|
-| UAV | TACT | Táctico | Operaciones militares | Defensa |
-| UAV | CARG | Carga | Elevación pesada | Logística |
-| UAV | HALE | Gran Altitud | Larga resistencia | Vigilancia |
-| UAV | SWRM | Enjambre | Operaciones multi-unidad | Distribuido |
-| SAT | QNET | Red-Q | Red cuántica | Comunicación cuántica |
-| SAT | EOBS | Observación Terrestre | Imágenes | Teledetección |
-| SAT | COMM | Comunicaciones | Retransmisión de datos | Conectividad |
-| SAT | NAVS | Navegación | Posicionamiento | Aumento GPS |
-| ROV | LUNA | Rover Lunar | Exploración lunar | Superficie lunar |
-| ROV | MARS | Rover Marciano | Exploración de Marte | Superficie marciana |
-| ROV | ASTE | Asteroide | Minería de asteroides | Extracción de recursos |
-| CRG | LGT5 | Carga Ligera | 50kg carga útil | Última milla |
-| CRG | MED5 | Carga Media | 500kg carga útil | Regional |
-| CRG | HVY2 | Carga Pesada | 2T carga útil | Industrial |
-| CRG | UHV5 | Ultra Pesada | 5T carga útil | Estratégico |
-### 4.3 Subproductos ROBBBO-T
-| Producto | Código | Subproducto | Descripción | Función |
-|:---------|:-------|:------------|:------------|:--------|
-| FAL | AS01 | Robot de Ensamblaje | Operaciones de ensamblaje | Producción |
-| FAL | WL01 | Robot de Soldadura | Operaciones de soldadura | Unión |
-| FAL | QC01 | Control de Calidad | Inspección | Pruebas |
-| FAL | PT01 | Robot de Pintura | Operaciones de recubrimiento | Acabado |
-| MRO | AC01 | Servicio de Aeronaves | Mantenimiento de aeronaves | Servicio en línea |
-| MRO | EN01 | Servicio de Motores | Mantenimiento de motores | Revisión |
-| MRO | CM01 | Servicio de Componentes | Mantenimiento de componentes | Reparación en taller |
-| MRO | IN01 | Robot de Inspección | Inspección NDT | Calidad |
-| SPC | EV01 | Robot EVA | Soporte de caminata espacial | Operaciones externas |
-| SPC | ST01 | Robot de Estación | Estación espacial | Operaciones internas |
-| SPC | CN01 | Construcción | Ensamblaje espacial | Infraestructura |
-| SPC | MN01 | Robot Minero | Extracción de recursos | ISRU |
-| EXP | DP01 | Mar Profundo | Exploración oceánica | Submarino |
-| EXP | VL01 | Volcán | Investigación volcánica | Calor extremo |
-| EXP | AR01 | Ártico | Investigación polar | Frío extremo |
-| EXP | CV01 | Cueva | Exploración de cuevas | Espacio confinado |
+## 4. CAMPO 3: VARNUM - Variante y Número de Unidad (9 caracteres)
+### 4.1 Formato General
+```
+VVVV-NNNN
+```
+- **VVVV**: Código de variante (4 caracteres)
+- **-**: Separador (1 carácter)
+- **NNNN**: Número secuencial único (4 dígitos)
+
+### 4.2 Ejemplos de VARNUM por Producto
+#### AMPEL360
+| Producto | VARNUM | Descripción | Secuencia |
+|:---------|:-------|:------------|:----------|
+| BWB | Q100-0001 | Primera unidad BWB Q100 | 0001 |
+| BWB | Q100-0002 | Segunda unidad BWB Q100 | 0002 |
+| BWB | Q250-0001 | Primera unidad BWB Q250 | 0001 |
+| EVT | CITY-0001 | Primera unidad EVT CITY | 0001 |
+| EVT | CITY-0015 | Quinceava unidad EVT CITY | 0015 |
+| EVT | METR-0001 | Primera unidad EVT METR | 0001 |
+| HYB | E180-0001 | Primera unidad HYB E180 | 0001 |
+| HYB | E220-0001 | Primera unidad HYB E220 | 0001 |
+| SUB | SB01-0001 | Primera unidad SUB SB01 | 0001 |
+| SUB | SB02-0001 | Primera unidad SUB SB02 | 0001 |
+| ORB | OR01-0001 | Primera unidad ORB OR01 | 0001 |
+| ORB | OR02-0001 | Primera unidad ORB OR02 | 0001 |
+
+#### GAIA
+| Producto | VARNUM | Descripción | Secuencia |
+|:---------|:-------|:------------|:----------|
+| UAV | TACT-0001 | Primera unidad UAV TACT | 0001 |
+| UAV | TACT-0050 | Quincuagésima unidad UAV TACT | 0050 |
+| UAV | CARG-0001 | Primera unidad UAV CARG | 0001 |
+| UAV | HALE-0001 | Primera unidad UAV HALE | 0001 |
+| UAV | SWRM-0001 | Primera unidad UAV SWRM | 0001 |
+| SAT | QNET-0001 | Primera unidad SAT QNET | 0001 |
+| SAT | EOBS-0001 | Primera unidad SAT EOBS | 0001 |
+| SAT | COMM-0001 | Primera unidad SAT COMM | 0001 |
+| SAT | NAVS-0001 | Primera unidad SAT NAVS | 0001 |
+| ROV | LUNA-0001 | Primera unidad ROV LUNA | 0001 |
+| ROV | MARS-0001 | Primera unidad ROV MARS | 0001 |
+| ROV | ASTE-0001 | Primera unidad ROV ASTE | 0001 |
+| CRG | LGT5-0001 | Primera unidad CRG LGT5 | 0001 |
+| CRG | MED5-0001 | Primera unidad CRG MED5 | 0001 |
+| CRG | HVY2-0001 | Primera unidad CRG HVY2 | 0001 |
+| CRG | UHV5-0001 | Primera unidad CRG UHV5 | 0001 |
+
+#### ROBBBO-T
+| Producto | VARNUM | Descripción | Secuencia |
+|:---------|:-------|:------------|:----------|
+| FAL | AS01-0001 | Primera unidad FAL AS01 | 0001 |
+| FAL | WL01-0001 | Primera unidad FAL WL01 | 0001 |
+| FAL | QC01-0001 | Primera unidad FAL QC01 | 0001 |
+| FAL | PT01-0001 | Primera unidad FAL PT01 | 0001 |
+| MRO | AC01-0001 | Primera unidad MRO AC01 | 0001 |
+| MRO | EN01-0001 | Primera unidad MRO EN01 | 0001 |
+| MRO | CM01-0001 | Primera unidad MRO CM01 | 0001 |
+| MRO | IN01-0001 | Primera unidad MRO IN01 | 0001 |
+| SPC | EV01-0001 | Primera unidad SPC EV01 | 0001 |
+| SPC | ST01-0001 | Primera unidad SPC ST01 | 0001 |
+| SPC | CN01-0001 | Primera unidad SPC CN01 | 0001 |
+| SPC | MN01-0001 | Primera unidad SPC MN01 | 0001 |
+| EXP | DP01-0001 | Primera unidad EXP DP01 | 0001 |
+| EXP | VL01-0001 | Primera unidad EXP VL01 | 0001 |
+| EXP | AR01-0001 | Primera unidad EXP AR01 | 0001 |
+| EXP | CV01-0001 | Primera unidad EXP CV01 | 0001 |
+
+#### Servicios Cuánticos
+| Producto | VARNUM | Descripción | Secuencia |
+|:---------|:-------|:------------|:----------|
+| QPS | CORE-0001 | Primera instancia QPS CORE | 0001 |
+| QPS | EDGE-0001 | Primera instancia QPS EDGE | 0001 |
+| QKS | NETW-0001 | Primera instancia QKS NETW | 0001 |
+| QML | CLOUD-0001 | Primera instancia QML CLOUD | 0001 |
+| QCN | CONS-0001 | Primera instancia QCN CONS | 0001 |
+
+#### Productos Cuánticos
+| Producto | VARNUM | Descripción | Secuencia |
+|:---------|:-------|:------------|:----------|
+| QPU | Q100-0001 | Primera unidad QPU Q100 | 0001 |
+| QPU | Q200-0001 | Primera unidad QPU Q200 | 0001 |
+| QKD | K50-0001 | Primera unidad QKD K50 | 0001 |
+| QSN | S100-0001 | Primera unidad QSN S100 | 0001 |
+| QSW | SOFT-0001 | Primera unidad QSW SOFT | 0001 |
+
+### 4.3 Formato para Infraestructura
+```
+TTTT-NNNN
+```
+- **TTTT**: Tipo de infraestructura (4 caracteres)
+- **-**: Separador (1 carácter)
+- **NNNN**: Número secuencial único (4 dígitos)
+
+### 4.4 Ejemplos de VARNUM para Infraestructura
+| Infraestructura | VARNUM | Descripción | Secuencia |
+|:----------------|:-------|:------------|:----------|
+| Digital | DIGI-0001 | Primera instancia digital | 0001 |
+| Física | FISI-0001 | Primera instalación física | 0001 |
+| Pruebas | PRUE-0001 | Primer banco de pruebas | 0001 |
+| Manufactura | MANU-0001 | Primera línea de manufactura | 0001 |
+| Seguridad | SEGU-0001 | Primer sistema de seguridad | 0001 |
+| Cuántica | CUAN-0001 | Primera infraestructura cuántica | 0001 |
+
+### 4.5 Sistema de Asignación
+- **Centralizado**: Todos los VARNUM se asignan desde un sistema centralizado para garantizar unicidad global
+- **Secuencial por variante**: Cada variante tiene su propia secuencia numérica
+- **Sin reutilización**: Una vez asignado, un VARNUM nunca se reutiliza
+- **Base de datos central**: Registro único de todos los VARNUM asignados con metadatos asociados
+
+### 4.6 Ventajas del Nuevo Formato
+- **Máxima simplificación**: Combina variante y número de unidad en un campo intuitivo
+- **Identificación clara**: Formato VVVV-NNNN fácil de interpretar
+- **Escalabilidad**: Soporta hasta 9,999 unidades por variante
+- **Flexibilidad**: Permite adicionar nuevas variantes sin afectar la estructura
+- **Consistencia**: Formato uniforme para todos los tipos de activos
 ---
-## 5. CAMPO 4: MSN - Número de Serie de Manufactura (8 caracteres)
-### 5.1 Formato para Productos
-```
-YYSSNNNN
-```
-- **YY**: Año (25 = 2025, 26 = 2026, etc.)
-- **SS**: Código del sitio
-- **NNNN**: Número secuencial (0001-9999)
-### 5.2 Códigos de Sitio
-| Código | Sitio | País | Especialización |
-|:-------|:------|:-----|:----------------|
-| MA | Madrid | España | HQ y Ensamblaje Final |
-| TO | Toulouse | Francia | Aerodinámica y Certificación |
-| MU | Munich | Alemania | Propulsión y Hardware Cuántico |
-| NA | Nápoles | Italia | Composites y Materiales Avanzados |
-| SG | Singapur | Singapur | Hub Asia y Robótica |
-| SV | Silicon Valley | EE.UU. | Software y Computación Cuántica |
-### 5.3 Formato para Infraestructura
-```
-TTTTNNNN
-```
-- **TTTT**: Tipo de activo
-- **NNNN**: Número secuencial
-### 5.4 Ejemplos de MSN
-| Tipo | MSN | Descripción |
-|:-----|:----|:------------|
-| Aeronave | 25MAP001 | Primera aeronave fabricada en Madrid en 2025 |
-| UAV | 26SGU001 | Primer UAV fabricado en Singapur en 2026 |
-| Robot | 25NAR001 | Primer robot fabricado en Nápoles en 2025 |
-| Infraestructura | AWSP0001 | Primera instancia AWS Producción |
-| Servicio | QPAA0001 | Primera instancia de servicio QPaaS |
----
-## 6. CAMPO 5: PHASE - Fase del Ciclo de Vida (3 caracteres)
+## 5. CAMPO 4: PHASE - Fase del Ciclo de Vida (3 caracteres)
 | Código | Fase | Descripción | Duración Típica |
 |:-------|:-----|:------------|:----------------|
 | STR | Estrategia | Planificación estratégica del negocio | 3-6 meses |
@@ -196,7 +226,7 @@ TTTTNNNN
 | RET | Retiro | Fin del servicio | 6-12 meses |
 | AUD | Auditoría | Verificación de cumplimiento | Periódico |
 ---
-## 7. CAMPO 6: CRIT - Criticidad de Seguridad y Ciber (2 caracteres)
+## 6. CAMPO 5: CRIT - Criticidad de Seguridad y Ciber (2 caracteres)
 | Código | Nivel | Descripción | Requisitos de Revisión |
 |:-------|:------|:------------|:-----------------------|
 | SC | Crítico de Seguridad | Falla = catastrófico | Triple redundancia, métodos formales |
@@ -209,8 +239,8 @@ TTTTNNNN
 | BC | Crítico de Negocio | Impacto ingresos/operaciones | Revisión de negocio, SLA |
 | NC | No Crítico | Sin impacto seguridad/ciber/negocio | Proceso estándar |
 ---
-## 8. CAMPO 7: DOC - Tipo de Documento (3 caracteres) POR FASE
-### 8.1 Fase ESTRATEGIA (STR)
+## 7. CAMPO 6: DOC - Tipo de Documento (3 caracteres) POR FASE
+### 7.1 Fase ESTRATEGIA (STR)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | BSP | Business Strategy Plan | Plan estratégico de negocio |
@@ -221,7 +251,7 @@ TTTTNNNN
 | CMP | Competitive Analysis | Análisis competitivo |
 | OPP | Opportunity Assessment | Evaluación de oportunidades |
 | STK | Stakeholder Analysis | Análisis de partes interesadas |
-### 8.2 Fase CONCEPTUAL (CON)
+### 7.2 Fase CONCEPTUAL (CON)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | ECR | Engineering Change Request | Solicitud de cambio de ingeniería |
@@ -232,7 +262,7 @@ TTTTNNNN
 | COP | Concept of Operations | Concepto de operaciones |
 | FAS | Feasibility Assessment Study | Estudio de viabilidad |
 | MRD | Market Requirements Document | Requisitos de mercado |
-### 8.3 Fase DISEÑO (DES)
+### 7.3 Fase DISEÑO (DES)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | CDR | Critical Design Review | Revisión de diseño crítico |
@@ -243,7 +273,7 @@ TTTTNNNN
 | DFMEA | Design FMEA | Análisis de modos de falla de diseño |
 | SDS | System Design Specification | Especificación de diseño del sistema |
 | PSA | Preliminary System Safety Assessment | Evaluación preliminar de seguridad |
-### 8.4 Fase DESARROLLO Y PROTOTIPADO (DEV)
+### 7.4 Fase DESARROLLO Y PROTOTIPADO (DEV)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | TRR | Test Readiness Review | Revisión de preparación para pruebas |
@@ -254,7 +284,7 @@ TTTTNNNN
 | EOC | Executable Object Code | Código objeto ejecutable |
 | BLD | Build Specification | Especificación de construcción |
 | API | API Documentation | Documentación de API |
-### 8.5 Fase PRUEBAS Y CÁLCULOS (TST)
+### 7.5 Fase PRUEBAS Y CÁLCULOS (TST)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | QTP | Qualification Test Plan | Plan de pruebas de calificación |
@@ -267,7 +297,7 @@ TTTTNNNN
 | VTR | Verification Test Report | Informe de pruebas de verificación |
 | CAL | Calculation Report | Informe de cálculos |
 | ATR | Acceptance Test Report | Informe de pruebas de aceptación |
-### 8.6 Fase INTEGRACIÓN (INT)
+### 7.6 Fase INTEGRACIÓN (INT)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | ITP | Integration Test Plan | Plan de pruebas de integración |
@@ -278,7 +308,7 @@ TTTTNNNN
 | CCB | Change Control Board Minutes | Actas del comité de control de cambios |
 | IVR | Integration Validation Report | Informe de validación de integración |
 | ISS | Integration System Specification | Especificación del sistema integrado |
-### 8.7 Fase CERTIFICACIÓN (CRT)
+### 7.7 Fase CERTIFICACIÓN (CRT)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | TC | Type Certificate | Certificado de tipo |
@@ -289,7 +319,7 @@ TTTTNNNN
 | DOA | Design Organization Approval | Aprobación de organización de diseño |
 | CMP | Compliance Matrix | Matriz de cumplimiento |
 | DAS | Declaration of Design and Performance | Declaración de diseño y rendimiento |
-### 8.8 Fase PRODUCCIÓN (PRD)
+### 7.8 Fase PRODUCCIÓN (PRD)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | COC | Certificate of Conformity | Certificado de conformidad |
@@ -300,7 +330,7 @@ TTTTNNNN
 | MRB | Material Review Board Report | Informe del comité de materiales |
 | NCR | Nonconformance Report | Informe de no conformidad |
 | BOM | Bill of Materials | Lista de materiales |
-### 8.9 Fase OPERACIÓN Y SERVICIO (OPS)
+### 7.9 Fase OPERACIÓN Y SERVICIO (OPS)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | AFM | Aircraft Flight Manual | Manual de vuelo de aeronave |
@@ -311,7 +341,7 @@ TTTTNNNN
 | CAME | Continuing Airworthiness Management Exposition | Gestión de aeronavegabilidad |
 | FOM | Flight Operations Manual | Manual de operaciones de vuelo |
 | GOM | Ground Operations Manual | Manual de operaciones en tierra |
-### 8.10 Fase MANTENIMIENTO (MNT)
+### 7.10 Fase MANTENIMIENTO (MNT)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | AMM | Aircraft Maintenance Manual | Manual de mantenimiento de aeronave |
@@ -322,7 +352,7 @@ TTTTNNNN
 | SB | Service Bulletin | Boletín de servicio |
 | WDM | Wiring Diagram Manual | Manual de diagramas de cableado |
 | TSM | Troubleshooting Manual | Manual de resolución de problemas |
-### 8.11 Fase REPARACIÓN Y RECICLAJE (REP)
+### 7.11 Fase REPARACIÓN Y RECICLAJE (REP)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | EO | Engineering Order | Orden de ingeniería |
@@ -333,7 +363,7 @@ TTTTNNNN
 | NDT | Non-Destructive Test Manual | Manual de pruebas no destructivas |
 | RCL | Reclamation Procedure | Procedimiento de recuperación |
 | DIS | Disposal Instruction | Instrucción de eliminación |
-### 8.12 Fase ACTUALIZACIÓN (UPG)
+### 7.12 Fase ACTUALIZACIÓN (UPG)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | UCR | Upgrade Change Request | Solicitud de cambio de actualización |
@@ -344,7 +374,7 @@ TTTTNNNN
 | UCM | Upgrade Compliance Matrix | Matriz de cumplimiento |
 | USP | Upgrade Support Plan | Plan de soporte |
 | UTC | Upgrade Training Course | Curso de formación |
-### 8.13 Fase EXTENSIÓN (EXT)
+### 7.13 Fase EXTENSIÓN (EXT)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | LEP | Life Extension Plan | Plan de extensión de vida |
@@ -355,7 +385,7 @@ TTTTNNNN
 | DTA | Damage Tolerance Assessment | Evaluación de tolerancia al daño |
 | EIP | Extension Inspection Program | Programa de inspección |
 | ESB | Extension Service Bulletin | Boletín de servicio |
-### 8.14 Fase RETIRO (RET)
+### 7.14 Fase RETIRO (RET)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | ECN | Engineering Change Notice | Aviso de cambio de ingeniería |
@@ -366,7 +396,7 @@ TTTTNNNN
 | DCP | Decommissioning Plan | Plan de desmantelamiento |
 | EDS | End-of-Service Documentation | Documentación de fin de servicio |
 | RET | Retirement Report | Informe de retiro |
-### 8.15 Fase AUDITORÍA (AUD)
+### 7.15 Fase AUDITORÍA (AUD)
 | Código | Tipo de Documento | Descripción |
 |:-------|:------------------|:------------|
 | IQA | Internal Quality Audit | Auditoría interna de calidad |
@@ -378,8 +408,8 @@ TTTTNNNN
 | KPI | Key Performance Indicator Report | Informe de indicadores clave |
 | ACR | Audit Compliance Report | Informe de cumplimiento de auditoría |
 ---
-## 9. CAMPO 8: APP - Dominio de Aplicación (3 caracteres)
-### 9.1 Para Documentos de Mantenimiento (AMM)
+## 8. CAMPO 7: APP - Dominio de Aplicación (3 caracteres)
+### 8.1 Para Documentos de Mantenimiento (AMM)
 | Código | Módulo | Descripción |
 |:-------|:-------|:------------|
 | TSG | Troubleshooting | Procedimientos de aislamiento de fallas |
@@ -391,7 +421,7 @@ TTTTNNNN
 | CLE | Cleaning | Procedimientos de limpieza |
 | STO | Storage | Procedimientos de preservación |
 | WGH | Weight & Balance | Procedimientos de peso y balance |
-### 9.2 Para Documentos de Diseño (ICD)
+### 8.2 Para Documentos de Diseño (ICD)
 | Código | Módulo | Descripción |
 |:-------|:-------|:------------|
 | PHY | Physical | Interfaces físicas |
@@ -401,7 +431,7 @@ TTTTNNNN
 | PRO | Protocol | Protocolos de comunicación |
 | ERR | Error | Manejo de errores |
 | TST | Test | Interfaces de prueba |
-### 9.3 Códigos Universales de Aplicación
+### 8.3 Códigos Universales de Aplicación
 | Código | Aplicación | Descripción |
 |:-------|:-----------|:------------|
 | GEN | General | Información general |
@@ -412,8 +442,8 @@ TTTTNNNN
 | TEM | Temporary | Procedimientos temporales |
 | SPL | Special | Procedimientos especiales |
 ---
-## 10. CAMPO 9: MTD - Método/Procedimiento (14 caracteres)
-### 10.1 Formato
+## 9. CAMPO 8: MTD - Método/Procedimiento (14 caracteres)
+### 9.1 Formato
 ```
 AA-AA-AAAA-NNNN
 ```
@@ -421,7 +451,7 @@ AA-AA-AAAA-NNNN
 - **AA**: Código de paso (2 caracteres)  
 - **AAAA**: Identificador de objeto (4 caracteres)
 - **NNNN**: Número secuencial (4 dígitos)
-### 10.2 Códigos de Tarea - Mantenimiento
+### 9.2 Códigos de Tarea - Mantenimiento
 | Código | Tarea | Descripción |
 |:-------|:------|:------------|
 | RM | Remove | Procedimientos de remoción |
@@ -434,7 +464,7 @@ AA-AA-AAAA-NNNN
 | CL | Clean | Procedimientos de limpieza |
 | TR | Troubleshoot | Aislamiento de fallas |
 | RR | Repair | Reparación in-situ |
-### 10.3 Códigos de Paso
+### 9.3 Códigos de Paso
 | Código | Tipo de Paso | Descripción |
 |:-------|:-------------|:------------|
 | PR | Preparation | Seguridad, herramientas, acceso |
@@ -457,7 +487,7 @@ AA-AA-AAAA-NNNN
 | S8 | Step 8 | Octavo paso secuencial |
 | S9 | Step 9 | Noveno paso secuencial |
 | SX | Extended | Pasos más allá del 9 |
-### 10.4 Códigos de Objeto (Componentes)
+### 9.4 Códigos de Objeto (Componentes)
 | Prefijo | Rango | Descripción |
 |:--------|:------|:------------|
 | C | C001-C999 | Conectores |
@@ -476,8 +506,8 @@ AA-AA-AAAA-NNNN
 | T | T001-T999 | Tubos |
 | Q | Q001-Q999 | Componentes cuánticos |
 ---
-## 11. CAMPO 10: REALIDAD - Contexto de Efectividad (5 caracteres)
-### 11.1 Contextos Individuales
+## 10. CAMPO 9: REALIDAD - Contexto de Efectividad (5 caracteres)
+### 10.1 Contextos Individuales
 | Código | Contexto | Descripción | Dónde es Efectivo/Aplicable |
 |:-------|:---------|:------------|:----------------------------|
 | VRTUL | Virtual | Existe solo en entorno digital | Simuladores, software, modelos digitales |
@@ -489,16 +519,16 @@ AA-AA-AAAA-NNNN
 | STAND | Standing | En espera/almacenado | Inventario, backup, reserva |
 | PHYSL | Físico | Tangible y material | Hardware, componentes, estructuras |
 | HYBRD | Híbrido | Combinación física-digital | IoT, sistemas cyber-físicos |
-### 11.2 Contextos Múltiples (MULTI)
+### 10.2 Contextos Múltiples (MULTI)
 | Código | Contexto | Descripción | Casos de Uso |
 |:-------|:---------|:------------|:-------------|
 | MULTI | Multicontextual | Válido en múltiples realidades | Documentos con versiones física, digital y AR |
 | OMNIR | Omnirealidad | Válido en todas las realidades | Estándares universales, políticas |
 | ADAPT | Adaptativo | Se ajusta según contexto | Contenido que cambia según plataforma |
-### 11.3 Ejemplos de Artefactos Multicontextuales
+### 10.3 Ejemplos de Artefactos Multicontextuales
 **Manual de Mantenimiento AMM - MULTI**
 ```
-AMPEL3-BWB-Q100-25MAP001-MNT-SE-AMM-TSG-TR-VF-E001-0001-MULTI-07150000000-MUL-v2.0.0
+AMPEL3-BWB-Q100-0001-MNT-SE-AMM-TSG-TR-VF-E001-0001-MULTI-07150000000-MUL-v2.0.0
 ```
 Este manual existe en:
 - **PHYSL**: Manual impreso en papel
@@ -512,15 +542,15 @@ AQUART-OPS-SC-POL-SEC-GEN-PA-POL1-0001-OMNIR-80010000000-MUL-v1.0.0
 Esta política aplica en todos los contextos de realidad.
 **Sistema de Diagnóstico - ADAPT**
 ```
-QSERVS-QPS-DIAG-QDIG0001-OPS-BC-SYS-DIA-AN-PA-DIAG-0001-ADAPT-90050000000-MUL-v3.0.0
+QSERVS-QPS-CORE-0001-OPS-BC-SYS-DIA-AN-PA-DIAG-0001-ADAPT-90050000000-MUL-v3.0.0
 ```
 Se adapta según el contexto:
 - En **VRTUL**: Interfaz web completa
 - En **AUGMT**: Overlay de información crítica
 - En **PHYSL**: Display simplificado en panel
 ---
-## 12. CAMPO 11: UTCS - Clasificación Tecnológica Universal (11 caracteres)
-### 12.1 Formato
+## 11. CAMPO 10: UTCS - Clasificación Tecnológica Universal (11 caracteres)
+### 11.1 Formato
 ```
 DDDCCSSPPPP
 ```
@@ -528,7 +558,7 @@ DDDCCSSPPPP
 - **CC**: Categoría (2 dígitos)
 - **SS**: Subcategoría (2 dígitos)
 - **PPPP**: Tecnología específica (4 dígitos)
-### 12.2 Estructura de Dominios
+### 11.2 Estructura de Dominios
 | Rango | Dominio | Descripción |
 |:------|:--------|:------------|
 | 000-099 | Aeroespacial | Tecnología aeroespacial (capítulos ATA) |
@@ -542,7 +572,7 @@ DDDCCSSPPPP
 | 800-899 | Ciberseguridad | Arquitectura de seguridad |
 | 900-999 | Computación Cuántica | Tecnología cuántica |
 ---
-## 13. CAMPO 12: REG - Estado Regulatorio (3 caracteres)
+## 12. CAMPO 11: REG - Estado Regulatorio (3 caracteres)
 | Código | Autoridad | Estado | Descripción |
 |:-------|:----------|:-------|:------------|
 | EAS | EASA | Aprobado | Aprobación europea |
@@ -554,39 +584,8 @@ DDDCCSSPPPP
 | PND | Pendiente | En certificación | Bajo revisión |
 | N/A | No Aplicable | No requiere certificación | No regulado |
 ---
-## 14. CAMPO 13: ENV - Entorno Digital (3 caracteres)
-| Código | Entorno | Descripción | Caso de Uso |
-|:-------|:--------|:------------|:------------|
-| DEV | Desarrollo | Sandbox de desarrollador | Desarrollo de características |
-| TST | Pruebas | Entorno QA | Aseguramiento de calidad |
-| STG | Staging | Pre-producción | Validación final |
-| PRD | Producción | Sistemas en vivo | De cara al cliente |
-| DRT | Prueba DR | Recuperación ante desastres | Sistemas de respaldo |
-| LAB | Laboratorio | Sistemas I+D | Investigación |
-| SIM | Simulación | Pruebas virtuales | Validación digital |
-| TRN | Entrenamiento | Entorno de formación | Educación |
-| N/A | No Aplicable | Solo físico | Elementos de hardware |
----
-## 15. CAMPO 14: DSIG - Firma Digital (8 caracteres)
-### 15.1 Formato
-```
-XXXXXXXX
-```
-- **XXXXXXXX**: Primeros 8 caracteres del hash SHA-256
-### 15.2 Cálculo de DSIG
-La firma digital se calcula como:
-```
-DSIG = SHA256(CAMPO1-CAMPO2-...-CAMPO13-TIMESTAMP)[0:8]
-```
-Donde TIMESTAMP es la fecha y hora UTC en formato ISO 8601.
-### 15.3 Propósito
-- Verificar integridad del documento
-- Asegurar no manipulación
-- Proporcionar trazabilidad
-- Facilitar auditorías
----
-## 16. CAMPO 15: VERSION - Versión (Variable)
-### 16.1 Formato
+## 13. CAMPO 12: VERSION - Versión (Variable)
+### 13.1 Formato
 ```
 vXX.XX.XX(-SUFIXO)?
 ```
@@ -595,28 +594,27 @@ vXX.XX.XX(-SUFIXO)?
 - **XX**: Versión menor (funcionalidad compatible)
 - **XX**: Versión de parche (correcciones compatibles)
 - **-SUFIXO**: Sufijo opcional (alpha, beta, rc, etc.)
-### 16.2 Ejemplos
+### 13.2 Ejemplos
 - `v1.0.0` - Versión inicial
 - `v2.1.3` - Versión 2 mayor, 1 menor, 3 parches
 - `v3.0.0-beta.1` - Versión beta de 3.0.0
 - `v1.2.0-rc.1` - Release candidate de 1.2.0
 - `v2.0.1` - Corrección de parche de 2.0.0
-### 16.3 Reglas de Versionado
+### 13.3 Reglas de Versionado
 1. Incrementar versión mayor para cambios incompatibles
 2. Incrementar versión menor para funcionalidad nueva compatible
 3. Incrementar versión de parche para correcciones compatibles
 4. Usar sufijos para versiones de desarrollo
 ---
-## 17. EJEMPLOS COMPLETOS
-### 17.1 Ejemplo de Aeronave AMPEL360
+## 14. EJEMPLOS COMPLETOS
+### 14.1 Ejemplo de Aeronave AMPEL360
 ```
-AMPEL3-BWB-Q100-25MAP001-PRD-SC-COC-QUA-IN-VF-P001-0001-OPERT-02460000000-MUL-PRD-v1.0.0
+AMPEL3-BWB-Q100-0001-PRD-SC-COC-QUA-IN-VF-P001-0001-OPERT-02460000000-MUL-v1.0.0
 ```
 **Desglose:**
 - **AMPEL3**: Línea AMPEL360
 - **BWB**: Blended Wing Body
-- **Q100**: Serie Q100 (120-180 pasajeros)
-- **25MAP001**: Primera unidad fabricada en Madrid en 2025
+- **Q100-0001**: Variante Q100, primera unidad
 - **PRD**: Fase de Producción
 - **SC**: Crítico de Seguridad
 - **COC**: Certificado de Conformidad
@@ -625,17 +623,15 @@ AMPEL3-BWB-Q100-25MAP001-PRD-SC-COC-QUA-IN-VF-P001-0001-OPERT-02460000000-MUL-PR
 - **OPERT**: Contexto Operativo (aeronave en servicio activo)
 - **02460000000**: UTCS Aeroespacial-Estructuras
 - **MUL**: Multi-autoridad aprobado
-- **PRD**: Entorno de Producción
 - **v1.0.0**: Versión inicial
-### 17.2 Ejemplo de Servicio Cuántico
+### 14.2 Ejemplo de Servicio Cuántico
 ```
-QSERVS-QPS-CORE-QPAA0001-OPS-BC-API-API-SV-PA-QAPI-0001-VRTUL-90010000000-MUL-PRD-v4.0.0
+QSERVS-QPS-CORE-0001-OPS-BC-API-API-SV-PA-QAPI-0001-VRTUL-90010000000-MUL-v4.0.0
 ```
 **Desglose:**
 - **QSERVS**: Servicios Cuánticos
 - **QPS**: Servicio de Procesamiento Cuántico
-- **CORE**: Procesamiento Central
-- **QPAA0001**: Primera instancia de servicio
+- **CORE-0001**: Variante CORE, primera instancia
 - **OPS**: Fase de Operaciones
 - **BC**: Crítico de Negocio
 - **API**: Especificación API
@@ -644,17 +640,15 @@ QSERVS-QPS-CORE-QPAA0001-OPS-BC-API-API-SV-PA-QAPI-0001-VRTUL-90010000000-MUL-PR
 - **VRTUL**: Contexto Virtual (servicio cloud)
 - **90010000000**: UTCS Cuántico-Procesamiento
 - **MUL**: Multi-región
-- **PRD**: Producción
 - **v4.0.0**: Versión 4.0.0
-### 17.3 Ejemplo de Documentación con Realidad Aumentada
+### 14.3 Ejemplo de Documentación con Realidad Aumentada
 ```
-AMPEL3-BWB-Q100-25MAP001-MNT-SE-AMM-TSG-TR-VF-E001-0001-AUGMT-07150000000-MUL-PRD-v2.0.0
+AMPEL3-BWB-Q100-0001-MNT-SE-AMM-TSG-TR-VF-E001-0001-AUGMT-07150000000-MUL-v2.0.0
 ```
 **Desglose:**
 - **AMPEL3**: Línea AMPEL360
 - **BWB**: Blended Wing Body
-- **Q100**: Serie Q100
-- **25MAP001**: Primera unidad Madrid 2025
+- **Q100-0001**: Variante Q100, primera unidad
 - **MNT**: Fase de Mantenimiento
 - **SE**: Esencial de Seguridad
 - **AMM**: Manual de Mantenimiento
@@ -663,17 +657,15 @@ AMPEL3-BWB-Q100-25MAP001-MNT-SE-AMM-TSG-TR-VF-E001-0001-AUGMT-07150000000-MUL-PR
 - **AUGMT**: Contexto Aumentado (manual con AR para técnicos)
 - **07150000000**: UTCS Aeroespacial-Motores
 - **MUL**: Multi-autoridad
-- **PRD**: Producción
 - **v2.0.0**: Versión 2.0.0
-### 17.4 Ejemplo de Sistema Sentiente
+### 14.4 Ejemplo de Sistema Sentiente
 ```
-QSERVS-QPS-SENTN-QSNT0001-OPS-CC-SYS-AUT-AI-DE-QSEN-0001-SENTN-90030000000-PND-PRD-v1.0.0
+QSERVS-QPS-EDGE-0002-OPS-CC-SYS-AUT-AI-DE-QSEN-0001-SENTN-90030000000-PND-v1.0.0
 ```
 **Desglose:**
 - **QSERVS**: Servicios Cuánticos
 - **QPS**: Servicio de Procesamiento Cuántico
-- **SENTN**: Sistema Sentiente
-- **QSNT0001`: Primera instancia sentiente
+- **EDGE-0002**: Variante EDGE, segunda instancia
 - **OPS**: Fase de Operaciones
 - **CC**: Crítico Ciber
 - **SYS**: Sistema
@@ -682,17 +674,15 @@ QSERVS-QPS-SENTN-QSNT0001-OPS-CC-SYS-AUT-AI-DE-QSEN-0001-SENTN-90030000000-PND-P
 - **SENTN**: Contexto Sentiente (sistema autónomo consciente)
 - **90030000000**: UTCS Cuántico-IA
 - **PND**: Pendiente regulación
-- **PRD**: Producción
 - **v1.0.0**: Versión inicial
-### 17.5 Ejemplo de Infraestructura en Standby
+### 14.5 Ejemplo de Infraestructura en Standby
 ```
-INFRAT-RIG-STRU-TESTRIG2-MNT-SI-MPS-CAL-AJ-VF-T002-0001-STAND-60010000000-N/A-TST-v1.5.0
+INFRAT-PRUE-PRUE-0001-MNT-SI-MPS-CAL-AJ-VF-T002-0001-STAND-60010000000-N/A-v1.5.0
 ```
 **Desglose:**
 - **INFRAT**: Infraestructura de Pruebas
-- **RIG**: Banco de Pruebas
-- **STRU**: Estructural
-- **TESTRIG2**: Segundo banco de pruebas
+- **PRUE**: Banco de Pruebas
+- **PRUE-0001**: Variante PRUE, primer banco
 - **MNT**: Fase de Mantenimiento
 - **SI**: Importante de Seguridad
 - **MPS**: Especificación de Proceso de Mantenimiento
@@ -701,24 +691,23 @@ INFRAT-RIG-STRU-TESTRIG2-MNT-SI-MPS-CAL-AJ-VF-T002-0001-STAND-60010000000-N/A-TS
 - **STAND**: Contexto Standing (equipo en reserva)
 - **60010000000**: UTCS Automatización-Pruebas
 - **N/A**: No regulatorio
-- **TST**: Entorno de pruebas
 - **v1.5.0`: Versión 1.5.0
 ---
-## 18. MATRIZ DE VALIDACIÓN
-### 18.1 Validaciones Obligatorias
-1. **Longitud Total**: 94 caracteres + versión
+## 15. MATRIZ DE VALIDACIÓN
+### 15.1 Validaciones Obligatorias
+1. **Longitud Total**: 74 caracteres + versión
 2. **LINE**: Debe ser código válido de 6 caracteres
-3. **PHASE**: Debe ser una de las 15 fases válidas
-4. **CRIT**: Debe tener clasificación de criticidad
-5. **UTCS**: Exactamente 11 caracteres numéricos
-6. **DSIG**: Exactamente 8 caracteres alfanuméricos
-7. **VERSION**: Formato vX.X.X
-### 18.2 Validaciones Condicionales
-- Si LINE es de infraestructura → MSN usa formato de activo
-- Si LINE es de producto → MSN usa formato YYSSNNNN
-- Si ENV = N/A → CLOUD debe ser N/A0
-- Si REALIDAD = TRPHY → ENV típicamente N/A
-### 18.3 Matriz de Contextos por Fase
+3. **PROD**: Debe ser código válido de 3 caracteres
+4. **VARNUM**: Debe tener formato VVVV-NNNN (9 caracteres)
+5. **PHASE**: Debe ser una de las 15 fases válidas
+6. **CRIT**: Debe tener clasificación de criticidad
+7. **UTCS**: Exactamente 11 caracteres numéricos
+8. **VERSION**: Formato vX.X.X
+### 15.2 Validaciones Condicionales
+- Si LINE es de infraestructura → VARNUM debe usar formato de infraestructura
+- Si LINE es de producto → VARNUM debe usar formato de producto
+- Si REALIDAD = PHYSL → No requiere validación de entorno digital
+### 15.3 Matriz de Contextos por Fase
 | Fase | Contextos Típicos | Justificación |
 |:-----|:------------------|:--------------|
 | STR | VRTUL, SIMUL | Estrategia es conceptual |
@@ -737,12 +726,13 @@ INFRAT-RIG-STRU-TESTRIG2-MNT-SI-MPS-CAL-AJ-VF-T002-0001-STAND-60010000000-N/A-TS
 | RET | STAND, PHYSL | Retiro físico |
 | AUD | VRTUL, OPERT | Auditoría digital/física |
 ---
-## 19. IMPLEMENTACIÓN
-### 19.1 Proceso de Implementación
+## 16. IMPLEMENTACIÓN
+### 16.1 Proceso de Implementación
 1. **Fase 1: Preparación (1 mes)**
    - Capacitación a administradores de sistemas
    - Actualización de bases de datos
    - Preparación de herramientas de validación
+   - Migración de identificadores existentes al nuevo formato VARNUM
 2. **Fase 2: Transición (2 meses)**
    - Implementación gradual por departamento
    - Migración de documentos existentes
@@ -751,29 +741,30 @@ INFRAT-RIG-STRU-TESTRIG2-MNT-SI-MPS-CAL-AJ-VF-T002-0001-STAND-60010000000-N/A-TS
    - Uso completo del sistema
    - Auditorías periódicas
    - Mejoras continuas
-### 19.2 Herramientas de Soporte
+### 16.2 Herramientas de Soporte
 1. **Generador de Códigos**: Aplicación web para generar nomenclaturas válidas
 2. **Validador Automático**: Sistema para verificar nomenclaturas existentes
 3. **Base de Datos Central**: Repositorio único de todas las nomenclaturas
 4. **API de Integración**: Interfaz para sistemas externos
-### 19.3 Capacitación
+5. **Herramienta de Migración**: Sistema para convertir identificadores antiguos al nuevo formato
+### 16.3 Capacitación
 1. **Curso Básico**: Para todos los usuarios (4 horas)
 2. **Curso Avanzado**: Para administradores (8 horas)
 3. **Material de Referencia**: Guías rápidas y ejemplos
 4. **Soporte Continuo**: Mesa de ayuda y consultoría
 ---
-## 20. MANTENIMIENTO DEL SISTEMA
-### 20.1 Actualizaciones Periódicas
+## 17. MANTENIMIENTO DEL SISTEMA
+### 17.1 Actualizaciones Periódicas
 1. **Trimestrales**: Actualización de códigos de productos
 2. **Semestrales**: Revisión de estructura de dominios UTCS
 3. **Anuales**: Actualización mayor de versión del sistema
-### 20.2 Proceso de Cambio
+### 17.2 Proceso de Cambio
 1. **Solicitud**: Propuesta de cambio a través de formulario
 2. **Evaluación**: Análisis de impacto y viabilidad
 3. **Aprobación**: Por comité de control de cambios
 4. **Implementación**: Despliegue controlado
 5. **Comunicación**: Notificación a todos los usuarios
-### 20.3 Soporte
+### 17.3 Soporte
 1. **Nivel 1**: Mesa de ayuda para consultas básicas
 2. **Nivel 2**: Especialistas para problemas complejos
 3. **Nivel 3**: Equipo de desarrollo para cambios del sistema
@@ -781,5 +772,4 @@ INFRAT-RIG-STRU-TESTRIG2-MNT-SI-MPS-CAL-AJ-VF-T002-0001-STAND-60010000000-N/A-TS
 **FIN DEL DOCUMENTO**
 © 2025 AQUA V. Aerospace. Documento Controlado.  
 **Distribución:** A - Interno Ilimitado | B - Socios Autorizados | C - Autoridades Regulatorias
-```
 
