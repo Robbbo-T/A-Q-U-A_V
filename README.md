@@ -263,7 +263,7 @@ Access detailed documentation below:
 - [Annex A: Organization Chart](annexes/AnnexA_OrganizationChart.md)
 - [Annex B: Team Skills Matrix](annexes/AnnexB_QDivisionCompetencyMatrix.md)
 - [Annex C: Core Policies & Procedures](annexes/AnnexC_CorePolicies.md)
-- [Annex D: Product ID System (v12.0)](annexes/AnnexD_NomenclatureSystem_v12.3.md)
+- [Annex D: Product ID System (v12.3)](annexes/AnnexD_NomenclatureSystem_v12.3.md)
 - [Annex E: Product Categories](annexes/AnnexE_MasterArtifactCategories.md)
 - [Annex F: Document Templates](annexes/AnnexF_DocumentationTemplatesLibrary.md)
 - [Annex G: Technology Classification System](annexes/AnnexG_UTCS_ClassificationSystem.md)
