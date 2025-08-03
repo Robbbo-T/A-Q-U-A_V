@@ -13,7 +13,7 @@
 
 ---
 
-Welcome to the central documentation portal for **AQUA V.**, a €40 billion initiative redefining aerospace through quantum computing, sustainable aviation, robotics, and advanced platforms.
+**Welcome to the central documentation portal for **AQUA V.**, a €40 billion initiative redefining aerospace through quantum computing, sustainable aviation, robotics, and advanced platforms.**
 
 ---
 
