@@ -1,6 +1,9 @@
 # 📋 ANNEX G: Universal Technology Classification System (UTCS) v1.1
 ## AQUA V. Comprehensive Technology Taxonomy Architecture
 
+[claude.ai artifact](https://claude.ai/public/artifacts/b4dc408c-7cf2-462d-9649-7da43ff5d908)
+[processing-prompt-ui app](https://processing-prompt-ui--Robbbo-T.github.app)
+
 ---
 
 ## 📑 Table of Contents
