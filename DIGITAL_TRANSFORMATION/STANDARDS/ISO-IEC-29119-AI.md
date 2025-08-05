@@ -216,57 +216,80 @@ El sistema de clasificación se basa en siete dimensiones fundamentales evaluada
 
 ### 6.1 Modelo arquitectónico estándar
 
-```
-┌─────────────────── CAPA DE INTERFAZ ──────────────────┐
-│  ┌─────────────────┐    ┌──────────────────┐         │
-│  │ Interface       │    │ APIs             │         │
-│  │ Usuario/Sistema │    │ Externas         │         │
-│  └────────┬────────┘    └────────┬─────────┘         │
-└───────────┼──────────────────────┼────────────────────┘
-            │                      │
-┌───────────▼──────── CAPA DE CONTROL ──────────────────┐
-│  ┌─────────────────┐    ┌──────────────────┐         │
-│  │ Gestor de       │    │ Planificador     │         │
-│  │ Objetivos       ├────▶ Dinámico         │         │
-│  └─────────────────┘    └────────┬─────────┘         │
-│                         ┌────────▼─────────┐         │
-│                         │ Gestor de        │         │
-│                         │ Decisiones       │         │
-│                         └────────┬─────────┘         │
-└──────────────────────────────────┼────────────────────┘
-                                   │
-┌──────────────────── CAPA COGNITIVA ───────────────────┐
-│  ┌─────────────────┐    ┌──────────────────┐         │
-│  │ Motor de        │    │ Motor de         │         │
-│  │ Percepción      ├────▶ Memoria          │         │
-│  └─────────────────┘    └────────┬─────────┘         │
-│                         ┌────────▼─────────┐         │
-│                         │ Motor de         │         │
-│                         │ Aprendizaje      │         │
-│                         └────────┬─────────┘         │
-└──────────────────────────────────┼────────────────────┘
-                                   │
-┌──────────────────── CAPA DE EJECUCIÓN ────────────────┐
-│  ┌─────────────────┐    ┌──────────────────┐         │
-│  │ Gestor de       │    │ Integrador de    │         │
-│  │ Ejecución       ├────▶ Herramientas     │         │
-│  └────────┬────────┘    └──────────────────┘         │
-│           │             ┌──────────────────┐         │
-│           └─────────────▶ Monitor de       │         │
-│                         │ Seguridad        │         │
-│                         └──────────────────┘         │
-└────────────────────────────────────────────────────────┘
-                                   │
-┌──────────────────── CAPA DE AUDITABILIDAD ────────────┐
-│  ┌─────────────────┐    ┌──────────────────┐         │
-│  │ Logger de       │    │ Almacén de       │         │
-│  │ Decisiones      ├────▶ Evidencias       │         │
-│  └─────────────────┘    └────────┬─────────┘         │
-│                         ┌────────▼─────────┐         │
-│                         │ Motor de         │         │
-│                         │ Explicabilidad   │         │
-│                         └──────────────────┘         │
-└────────────────────────────────────────────────────────┘
+```mermaid
+block-beta
+  %% CAPA DE INTERFAZ
+  columns 2
+  InterfaceUsr["Interface<br>Usuario/Sistema"]
+  APIsExt["APIs<br>Externas"]
+  %% Banda y nombre de capa: este bloque abarca 2 columnas horizontalmente, debajo
+  block:CAPA_INTERFACE:2
+    columns 2
+    InterfaceUsr APIsExt
+  end
+  space:2
+
+  %% CAPA DE CONTROL
+  columns 2
+  GestorObj["Gestor de<br>Objetivos"]
+  Planificador["Planificador<br>Dinámico"]
+  block:CAPA_CONTROL:2
+    columns 2
+    GestorObj Planificador
+    space:2
+    GDec["Gestor de<br>Decisiones"]
+    Planificador --> GDec
+    GestorObj --> Planificador
+  end
+  space:2
+
+  %% CAPA COGNITIVA
+  columns 2
+  MotorPerc["Motor de<br>Percepción"]
+  MotorMem["Motor de<br>Memoria"]
+  block:CAPA_COGNITIVA:2
+    columns 2
+    MotorPerc MotorMem
+    space:2
+    Aprendizaje["Motor de<br>Aprendizaje"]
+    MotorPerc --> MotorMem
+    MotorMem --> Aprendizaje
+  end
+  space:2
+
+  %% CAPA DE EJECUCIÓN
+  columns 2
+  GestorEjec["Gestor de<br>Ejecución"]
+  IntegradorHerr["Integrador de<br>Herramientas"]
+  block:CAPA_EJECUCION:2
+    columns 2
+    GestorEjec IntegradorHerr
+    space:2
+    Monit["Monitor de<br>Seguridad"]
+    GestorEjec --> IntegradorHerr
+    IntegradorHerr --> Monit
+    GestorEjec --> Monit
+  end
+  space:2
+
+  %% CAPA DE AUDITABILIDAD
+  columns 2
+  LoggerDec["Logger de<br>Decisiones"]
+  AlmacenEv["Almacén de<br>Evidencias"]
+  block:CAPA_AUDIT:2
+    columns 2
+    LoggerDec AlmacenEv
+    space:2
+    Explicabilidad["Motor de<br>Explicabilidad"]
+    LoggerDec --> AlmacenEv
+    AlmacenEv --> Explicabilidad
+  end
+
+  %% Conexión vertical entre capas (de abajo hacia arriba)
+  CAPA_INTERFACE --> CAPA_CONTROL
+  CAPA_CONTROL --> CAPA_COGNITIVA
+  CAPA_COGNITIVA --> CAPA_EJECUCION
+  CAPA_EJECUCION --> CAPA_AUDIT
 ```
 
 ### 6.2 Especificaciones técnicas mínimas
@@ -440,51 +463,28 @@ class RobustnessTest:
 
 ### 9.1 Proceso de certificación
 
-```
-┌────────────┐     ┌──────────────┐     ┌──────────────────┐
-│ Solicitud  ├────▶│Pre-evaluación├────▶│¿Cumple          │
-│ Inicial    │     │ Documental   │     │requisitos?       │
-└────────────┘     └──────────────┘     └────────┬─────────┘
-                                                 │
-                            ┌────────────────────┴──┐
-                            │                       │
-                            ▼ No                    ▼ Sí
-                   ┌────────────────┐      ┌────────────────┐
-                   │ Informe de     │      │ Evaluación     │
-                   │ brechas        │      │ técnica        │
-                   └────────────────┘      └───────┬────────┘
-                                                   │
-                                          ┌────────▼────────┐
-                                          │ Pruebas en      │
-                                          │ laboratorio     │
-                                          └───────┬────────┘
-                                                  │
-                                          ┌───────▼────────┐
-                                          │ Auditoría      │
-                                          │ en sitio       │
-                                          └───────┬────────┘
-                                                  │
-                                          ┌───────▼────────┐
-                                          │ ¿Aprobado?    │
-                                          └───────┬────────┘
-                                                  │
-                            ┌─────────────────────┴──┐
-                            │                        │
-                            ▼ No                     ▼ Sí
-                   ┌────────────────┐       ┌────────────────┐
-                   │ Plan de        │       │ Emisión        │
-                   │ remediación    │       │ certificado    │
-                   └────────────────┘       └───────┬────────┘
-                                                    │
-                                           ┌────────▼────────┐
-                                           │ Registro en     │
-                                           │ base pública    │
-                                           └───────┬─────────┘
-                                                   │
-                                           ┌───────▼─────────┐
-                                           │ Vigilancia      │
-                                           │ continua        │
-                                           └─────────────────┘
+```mermaid
+flowchart TD
+    A["Solicitud<br>Inicial"]
+    B["Pre-evaluación<br>Documental"]
+    C{"¿Cumple<br>requisitos?"}
+    D1["Informe de<br>brechas"]
+    D2["Evaluación técnica"]
+    E["Pruebas en<br>laboratorio"]
+    F["Auditoría<br>en sitio"]
+    G{"¿Aprobado?"}
+    H1["Plan de<br>remediación"]
+    H2["Emisión<br>certificado"]
+    I["Registro en<br>base pública"]
+    J["Vigilancia<br>continua"]
+
+    %% Flujo principal
+    A --> B --> C
+    C -- "No" --> D1
+    C -- "Sí" --> D2
+    D2 --> E --> F --> G
+    G -- "No" --> H1
+    G -- "Sí" --> H2 --> I --> J
 ```
 
 ### 9.2 Validez y renovación
@@ -498,40 +498,9 @@ class RobustnessTest:
 
 ### 9.3 Certificado ejemplo
 
-```
-╔═══════════════════════════════════════════════════════════╗
-║          CERTIFICADO ISO/IEC 29119-AI:2025               ║
-╠═══════════════════════════════════════════════════════════╣
-║                                                           ║
-║  Certificado No: 2025-AI-0042-A                          ║
-║  Fecha emisión: 2025-08-05                               ║
-║  Válido hasta: 2028-08-04                                ║
-║                                                           ║
-║  Se certifica que el sistema:                            ║
-║                                                           ║
-║     NOMBRE: Enterprise Agent Platform v3.2               ║
-║     FABRICANTE: TechCorp International                   ║
-║     MODELO: EAP-3200-ENTERPRISE                          ║
-║                                                           ║
-║  Ha sido evaluado y cumple con los requisitos de:        ║
-║                                                           ║
-║     CLASE: A - Agente Autónomo Estándar                  ║
-║                                                           ║
-║  Puntuaciones obtenidas:                                 ║
-║     • GAR: 87.3%    • MRI: 82.5%    • PAS: 7.8          ║
-║     • IEF: 0.75     • TUR: 78.9%    • LPI: 0.65         ║
-║     • XAI: 72.4%    • CLEVER: 0.73                       ║
-║                                                           ║
-║  Organismo certificador:                                 ║
-║     AI Certification Authority (ACA)                     ║
-║     Acreditado por: ISO/IEC JTC 1/SC 42                 ║
-║                                                           ║
-║  Firma digital: 7f4a9c2e8b3d1a6f5e9c4b7d2a8e3f1c        ║
-║                                                           ║
-║  QR Code: [████████████████████]                         ║
-║                                                           ║
-╚═══════════════════════════════════════════════════════════╝
-```
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/987864a8-1760-4c31-84b7-e041b46cf88b" />
+
+
 
 ---
 
@@ -551,34 +520,21 @@ class RobustnessTest:
 
 ### 10.2 Modelo de madurez organizacional
 
-```
-         Nivel 5: INNOVADOR
-              ╱╲
-             ╱  ╲  • Liderazgo sectorial
-            ╱    ╲ • Nuevos paradigmas
-           ╱      ╲• ROI >300%
-          ╱────────╲
-         ╱ Nivel 4  ╲
-        ╱ OPTIMIZADO ╲
-       ╱              ╲ • Mejora continua
-      ╱                ╲• Ecosistema integrado
-     ╱                  ╲• ROI 200-300%
-    ╱────────────────────╲
-   ╱     Nivel 3         ╲
-  ╱      DEFINIDO         ╲
- ╱                         ╲ • Estándares organizacionales
-╱                           ╲• Portfolio de agentes
-╱                             ╲• ROI 100-200%
-────────────────────────────────
-        Nivel 2: GESTIONADO
-        • Procesos definidos
-        • Agentes en producción
-        • ROI 50-100%
-────────────────────────────────
-        Nivel 1: INICIAL
-        • Experimentación ad-hoc
-        • Pilotos aislados
-        • ROI <50%
+```mermaid
+flowchart TB
+  N5[/Nivel 5:<br>**INNOVADOR**<br><br>• Liderazgo sectorial<br>• Nuevos paradigmas<br>• ROI &gt;300%/]
+  N4[/Nivel 4:<br>**OPTIMIZADO**<br><br>• Mejora continua<br>• Ecosistema integrado<br>• ROI 200-300%/]
+  N3[/Nivel 3:<br>**DEFINIDO**<br><br>• Estándares organizacionales<br>• Portfolio de agentes<br>• ROI 100-200%/]
+  N2([Nivel 2:<br>**GESTIONADO**<br><br>• Procesos definidos<br>• Agentes en producción<br>• ROI 50-100%])
+  N1([Nivel 1:<br>**INICIAL**<br><br>• Experimentación ad-hoc<br>• Pilotos aislados<br>• ROI &lt;50%])
+
+  N5 --> N4 --> N3 --> N2 --> N1
+  %% Opcional: Colores personalizados
+  style N5 fill:#d0e6fa,stroke:#1a518c,stroke-width:2px
+  style N4 fill:#bcede0,stroke:#2a7b67,stroke-width:2px
+  style N3 fill:#fcf6c1,stroke:#b99e23,stroke-width:2px
+  style N2 fill:#e7d0fa,stroke:#7d3fc1,stroke-width:2px
+  style N1 fill:#fbe4e6,stroke:#a43439,stroke-width:2px
 ```
 
 ### 10.3 Arquitectura de implementación empresarial
@@ -846,33 +802,27 @@ EJEMPLO CÁLCULO TCO (3 años):
 
 ### 12.3 Estructura de gobernanza implementada
 
-```
-┌─────────────────────────────────────┐
-│   CONSEJO DE GOBERNANZA IA         │
-│   • CEO/CTO                         │
-│   • Chief Risk Officer              │
-│   • Chief Ethics Officer            │
-└───────────────┬─────────────────────┘
-                │
-    ┌───────────┴───────────┐
-    │                       │
-┌───▼──────────┐  ┌─────────▼────────┐
-│ COMITÉ ÉTICO │  │ COMITÉ TÉCNICO   │
-│              │  │                  │
-│ • Filósofos  │  │ • Arquitectos IA │
-│ • Juristas   │  │ • Data Scientists│
-│ • Sociedad   │  │ • ML Engineers   │
-│   civil      │  │ • DevOps         │
-└──────────────┘  └──────────────────┘
-    │                       │
-┌───▼──────────┐  ┌─────────▼────────┐
-│ COMITÉ DE    │  │ COMITÉ DE        │
-│ RIESGOS      │  │ AUDITORÍA        │
-│              │  │                  │
-│ • Risk Mgmt  │  │ • Auditores      │
-│ • Seguridad  │  │ • Compliance     │
-│ • Legal      │  │ • QA             │
-└──────────────┘  └──────────────────┘
+```mermaid
+flowchart TB
+    A["<b>CONSEJO DE GOBERNANZA IA</b><br>• CEO/CTO<br>• Chief Risk Officer<br>• Chief Ethics Officer"]
+    A --> B1
+    A --> B2
+
+    B1["<b>COMITÉ ÉTICO</b><br>• Filósofos<br>• Juristas<br>• Sociedad civil"]
+    B2["<b>COMITÉ TÉCNICO</b><br>• Arquitectos IA<br>• Data Scientists<br>• ML Engineers<br>• DevOps"]
+
+    B1 --> C1
+    B2 --> C2
+
+    C1["<b>COMITÉ DE RIESGOS</b><br>• Risk Mgmt<br>• Seguridad<br>• Legal"]
+    C2["<b>COMITÉ DE AUDITORÍA</b><br>• Auditores<br>• Compliance<br>• QA"]
+
+    %% Opcional: estilos para mejor visualización
+    style A fill:#e5e5fa,stroke:#26277a,stroke-width:2px
+    style B1 fill:#eafceb,stroke:#208c4a,stroke-width:1.5px
+    style B2 fill:#eaf4fd,stroke:#1a639b,stroke-width:1.5px
+    style C1 fill:#fff6e1,stroke:#b59a27,stroke-width:1.5px
+    style C2 fill:#f6eafc,stroke:#74449e,stroke-width:1.5px
 ```
 
 ### 12.4 Protocolo de respuesta a incidentes
