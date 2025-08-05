@@ -31,7 +31,6 @@ Este documento constituye una **PROPUESTA DE ESTÁNDAR** para su consideración 
 - **Organismo objetivo:** ISO/IEC JTC 1/SC 42 - Inteligencia Artificial
 - **Estado:** Borrador para consulta pública
 - **Periodo de comentarios:** 90 días desde publicación
-- **Coordinador técnico:** Dr. Sarah Chen (sarah.chen@iso.org)
 - **Secretaría:** ANSI (Estados Unidos) / DIN (Alemania)
 
 ### Propuesta de institucionalización
