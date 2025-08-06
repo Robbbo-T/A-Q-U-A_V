@@ -14,7 +14,7 @@
 
 ---
 
-## <a id="revision-history"></a>**REVISION HISTORY**
+## **REVISION HISTORY**
 
 | **Version** | **Date** | **Changes** | **Author** |
 |:------------|:---------|:------------|:-----------|
@@ -23,24 +23,33 @@
 
 ---
 
-## <a id="table-of-contents"></a>**TABLE OF CONTENTS**
+## **TABLE OF CONTENTS**
 
-1. [Executive Summary](#executive-summary)
-2. [Stakeholder Analysis](#stakeholder-analysis)
-3. [System Architecture](#system-architecture)
-4. [Compliance & Certification](#compliance-certification)
-5. [Development & Test Program](#development-test-program)
-6. [Financial Model](#financial-model)
-7. [Intellectual Property](#intellectual-property)
-8. [Risk Management](#risk-management)
-9. [Next Steps](#next-steps)
-10. [Conclusion](#conclusion)
+1. [Executive Summary](#1-executive-summary)
+   - [1.1 Program Scope](#11-program-scope---technology-development-focus)
+   - [1.2 Development Model](#12-development-model)
+   - [1.3 Deliverables Overview](#13-deliverables-overview)
+   - [1.4 Product Objectives](#14-product-objectives)
+2. [Stakeholder Analysis](#2-stakeholder-analysis)
+   - [2.1 Stakeholder Matrix](#21-stakeholder-matrix)
+   - [2.2 Stakeholder Requirements](#22-stakeholder-requirements-traceability)
+   - [2.3 Use Case Analysis](#23-use-case-analysis)
+3. [System Architecture](#3-system-architecture)
+   - [3.1 System Decomposition](#31-system-decomposition--lrus)
+   - [3.2 LRU Specifications](#32-lru-specifications-table)
+4. [Compliance & Certification](#4-compliance--certification)
+5. [Development & Test Program](#5-development--test-program)
+6. [Financial Model](#6-financial-model)
+7. [Intellectual Property](#7-intellectual-property)
+8. [Risk Management](#8-risk-management)
+9. [Next Steps](#9-next-steps--document-generation)
+10. [Conclusion](#10-conclusion)
 
 ---
 
-## <a id="executive-summary"></a>**1. EXECUTIVE SUMMARY**
+## **1. EXECUTIVE SUMMARY**
 
-### <a id="program-scope"></a>**1.1 Program Scope - Technology Development Focus**
+### **1.1 Program Scope - Technology Development Focus**
 
 AQUA V.'s AMPEL360 program is a **technology development and demonstration initiative** focused on:
 - **Designing** revolutionary hybrid-electric aircraft architecture
@@ -50,7 +59,7 @@ AQUA V.'s AMPEL360 program is a **technology development and demonstration initi
 - **Establishing** certification basis for new technologies
 - **Creating** licensable IP and technology packages
 
-### <a id="development-model"></a>**1.2 Development Model**
+### **1.2 Development Model**
 
 ```mermaid
 graph TB
@@ -86,46 +95,120 @@ graph TB
     style LICENSE fill:#99ff99
 ```
 
-### <a id="deliverables-overview"></a>**1.3 Deliverables Overview**
+### **1.3 Deliverables Overview**
 
 | **Deliverable** | **Quantity** | **Timeline** | **Purpose** | **Exit Criteria** |
 |:----------------|:-------------|:-------------|:------------|:------------------|
-| <a id="del-td"></a>**Technology Demonstrators** | 2 units | 2028-2029 | Ground testing, systems validation | ≥95% electric taxi cycles, <5% thermal derate |
-| <a id="del-fta"></a>**Flight Test Aircraft** | 2 units | 2030-2031 | Certification, performance validation | 500 flight hours, all test points complete |
-| <a id="del-pp"></a>**Production Prototypes** | 2 units | 2032-2033 | Manufacturing validation, customer demos | Manufacturing readiness ≥8, customer acceptance |
-| <a id="del-lp"></a>**Licensed Production** | TBD | 2034+ | Partner-manufactured aircraft | Technology transfer complete |
+| **DEL-TD** Technology Demonstrators | 2 units | 2028-2029 | Ground testing, systems validation | ≥95% electric taxi cycles, <5% thermal derate |
+| **DEL-FTA** Flight Test Aircraft | 2 units | 2030-2031 | Certification, performance validation | 500 flight hours, all test points complete |
+| **DEL-PP** Production Prototypes | 2 units | 2032-2033 | Manufacturing validation, customer demos | Manufacturing readiness ≥8, customer acceptance |
+| **DEL-LP** Licensed Production | TBD | 2034+ | Partner-manufactured aircraft | Technology transfer complete |
 
-### <a id="product-objectives"></a>**1.4 Product Objectives**
+### **1.4 Product Objectives**
 
-| **ID** | **Objective** | **Target** | **Priority** | **Verification Method** |
-|:-------|:--------------|:-----------|:-------------|:------------------------|
-| <a id="po-001"></a>**PO-001** | Fuel burn reduction | ≥25% vs A320neo | **Must** | Flight test data |
-| <a id="po-002"></a>**PO-002** | Range capability | ≥2,500nm | **Must** | Flight demonstration |
-| <a id="po-003"></a>**PO-003** | CO₂ emissions reduction | ≥30% | **Must** | Certified measurements |
-| <a id="po-004"></a>**PO-004** | Noise reduction | ≥15dB cumulative | **Should** | FAR Part 36 testing |
-| <a id="po-005"></a>**PO-005** | Turnaround time | ≤35 minutes | **Should** | Operational trials |
-| <a id="po-006"></a>**PO-006** | Electric-only taxi | 100% capability | **Must** | Ground demonstration |
-| <a id="po-007"></a>**PO-007** | Dispatch reliability | ≥98% | **Should** | 12-month average |
-| <a id="po-008"></a>**PO-008** | Operating cost reduction | ≥20% | **Could** | Economic analysis |
+#### **PO-001** - Fuel Burn Reduction
+- **Target:** ≥25% vs A320neo
+- **Priority:** Must
+- **Verification:** Flight test data
+- **Traced By:** [SYS-PERF-002](#sys-perf-002), [SYS-QCU-004](#sys-qcu-004), [SYS-EMS-001](#sys-ems-001)
+
+#### **PO-002** - Range Capability
+- **Target:** ≥2,500nm
+- **Priority:** Must
+- **Verification:** Flight demonstration
+- **Traced By:** [SYS-PERF-001](#sys-perf-001), [SYS-BATT-001](#sys-batt-001)
+
+#### **PO-003** - CO₂ Emissions Reduction
+- **Target:** ≥30%
+- **Priority:** Must
+- **Verification:** Certified measurements
+- **Traced By:** [SYS-EMIS-001](#sys-emis-001), [SYS-EMIS-002](#sys-emis-002)
+
+#### **PO-004** - Noise Reduction
+- **Target:** ≥15dB cumulative
+- **Priority:** Should
+- **Verification:** FAR Part 36 testing
+- **Traced By:** [SYS-NOISE-001](#sys-noise-001), [SYS-NOISE-002](#sys-noise-002)
+
+#### **PO-005** - Turnaround Time
+- **Target:** ≤35 minutes
+- **Priority:** Should
+- **Verification:** Operational trials
+- **Traced By:** [SYS-OPS-001](#sys-ops-001), [SYS-BATT-006](#sys-batt-006)
+
+#### **PO-006** - Electric-Only Taxi
+- **Target:** 100% capability
+- **Priority:** Must
+- **Verification:** Ground demonstration
+- **Traced By:** [SYS-OPS-002](#sys-ops-002), [SYS-PROP-003](#sys-prop-003)
+
+#### **PO-007** - Dispatch Reliability
+- **Target:** ≥98%
+- **Priority:** Should
+- **Verification:** 12-month average
+- **Traced By:** [SYS-REL-001](#sys-rel-001), [SYS-REL-002](#sys-rel-002)
+
+#### **PO-008** - Operating Cost Reduction
+- **Target:** ≥20%
+- **Priority:** Could
+- **Verification:** Economic analysis
+- **Traced By:** [SYS-MAIN-002](#sys-main-002), [SYS-FODS-004](#sys-fods-004)
 
 ---
 
-## <a id="stakeholder-analysis"></a>**2. STAKEHOLDER ANALYSIS**
+## **2. STAKEHOLDER ANALYSIS**
 
-### <a id="stakeholder-matrix"></a>**2.1 Stakeholder Matrix**
+### **2.1 Stakeholder Matrix**
 
-| **Stakeholder** | **Role** | **Key Needs** | **Success Criteria** |
-|:----------------|:---------|:--------------|:--------------------|
-| <a id="sh-easa"></a>**EASA** | Type Certification Authority (EU) | Compliance, safety case, novel technology | Special Conditions accepted, TC basis agreed |
-| <a id="sh-faa"></a>**FAA** | Type Certification Authority (US) | Harmonized standards, safety equivalence | Bilateral agreement, validation basis |
-| <a id="sh-airlines"></a>**Launch Airlines** | First operators | ROI, reliability, training | <3yr payback, 98% dispatch, crew transition |
-| <a id="sh-oem"></a>**OEM Partners** | Manufacturers/Licensees | Technology maturity, IP clarity, support | TRL 8+, clear IP rights, technical transfer |
-| <a id="sh-lessors"></a>**Lessors** | Asset owners | Residual value, remarketing | Asset value retention >70% at 12yr |
-| <a id="sh-mro"></a>**MRO Providers** | Maintenance organizations | Tooling, training, parts availability | Standard intervals, diagnostic capability |
-| <a id="sh-airports"></a>**Airports** | Infrastructure providers | Gate compatibility, charging capability | Type III/C gate compatible, 2MW charging |
-| <a id="sh-investors"></a>**Investors** | Funding sources | ROI, exit strategy, risk management | 25% IRR, clear path to liquidity |
+#### **SH-EASA** - EASA
+- **Role:** Type Certification Authority (EU)
+- **Key Needs:** Compliance, safety case, novel technology
+- **Success Criteria:** Special Conditions accepted, TC basis agreed
+- **Requirements:** [SYS-SAFE-001](#sys-safe-001) through [SYS-SAFE-005](#sys-safe-005)
 
-### <a id="stakeholder-requirements"></a>**2.2 Stakeholder Requirements Traceability**
+#### **SH-FAA** - FAA
+- **Role:** Type Certification Authority (US)
+- **Key Needs:** Harmonized standards, safety equivalence
+- **Success Criteria:** Bilateral agreement, validation basis
+- **Requirements:** [SYS-VER-002](#sys-ver-002)
+
+#### **SH-AIRLINES** - Launch Airlines
+- **Role:** First operators
+- **Key Needs:** ROI, reliability, training
+- **Success Criteria:** <3yr payback, 98% dispatch, crew transition
+- **Requirements:** [SYS-PERF-001](#sys-perf-001), [SYS-PERF-002](#sys-perf-002), [SYS-REL-001](#sys-rel-001)
+
+#### **SH-OEM** - OEM Partners
+- **Role:** Manufacturers/Licensees
+- **Key Needs:** Technology maturity, IP clarity, support
+- **Success Criteria:** TRL 8+, clear IP rights, technical transfer
+- **Requirements:** Technology packages, licensing terms
+
+#### **SH-LESSORS** - Lessors
+- **Role:** Asset owners
+- **Key Needs:** Residual value, remarketing
+- **Success Criteria:** Asset value retention >70% at 12yr
+- **Requirements:** Reliability, maintainability
+
+#### **SH-MRO** - MRO Providers
+- **Role:** Maintenance organizations
+- **Key Needs:** Tooling, training, parts availability
+- **Success Criteria:** Standard intervals, diagnostic capability
+- **Requirements:** [SYS-MAIN-001](#sys-main-001), [SYS-MAIN-002](#sys-main-002), [SYS-REL-003](#sys-rel-003)
+
+#### **SH-AIRPORTS** - Airports
+- **Role:** Infrastructure providers
+- **Key Needs:** Gate compatibility, charging capability
+- **Success Criteria:** Type III/C gate compatible, 2MW charging
+- **Requirements:** [SYS-OPS-003](#sys-ops-003), [IF-EXT-001](#if-ext-001)
+
+#### **SH-INVESTORS** - Investors
+- **Role:** Funding sources
+- **Key Needs:** ROI, exit strategy, risk management
+- **Success Criteria:** 25% IRR, clear path to liquidity
+- **Requirements:** Financial milestones
+
+### **2.2 Stakeholder Requirements Traceability**
 
 ```yaml
 Stakeholder_Requirements:
@@ -165,21 +248,43 @@ Stakeholder_Requirements:
       - Remote diagnostic capability
 ```
 
-### <a id="use-cases"></a>**2.3 Use Case Analysis**
+### **2.3 Use Case Analysis**
 
-| **Use Case ID** | **Description** | **Actor** | **Derived Requirements** |
-|:----------------|:----------------|:----------|:-------------------------|
-| <a id="uc-001"></a>**UC-001** | Electric taxi operations | Flight Crew | Battery capacity ≥200kWh for 30min taxi |
-| <a id="uc-002"></a>**UC-002** | Hybrid cruise flight | FMS | Seamless power transition, <1s switchover |
-| <a id="uc-003"></a>**UC-003** | Quick turnaround | Ground Crew | Hot battery swap capability, parallel charging |
-| <a id="uc-004"></a>**UC-004** | Predictive maintenance | MRO | FODS data downlink, quantum analytics API |
-| <a id="uc-005"></a>**UC-005** | Emergency operation | Flight Crew | RAT deployment, battery reserve 30min |
+#### **UC-001** - Electric Taxi Operations
+- **Actor:** Flight Crew
+- **Description:** Electric taxi operations
+- **Derived Requirements:** Battery capacity ≥200kWh for 30min taxi
+- **Traces To:** [PO-006](#po-006---electric-only-taxi)
+
+#### **UC-002** - Hybrid Cruise Flight
+- **Actor:** FMS
+- **Description:** Hybrid cruise flight
+- **Derived Requirements:** Seamless power transition, <1s switchover
+- **Traces To:** [PO-001](#po-001---fuel-burn-reduction)
+
+#### **UC-003** - Quick Turnaround
+- **Actor:** Ground Crew
+- **Description:** Quick turnaround
+- **Derived Requirements:** Hot battery swap capability, parallel charging
+- **Traces To:** [PO-005](#po-005---turnaround-time)
+
+#### **UC-004** - Predictive Maintenance
+- **Actor:** MRO
+- **Description:** Predictive maintenance
+- **Derived Requirements:** FODS data downlink, quantum analytics API
+- **Traces To:** [PO-008](#po-008---operating-cost-reduction)
+
+#### **UC-005** - Emergency Operation
+- **Actor:** Flight Crew
+- **Description:** Emergency operation
+- **Derived Requirements:** RAT deployment, battery reserve 30min
+- **Traces To:** Safety requirements
 
 ---
 
-## <a id="system-architecture"></a>**3. SYSTEM ARCHITECTURE**
+## **3. SYSTEM ARCHITECTURE**
 
-### <a id="system-decomposition"></a>**3.1 System Decomposition & LRUs**
+### **3.1 System Decomposition & LRUs**
 
 ```mermaid
 graph TB
@@ -196,7 +301,7 @@ graph TB
     
     subgraph "Line Replaceable Units"
         subgraph "Propulsion LRUs"
-            TF[("AQUA-TF180<br/>150kg")]
+            TF[("AQUA-TF180<br/>1,850kg")]
             EM[("AQUA-EM10<br/>120kg")]
             INV[("Inverter Unit<br/>80kg")]
             PMAD[("Power Distribution<br/>60kg")]
@@ -231,37 +336,115 @@ graph TB
     FCS --> EMS
 ```
 
-### <a id="lru-specifications"></a>**3.2 LRU Specifications Table**
+### **3.2 LRU Specifications Table**
 
-| **LRU** | **P/N** | **Weight** | **Power** | **Cooling** | **Interface** | **DAL** |
-|:--------|:--------|:-----------|:----------|:------------|:--------------|:--------|
-| <a id="lru-tf180"></a>**AQUA-TF180 Turbofan** | AQV-70-001 | 1,850kg | N/A | Air | ARINC 429, MIL-1553 | A |
-| <a id="lru-em10"></a>**AQUA-EM10 Motor** | AQV-71-001 | 120kg | 10MW | Liquid | High-voltage AC | A |
-| <a id="lru-inv"></a>**Inverter Unit** | AQV-24-001 | 80kg | 12MW | Liquid | DC input, AC output | A |
-| <a id="lru-batt"></a>**Battery Module** | AQV-24-002 | 200kg | 250kWh | Liquid | DC bus, CAN | B |
-| <a id="lru-bms"></a>**BMS Controller** | AQV-24-003 | 30kg | 500W | Air | CAN, Ethernet | B |
-| <a id="lru-qcu"></a>**Quantum Control Unit** | AQV-31-001 | 40kg | 2kW | Air | Ethernet, SpaceWire | C |
-| <a id="lru-fadec"></a>**FADEC++** | AQV-73-001 | 25kg | 200W | Air | ARINC 429 | A |
-| <a id="lru-ems"></a>**Energy Management System** | AQV-73-002 | 35kg | 300W | Air | AFDX | B |
+#### **LRU-TF180** - AQUA-TF180 Turbofan
+- **P/N:** AQV-70-001
+- **Weight:** 1,850kg
+- **Power:** N/A
+- **Cooling:** Air
+- **Interface:** ARINC 429, MIL-1553
+- **DAL:** A
+
+#### **LRU-EM10** - AQUA-EM10 Motor
+- **P/N:** AQV-71-001
+- **Weight:** 120kg
+- **Power:** 10MW
+- **Cooling:** Liquid
+- **Interface:** High-voltage AC
+- **DAL:** A
+
+#### **LRU-INV** - Inverter Unit
+- **P/N:** AQV-24-001
+- **Weight:** 80kg
+- **Power:** 12MW
+- **Cooling:** Liquid
+- **Interface:** DC input, AC output
+- **DAL:** A
+
+#### **LRU-BATT** - Battery Module
+- **P/N:** AQV-24-002
+- **Weight:** 200kg
+- **Capacity:** 250kWh
+- **Cooling:** Liquid
+- **Interface:** DC bus, CAN
+- **DAL:** B
+
+#### **LRU-BMS** - BMS Controller
+- **P/N:** AQV-24-003
+- **Weight:** 30kg
+- **Power:** 500W
+- **Cooling:** Air
+- **Interface:** CAN, Ethernet
+- **DAL:** B
+
+#### **LRU-QCU** - Quantum Control Unit
+- **P/N:** AQV-31-001
+- **Weight:** 40kg
+- **Power:** 2kW
+- **Cooling:** Air
+- **Interface:** Ethernet, SpaceWire
+- **DAL:** C
+
+#### **LRU-FADEC** - FADEC++
+- **P/N:** AQV-73-001
+- **Weight:** 25kg
+- **Power:** 200W
+- **Cooling:** Air
+- **Interface:** ARINC 429
+- **DAL:** A
+
+#### **LRU-EMS** - Energy Management System
+- **P/N:** AQV-73-002
+- **Weight:** 35kg
+- **Power:** 300W
+- **Cooling:** Air
+- **Interface:** AFDX
+- **DAL:** B
 
 ---
 
-## <a id="compliance-certification"></a>**4. COMPLIANCE & CERTIFICATION**
+## **4. COMPLIANCE & CERTIFICATION**
 
-### <a id="standards-matrix"></a>**4.1 Standards Traceability Matrix**
+### **4.1 Standards Traceability Matrix**
 
-| **System/Component** | **Applicable Standard** | **Paragraph** | **Compliance Method** | **Evidence** |
-|:---------------------|:------------------------|:--------------|:----------------------|:-------------|
-| <a id="std-propulsion"></a>**Hybrid Propulsion** | CS-E / Part 33 | All + Special Condition | Test + Analysis | Test reports, safety assessment |
-| <a id="std-motor"></a>**Electric Motor** | DO-160G | Section 16, 20, 21 | Test | EMI/HIRF test reports |
-| <a id="std-battery"></a>**Battery System** | RTCA DO-311A | All sections | Test + Analysis | Abuse testing, thermal runaway |
-| <a id="std-fcs-sw"></a>**Flight Control Software** | DO-178C | DAL A requirements | Reviews + Test | PSAC, SAS, SCI |
-| <a id="std-quantum"></a>**Quantum Processor** | Novel - TBD | Special Condition | Analysis + Simulation | Safety case |
-| <a id="std-fadec-hw"></a>**FADEC** | DO-178C / DO-254 | DAL A | V&V Process | Hardware/Software CI |
-| <a id="std-structure"></a>**Structures** | CS-25.603, .613 | Material/Fabrication | Test | Material qualification |
-| <a id="std-safety"></a>**Systems Safety** | ARP4761A | FHA, PSSA, SSA | Analysis | Safety assessment reports |
+#### **STD-PROPULSION** - Hybrid Propulsion
+- **Standard:** CS-E / Part 33
+- **Paragraph:** All + Special Condition
+- **Method:** Test + Analysis
+- **Evidence:** Test reports, safety assessment
 
-### <a id="means-of-compliance"></a>**4.2 Means of Compliance (MoC)**
+#### **STD-MOTOR** - Electric Motor
+- **Standard:** DO-160G
+- **Paragraph:** Section 16, 20, 21
+- **Method:** Test
+- **Evidence:** EMI/HIRF test reports
+
+#### **STD-BATTERY** - Battery System
+- **Standard:** RTCA DO-311A
+- **Paragraph:** All sections
+- **Method:** Test + Analysis
+- **Evidence:** Abuse testing, thermal runaway
+
+#### **STD-FCS-SW** - Flight Control Software
+- **Standard:** DO-178C
+- **Paragraph:** DAL A requirements
+- **Method:** Reviews + Test
+- **Evidence:** PSAC, SAS, SCI
+
+#### **STD-QUANTUM** - Quantum Processor
+- **Standard:** Novel - TBD
+- **Paragraph:** Special Condition
+- **Method:** Analysis + Simulation
+- **Evidence:** Safety case
+
+#### **STD-STRUCTURE** - Structures
+- **Standard:** CS-25.603, .613
+- **Paragraph:** Material/Fabrication
+- **Method:** Test
+- **Evidence:** Material qualification
+
+### **4.2 Means of Compliance (MoC)**
 
 ```yaml
 Certification_Approach:
@@ -293,42 +476,113 @@ Certification_Approach:
         - Crashworthiness
         - Fire suppression
         - Maintenance safety
-        
-  Traditional_Systems:
-    Structure: CS-25 Subpart C
-    Systems: CS-25 Subpart F
-    Powerplant_Installation: CS-25 Subpart E
-    Equipment: CS-25 Subpart F
-    Operating_Limitations: CS-25 Subpart G
 ```
 
-### <a id="dal-assignment"></a>**4.3 Software Development Assurance Level (DAL) Assignment**
+### **4.3 Software Development Assurance Level (DAL) Assignment**
 
-| **Software Component** | **Function** | **Failure Effect** | **DAL** | **Standard** |
-|:----------------------|:-------------|:-------------------|:--------|:-------------|
-| <a id="dal-fcs"></a>**Primary Flight Control** | FBW control laws | Catastrophic | **A** | DO-178C |
-| <a id="dal-fadec-core"></a>**FADEC Core** | Engine control | Hazardous/Catastrophic | **A** | DO-178C |
-| <a id="dal-ems-sw"></a>**Energy Management** | Power distribution | Hazardous | **B** | DO-178C |
-| <a id="dal-bms-sw"></a>**Battery Management** | Cell balancing, protection | Major/Hazardous | **B** | DO-178C |
-| <a id="dal-quantum-opt"></a>**Quantum Optimizer** | Route/energy optimization | Minor | **D** | DO-178C |
-| <a id="dal-maint"></a>**Maintenance System** | Predictive analytics | No safety effect | **E** | DO-178C |
+#### **DAL-FCS** - Primary Flight Control
+- **Function:** FBW control laws
+- **Failure Effect:** Catastrophic
+- **DAL:** A
+- **Standard:** DO-178C
+
+#### **DAL-FADEC-CORE** - FADEC Core
+- **Function:** Engine control
+- **Failure Effect:** Hazardous/Catastrophic
+- **DAL:** A
+- **Standard:** DO-178C
+
+#### **DAL-EMS-SW** - Energy Management
+- **Function:** Power distribution
+- **Failure Effect:** Hazardous
+- **DAL:** B
+- **Standard:** DO-178C
+
+#### **DAL-BMS-SW** - Battery Management
+- **Function:** Cell balancing, protection
+- **Failure Effect:** Major/Hazardous
+- **DAL:** B
+- **Standard:** DO-178C
+
+#### **DAL-QUANTUM-OPT** - Quantum Optimizer
+- **Function:** Route/energy optimization
+- **Failure Effect:** Minor
+- **DAL:** D
+- **Standard:** DO-178C
+
+#### **DAL-MAINT** - Maintenance System
+- **Function:** Predictive analytics
+- **Failure Effect:** No safety effect
+- **DAL:** E
+- **Standard:** DO-178C
 
 ---
 
-## <a id="development-test-program"></a>**5. DEVELOPMENT & TEST PROGRAM**
+## **5. DEVELOPMENT & TEST PROGRAM**
 
-### <a id="prototype-development"></a>**5.1 Prototype Development with Acceptance Criteria**
+### **5.1 Prototype Development with Acceptance Criteria**
 
-| **Vehicle** | **Purpose** | **Build Start** | **First Test** | **Exit Criteria** | **Investment** |
-|:------------|:-----------|:---------------|:---------------|:------------------|:---------------|
-| <a id="proto-td1"></a>**TD-1** | Propulsion test bed | 2027 Q1 | 2028 Q1 | • 100hr operation<br>• Power targets met<br>• Thermal limits OK | €150M |
-| <a id="proto-td2"></a>**TD-2** | Systems integration | 2027 Q3 | 2028 Q3 | • All systems integrated<br>• Mode transitions validated<br>• Safety logic verified | €150M |
-| <a id="proto-fta1"></a>**FTA-1** | Flight test article #1 | 2029 Q1 | 2030 Q1 | • First flight successful<br>• Envelope to 10k ft<br>• Basic handling complete | €200M |
-| <a id="proto-fta2"></a>**FTA-2** | Flight test article #2 | 2029 Q3 | 2030 Q3 | • Full envelope<br>• All systems tested<br>• 250 flight hours | €200M |
-| <a id="proto-pp1"></a>**PP-1** | Production prototype #1 | 2031 Q1 | 2032 Q1 | • Manufacturing validated<br>• Cost targets verified<br>• Quality metrics met | €180M |
-| <a id="proto-pp2"></a>**PP-2** | Production prototype #2 | 2031 Q3 | 2032 Q3 | • Customer acceptance<br>• Training validated<br>• Support package complete | €180M |
+#### **PROTO-TD1** - TD-1 Propulsion Test Bed
+- **Purpose:** Propulsion test bed
+- **Build Start:** 2027 Q1
+- **First Test:** 2028 Q1
+- **Exit Criteria:**
+  - 100hr operation
+  - Power targets met
+  - Thermal limits OK
+- **Investment:** €150M
 
-### <a id="test-campaign"></a>**5.2 Test Campaign Phases**
+#### **PROTO-TD2** - TD-2 Systems Integration
+- **Purpose:** Systems integration
+- **Build Start:** 2027 Q3
+- **First Test:** 2028 Q3
+- **Exit Criteria:**
+  - All systems integrated
+  - Mode transitions validated
+  - Safety logic verified
+- **Investment:** €150M
+
+#### **PROTO-FTA1** - FTA-1 Flight Test Article #1
+- **Purpose:** Flight test article #1
+- **Build Start:** 2029 Q1
+- **First Test:** 2030 Q1
+- **Exit Criteria:**
+  - First flight successful
+  - Envelope to 10k ft
+  - Basic handling complete
+- **Investment:** €200M
+
+#### **PROTO-FTA2** - FTA-2 Flight Test Article #2
+- **Purpose:** Flight test article #2
+- **Build Start:** 2029 Q3
+- **First Test:** 2030 Q3
+- **Exit Criteria:**
+  - Full envelope
+  - All systems tested
+  - 250 flight hours
+- **Investment:** €200M
+
+#### **PROTO-PP1** - PP-1 Production Prototype #1
+- **Purpose:** Production prototype #1
+- **Build Start:** 2031 Q1
+- **First Test:** 2032 Q1
+- **Exit Criteria:**
+  - Manufacturing validated
+  - Cost targets verified
+  - Quality metrics met
+- **Investment:** €180M
+
+#### **PROTO-PP2** - PP-2 Production Prototype #2
+- **Purpose:** Production prototype #2
+- **Build Start:** 2031 Q3
+- **First Test:** 2032 Q3
+- **Exit Criteria:**
+  - Customer acceptance
+  - Training validated
+  - Support package complete
+- **Investment:** €180M
+
+### **5.2 Test Campaign Phases**
 
 ```mermaid
 gantt
@@ -354,20 +608,43 @@ gantt
 
 ---
 
-## <a id="financial-model"></a>**6. FINANCIAL MODEL**
+## **6. FINANCIAL MODEL**
 
-### <a id="investment-requirements"></a>**6.1 Investment Requirements**
+### **6.1 Investment Requirements**
 
-| **Category** | **2025-2027** | **2028-2030** | **2031-2033** | **Total** |
-|:-------------|:--------------|:--------------|:--------------|:----------|
-| <a id="inv-rd"></a>**R&D** | €200M | €150M | €100M | €450M |
-| <a id="inv-propulsion"></a>**Propulsion Development** | €150M | €200M | €50M | €400M |
-| <a id="inv-prototypes"></a>**Prototypes (6 units)** | €100M | €400M | €360M | €860M |
-| <a id="inv-testing"></a>**Testing & Certification** | €50M | €150M | €200M | €400M |
-| <a id="inv-operations"></a>**Operations & Overhead** | €100M | €100M | €90M | €290M |
-| **Total Investment** | €600M | €1,000M | €800M | **€2,400M** |
+#### **INV-RD** - R&D Investment
+- **2025-2027:** €200M
+- **2028-2030:** €150M
+- **2031-2033:** €100M
+- **Total:** €450M
 
-### <a id="financial-assumptions"></a>**6.2 Financial Assumptions & NPV Calculation**
+#### **INV-PROPULSION** - Propulsion Development
+- **2025-2027:** €150M
+- **2028-2030:** €200M
+- **2031-2033:** €50M
+- **Total:** €400M
+
+#### **INV-PROTOTYPES** - Prototypes (6 units)
+- **2025-2027:** €100M
+- **2028-2030:** €400M
+- **2031-2033:** €360M
+- **Total:** €860M
+
+#### **INV-TESTING** - Testing & Certification
+- **2025-2027:** €50M
+- **2028-2030:** €150M
+- **2031-2033:** €200M
+- **Total:** €400M
+
+#### **INV-OPERATIONS** - Operations & Overhead
+- **2025-2027:** €100M
+- **2028-2030:** €100M
+- **2031-2033:** €90M
+- **Total:** €290M
+
+**Total Program Investment: €2,400M**
+
+### **6.2 Financial Assumptions & NPV Calculation**
 
 ```python
 financial_model = {
@@ -396,25 +673,47 @@ financial_model = {
 }
 ```
 
-*NPV computed at 8% nominal WACC; full sensitivity analysis in Appendix A*
+*NPV computed at 8% nominal WACC; full sensitivity analysis in [Appendix A](#appendix-a-financial-sensitivity-analysis)*
 
 ---
 
-## <a id="intellectual-property"></a>**7. INTELLECTUAL PROPERTY**
+## **7. INTELLECTUAL PROPERTY**
 
-### <a id="patent-portfolio"></a>**7.1 Patent Portfolio & Freedom to Operate**
+### **7.1 Patent Portfolio & Freedom to Operate**
 
-| **Technology Area** | **Patents Filed** | **Patents Granted** | **FTO Status** | **Review Date** |
-|:-------------------|:------------------|:--------------------|:---------------|:----------------|
-| <a id="ip-propulsion"></a>**Hybrid Propulsion Architecture** | 12 | 5 | Clear | 2025-03-15 |
-| <a id="ip-quantum"></a>**Quantum Optimization Methods** | 8 | 2 | Clear | 2025-04-20 |
-| <a id="ip-energy"></a>**Energy Management Systems** | 6 | 3 | Review pending | 2025-09-01 |
-| <a id="ip-thermal"></a>**Thermal Management** | 4 | 1 | Clear | 2025-02-10 |
-| <a id="ip-control"></a>**Control Algorithms** | 7 | 2 | Clear | 2025-05-15 |
+#### **IP-PROPULSION** - Hybrid Propulsion Architecture
+- **Patents Filed:** 12
+- **Patents Granted:** 5
+- **FTO Status:** Clear
+- **Review Date:** 2025-03-15
+
+#### **IP-QUANTUM** - Quantum Optimization Methods
+- **Patents Filed:** 8
+- **Patents Granted:** 2
+- **FTO Status:** Clear
+- **Review Date:** 2025-04-20
+
+#### **IP-ENERGY** - Energy Management Systems
+- **Patents Filed:** 6
+- **Patents Granted:** 3
+- **FTO Status:** Review pending
+- **Review Date:** 2025-09-01
+
+#### **IP-THERMAL** - Thermal Management
+- **Patents Filed:** 4
+- **Patents Granted:** 1
+- **FTO Status:** Clear
+- **Review Date:** 2025-02-10
+
+#### **IP-CONTROL** - Control Algorithms
+- **Patents Filed:** 7
+- **Patents Granted:** 2
+- **FTO Status:** Clear
+- **Review Date:** 2025-05-15
 
 *Freedom-to-Operate analysis completed by [External IP Counsel] on 2025-06-01. Full report available under NDA.*
 
-### <a id="ip-strategy"></a>**7.2 IP Protection Strategy**
+### **7.2 IP Protection Strategy**
 
 ```yaml
 IP_Management:
@@ -445,20 +744,65 @@ IP_Management:
 
 ---
 
-## <a id="risk-management"></a>**8. RISK MANAGEMENT**
+## **8. RISK MANAGEMENT**
 
-### <a id="risk-register"></a>**8.1 Comprehensive Risk Register**
+### **8.1 Comprehensive Risk Register**
 
-| **Risk ID** | **Category** | **Description** | **Probability** | **Impact** | **Score** | **Mitigation** | **Owner** |
-|:------------|:-------------|:----------------|:----------------|:-----------|:----------|:---------------|:----------|
-| <a id="risk-001"></a>**R-001** | Technical | Battery doesn't achieve energy density | 0.3 | 5 | 15 | Multiple suppliers, conservative spec | CTO |
-| <a id="risk-002"></a>**R-002** | Technical | Quantum system certification challenge | 0.4 | 4 | 16 | Advisory mode initially, classical backup | Cert Lead |
-| <a id="risk-003"></a>**R-003** | Schedule | First flight delay | 0.35 | 4 | 14 | 6-month buffer, parallel work streams | PMO |
-| <a id="risk-004"></a>**R-004** | Financial | Funding shortfall | 0.25 | 5 | 12.5 | Staged gates, government grants | CFO |
-| <a id="risk-005"></a>**R-005** | Market | No OEM partnership | 0.2 | 5 | 10 | Multiple partners engaged early | BD |
-| <a id="risk-006"></a>**R-006** | Regulatory | Special Condition not accepted | 0.3 | 5 | 15 | Early EASA engagement, precedent building | Cert Lead |
+#### **RISK-001** - Battery Energy Density
+- **Category:** Technical
+- **Description:** Battery doesn't achieve energy density
+- **Probability:** 0.3
+- **Impact:** 5
+- **Score:** 15
+- **Mitigation:** Multiple suppliers, conservative spec
+- **Owner:** CTO
 
-### <a id="risk-response"></a>**8.2 Risk Response Planning**
+#### **RISK-002** - Quantum System Certification
+- **Category:** Technical
+- **Description:** Quantum system certification challenge
+- **Probability:** 0.4
+- **Impact:** 4
+- **Score:** 16
+- **Mitigation:** Advisory mode initially, classical backup
+- **Owner:** Cert Lead
+
+#### **RISK-003** - First Flight Delay
+- **Category:** Schedule
+- **Description:** First flight delay
+- **Probability:** 0.35
+- **Impact:** 4
+- **Score:** 14
+- **Mitigation:** 6-month buffer, parallel work streams
+- **Owner:** PMO
+
+#### **RISK-004** - Funding Shortfall
+- **Category:** Financial
+- **Description:** Funding shortfall
+- **Probability:** 0.25
+- **Impact:** 5
+- **Score:** 12.5
+- **Mitigation:** Staged gates, government grants
+- **Owner:** CFO
+
+#### **RISK-005** - No OEM Partnership
+- **Category:** Market
+- **Description:** No OEM partnership
+- **Probability:** 0.2
+- **Impact:** 5
+- **Score:** 10
+- **Mitigation:** Multiple partners engaged early
+- **Owner:** BD
+
+#### **RISK-006** - Special Condition Rejection
+- **Category:** Regulatory
+- **Description:** Special Condition not accepted
+- **Probability:** 0.3
+- **Impact:** 5
+- **Score:** 15
+- **Mitigation:** Early EASA engagement, precedent building
+- **Owner:** Cert Lead
+
+### **8.2 Risk Response Planning**
 
 ```mermaid
 graph TD
@@ -484,19 +828,36 @@ graph TD
 
 ---
 
-## <a id="next-steps"></a>**9. NEXT STEPS & DOCUMENT GENERATION**
+## **9. NEXT STEPS & DOCUMENT GENERATION**
 
-### <a id="immediate-actions"></a>**9.1 Immediate Actions (Q4 2025)**
+### **9.1 Immediate Actions (Q4 2025)**
 
-| **Action Item** | **Owner** | **Due Date** | **Dependencies** |
-|:----------------|:----------|:-------------|:-----------------|
-| <a id="action-syrs"></a>Generate System Requirements Specification (SyRS) | Systems Eng | 2025-09-30 | PRD approval |
-| <a id="action-cert-plan"></a>Draft Certification Plan (PSAC) | Cert Lead | 2025-10-31 | Regulatory engagement |
-| <a id="action-wbs"></a>Create Work Breakdown Structure | PMO | 2025-09-15 | Resource planning |
-| <a id="action-pha"></a>Initiate Preliminary Hazard Analysis | Safety | 2025-10-15 | System architecture |
-| <a id="action-fto"></a>Complete Freedom-to-Operate update | Legal | 2025-11-30 | Patent filings |
+#### **ACTION-SYRS** - Generate System Requirements Specification
+- **Owner:** Systems Eng
+- **Due Date:** 2025-09-30
+- **Dependencies:** PRD approval
 
-### <a id="document-queue"></a>**9.2 Document Templates Required**
+#### **ACTION-CERT-PLAN** - Draft Certification Plan
+- **Owner:** Cert Lead
+- **Due Date:** 2025-10-31
+- **Dependencies:** Regulatory engagement
+
+#### **ACTION-WBS** - Create Work Breakdown Structure
+- **Owner:** PMO
+- **Due Date:** 2025-09-15
+- **Dependencies:** Resource planning
+
+#### **ACTION-PHA** - Initiate Preliminary Hazard Analysis
+- **Owner:** Safety
+- **Due Date:** 2025-10-15
+- **Dependencies:** System architecture
+
+#### **ACTION-FTO** - Complete Freedom-to-Operate Update
+- **Owner:** Legal
+- **Due Date:** 2025-11-30
+- **Dependencies:** Patent filings
+
+### **9.2 Document Templates Required**
 
 ```yaml
 Document_Generation_Queue:
@@ -528,7 +889,7 @@ Document_Generation_Queue:
 
 ---
 
-## <a id="conclusion"></a>**10. CONCLUSION**
+## **10. CONCLUSION**
 
 This PRD v6.0 addresses identified gaps through:
 1. **Clear product objectives** with MoSCoW prioritization
@@ -548,39 +909,6 @@ The document now provides the necessary foundation for:
 
 ---
 
-## <a id="document-control"></a>**DOCUMENT CONTROL**
-
-### <a id="approval-signatures"></a>**Approval Signatures**
-
-| **Name** | **Title** | **Organization** | **Signature** | **Date** |
-|:---------|:---------|:-----------------|:--------------|:---------|
-| Amedeo Pelliccia | Chief Technology Officer | AQUA V. | _______________ | 2025-08-06 |
-| [Name] | Chief Engineer | AQUA V. | _______________ | 2025-08-06 |
-| [Name] | Program Manager | AQUA V. | _______________ | 2025-08-06 |
-| [Name] | CFO | AQUA V. | _______________ | 2025-08-06 |
-
-### <a id="distribution"></a>**Distribution List**
-
-| **Organization** | **Recipient** | **Format** | **Access Level** |
-|:-----------------|:--------------|:-----------|:-----------------|
-| Executive Team | All Members | Electronic | Full |
-| Engineering | Department Heads | Electronic | Full |
-| Certification | Team Lead | Electronic | Full |
-| Partners | Per NDA | Electronic | Restricted |
-| Investors | Board Members | Electronic | Summary Only |
-
----
-
-## <a id="appendices"></a>**APPENDICES**
-
-### <a id="appendix-a"></a>**Appendix A:** [Financial Sensitivity Analysis](./AMPEL360-HE-PRD-v6.0-Appendix-A.md)
-### <a id="appendix-b"></a>**Appendix B:** [Detailed Risk Register](./AMPEL360-HE-PRD-v6.0-Appendix-B.md)
-### <a id="appendix-c"></a>**Appendix C:** [Stakeholder Communication Plan](./AMPEL360-HE-PRD-v6.0-Appendix-C.md)
-### <a id="appendix-d"></a>**Appendix D:** [Technology Readiness Assessment](./AMPEL360-HE-PRD-v6.0-Appendix-D.md)
-### <a id="appendix-e"></a>**Appendix E:** [Certification Basis Justification](./AMPEL360-HE-PRD-v6.0-Appendix-E.md)
-
----
-
 # **APPENDICES - Product Requirements Document**
 ## **AMPEL360 - Hybrid Electric Aircraft**
 ### **AQUA V. Aerospace Platform**
@@ -595,9 +923,44 @@ The document now provides the necessary foundation for:
 
 ---
 
-## <a id="appendix-a"></a>**APPENDIX A: FINANCIAL SENSITIVITY ANALYSIS**
+## **TABLE OF CONTENTS - APPENDICES**
 
-### <a id="a1-base-case"></a>**A.1 Base Case Assumptions**
+- [Appendix A: Financial Sensitivity Analysis](#appendix-a-financial-sensitivity-analysis)
+  - [A.1 Base Case Assumptions](#a1-base-case-assumptions)
+  - [A.2 Scenario Analysis](#a2-scenario-analysis)
+  - [A.3 Sensitivity Tornado Diagram](#a3-sensitivity-tornado-diagram)
+  - [A.4 Monte Carlo Simulation Results](#a4-monte-carlo-simulation-results)
+  - [A.5 Break-Even Analysis](#a5-break-even-analysis)
+- [Appendix B: Detailed Risk Register](#appendix-b-detailed-risk-register)
+  - [B.1 Risk Assessment Methodology](#b1-risk-assessment-methodology)
+  - [B.2 Comprehensive Risk Register](#b2-comprehensive-risk-register)
+  - [B.3 Risk Response Strategies](#b3-risk-response-strategies)
+  - [B.4 Risk Monitoring Dashboard](#b4-risk-monitoring-dashboard-metrics)
+- [Appendix C: Stakeholder Communication Plan](#appendix-c-stakeholder-communication-plan)
+  - [C.1 Stakeholder Communication Matrix](#c1-stakeholder-communication-matrix)
+  - [C.2 Communication Protocols](#c2-communication-protocols)
+  - [C.3 Stakeholder Engagement Timeline](#c3-stakeholder-engagement-timeline)
+  - [C.4 Crisis Communication Plan](#c4-crisis-communication-plan)
+- [Appendix D: Technology Readiness Assessment](#appendix-d-technology-readiness-assessment)
+  - [D.1 TRL Definitions](#d1-trl-definitions-nasaesa-standard)
+  - [D.2 Current Technology Readiness Levels](#d2-current-technology-readiness-levels)
+  - [D.3 Technology Risk Matrix](#d3-technology-risk-matrix)
+  - [D.4 Technology Maturation Investment](#d4-technology-maturation-investment)
+  - [D.5 Technology Validation Gates](#d5-technology-validation-gates)
+- [Appendix E: Certification Basis Justification](#appendix-e-certification-basis-justification)
+  - [E.1 Applicable Regulations Matrix](#e1-applicable-regulations-matrix)
+  - [E.2 Special Conditions Development](#e2-special-conditions-development)
+  - [E.3 Certification Schedule & Milestones](#e3-certification-schedule--milestones)
+  - [E.4 Compliance Checklist Summary](#e4-compliance-checklist-summary)
+  - [E.5 Certification Risk Management](#e5-certification-risk-management)
+
+[← Return to Main PRD](./AMPEL360-HE-PRD-v6.0.md)
+
+---
+
+## **APPENDIX A: FINANCIAL SENSITIVITY ANALYSIS**
+
+### **A.1 Base Case Assumptions**
 
 ```python
 base_case = {
@@ -627,17 +990,25 @@ base_case = {
 }
 ```
 
-### <a id="a2-scenario-analysis"></a>**A.2 Scenario Analysis**
+**Links to PRD:** [Investment Requirements](./AMPEL360-HE-PRD-v6.0.md#61-investment-requirements) | [Financial Model](./AMPEL360-HE-PRD-v6.0.md#6-financial-model)
 
-| **Scenario** | **Variable Changes** | **NPV (€M)** | **IRR** | **Payback (Years)** | **Probability** |
-|:-------------|:--------------------|:-------------|:--------|:--------------------|:---------------|
-| <a id="scen-pessimistic"></a>**Pessimistic** | • -30% revenues<br>• +20% costs<br>• 1 OEM partner | -200 | 5% | >15 | 15% |
-| <a id="scen-conservative"></a>**Conservative** | • -20% revenues<br>• +10% costs<br>• 2 OEM partners | 500 | 12% | 12 | 25% |
-| <a id="scen-base"></a>**Base Case** | • As planned<br>• 2-3 OEM partners | 1,200 | 18% | 9.5 | 40% |
-| <a id="scen-optimistic"></a>**Optimistic** | • +20% revenues<br>• -10% costs<br>• 3-4 OEM partners | 2,000 | 24% | 7 | 15% |
-| <a id="scen-best"></a>**Best Case** | • +40% revenues<br>• -20% costs<br>• 5+ OEM partners | 3,500 | 32% | 5 | 5% |
+[↑ Back to Top](#table-of-contents---appendices)
 
-### <a id="a3-sensitivity-tornado"></a>**A.3 Sensitivity Tornado Diagram**
+### **A.2 Scenario Analysis**
+
+| **Scenario ID** | **Scenario** | **Variable Changes** | **NPV (€M)** | **IRR** | **Payback** | **Probability** |
+|:---------------|:-------------|:--------------------|:-------------|:--------|:------------|:----------------|
+| **SCEN-PESS** | Pessimistic | -30% rev, +20% cost, 1 OEM | -200 | 5% | >15 years | 15% |
+| **SCEN-CONS** | Conservative | -20% rev, +10% cost, 2 OEM | 500 | 12% | 12 years | 25% |
+| **SCEN-BASE** | Base Case | As planned, 2-3 OEM | 1,200 | 18% | 9.5 years | 40% |
+| **SCEN-OPT** | Optimistic | +20% rev, -10% cost, 3-4 OEM | 2,000 | 24% | 7 years | 15% |
+| **SCEN-BEST** | Best Case | +40% rev, -20% cost, 5+ OEM | 3,500 | 32% | 5 years | 5% |
+
+**Links:** [Risk Analysis](#appendix-b-detailed-risk-register) | [OEM Partnership Risk](#r-005-no-oem-partnership)
+
+[↑ Back to Top](#table-of-contents---appendices)
+
+### **A.3 Sensitivity Tornado Diagram**
 
 ```yaml
 Sensitivity_Drivers:
@@ -645,50 +1016,50 @@ Sensitivity_Drivers:
     Number_of_OEM_Partners:
       Range: [1, 5]
       NPV_Impact: [-€800M, +€2,300M]
+      Link_to_Risk: "#r-005-no-oem-partnership"
       
     Aircraft_Production_Rate:
       Range: [5/year, 50/year]
       NPV_Impact: [-€600M, +€1,800M]
+      Link_to_Stakeholder: "./AMPEL360-HE-PRD-v6.0.md#sh-oem"
       
     Royalty_Rate:
       Range: [2%, 5%]
       NPV_Impact: [-€400M, +€800M]
+      Link_to_IP: "./AMPEL360-HE-PRD-v6.0.md#72-ip-protection-strategy"
       
   Medium_Impact:
     Development_Cost_Overrun:
       Range: [-20%, +50%]
       NPV_Impact: [+€240M, -€600M]
+      Link_to_Risk: "#r-004-funding-shortfall"
       
     Time_to_Market:
       Range: [-1 year, +2 years]
       NPV_Impact: [+€300M, -€500M]
-      
-  Low_Impact:
-    Support_Service_Revenue:
-      Range: [€5M, €20M]
-      NPV_Impact: [-€100M, +€200M]
-      
-    Operating_Costs:
-      Range: [-20%, +20%]
-      NPV_Impact: [+€150M, -€150M]
+      Link_to_Risk: "#r-003-first-flight-delay"
 ```
 
-### <a id="a4-monte-carlo"></a>**A.4 Monte Carlo Simulation Results**
+[↑ Back to Top](#table-of-contents---appendices)
 
-| **Metric** | **P10** | **P25** | **P50** | **P75** | **P90** |
-|:-----------|:--------|:--------|:--------|:--------|:--------|
-| <a id="mc-npv"></a>**NPV (€M)** | 250 | 600 | 1,200 | 1,800 | 2,500 |
-| <a id="mc-irr"></a>**IRR (%)** | 9% | 14% | 18% | 22% | 27% |
-| <a id="mc-payback"></a>**Payback (Years)** | 13 | 11 | 9.5 | 8 | 6.5 |
+### **A.4 Monte Carlo Simulation Results**
 
-### <a id="a5-breakeven"></a>**A.5 Break-Even Analysis**
+| **Metric** | **P10** | **P25** | **P50** | **P75** | **P90** | **Links** |
+|:-----------|:--------|:--------|:--------|:--------|:--------|:----------|
+| **NPV (€M)** | 250 | 600 | 1,200 | 1,800 | 2,500 | [Scenarios](#a2-scenario-analysis) |
+| **IRR (%)** | 9% | 14% | 18% | 22% | 27% | [Base Case](#a1-base-case-assumptions) |
+| **Payback (Years)** | 13 | 11 | 9.5 | 8 | 6.5 | [Break-Even](#a5-break-even-analysis) |
+
+[↑ Back to Top](#table-of-contents---appendices)
+
+### **A.5 Break-Even Analysis**
 
 ```python
 breakeven_analysis = {
     'minimum_requirements': {
-        'oem_partners': 2,
+        'oem_partners': 2,  # Links to SCEN-CONS
         'aircraft_per_year': 12,
-        'years_to_breakeven': 9.5
+        'years_to_breakeven': 9.5  # Links to SCEN-BASE
     },
     
     'cumulative_cashflow_breakeven': {
@@ -696,53 +1067,167 @@ breakeven_analysis = {
         2034: -1_400_000_000,
         2035: -800_000_000,
         2036: -200_000_000,
-        2037: 200_000_000,  # Breakeven
+        2037: 200_000_000,  # Breakeven - Links to INV-OPERATIONS
         2038: 800_000_000,
-        2040: 2_000_000_000
+        2040: 2_000_000_000  # Links to SCEN-OPT NPV
     }
 }
 ```
 
+**Cross-References:**
+- [Investment Timeline](./AMPEL360-HE-PRD-v6.0.md#61-investment-requirements)
+- [Funding Risk](#r-004-funding-shortfall)
+- [OEM Communication Plan](#comm-oem-partners)
+
+[↑ Back to Top](#table-of-contents---appendices)
+
 ---
 
-## <a id="appendix-b"></a>**APPENDIX B: DETAILED RISK REGISTER**
+## **APPENDIX B: DETAILED RISK REGISTER**
 
-### <a id="b1-methodology"></a>**B.1 Risk Assessment Methodology**
+### **B.1 Risk Assessment Methodology**
 
-| **Probability** | **Score** | **Definition** | **Likelihood** |
-|:----------------|:----------|:---------------|:---------------|
-| <a id="prob-vlow"></a>Very Low | 0.1 | Rare occurrence | <10% |
-| <a id="prob-low"></a>Low | 0.2 | Unlikely | 10-25% |
-| <a id="prob-med"></a>Medium | 0.3-0.4 | Possible | 25-50% |
-| <a id="prob-high"></a>High | 0.5-0.6 | Likely | 50-75% |
-| <a id="prob-vhigh"></a>Very High | 0.7+ | Almost certain | >75% |
+#### **Probability Scoring**
 
-| **Impact** | **Score** | **Schedule** | **Cost** | **Technical** |
-|:-----------|:----------|:-------------|:---------|:--------------|
-| <a id="imp-neg"></a>Negligible | 1 | <1 month | <€1M | Minor issue |
-| <a id="imp-min"></a>Minor | 2 | 1-3 months | €1-5M | Workaround available |
-| <a id="imp-mod"></a>Moderate | 3 | 3-6 months | €5-20M | Design change |
-| <a id="imp-maj"></a>Major | 4 | 6-12 months | €20-100M | Major redesign |
-| <a id="imp-crit"></a>Critical | 5 | >12 months | >€100M | Program failure |
+| **Level** | **Score** | **Definition** | **Likelihood** | **Example Risks** |
+|:----------|:----------|:---------------|:---------------|:------------------|
+| **Very Low** | 0.1 | Rare occurrence | <10% | - |
+| **Low** | 0.2 | Unlikely | 10-25% | [R-005](#r-005-no-oem-partnership), [R-012](#r-012-propulsion-efficiency-shortfall) |
+| **Medium** | 0.3-0.4 | Possible | 25-50% | [R-001](#r-001-battery-energy-density), [R-002](#r-002-quantum-system-certification) |
+| **High** | 0.5-0.6 | Likely | 50-75% | - |
+| **Very High** | 0.7+ | Almost certain | >75% | - |
 
-### <a id="b2-risk-register"></a>**B.2 Comprehensive Risk Register**
+#### **Impact Scoring**
 
-| **Risk ID** | **Category** | **Risk Description** | **Probability** | **Impact** | **Score** | **Mitigation Strategy** | **Contingency Plan** | **Owner** | **Review Date** |
-|:------------|:-------------|:--------------------|:----------------|:-----------|:----------|:------------------------|:--------------------|:----------|:----------------|
-| <a id="r-001"></a>**R-001** | Technical | Battery energy density not achieved | 0.3 | 5 | 15 | • 3 parallel suppliers<br>• Incremental improvements<br>• Conservative initial spec | Reduced electric range | CTO | Monthly |
-| <a id="r-002"></a>**R-002** | Technical | Quantum system certification | 0.4 | 4 | 16 | • Advisory mode (DAL D)<br>• Classical algorithms<br>• Phased integration | Conventional optimization only | Cert Lead | Quarterly |
-| <a id="r-003"></a>**R-003** | Schedule | First flight delay | 0.35 | 4 | 14 | • 6-month buffer<br>• Parallel work streams<br>• Critical path management | Extend test program | PMO | Bi-weekly |
-| <a id="r-004"></a>**R-004** | Financial | Funding shortfall | 0.25 | 5 | 12.5 | • Staged investment<br>• Multiple sources<br>• Government grants | Reduce scope | CFO | Monthly |
-| <a id="r-005"></a>**R-005** | Market | No OEM partnership | 0.2 | 5 | 10 | • Early engagement<br>• Multiple partners<br>• Flexible terms | Direct manufacture | BD | Quarterly |
-| <a id="r-006"></a>**R-006** | Regulatory | Special Condition rejection | 0.3 | 5 | 15 | • Early EASA engagement<br>• Precedent building<br>• Industry alignment | Modified certification basis | Cert Lead | Monthly |
-| <a id="r-007"></a>**R-007** | Technical | Thermal management inadequate | 0.35 | 3 | 10.5 | • Advanced cooling design<br>• Extensive CFD<br>• Ground testing | Power derating | Eng | Monthly |
-| <a id="r-008"></a>**R-008** | Supply Chain | Critical component shortage | 0.3 | 3 | 9 | • Multiple suppliers<br>• Buffer stock<br>• Long-term agreements | Alternative components | Supply | Monthly |
-| <a id="r-009"></a>**R-009** | Technical | System integration complexity | 0.4 | 3 | 12 | • Iron bird early<br>• Digital twin<br>• Incremental integration | Extended integration phase | Systems | Bi-weekly |
-| <a id="r-010"></a>**R-010** | Market | Competing technology | 0.3 | 4 | 12 | • IP protection<br>• Speed to market<br>• Unique features | Differentiation strategy | Strategy | Quarterly |
-| <a id="r-011"></a>**R-011** | Operational | Key personnel loss | 0.25 | 3 | 7.5 | • Retention programs<br>• Knowledge management<br>• Succession planning | Contractor support | HR | Quarterly |
-| <a id="r-012"></a>**R-012** | Technical | Propulsion efficiency shortfall | 0.2 | 4 | 8 | • Conservative targets<br>• Optimization cycles<br>• Advanced materials | Revised performance specs | Propulsion | Monthly |
+| **Level** | **Score** | **Schedule** | **Cost** | **Technical** | **Example Risks** |
+|:----------|:----------|:-------------|:---------|:--------------|:------------------|
+| **Negligible** | 1 | <1 month | <€1M | Minor issue | - |
+| **Minor** | 2 | 1-3 months | €1-5M | Workaround available | - |
+| **Moderate** | 3 | 3-6 months | €5-20M | Design change | [R-007](#r-007-thermal-management), [R-008](#r-008-critical-component-shortage) |
+| **Major** | 4 | 6-12 months | €20-100M | Major redesign | [R-002](#r-002-quantum-system-certification), [R-003](#r-003-first-flight-delay) |
+| **Critical** | 5 | >12 months | >€100M | Program failure | [R-001](#r-001-battery-energy-density), [R-004](#r-004-funding-shortfall) |
 
-### <a id="b3-response-strategies"></a>**B.3 Risk Response Strategies**
+[↑ Back to Top](#table-of-contents---appendices)
+
+### **B.2 Comprehensive Risk Register**
+
+#### **R-001** Battery Energy Density
+- **Category:** Technical
+- **Probability:** 0.3 ([Medium](#probability-scoring))
+- **Impact:** 5 ([Critical](#impact-scoring))
+- **Score:** 15
+- **Mitigation:** [Multiple suppliers](./AMPEL360-HE-PRD-v6.0.md#sh-oem), Conservative spec
+- **Contingency:** Reduced [PO-002](./AMPEL360-HE-PRD-v6.0.md#po-002) range capability
+- **Owner:** CTO
+- **Links:** [TRL-Battery](#trl-battery) | [Investment](#inv-tech-batt)
+
+#### **R-002** Quantum System Certification
+- **Category:** Technical
+- **Probability:** 0.4 ([Medium](#probability-scoring))
+- **Impact:** 4 ([Major](#impact-scoring))
+- **Score:** 16
+- **Mitigation:** [DAL D Advisory](./AMPEL360-HE-PRD-v6.0.md#dal-quantum-opt)
+- **Contingency:** Classical optimization only
+- **Owner:** Cert Lead
+- **Links:** [TRL-Quantum](#trl-quantum) | [SC-Quantum](#e2-special-conditions-development)
+
+#### **R-003** First Flight Delay
+- **Category:** Schedule
+- **Probability:** 0.35 ([Medium](#probability-scoring))
+- **Impact:** 4 ([Major](#impact-scoring))
+- **Score:** 14
+- **Mitigation:** 6-month buffer, [Test Timeline](./AMPEL360-HE-PRD-v6.0.md#52-test-campaign-phases)
+- **Contingency:** Extend [FTA-1](./AMPEL360-HE-PRD-v6.0.md#proto-fta1) program
+- **Owner:** PMO
+- **Links:** [Cert Schedule](#cert-first-flight) | [Stakeholder Impact](#comm-investors)
+
+#### **R-004** Funding Shortfall
+- **Category:** Financial
+- **Probability:** 0.25 ([Low](#probability-scoring))
+- **Impact:** 5 ([Critical](#impact-scoring))
+- **Score:** 12.5
+- **Mitigation:** [Staged investment](#a1-base-case-assumptions), Government grants
+- **Contingency:** Reduce scope
+- **Owner:** CFO
+- **Links:** [Investment Requirements](./AMPEL360-HE-PRD-v6.0.md#61-investment-requirements) | [Break-Even](#a5-break-even-analysis)
+
+#### **R-005** No OEM Partnership
+- **Category:** Market
+- **Probability:** 0.2 ([Low](#probability-scoring))
+- **Impact:** 5 ([Critical](#impact-scoring))
+- **Score:** 10
+- **Mitigation:** [Early engagement](#comm-oem-partners), Multiple partners
+- **Contingency:** Direct manufacture
+- **Owner:** BD
+- **Links:** [Sensitivity Analysis](#a3-sensitivity-tornado-diagram) | [Stakeholder Matrix](./AMPEL360-HE-PRD-v6.0.md#sh-oem)
+
+#### **R-006** Special Condition Rejection
+- **Category:** Regulatory
+- **Probability:** 0.3 ([Medium](#probability-scoring))
+- **Impact:** 5 ([Critical](#impact-scoring))
+- **Score:** 15
+- **Mitigation:** [Early EASA engagement](#comm-easa-faa)
+- **Contingency:** Modified [certification basis](#e2-special-conditions-development)
+- **Owner:** Cert Lead
+- **Links:** [Cert Timeline](#e3-certification-schedule--milestones) | [Regulatory Requirements](./AMPEL360-HE-PRD-v6.0.md#sh-easa)
+
+#### **R-007** Thermal Management
+- **Category:** Technical
+- **Probability:** 0.35 ([Medium](#probability-scoring))
+- **Impact:** 3 ([Moderate](#impact-scoring))
+- **Score:** 10.5
+- **Mitigation:** Advanced cooling, [LRU-Cooling](./AMPEL360-HE-PRD-v6.0.md#lru-specifications-table)
+- **Owner:** Eng
+- **Links:** [Battery System](#trl-battery) | [Test Program](./AMPEL360-HE-PRD-v6.0.md#proto-td1)
+
+#### **R-008** Critical Component Shortage
+- **Category:** Supply Chain
+- **Probability:** 0.3 ([Medium](#probability-scoring))
+- **Impact:** 3 ([Moderate](#impact-scoring))
+- **Score:** 9
+- **Mitigation:** Multiple suppliers, Buffer stock
+- **Owner:** Supply
+- **Links:** [LRU Specifications](./AMPEL360-HE-PRD-v6.0.md#32-lru-specifications-table)
+
+#### **R-009** System Integration Complexity
+- **Category:** Technical
+- **Probability:** 0.4 ([Medium](#probability-scoring))
+- **Impact:** 3 ([Moderate](#impact-scoring))
+- **Score:** 12
+- **Mitigation:** [Iron bird](#proto-td2), [Digital twin](#trl-digital-twin)
+- **Owner:** Systems
+- **Links:** [System Architecture](./AMPEL360-HE-PRD-v6.0.md#31-system-decomposition--lrus)
+
+#### **R-010** Competing Technology
+- **Category:** Market
+- **Probability:** 0.3 ([Medium](#probability-scoring))
+- **Impact:** 4 ([Major](#impact-scoring))
+- **Score:** 12
+- **Mitigation:** [IP protection](./AMPEL360-HE-PRD-v6.0.md#7-intellectual-property)
+- **Owner:** Strategy
+- **Links:** [Patent Portfolio](./AMPEL360-HE-PRD-v6.0.md#71-patent-portfolio--freedom-to-operate)
+
+#### **R-011** Key Personnel Loss
+- **Category:** Operational
+- **Probability:** 0.25 ([Low](#probability-scoring))
+- **Impact:** 3 ([Moderate](#impact-scoring))
+- **Score:** 7.5
+- **Mitigation:** Retention programs
+- **Owner:** HR
+- **Links:** [Employee Communication](#comm-employees)
+
+#### **R-012** Propulsion Efficiency Shortfall
+- **Category:** Technical
+- **Probability:** 0.2 ([Low](#probability-scoring))
+- **Impact:** 4 ([Major](#impact-scoring))
+- **Score:** 8
+- **Mitigation:** Conservative [PO-001](./AMPEL360-HE-PRD-v6.0.md#po-001) targets
+- **Owner:** Propulsion
+- **Links:** [TRL-Turbofan](#trl-turbofan) | [Test Campaign](./AMPEL360-HE-PRD-v6.0.md#52-test-campaign-phases)
+
+[↑ Back to Top](#table-of-contents---appendices)
+
+### **B.3 Risk Response Strategies**
 
 ```mermaid
 graph TD
@@ -767,70 +1252,119 @@ graph TD
     style LOW fill:#00ff00
 ```
 
-### <a id="b4-monitoring-dashboard"></a>**B.4 Risk Monitoring Dashboard Metrics**
+**Risk Categories:**
+- **Extreme (>15):** [R-001](#r-001-battery-energy-density), [R-002](#r-002-quantum-system-certification), [R-006](#r-006-special-condition-rejection)
+- **High (10-15):** [R-003](#r-003-first-flight-delay), [R-004](#r-004-funding-shortfall), [R-005](#r-005-no-oem-partnership), [R-007](#r-007-thermal-management), [R-009](#r-009-system-integration-complexity), [R-010](#r-010-competing-technology)
+- **Medium (5-10):** [R-008](#r-008-critical-component-shortage), [R-011](#r-011-key-personnel-loss), [R-012](#r-012-propulsion-efficiency-shortfall)
 
-| **Metric** | **Target** | **Current** | **Trend** | **Status** |
-|:-----------|:-----------|:------------|:----------|:-----------|
-| <a id="metric-extreme"></a>**Extreme Risks (>15)** | 0 | 3 | ↓ | 🟡 Action Required |
-| <a id="metric-high"></a>**High Risks (10-15)** | <5 | 6 | → | 🟡 Monitor Closely |
-| <a id="metric-actions"></a>**Open Mitigation Actions** | <20 | 18 | ↓ | 🟢 On Track |
-| <a id="metric-overdue"></a>**Overdue Risk Reviews** | 0 | 2 | ↑ | 🔴 Immediate Action |
-| <a id="metric-reserve"></a>**Risk Reserve Utilization** | <50% | 35% | → | 🟢 Adequate |
+[↑ Back to Top](#table-of-contents---appendices)
+
+### **B.4 Risk Monitoring Dashboard Metrics**
+
+| **Metric ID** | **Metric** | **Target** | **Current** | **Trend** | **Status** | **Actions** |
+|:--------------|:-----------|:-----------|:------------|:----------|:-----------|:------------|
+| **KPI-EXTREME** | Extreme Risks (>15) | 0 | 3 | ↓ | 🟡 Action Required | [See Extreme Risks](#b3-risk-response-strategies) |
+| **KPI-HIGH** | High Risks (10-15) | <5 | 6 | → | 🟡 Monitor Closely | [Review Mitigation](#b2-comprehensive-risk-register) |
+| **KPI-ACTIONS** | Open Mitigation Actions | <20 | 18 | ↓ | 🟢 On Track | [Track Progress](#b2-comprehensive-risk-register) |
+| **KPI-OVERDUE** | Overdue Risk Reviews | 0 | 2 | ↑ | 🔴 Immediate Action | [R-003](#r-003-first-flight-delay), [R-007](#r-007-thermal-management) |
+| **KPI-RESERVE** | Risk Reserve Utilization | <50% | 35% | → | 🟢 Adequate | [Financial Model](#a1-base-case-assumptions) |
+
+[↑ Back to Top](#table-of-contents---appendices)
 
 ---
 
-## <a id="appendix-c"></a>**APPENDIX C: STAKEHOLDER COMMUNICATION PLAN**
+## **APPENDIX C: STAKEHOLDER COMMUNICATION PLAN**
 
-### <a id="c1-comm-matrix"></a>**C.1 Stakeholder Communication Matrix**
+### **C.1 Stakeholder Communication Matrix**
 
-| **Stakeholder Group** | **Communication Objectives** | **Channels** | **Frequency** | **Responsible** | **Key Messages** |
-|:----------------------|:----------------------------|:-------------|:--------------|:----------------|:-----------------|
-| <a id="comm-easa"></a>**EASA/FAA** | • Certification progress<br>• Technical compliance<br>• Safety assurance | • Formal submissions<br>• Technical meetings<br>• Working groups | • Monthly meetings<br>• Quarterly reviews<br>• Milestone gates | Certification Manager | • Safety first<br>• Compliance commitment<br>• Transparent progress |
-| <a id="comm-oem"></a>**OEM Partners** | • Technology readiness<br>• IP arrangements<br>• Integration planning | • Technical reviews<br>• Executive briefings<br>• Joint workshops | • Bi-weekly technical<br>• Monthly executive<br>• Quarterly strategic | Business Development | • Technology maturity<br>• Partnership value<br>• Mutual success |
-| <a id="comm-investors"></a>**Investors** | • Financial performance<br>• Risk management<br>• Milestone achievement | • Board meetings<br>• Investor updates<br>• Financial reports | • Quarterly reports<br>• Annual meeting<br>• Milestone updates | CFO | • Value creation<br>• Risk mitigation<br>• ROI trajectory |
-| <a id="comm-airlines"></a>**Launch Airlines** | • Product capabilities<br>• Operational benefits<br>• Delivery timeline | • Executive briefings<br>• Technical workshops<br>• Site visits | • Quarterly updates<br>• Major milestones<br>• Annual conference | Commercial Director | • Operational efficiency<br>• Cost savings<br>• Competitive advantage |
-| <a id="comm-employees"></a>**Employees** | • Program progress<br>• Company vision<br>• Team achievements | • All-hands meetings<br>• Internal newsletter<br>• Team briefings | • Monthly all-hands<br>• Weekly newsletter<br>• Daily standups | CEO/HR | • Mission importance<br>• Team contribution<br>• Success sharing |
-| <a id="comm-media"></a>**Media/Public** | • Technology innovation<br>• Sustainability impact<br>• Industry leadership | • Press releases<br>• Trade shows<br>• Social media | • Major milestones<br>• Quarterly updates<br>• Event-driven | PR/Marketing | • Innovation leadership<br>• Environmental benefit<br>• Future of aviation |
+#### **COMM-EASA-FAA** EASA/FAA Communication
+- **Objectives:** Certification progress, Technical compliance, Safety assurance
+- **Channels:** Formal submissions, Technical meetings, Working groups
+- **Frequency:** Monthly meetings, Quarterly reviews, Milestone gates
+- **Responsible:** Certification Manager
+- **Key Messages:** Safety first, Compliance commitment, Transparent progress
+- **Links:** [Certification Schedule](#e3-certification-schedule--milestones) | [Stakeholder Needs](./AMPEL360-HE-PRD-v6.0.md#sh-easa)
 
-### <a id="c2-protocols"></a>**C.2 Communication Protocols**
+#### **COMM-OEM-PARTNERS** OEM Partners Communication
+- **Objectives:** Technology readiness, IP arrangements, Integration planning
+- **Channels:** Technical reviews, Executive briefings, Joint workshops
+- **Frequency:** Bi-weekly technical, Monthly executive, Quarterly strategic
+- **Responsible:** Business Development
+- **Key Messages:** Technology maturity, Partnership value, Mutual success
+- **Links:** [TRL Assessment](#d2-current-technology-readiness-levels) | [IP Strategy](./AMPEL360-HE-PRD-v6.0.md#72-ip-protection-strategy)
+
+#### **COMM-INVESTORS** Investors Communication
+- **Objectives:** Financial performance, Risk management, Milestone achievement
+- **Channels:** Board meetings, Investor updates, Financial reports
+- **Frequency:** Quarterly reports, Annual meeting, Milestone updates
+- **Responsible:** CFO
+- **Key Messages:** Value creation, Risk mitigation, ROI trajectory
+- **Links:** [Financial Model](#a2-scenario-analysis) | [Risk Dashboard](#b4-risk-monitoring-dashboard-metrics)
+
+#### **COMM-AIRLINES** Launch Airlines Communication
+- **Objectives:** Product capabilities, Operational benefits, Delivery timeline
+- **Channels:** Executive briefings, Technical workshops, Site visits
+- **Frequency:** Quarterly updates, Major milestones, Annual conference
+- **Responsible:** Commercial Director
+- **Key Messages:** Operational efficiency, Cost savings, Competitive advantage
+- **Links:** [Product Objectives](./AMPEL360-HE-PRD-v6.0.md#14-product-objectives) | [Test Program](./AMPEL360-HE-PRD-v6.0.md#52-test-campaign-phases)
+
+#### **COMM-EMPLOYEES** Employees Communication
+- **Objectives:** Program progress, Company vision, Team achievements
+- **Channels:** All-hands meetings, Internal newsletter, Team briefings
+- **Frequency:** Monthly all-hands, Weekly newsletter, Daily standups
+- **Responsible:** CEO/HR
+- **Key Messages:** Mission importance, Team contribution, Success sharing
+- **Links:** [Development Timeline](./AMPEL360-HE-PRD-v6.0.md#12-development-model) | [Milestones](#e3-certification-schedule--milestones)
+
+#### **COMM-MEDIA** Media/Public Communication
+- **Objectives:** Technology innovation, Sustainability impact, Industry leadership
+- **Channels:** Press releases, Trade shows, Social media
+- **Frequency:** Major milestones, Quarterly updates, Event-driven
+- **Responsible:** PR/Marketing
+- **Key Messages:** Innovation leadership, Environmental benefit, Future of aviation
+- **Links:** [PO-003 Emissions](./AMPEL360-HE-PRD-v6.0.md#po-003) | [PO-004 Noise](./AMPEL360-HE-PRD-v6.0.md#po-004)
+
+[↑ Back to Top](#table-of-contents---appendices)
+
+### **C.2 Communication Protocols**
 
 ```yaml
 Communication_Protocols:
   
   Internal_Communications:
     Escalation_Path:
-      Level_1: Team Lead (Daily)
-      Level_2: Department Head (Weekly)
-      Level_3: Executive Team (Bi-weekly)
-      Level_4: Board (Monthly)
+      Level_1: 
+        Authority: Team Lead (Daily)
+        Links_to: "#comm-employees"
+      Level_2: 
+        Authority: Department Head (Weekly)
+        Links_to: "#b2-comprehensive-risk-register"
+      Level_3: 
+        Authority: Executive Team (Bi-weekly)
+        Links_to: "#comm-investors"
+      Level_4: 
+        Authority: Board (Monthly)
+        Links_to: "#a2-scenario-analysis"
       
     Documentation:
-      Meeting_Minutes: Within 24 hours
-      Decision_Log: Real-time update
-      Action_Items: Weekly tracking
-      Risk_Updates: Bi-weekly report
-      
-  External_Communications:
-    Regulatory:
-      Format: Formal documentation
-      Approval: Legal + Technical review
-      Submission: Via designated portal
-      Response_Time: Per regulatory timeline
-      
-    Commercial:
-      NDA_Required: All technical discussions
-      Approval_Level: Director or above
-      Documentation: CRM system
-      Follow_up: Within 48 hours
-      
-    Public:
-      Approval: CEO/CMO required
-      Channels: Approved only
-      Timing: Coordinated globally
-      Message: Consistent with strategy
+      Meeting_Minutes: 
+        Timeline: Within 24 hours
+        Repository: "./AMPEL360-HE-PRD-v6.0.md#document-control"
+      Decision_Log: 
+        Update: Real-time
+        Links_to: "#b2-comprehensive-risk-register"
+      Action_Items: 
+        Tracking: Weekly
+        Dashboard: "#b4-risk-monitoring-dashboard-metrics"
+      Risk_Updates: 
+        Report: Bi-weekly
+        Distribution: "#c1-stakeholder-communication-matrix"
 ```
 
-### <a id="c3-engagement-timeline"></a>**C.3 Stakeholder Engagement Timeline**
+[↑ Back to Top](#table-of-contents---appendices)
+
+### **C.3 Stakeholder Engagement Timeline**
 
 ```mermaid
 gantt
@@ -862,46 +1396,106 @@ gantt
     Firm Orders              :2029-01, 12M
 ```
 
-### <a id="c4-crisis-comm"></a>**C.4 Crisis Communication Plan**
+**Timeline Links:**
+- Regulatory: [Certification Schedule](#e3-certification-schedule--milestones)
+- OEM Partners: [Risk R-005](#r-005-no-oem-partnership)
+- Investors: [Financial Model](#a1-base-case-assumptions)
+- Launch Customers: [Stakeholder Matrix](./AMPEL360-HE-PRD-v6.0.md#sh-airlines)
 
-| **Crisis Type** | **Response Team** | **Response Time** | **Communication Strategy** | **Key Messages** |
-|:----------------|:------------------|:------------------|:--------------------------|:-----------------|
-| <a id="crisis-technical"></a>**Technical Failure** | CTO, PR, Legal | <2 hours | • Internal brief first<br>• Controlled disclosure<br>• Technical explanation | • Safety priority<br>• Investigation underway<br>• Corrective action |
-| <a id="crisis-safety"></a>**Safety Incident** | CEO, Safety, Legal | <1 hour | • Immediate notification<br>• Full transparency<br>• Regular updates | • Safety first<br>• Full cooperation<br>• Preventive measures |
-| <a id="crisis-financial"></a>**Financial Crisis** | CFO, CEO, Investor Relations | <4 hours | • Board notification<br>• Investor communication<br>• Recovery plan | • Financial stability<br>• Action plan<br>• Continued operations |
-| <a id="crisis-partnership"></a>**Partnership Issues** | BD, Legal, CEO | <24 hours | • Direct engagement<br>• Mediation if needed<br>• Alternative options | • Resolution focus<br>• Program continuity<br>• Multiple options |
+[↑ Back to Top](#table-of-contents---appendices)
+
+### **C.4 Crisis Communication Plan**
+
+| **Crisis Type** | **Response Team** | **Response Time** | **Strategy** | **Key Messages** | **Links** |
+|:----------------|:------------------|:------------------|:-------------|:-----------------|:----------|
+| **Technical Failure** | CTO, PR, Legal | <2 hours | Internal brief first | Safety priority | [R-001](#r-001-battery-energy-density), [R-007](#r-007-thermal-management) |
+| **Safety Incident** | CEO, Safety, Legal | <1 hour | Full transparency | Safety first | [Safety Requirements](./AMPEL360-HE-PRD-v6.0.md#43-software-development-assurance-level-dal-assignment) |
+| **Financial Crisis** | CFO, CEO, IR | <4 hours | Board notification | Financial stability | [R-004](#r-004-funding-shortfall) |
+| **Partnership Issues** | BD, Legal, CEO | <24 hours | Direct engagement | Resolution focus | [R-005](#r-005-no-oem-partnership) |
+
+[↑ Back to Top](#table-of-contents---appendices)
 
 ---
 
-## <a id="appendix-d"></a>**APPENDIX D: TECHNOLOGY READINESS ASSESSMENT**
+## **APPENDIX D: TECHNOLOGY READINESS ASSESSMENT**
 
-### <a id="d1-trl-definitions"></a>**D.1 TRL Definitions (NASA/ESA Standard)**
+### **D.1 TRL Definitions (NASA/ESA Standard)**
 
-| **TRL** | **Definition** | **Description** | **Evidence Required** |
-|:--------|:---------------|:----------------|:----------------------|
-| <a id="trl-1"></a>**TRL 1** | Basic principles | Scientific research begins | Peer-reviewed publications |
-| <a id="trl-2"></a>**TRL 2** | Technology concept | Application formulated | Analytical studies |
-| <a id="trl-3"></a>**TRL 3** | Proof of concept | Analytical & experimental | Laboratory tests |
-| <a id="trl-4"></a>**TRL 4** | Component validation | Component/breadboard validation | Laboratory environment |
-| <a id="trl-5"></a>**TRL 5** | Component verification | Component verification | Relevant environment |
-| <a id="trl-6"></a>**TRL 6** | System demonstration | System/subsystem demo | Relevant environment |
-| <a id="trl-7"></a>**TRL 7** | System prototype | System prototype demo | Operational environment |
-| <a id="trl-8"></a>**TRL 8** | System qualified | System completed and qualified | Test and demonstration |
-| <a id="trl-9"></a>**TRL 9** | System proven | System proven through operations | Successful operations |
+| **TRL Level** | **Definition** | **Description** | **Evidence Required** | **Current Technologies** |
+|:--------------|:---------------|:----------------|:----------------------|:------------------------|
+| **TRL 1** | Basic principles | Scientific research begins | Peer-reviewed publications | - |
+| **TRL 2** | Technology concept | Application formulated | Analytical studies | - |
+| **TRL 3** | Proof of concept | Analytical & experimental | Laboratory tests | [Battery](#trl-battery), [Quantum](#trl-quantum) |
+| **TRL 4** | Component validation | Laboratory validation | Lab environment | [Turbofan](#trl-turbofan), [Control](#trl-hybrid-ctrl) |
+| **TRL 5** | Component verification | Relevant environment | Relevant tests | [Motor](#trl-motor), [Digital Twin](#trl-digital-twin) |
+| **TRL 6** | System demonstration | Subsystem demo | Relevant environment | [FODS](#trl-fods) |
+| **TRL 7** | System prototype | Operational demo | Operational environment | - |
+| **TRL 8** | System qualified | Qualified system | Test and demonstration | - |
+| **TRL 9** | System proven | Operational | Successful operations | - |
 
-### <a id="d2-current-trl"></a>**D.2 Current Technology Readiness Levels**
+[↑ Back to Top](#table-of-contents---appendices)
 
-| **Technology** | **Current TRL** | **Target TRL (2030)** | **Target TRL (2033)** | **Gap Closure Plan** | **Critical Milestones** |
-|:---------------|:---------------|:----------------------|:----------------------|:---------------------|:------------------------|
-| <a id="trl-turbofan"></a>**Hybrid Turbofan Core** | TRL 4 | TRL 7 | TRL 9 | • Component testing (2026)<br>• System integration (2028)<br>• Flight testing (2030) | • First run Q1 2027<br>• 1000hr test Q3 2029 |
-| <a id="trl-motor"></a>**10MW Electric Motor** | TRL 5 | TRL 8 | TRL 9 | • Full-scale prototype (2026)<br>• Environmental testing (2027)<br>• Flight qualification (2030) | • Bench test Q2 2026<br>• Flight test Q1 2030 |
-| <a id="trl-battery"></a>**Battery System (Aviation)** | TRL 3 | TRL 6 | TRL 8 | • Cell qualification (2026)<br>• Pack development (2027)<br>• System validation (2029) | • 400Wh/kg demo Q4 2026<br>• Cert testing Q2 2029 |
-| <a id="trl-quantum"></a>**Quantum Optimization** | TRL 3 | TRL 6 | TRL 7 | • Algorithm validation (2026)<br>• Hardware integration (2028)<br>• Operational testing (2030) | • Simulation Q3 2026<br>• Hardware Q1 2029 |
-| <a id="trl-hybrid-ctrl"></a>**Hybrid Control System** | TRL 4 | TRL 7 | TRL 9 | • Software development (2026)<br>• HIL testing (2027)<br>• Iron bird validation (2028) | • HIL complete Q4 2027<br>• Flight ready Q1 2030 |
-| <a id="trl-fods"></a>**FODS Integration** | TRL 6 | TRL 8 | TRL 9 | • System design (2026)<br>• Installation development (2027)<br>• Flight validation (2030) | • Design freeze Q2 2026<br>• Flight data Q3 2030 |
-| <a id="trl-digital-twin"></a>**Digital Twin Platform** | TRL 5 | TRL 8 | TRL 9 | • Model development (2025)<br>• Validation (2027)<br>• Operational deployment (2029) | • L1 operational Q1 2027<br>• L3 complete Q4 2029 |
+### **D.2 Current Technology Readiness Levels**
 
-### <a id="d3-tech-risk-matrix"></a>**D.3 Technology Risk Matrix**
+#### **TRL-TURBOFAN** Hybrid Turbofan Core
+- **Current TRL:** 4
+- **Target 2030:** 7
+- **Target 2033:** 9
+- **Gap Closure:** Component testing (2026), System integration (2028), Flight testing (2030)
+- **Milestones:** First run Q1 2027, 1000hr test Q3 2029
+- **Links:** [Proto-TD1](./AMPEL360-HE-PRD-v6.0.md#proto-td1) | [Investment](#inv-tech-prop) | [Risk R-012](#r-012-propulsion-efficiency-shortfall)
+
+#### **TRL-MOTOR** 10MW Electric Motor
+- **Current TRL:** 5
+- **Target 2030:** 8
+- **Target 2033:** 9
+- **Gap Closure:** Full-scale prototype (2026), Environmental testing (2027), Flight qualification (2030)
+- **Milestones:** Bench test Q2 2026, Flight test Q1 2030
+- **Links:** [LRU-EM10](./AMPEL360-HE-PRD-v6.0.md#lru-em10) | [Investment](#inv-tech-elec)
+
+#### **TRL-BATTERY** Battery System (Aviation)
+- **Current TRL:** 3
+- **Target 2030:** 6
+- **Target 2033:** 8
+- **Gap Closure:** Cell qualification (2026), Pack development (2027), System validation (2029)
+- **Milestones:** 400Wh/kg demo Q4 2026, Cert testing Q2 2029
+- **Links:** [Risk R-001](#r-001-battery-energy-density) | [LRU-BATT](./AMPEL360-HE-PRD-v6.0.md#lru-batt) | [Investment](#inv-tech-batt)
+
+#### **TRL-QUANTUM** Quantum Optimization
+- **Current TRL:** 3
+- **Target 2030:** 6
+- **Target 2033:** 7
+- **Gap Closure:** Algorithm validation (2026), Hardware integration (2028), Operational testing (2030)
+- **Milestones:** Simulation Q3 2026, Hardware Q1 2029
+- **Links:** [Risk R-002](#r-002-quantum-system-certification) | [DAL-D](./AMPEL360-HE-PRD-v6.0.md#dal-quantum-opt) | [Investment](#inv-tech-quantum)
+
+#### **TRL-HYBRID-CTRL** Hybrid Control System
+- **Current TRL:** 4
+- **Target 2030:** 7
+- **Target 2033:** 9
+- **Gap Closure:** Software development (2026), HIL testing (2027), Iron bird validation (2028)
+- **Milestones:** HIL complete Q4 2027, Flight ready Q1 2030
+- **Links:** [Proto-TD2](./AMPEL360-HE-PRD-v6.0.md#proto-td2) | [Investment](#inv-tech-control)
+
+#### **TRL-FODS** FODS Integration
+- **Current TRL:** 6
+- **Target 2030:** 8
+- **Target 2033:** 9
+- **Gap Closure:** System design (2026), Installation development (2027), Flight validation (2030)
+- **Milestones:** Design freeze Q2 2026, Flight data Q3 2030
+- **Links:** [PO-008](./AMPEL360-HE-PRD-v6.0.md#po-008) | [UC-004](./AMPEL360-HE-PRD-v6.0.md#uc-004)
+
+#### **TRL-DIGITAL-TWIN** Digital Twin Platform
+- **Current TRL:** 5
+- **Target 2030:** 8
+- **Target 2033:** 9
+- **Gap Closure:** Model development (2025), Validation (2027), Operational deployment (2029)
+- **Milestones:** L1 operational Q1 2027, L3 complete Q4 2029
+- **Links:** [Risk R-009](#r-009-system-integration-complexity) | [Investment](#inv-tech-digital)
+
+[↑ Back to Top](#table-of-contents---appendices)
+
+### **D.3 Technology Risk Matrix**
 
 ```python
 technology_risks = {
@@ -912,7 +1506,12 @@ technology_risks = {
             'Conservative initial specs',
             'Modular architecture'
         ],
-        'fallback': 'Reduced electric capability'
+        'fallback': 'Reduced electric capability',
+        'links': {
+            'risk': '#r-001-battery-energy-density',
+            'trl': '#trl-battery',
+            'objective': './AMPEL360-HE-PRD-v6.0.md#po-002'
+        }
     },
     
     'quantum_computing': {
@@ -922,7 +1521,12 @@ technology_risks = {
             'Classical algorithms parallel',
             'Incremental integration'
         ],
-        'fallback': 'Classical optimization only'
+        'fallback': 'Classical optimization only',
+        'links': {
+            'risk': '#r-002-quantum-system-certification',
+            'trl': '#trl-quantum',
+            'dal': './AMPEL360-HE-PRD-v6.0.md#dal-quantum-opt'
+        }
     },
     
     'hybrid_propulsion': {
@@ -932,23 +1536,35 @@ technology_risks = {
             'Proven components where possible',
             'Conservative design margins'
         ],
-        'fallback': 'Reduced performance targets'
+        'fallback': 'Reduced performance targets',
+        'links': {
+            'risk': '#r-012-propulsion-efficiency-shortfall',
+            'trl': '#trl-turbofan',
+            'objective': './AMPEL360-HE-PRD-v6.0.md#po-001'
+        }
     }
 }
 ```
 
-### <a id="d4-maturation-investment"></a>**D.4 Technology Maturation Investment**
+[↑ Back to Top](#table-of-contents---appendices)
 
-| **Technology Area** | **2025-2027** | **2028-2030** | **2031-2033** | **Total** | **ROI Factor** |
-|:--------------------|:--------------|:--------------|:--------------|:----------|:---------------|
-| <a id="inv-tech-prop"></a>**Propulsion Systems** | €150M | €200M | €50M | €400M | 5.2x |
-| <a id="inv-tech-elec"></a>**Electric Systems** | €100M | €150M | €50M | €300M | 4.8x |
-| <a id="inv-tech-batt"></a>**Battery Technology** | €80M | €100M | €20M | €200M | 3.5x |
-| <a id="inv-tech-quantum"></a>**Quantum Computing** | €60M | €80M | €40M | €180M | 8.5x |
-| <a id="inv-tech-control"></a>**Control Systems** | €70M | €90M | €40M | €200M | 4.2x |
-| <a id="inv-tech-digital"></a>**Digital Systems** | €40M | €60M | €20M | €120M | 6.3x |
+### **D.4 Technology Maturation Investment**
 
-### <a id="d5-validation-gates"></a>**D.5 Technology Validation Gates**
+| **Tech ID** | **Technology Area** | **2025-2027** | **2028-2030** | **2031-2033** | **Total** | **ROI Factor** | **Links** |
+|:------------|:--------------------|:--------------|:--------------|:--------------|:----------|:---------------|:----------|
+| **INV-TECH-PROP** | Propulsion Systems | €150M | €200M | €50M | €400M | 5.2x | [TRL-Turbofan](#trl-turbofan), [TRL-Motor](#trl-motor) |
+| **INV-TECH-ELEC** | Electric Systems | €100M | €150M | €50M | €300M | 4.8x | [LRU-EM10](./AMPEL360-HE-PRD-v6.0.md#lru-em10) |
+| **INV-TECH-BATT** | Battery Technology | €80M | €100M | €20M | €200M | 3.5x | [TRL-Battery](#trl-battery), [R-001](#r-001-battery-energy-density) |
+| **INV-TECH-QUANTUM** | Quantum Computing | €60M | €80M | €40M | €180M | 8.5x | [TRL-Quantum](#trl-quantum), [R-002](#r-002-quantum-system-certification) |
+| **INV-TECH-CONTROL** | Control Systems | €70M | €90M | €40M | €200M | 4.2x | [TRL-Hybrid-Ctrl](#trl-hybrid-ctrl) |
+| **INV-TECH-DIGITAL** | Digital Systems | €40M | €60M | €20M | €120M | 6.3x | [TRL-Digital-Twin](#trl-digital-twin) |
+
+**Total Technology Investment:** €1,400M  
+**Links:** [Total Program Investment](./AMPEL360-HE-PRD-v6.0.md#61-investment-requirements) | [NPV Analysis](#a1-base-case-assumptions)
+
+[↑ Back to Top](#table-of-contents---appendices)
+
+### **D.5 Technology Validation Gates**
 
 ```mermaid
 graph LR
@@ -969,23 +1585,34 @@ graph LR
     style G5 fill:#ccccff
 ```
 
+**Gate Links:**
+- **G1:** [Battery](#trl-battery), [Quantum](#trl-quantum) → TRL 4
+- **G2:** [Turbofan](#trl-turbofan), [Control](#trl-hybrid-ctrl) → TRL 6
+- **G3:** [Motor](#trl-motor), [FODS](#trl-fods) → TRL 7
+- **G4:** [All Systems](#d2-current-technology-readiness-levels) → TRL 8
+- **G5:** [Certification](#cert-tc) → TRL 9
+
+[↑ Back to Top](#table-of-contents---appendices)
+
 ---
 
-## <a id="appendix-e"></a>**APPENDIX E: CERTIFICATION BASIS JUSTIFICATION**
+## **APPENDIX E: CERTIFICATION BASIS JUSTIFICATION**
 
-### <a id="e1-regulations-matrix"></a>**E.1 Applicable Regulations Matrix**
+### **E.1 Applicable Regulations Matrix**
 
-| **System/Component** | **Primary Regulation** | **Amendment Level** | **Special Conditions** | **Exemptions** | **Justification** |
-|:---------------------|:----------------------|:--------------------|:----------------------|:---------------|:------------------|
-| <a id="reg-aircraft"></a>**Aircraft Type** | CS-25 / Part 25 | Amd 27 / Amd 146 | Hybrid propulsion | None | Large transport category |
-| <a id="reg-propulsion"></a>**Propulsion** | CS-E / Part 33 | Amd 6 / Amd 35 | Electric propulsion | None | Novel powerplant |
-| <a id="reg-batteries"></a>**Batteries** | EASA SC-EBAT.100 | Initial | Large battery | None | >20kWh installation |
-| <a id="reg-software"></a>**Software** | DO-178C | Current | Model-based supplement | None | Safety-critical software |
-| <a id="reg-hardware"></a>**Hardware** | DO-254 | Current | None | None | Complex hardware |
-| <a id="reg-systems"></a>**Systems** | ARP4754A | Rev A | None | None | Integrated systems |
-| <a id="reg-emc"></a>**EMC/HIRF** | DO-160G | Current | None | None | Environmental conditions |
+| **Reg ID** | **System/Component** | **Primary Regulation** | **Amendment** | **Special Conditions** | **Links** |
+|:-----------|:---------------------|:----------------------|:--------------|:----------------------|:----------|
+| **REG-AIRCRAFT** | Aircraft Type | CS-25 / Part 25 | Amd 27 / 146 | Hybrid propulsion | [SH-EASA](./AMPEL360-HE-PRD-v6.0.md#sh-easa) |
+| **REG-PROPULSION** | Propulsion | CS-E / Part 33 | Amd 6 / 35 | Electric propulsion | [STD-Propulsion](./AMPEL360-HE-PRD-v6.0.md#std-propulsion) |
+| **REG-BATTERIES** | Batteries | EASA SC-EBAT.100 | Initial | Large battery | [STD-Battery](./AMPEL360-HE-PRD-v6.0.md#std-battery) |
+| **REG-SOFTWARE** | Software | DO-178C | Current | Model-based | [DAL Assignment](./AMPEL360-HE-PRD-v6.0.md#43-software-development-assurance-level-dal-assignment) |
+| **REG-HARDWARE** | Hardware | DO-254 | Current | None | [STD-FADEC](./AMPEL360-HE-PRD-v6.0.md#std-fadec-hw) |
+| **REG-SYSTEMS** | Systems | ARP4754A | Rev A | None | [STD-Safety](./AMPEL360-HE-PRD-v6.0.md#std-safety) |
+| **REG-EMC** | EMC/HIRF | DO-160G | Current | None | [STD-Motor](./AMPEL360-HE-PRD-v6.0.md#std-motor) |
 
-### <a id="e2-special-conditions"></a>**E.2 Special Conditions Development**
+[↑ Back to Top](#table-of-contents---appendices)
+
+### **E.2 Special Conditions Development**
 
 ```yaml
 Special_Conditions_Justification:
@@ -999,6 +1626,10 @@ Special_Conditions_Justification:
       - Failure modes unique to hybrid
       - Crew alerting for hybrid modes
       - Minimum energy reserves
+    Links:
+      Risk: "#r-006-special-condition-rejection"
+      Stakeholder: "./AMPEL360-HE-PRD-v6.0.md#sh-easa"
+      Prototype: "./AMPEL360-HE-PRD-v6.0.md#proto-td1"
       
     Precedents:
       - Pipistrel Velis (EASA TCDS)
@@ -1013,6 +1644,10 @@ Special_Conditions_Justification:
       - Verification methodology
       - Classical fallback requirements
       - Fault containment
+    Links:
+      Risk: "#r-002-quantum-system-certification"
+      TRL: "#trl-quantum"
+      DAL: "./AMPEL360-HE-PRD-v6.0.md#dal-quantum-opt"
       
     Initial_Classification: DAL D (advisory only)
     Evolution_Path: DAL D → C → B over program
@@ -1026,23 +1661,31 @@ Special_Conditions_Justification:
       - Fire suppression effectiveness
       - Maintenance safety procedures
       - Environmental controls
+    Links:
+      Risk: "#r-001-battery-energy-density"
+      TRL: "#trl-battery"
+      LRU: "./AMPEL360-HE-PRD-v6.0.md#lru-batt"
 ```
 
-### <a id="e3-cert-schedule"></a>**E.3 Certification Schedule & Milestones**
+[↑ Back to Top](#table-of-contents---appendices)
 
-| **Milestone** | **Date** | **Deliverable** | **Authority** | **Prerequisites** |
-|:--------------|:---------|:----------------|:--------------|:------------------|
-| <a id="cert-fam"></a>**Familiarization Meeting** | 2025 Q3 | Program overview | EASA/FAA | Preliminary design |
-| <a id="cert-g1"></a>**G-1 Establishment** | 2025 Q4 | Certification basis | EASA | Conceptual design review |
-| <a id="cert-g2"></a>**G-2 Agreement** | 2026 Q2 | Means of compliance | EASA | PDR complete |
-| <a id="cert-type-board"></a>**Type Board Meeting** | 2027 Q1 | Program review | EASA/FAA | CDR complete |
-| <a id="cert-first-flight"></a>**First Flight Permit** | 2029 Q4 | Permit to fly | EASA | Ground tests complete |
-| <a id="cert-tia"></a>**TIA Submission** | 2030 Q2 | Type inspection authorization | EASA | 100 flight hours |
-| <a id="cert-final-board"></a>**Final Type Board** | 2032 Q1 | Compliance finding | EASA/FAA | All testing complete |
-| <a id="cert-tc"></a>**Type Certificate** | 2032 Q4 | TC issuance | EASA | All findings closed |
-| <a id="cert-validation"></a>**Validation** | 2033 Q1 | FAA validation | FAA | EASA TC + bilateral |
+### **E.3 Certification Schedule & Milestones**
 
-### <a id="e4-compliance-checklist"></a>**E.4 Compliance Checklist Summary**
+| **Milestone ID** | **Milestone** | **Date** | **Deliverable** | **Authority** | **Prerequisites** | **Links** |
+|:-----------------|:--------------|:---------|:----------------|:--------------|:------------------|:----------|
+| **CERT-FAM** | Familiarization Meeting | 2025 Q3 | Program overview | EASA/FAA | Preliminary design | [COMM-EASA](#comm-easa-faa) |
+| **CERT-G1** | G-1 Establishment | 2025 Q4 | Certification basis | EASA | Conceptual design | [Special Conditions](#e2-special-conditions-development) |
+| **CERT-G2** | G-2 Agreement | 2026 Q2 | Means of compliance | EASA | PDR complete | [MoC](./AMPEL360-HE-PRD-v6.0.md#42-means-of-compliance-moc) |
+| **CERT-TYPE-BOARD** | Type Board Meeting | 2027 Q1 | Program review | EASA/FAA | CDR complete | [Risk R-006](#r-006-special-condition-rejection) |
+| **CERT-FIRST-FLIGHT** | First Flight Permit | 2029 Q4 | Permit to fly | EASA | Ground tests | [Proto-FTA1](./AMPEL360-HE-PRD-v6.0.md#proto-fta1) |
+| **CERT-TIA** | TIA Submission | 2030 Q2 | Type inspection auth | EASA | 100 flight hours | [Test Campaign](./AMPEL360-HE-PRD-v6.0.md#52-test-campaign-phases) |
+| **CERT-FINAL-BOARD** | Final Type Board | 2032 Q1 | Compliance finding | EASA/FAA | All testing complete | [Proto-PP2](./AMPEL360-HE-PRD-v6.0.md#proto-pp2) |
+| **CERT-TC** | Type Certificate | 2032 Q4 | TC issuance | EASA | All findings closed | [Gate 5](#d5-technology-validation-gates) |
+| **CERT-VALIDATION** | Validation | 2033 Q1 | FAA validation | FAA | EASA TC + bilateral | [SH-FAA](./AMPEL360-HE-PRD-v6.0.md#sh-faa) |
+
+[↑ Back to Top](#table-of-contents---appendices)
+
+### **E.4 Compliance Checklist Summary**
 
 ```python
 compliance_tracking = {
@@ -1055,38 +1698,85 @@ compliance_tracking = {
     },
     
     'by_category': {
-        'structural': {'total': 487, 'method': 'Test + Analysis'},
-        'powerplant': {'total': 623, 'method': 'Test + Special Condition'},
-        'systems': {'total': 892, 'method': 'Analysis + Test'},
-        'avionics': {'total': 445, 'method': 'Test + Simulation'},
-        'operations': {'total': 356, 'method': 'Demonstration'},
-        'maintenance': {'total': 298, 'method': 'Analysis'},
-        'software': {'total': 746, 'method': 'Reviews + Test'}
+        'structural': {
+            'total': 487, 
+            'method': 'Test + Analysis',
+            'link': './AMPEL360-HE-PRD-v6.0.md#std-structure'
+        },
+        'powerplant': {
+            'total': 623, 
+            'method': 'Test + Special Condition',
+            'link': '#e2-special-conditions-development'
+        },
+        'systems': {
+            'total': 892, 
+            'method': 'Analysis + Test',
+            'link': './AMPEL360-HE-PRD-v6.0.md#std-safety'
+        },
+        'avionics': {
+            'total': 445, 
+            'method': 'Test + Simulation',
+            'link': './AMPEL360-HE-PRD-v6.0.md#31-system-decomposition--lrus'
+        },
+        'operations': {
+            'total': 356, 
+            'method': 'Demonstration',
+            'link': './AMPEL360-HE-PRD-v6.0.md#23-use-case-analysis'
+        },
+        'maintenance': {
+            'total': 298, 
+            'method': 'Analysis',
+            'link': './AMPEL360-HE-PRD-v6.0.md#sh-mro'
+        },
+        'software': {
+            'total': 746, 
+            'method': 'Reviews + Test',
+            'link': './AMPEL360-HE-PRD-v6.0.md#43-software-development-assurance-level-dal-assignment'
+        }
     },
     
     'critical_items': [
-        'Thermal runaway containment',
-        'Hybrid transition logic',
-        'Emergency power availability',
-        'Quantum system verification',
-        'Crew training requirements'
+        {
+            'item': 'Thermal runaway containment',
+            'link': '#r-001-battery-energy-density'
+        },
+        {
+            'item': 'Hybrid transition logic',
+            'link': './AMPEL360-HE-PRD-v6.0.md#uc-002'
+        },
+        {
+            'item': 'Emergency power availability',
+            'link': './AMPEL360-HE-PRD-v6.0.md#uc-005'
+        },
+        {
+            'item': 'Quantum system verification',
+            'link': '#r-002-quantum-system-certification'
+        },
+        {
+            'item': 'Crew training requirements',
+            'link': './AMPEL360-HE-PRD-v6.0.md#sh-airlines'
+        }
     ]
 }
 ```
 
-### <a id="e5-cert-risk-mgmt"></a>**E.5 Certification Risk Management**
+[↑ Back to Top](#table-of-contents---appendices)
 
-| **Risk Area** | **Impact** | **Mitigation Strategy** | **Contingency** |
-|:--------------|:-----------|:------------------------|:----------------|
-| <a id="cert-risk-novel"></a>**Novel Technology Acceptance** | Schedule delay | Early engagement, precedent documentation | Phased certification |
-| <a id="cert-risk-sc"></a>**Special Conditions Development** | Uncertainty in requirements | Industry working groups, harmonization | Conservative approach |
-| <a id="cert-risk-test"></a>**Test Requirements Definition** | Cost/schedule impact | Early test planning, rig development | Extended test program |
-| <a id="cert-risk-sw-hw"></a>**Software/Hardware Qualification** | Complexity in verification | Tool qualification, automation | Additional resources |
-| <a id="cert-risk-intl"></a>**International Validation** | Market access delay | Parallel engagement, bilateral agreements | Regional focus initially |
+### **E.5 Certification Risk Management**
+
+| **Risk ID** | **Risk Area** | **Impact** | **Mitigation Strategy** | **Contingency** | **Links** |
+|:------------|:--------------|:-----------|:------------------------|:----------------|:----------|
+| **CERT-RISK-NOVEL** | Novel Technology Acceptance | Schedule delay | Early engagement, precedent documentation | Phased certification | [R-006](#r-006-special-condition-rejection), [SC Development](#e2-special-conditions-development) |
+| **CERT-RISK-SC** | Special Conditions Development | Uncertainty in requirements | Industry working groups, harmonization | Conservative approach | [COMM-EASA](#comm-easa-faa), [CERT-G1](#cert-g1) |
+| **CERT-RISK-TEST** | Test Requirements Definition | Cost/schedule impact | Early test planning, rig development | Extended test program | [Proto Development](./AMPEL360-HE-PRD-v6.0.md#51-prototype-development-with-acceptance-criteria) |
+| **CERT-RISK-SW-HW** | Software/Hardware Qualification | Complexity in verification | Tool qualification, automation | Additional resources | [DAL Assignment](./AMPEL360-HE-PRD-v6.0.md#43-software-development-assurance-level-dal-assignment) |
+| **CERT-RISK-INTL** | International Validation | Market access delay | Parallel engagement, bilateral agreements | Regional focus initially | [CERT-VALIDATION](#cert-validation), [SH-FAA](./AMPEL360-HE-PRD-v6.0.md#sh-faa) |
+
+[↑ Back to Top](#table-of-contents---appendices)
 
 ---
 
-## <a id="document-control-appendices"></a>**DOCUMENT CONTROL**
+## **DOCUMENT CONTROL**
 
 **Status:** FINAL  
 **Distribution:** AQUA V. Executive Team, Program Management, Certification Team  
@@ -1105,7 +1795,7 @@ August 6, 2025
 **Classification:** CONFIDENTIAL - PROPRIETARY  
 **© 2025 AQUA V. - All Rights Reserved**
 
-[Return to Main PRD Document](./AMPEL360-HE-PRD-v6.0.md)
+[← Return to Main PRD Document](./AMPEL360-HE-PRD-v6.0.md) | [↑ Back to Top](#appendices---product-requirements-document)
 ---
 
 Here are the answers to common questions based on the provided PRD:
