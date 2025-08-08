@@ -13,7 +13,7 @@
 </p>
 
 ---
-# **AQUA V. & GAIA AIR**
+# **AQUA V.**
 ## **Model Master Document (MMD) - Unified Framework**
 ### **Quantum Aerospace System Architecture**
 
