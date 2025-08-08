@@ -1,4 +1,4 @@
-# AQUA V. – Aerospace & Quantum United Advanced Venture
+# AQUA V. – Aerospace & Quantum United Agency Venture
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2d6ec959-700a-4253-a84d-23e6fb884e47" alt="AQUA V. Logo" width="120"/>
@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <span style="font-size:1.5em;"><strong>AQUA V. – Aerospace & Quantum United Advanced Venture</strong></span><br/>
+  <span style="font-size:1.5em;"><strong>AQUA V. – Aerospace & Quantum United Agency Venture</strong></span><br/>
   <i>Flying Fluidity • Agua que Vuela</i><br/>
   <strong>Transform. Innovate. Transcend.</strong>
 </p>
@@ -29,7 +29,7 @@
 
 ## **EXECUTIVE ABSTRACT**
 
-AQUA V. (Aerospace and Quantum United Aspirational Venture) represents a paradigm shift in aerospace technology through the revolutionary integration of quantum computing, artificial intelligence, and cyber-physical systems. This Model Master Document defines the complete framework for transforming global aerospace through quantum-enhanced capabilities, targeting €144 billion in annual revenue by 2045 and establishing market leadership by 2050.
+AQUA V. (Aerospace and Quantum United Agentic Venture) represents a paradigm shift in aerospace technology through the revolutionary integration of quantum computing, artificial intelligence, and cyber-physical systems. This Model Master Document defines the complete framework for transforming global aerospace through quantum-enhanced capabilities, targeting €144 billion in annual revenue by 2045 and establishing market leadership by 2050.
 
 ---
 
