@@ -59,14 +59,13 @@ jobs:
           # Download S1000D schemas
           wget -q https://s1000d.org/S1000D_5-0/xml_schema_flat.zip
           unzip -q xml_schema_flat.zip -d s1000d_schemas
-      
-      - name: Validate S1000D Compliance
-        run: |
-          python << 'EOF'
-          import os
-          import xmlschema
-          from pathlib import Path
           
+        - name: Validate S1000D Compliance
+          run: |
+          python << 'EOF'
+          n     .   .. # Python validation code
+          EOF
+  
           # Validate all XML documentation against S1000D schema
           schema = xmlschema.XMLSchema('s1000d_schemas/S1000D_5.xsd')
           errors = []
